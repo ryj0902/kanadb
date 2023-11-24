@@ -12,6 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'card/select_card.js' %}"></script>
+    <script src="{% static 'card/html2canvas.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'card/style.css' %}">
     <script>
         $.ajaxSetup({
@@ -59,12 +61,15 @@
         <div class="image-grid-page">
         </div>
     </div>
-    
-    <div class="selected-card">
+
+    <div class="selected-card-top">
+        <button type="button" id="capture-btn" onclick="captureCard()" style="display:none;"> 캡처하기 </button>
+        <div class="selected-card" id="capture-area">
+        </div>
     </div>
+
 </body>
-<script src="{% static 'card/select_card.js' %}"></script>
-<script> 
+<script> <!-- page in selected card -->
     var page = {{ page }}
     var page_total = {{ page_total }}
     $('.image-grid-page').html(
@@ -73,7 +78,7 @@
         '<button id="page-up" onclick="updatePage(1)">&gt;</button>'
     )
 </script>
-<script>
+<script> <!-- tab in selected card -->
     var tab = '{{ tab }}'
     openTab(tab)
     syncSearchText();
