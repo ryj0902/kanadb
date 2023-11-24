@@ -19,6 +19,7 @@ function selectCard(id){
         success: function(data) {
             const card = JSON.parse(data).selected_card;
             // console.log(data);
+            document.getElementById('capture-btn').style.display = 'inline-block';
             $('.selected-card').html(
                 drawCard(card, "selected-card-image") + 
                 '<div class="selected-card-title">' +
@@ -39,6 +40,16 @@ function selectCard(id){
                 '</div>'
             );
         }
+    });
+}
+
+function captureCard() {
+    html2canvas(document.getElementById("capture-area")).then(function(canvas) {
+        var img = canvas.toDataURL("image/png"); // 이미지로 변환
+        var link = document.createElement("a"); // 다운로드 링크 생성
+        link.href = img; // 링크에 이미지 주소 설정
+        link.download = "capture.png"; // 다운로드 파일명 설정
+        link.click(); // 링크 클릭
     });
 }
 

@@ -100,12 +100,20 @@ body {
     margin-right: 10px;
 }
 
-.selected-card {
+.selected-card-top {
     width: 30%;
+    resize: horizontal;
     float: right;
     outline: solid 1px black;
     display: flex;
     flex-direction: column;
+}
+
+#capture-btn {
+    width: 75px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15px;
 }
 
 .selected-card-image {
@@ -146,9 +154,8 @@ body {
 .text-stat {
     font-family: 'skill';
     font-size: 40px;
-    color: black;
-    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-    -webkit-text-stroke: 1px black;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .image-grid .text-stat {
