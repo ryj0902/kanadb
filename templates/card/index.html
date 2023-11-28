@@ -23,49 +23,53 @@
     </script>
 </head>
 <body>
-    <button class="search-btn" id="btn-episode" onclick="openTab('episode')">에피소드</button>
-    <button class="search-btn" id="btn-detail" class="passive" onclick="openTab('detail')">상세</button>
-    <form method='POST' id='search-form'>
-        {% csrf_token %}
-        <div class="search-filter" id="search-filter-detail">
-            <table>
-                <tr><td class="search-filter-title">종류</td><td class="search-filter-contents">{{ form.category }}</td></tr>
-                <tr><td class="search-filter-title">등급</td><td class="search-filter-contents">{{ form.rarity }}</td></tr>
-                <tr><td class="search-filter-title">소속</td><td class="search-filter-contents">{{ form.theme }}</td></tr>
-                <tr><td class="search-filter-title">사이즈</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
-                <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="detail">검색</button></td></tr>
-            </table>
-        </div>
-        <div class="search-filter" id="search-filter-episode">
-            <table>
-                <tr><td class="search-filter-title">시즌 1</td><td class="search-filter-contents">{{ form.episode_season1 }}</td></tr>
-                <tr><td class="search-filter-title">시즌 2</td><td class="search-filter-contents">{{ form.episode_season2 }}</td></tr>
-                <tr><td class="search-filter-title">이벤트</td><td class="search-filter-contents">{{ form.episode_event }}</td></tr>
-                <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="episode">검색</button></td></tr>
-            </table>
-        </div>
-    </form>
+    <div class="left">
+        <button class="search-btn" id="btn-episode" onclick="openTab('episode')">에피소드</button>
+        <button class="search-btn" id="btn-detail" class="passive" onclick="openTab('detail')">상세</button>
+        <form method='POST' id='search-form'>
+            {% csrf_token %}
+            <div class="search-filter" id="search-filter-detail">
+                <table>
+                    <tr><td class="search-filter-title">종류</td><td class="search-filter-contents">{{ form.category }}</td></tr>
+                    <tr><td class="search-filter-title">등급</td><td class="search-filter-contents">{{ form.rarity }}</td></tr>
+                    <tr><td class="search-filter-title">소속</td><td class="search-filter-contents">{{ form.theme }}</td></tr>
+                    <tr><td class="search-filter-title">사이즈</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
+                    <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="detail">검색</button></td></tr>
+                </table>
+            </div>
+            <div class="search-filter" id="search-filter-episode">
+                <table>
+                    <tr><td class="search-filter-title">시즌 1</td><td class="search-filter-contents">{{ form.episode_season1 }}</td></tr>
+                    <tr><td class="search-filter-title">시즌 2</td><td class="search-filter-contents">{{ form.episode_season2 }}</td></tr>
+                    <tr><td class="search-filter-title">이벤트</td><td class="search-filter-contents">{{ form.episode_event }}</td></tr>
+                    <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="episode">검색</button></td></tr>
+                </table>
+            </div>
+        </form>
 
-    <div class="search-result">
-        <div class="image-grid">
-            {% for card in card_list %}
-                <div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }})">
-                    <div class="image-card" style="background-image: url({{ card.url }});"></div>
-                    <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
-                    <div class="text-stat" id="card-size" {% if card.category == '캐릭터' %} style="display:none;" {% endif %}>{{ card.size }}</div>
-                    <div class="text-stat" id="card-atk" {% if card.category != '추종자' %} style="display:none;" {% endif %}>{{ card.atk }}</div>
-                    <div class="text-stat" id="card-def" {% if card.category != '추종자' %} style="display:none;" {% endif %}>{{ card.defs }}</div>
-                    <div class="text-stat" id="card-hp" {% if card.category == '스펠' %} style="display:none;" {% endif %}>{{ card.hp }}</div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="image-grid-page">
+        <div class="search-result">
+            <div class="image-grid">
+                {% for card in card_list %}
+                    <div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }})">
+                        <div class="image-card" style="background-image: url({{ card.url }});"></div>
+                        <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
+                        <div class="text-stat" id="card-size" {% if card.category == '캐릭터' %} style="display:none;" {% endif %}>{{ card.size }}</div>
+                        <div class="text-stat" id="card-atk" {% if card.category != '추종자' %} style="display:none;" {% endif %}>{{ card.atk }}</div>
+                        <div class="text-stat" id="card-def" {% if card.category != '추종자' %} style="display:none;" {% endif %}>{{ card.defs }}</div>
+                        <div class="text-stat" id="card-hp" {% if card.category == '스펠' %} style="display:none;" {% endif %}>{{ card.hp }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="image-grid-page">
+            </div>
         </div>
     </div>
 
-    <div class="selected-card-top">
-        <button type="button" id="capture-btn" onclick="captureCard()" style="display:none;"> 캡처하기 </button>
-        <div class="selected-card" id="capture-area">
+    <div class="right">
+        <div class="selected-card-top">
+            <button type="button" id="capture-btn" onclick="captureCard()" style="display:none;"> 캡처하기 </button>
+            <div class="selected-card" id="capture-area">
+            </div>
         </div>
     </div>
 
