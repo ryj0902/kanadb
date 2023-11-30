@@ -160,5 +160,5 @@ cython_debug/
 #.idea/
 
 data.lnk
-static/card/Texture2D/
+Texture2D/
 secret_key.txt
