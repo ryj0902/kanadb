@@ -19,7 +19,11 @@ function selectCard(id){
         success: function(data) {
             const card = JSON.parse(data).selected_card;
             // console.log(data);
+            if (document.getElementsByClassName('selected-card-skill').length > 0) {
+                swapTextTo('skill');
+            }
             document.getElementById('capture-btn').style.display = 'inline-block';
+            document.getElementById('swap-text-btn').style.display = 'inline-block';
             $('.selected-card').html(
                 drawCard(card, "selected-card-image") + 
                 '<div class="selected-card-title">' +
@@ -38,12 +42,28 @@ function selectCard(id){
                     '<p class="p-skill">' + card.skill_attack + '</p>' +
                     '<p class="p-skill">' + card.skill_defend + '</p>' +
                 '</div>' + 
-                '<div class="selected-card-story">' +
+                '<div class="selected-card-story" style="display:none;">' +
                     '<p class="p-skill">' + card.desc + '</p>' +
                 '</div>'
             );
         }
     });
+}
+
+function swapTextTo(mode) {
+    var img = document.getElementById('swap-text-btn')
+
+    if (mode === 'story') {
+        document.getElementsByClassName('selected-card-skill')[0].style.display = 'none';
+        document.getElementsByClassName('selected-card-story')[0].style.display = 'inline-block';
+        img.src = img.src.replace('story%201', 'cardText');
+        img.onclick = function() { swapTextTo('skill'); };
+    } else {
+        document.getElementsByClassName('selected-card-skill')[0].style.display = 'inline-block';
+        document.getElementsByClassName('selected-card-story')[0].style.display = 'none';
+        img.src = img.src.replace('cardText', 'story%201');
+        img.onclick = function() { swapTextTo('story'); };
+    }
 }
 
 function captureCard() {
