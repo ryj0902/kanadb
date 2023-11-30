@@ -37,6 +37,9 @@ function selectCard(id){
                     '<p class="p-skill">' + card.skill_instance + '</p>' +
                     '<p class="p-skill">' + card.skill_attack + '</p>' +
                     '<p class="p-skill">' + card.skill_defend + '</p>' +
+                '</div>' + 
+                '<div class="selected-card-story">' +
+                    '<p class="p-skill">' + card.desc + '</p>' +
                 '</div>'
             );
         }
