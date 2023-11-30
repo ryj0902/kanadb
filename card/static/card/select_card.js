@@ -51,7 +51,7 @@ function captureCard() {
         var img = canvas.toDataURL("image/png"); // 이미지로 변환
         var link = document.createElement("a"); // 다운로드 링크 생성
         link.href = img; // 링크에 이미지 주소 설정
-        link.download = "capture.png"; // 다운로드 파일명 설정
+        link.download = $('.selected-card-title .p-name').text();
         link.click(); // 링크 클릭
     });
 }
