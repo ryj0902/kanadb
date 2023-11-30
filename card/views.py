@@ -52,10 +52,6 @@ def index(request):
         for card in cards:
             card = model_to_dict(card)
             card['url'] = static(f'card/Texture2D/CARD_{card["id"]}.png')
-            for key in ['skill_turn', 'skill_instance', 'skill_attack', 'skill_defend']:
-                card[key] = card[key].replace('◈\n ', '◈<br/>&nbsp;')
-                card[key] = card[key].replace('\n◈', '<br/>◈')
-                card[key] = card[key].replace('\n ', '<br/>&nbsp;')
 
         return HttpResponse(render(request, 'card/index.html', context))
 
@@ -73,7 +69,7 @@ def select(request, card_id):
     card['tag'] = card['tag'].replace(',', ', ')
 
     # change text to adjust indent + newline
-    for key in ['skill_turn', 'skill_instance', 'skill_attack', 'skill_defend']:
+    for key in ['skill_turn', 'skill_instance', 'skill_attack', 'skill_defend', 'desc']:
         card[key] = card[key].replace('◈\n ', '◈<br/>&nbsp;')
         card[key] = card[key].replace('\n◈', '<br/>◈')
         card[key] = card[key].replace('\n ', '<br/>&nbsp;')
