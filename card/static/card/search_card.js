@@ -2,7 +2,7 @@ function updatePage(mode) {
     if (mode == 0){
         page = Math.max(page - 1, 1);
     }else{
-        page = page + 1;
+        page = Math.min(page + 1, page_total);
     }
 
     var form = document.getElementById('search-form');
