@@ -50,7 +50,7 @@
         <div class="search-result">
             <div class="image-grid">
                 {% for card in card_list %}
-                    <div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }})">
+                    <div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)">
                         <div class="image-card" style="background-image: url({{ card.url }});"></div>
                         <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
                         <div class="text-stat" id="card-size" {% if card.category == '캐릭터' %} style="display:none;" {% endif %}>{{ card.size }}</div>
@@ -68,25 +68,34 @@
     <div class="right">
         <div class="selected-card-body">
             <button type="button" id="capture-btn" onclick="captureCard()" style="display:none;"> 캡처하기 </button>
-            <img id="swap-text-btn" onclick="swapTextTo('story')" src="{% static 'card/Texture2D/UI_Icon_story 1.png' %}"style="display:none;">
-            <div class="selected-card" id="capture-area">
+            <div class="selected-card" id="capture-area"></div>
+            <div class="selected-card-side">
+                <img id="swap-text-btn" onclick="swapTextTo('story')" src="{% static 'card/Texture2D/UI_Icon_story 1.png' %}" style="display:none;">
+                <img id="card-link-btn" onclick="showLinkCard(0)" src="{% static 'card/Texture2D/UI_icon_linked.png' %}" style="display:none;">
+                <img id="card-link-prev" onclick="showLinkCard(-1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
+                <img id="card-link-reset" onclick="resetLinkCard()" src="{% static 'card/Texture2D/UI_icon_reset.png' %}" style="display:none;">
+                <img id="card-link-next" onclick="showLinkCard(1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
             </div>
         </div>
     </div>
 
 </body>
-<script> <!-- page in search result -->
-    var page = {{ page }}
-    var page_total = {{ page_total }}
+<script> 
+<!-- page in search result -->
+    var page = {{ page }};
+    var page_total = {{ page_total }};
     $('.image-grid-page').html(
         '<button id="page-down" onclick="updatePage(0)">&lt;</button>' +
             '<p class="page">' + page + ' / ' + page_total + '</p>'+
         '<button id="page-up" onclick="updatePage(1)">&gt;</button>'
     )
-</script>
-<script> <!-- tab in selected card -->
-    var tab = '{{ tab }}'
-    openTab(tab)
+<!-- tab in search filter -->
+    var tab = '{{ tab }}';
+    openTab(tab);
     syncSearchFilter();
+
+    var select_card_id = 0;
+    var link_card_ids = '';
+    var link_card_idx = 0;
 </script>
 </html>
