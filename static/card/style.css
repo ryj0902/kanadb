@@ -19,24 +19,20 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: row;
-    /* justify-content: center;
-    align-items: center; */
-}
-
-.active {
-    background-color: white;
 }
 
 .left {
     width: 750px;
 }
-
 .search-filter {
     outline: solid 1px black; /* temporary */
     display: none;
 }
 .search-filter-title {
     font-family: 'title';
+}
+.active {
+    background-color: white;
 }
 .search-filter-contents {
     font-family: 'contents';
