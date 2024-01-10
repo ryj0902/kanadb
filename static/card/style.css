@@ -30,6 +30,8 @@ body {
 }
 .search-filter-title {
     font-family: 'title';
+    padding-left: 5px;
+    width: 80px;
 }
 .active {
     background-color: white;
@@ -43,10 +45,6 @@ body {
 }
 .search-filter table tbody tr {
     line-height: 2rem;
-}
-.search-filter-title{
-    padding-left: 5px;
-    width: 70px;
 }
 .search-filter table tr:nth-child(odd) {
     background-color: #f2f2f2;
@@ -89,7 +87,11 @@ body {
 .right {
     min-width: 360px;
     max-width: 360px;
-    margin-top: 24px;
+    /* margin-top: 24px; */
+}
+.language-menu {
+    text-align: right;
+    margin-bottom: 3px;
 }
 .selected-card-body {
     outline: solid 1px black;

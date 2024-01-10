@@ -1,13 +1,15 @@
 from django import forms
 from .models import Card
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import get_language
 
 
 class CardSearchForm(forms.Form):
     SEARCH_CHOICES = [
-        ("name", "이름"),
-        ("tag", "태그"),
-        ("skill", "효과"),
+        ("name", _("이름")),
+        ("tag", _("태그")),
+        ("skill", _("효과")),
     ]
 
     category = forms.MultipleChoiceField(
@@ -73,17 +75,31 @@ class CardSearchForm(forms.Form):
         episode_season2 = self.cleaned_data.get("episode_season2")
         episode_event = self.cleaned_data.get("episode_event")
 
-        if search_type == "name":
-            cards = cards.filter(name__icontains=search_text)
-        elif search_type == "tag":
-            cards = cards.filter(tag__icontains=search_text)
-        elif search_type == "skill":
-            cards = cards.filter(
-                Q(skill_turn__icontains=search_text)
-                | Q(skill_instance__icontains=search_text)
-                | Q(skill_attack__icontains=search_text)
-                | Q(skill_defend__icontains=search_text)
-            )
+        language = get_language()
+        if language == "ko":
+            if search_type == "name":
+                cards = cards.filter(name__icontains=search_text)
+            elif search_type == "tag":
+                cards = cards.filter(tag__icontains=search_text)
+            elif search_type == "skill":
+                cards = cards.filter(
+                    Q(skill_turn__icontains=search_text)
+                    | Q(skill_instance__icontains=search_text)
+                    | Q(skill_attack__icontains=search_text)
+                    | Q(skill_defend__icontains=search_text)
+                )
+        elif language == "en":
+            if search_type == "name":
+                cards = cards.filter(name_us__icontains=search_text)
+            elif search_type == "tag":
+                cards = cards.filter(tag_us__icontains=search_text)
+            elif search_type == "skill":
+                cards = cards.filter(
+                    Q(skill_turn_us__icontains=search_text)
+                    | Q(skill_instance_us__icontains=search_text)
+                    | Q(skill_attack_us__icontains=search_text)
+                    | Q(skill_defend_us__icontains=search_text)
+                )
 
         if category:
             cards = cards.filter(category__in=category)

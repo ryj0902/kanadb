@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Card(models.Model):
     CATEGORY_CHOICES = [(1, "캐릭터"), (2, "스펠"), (3, "추종자")]
@@ -13,17 +11,25 @@ class Card(models.Model):
         ("더블레어", "더블레어"),
         ("유니크", "유니크"),
     ]
-    THEME_CHOICES = [(1, "공립"), (2, "사립"), (3, "크룩스"), (4, "다크로어"), (5, "무소속")]
+    THEME_CHOICES = [
+        (1, "공립"),
+        (2, "사립"),
+        (3, "크룩스"),
+        (4, "다크로어"),
+        (5, "무소속"),
+    ]
     EPISODE_SEASON1 = [(100 + i, f"EP{i}") for i in range(0, 9)]
     EPISODE_SEASON2 = [(100 + i, f"EP{i}") for i in range(9, 17)]
     EPISODE_EVENT = [(500 + i, f"EV{i}") for i in range(0, 11)]
 
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=20)
+    name_us = models.CharField(max_length=20)
     category = models.IntegerField()
     rarity = models.CharField(max_length=4)
     theme = models.IntegerField()
     tag = models.CharField(max_length=30)  # list of string
+    tag_us = models.CharField(max_length=30)  # list of string
     episode = models.IntegerField()
     point = models.IntegerField()
     size = models.IntegerField()
@@ -38,6 +44,11 @@ class Card(models.Model):
     skill_instance = models.TextField()
     skill_attack = models.TextField()
     skill_defend = models.TextField()
+    desc_us = models.TextField()
+    skill_turn_us = models.TextField()
+    skill_instance_us = models.TextField()
+    skill_attack_us = models.TextField()
+    skill_defend_us = models.TextField()
     link = models.CharField(max_length=40)  # list of id
     producible = models.BooleanField()
 

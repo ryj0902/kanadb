@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 {% load filters %}
+{% load i18n %}
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -17,22 +18,43 @@
 </head>
 <body>
     <div class="left">
-        <button class="search-btn" id="btn-episode" onclick="openTab('episode')">에피소드</button>
-        <button class="search-btn" id="btn-detail" class="passive" onclick="openTab('detail')">상세</button>
+        <button class="search-btn" id="btn-episode" onclick="openTab('episode')">{% trans "에피소드" %}</button>
+        <button class="search-btn" id="btn-detail" class="passive" onclick="openTab('detail')">{% trans "상세" %}</button>
         <form method='POST' id='search-form'>
             {% csrf_token %}
             <div class="search-filter" id="search-filter-detail">
                 <table>
-                    <tr><td class="search-filter-title">종류</td><td class="search-filter-contents">{{ form.category }}</td></tr>
-                    <tr><td class="search-filter-title">등급</td><td class="search-filter-contents">{{ form.rarity }}</td></tr>
-                    <tr><td class="search-filter-title">소속</td><td class="search-filter-contents">{{ form.theme }}</td></tr>
-                    <tr><td class="search-filter-title">사이즈</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
-                    <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="detail">검색</button></td></tr>
+                    <tr><td class="search-filter-title">{% trans "종류" %}</td><td class="search-filter-contents">
+                        {% for value, name in form.fields.category.choices %}
+                            <label>
+                                <input type="checkbox" name="category" value="{{ value }}">
+                                {% trans name %}
+                            </label>
+                        {% endfor %}
+                    </td></tr>
+                    <tr><td class="search-filter-title">{% trans "등급" %}</td><td class="search-filter-contents">
+                        {% for value, name in form.fields.rarity.choices %}
+                            <label>
+                                <input type="checkbox" name="rarity" value="{{ value }}">
+                                {% trans name %}
+                            </label>
+                        {% endfor %}
+                    </td></tr>
+                    <tr><td class="search-filter-title">{% trans "소속" %}</td><td class="search-filter-contents">
+                        {% for value, name in form.fields.theme.choices %}
+                            <label>
+                                <input type="checkbox" name="rarity" value="{{ value }}">
+                                {% trans name %}
+                            </label>
+                        {% endfor %}
+                    </td></tr>
+                    <tr><td class="search-filter-title">{% trans "사이즈" %}</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
+                    <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="detail">{% trans "검색" %}</button></td></tr>    
                 </table>
             </div>
             <div class="search-filter" id="search-filter-episode">
                 <table>
-                    <tr><td class="search-filter-title">시즌 1</td><td class="search-filter-contents">
+                    <tr><td class="search-filter-title">{% trans "시즌 1" %}</td><td class="search-filter-contents">
                         {% for sublist in form.episode_season1|split_by_9 %}
                             {% for item in sublist %}
                                 {{ item }}
@@ -40,7 +62,7 @@
                             <br>
                         {% endfor %}
                         </td></tr>
-                    <tr><td class="search-filter-title">시즌 2</td><td class="search-filter-contents">
+                    <tr><td class="search-filter-title">{% trans "시즌 2" %}</td><td class="search-filter-contents">
                         {% for sublist in form.episode_season2|split_by_9 %}
                             {% for item in sublist %}
                                 {{ item }}
@@ -48,7 +70,7 @@
                             <br>
                         {% endfor %}
                     </td></tr>
-                    <tr><td class="search-filter-title">이벤트</td><td class="search-filter-contents">
+                    <tr><td class="search-filter-title">{% trans "이벤트" %}</td><td class="search-filter-contents">
                         {% for sublist in form.episode_event|split_by_9 %}
                             {% for item in sublist %}
                                 {{ item }}
@@ -56,7 +78,7 @@
                             <br>
                         {% endfor %}
                     </td></tr>
-                    <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="episode">검색</button></td></tr>
+                    <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="episode">{% trans "검색" %}</button></td></tr>
                 </table>
             </div>
         </form>
@@ -80,8 +102,19 @@
     </div>
 
     <div class="right">
+        <div class="language-menu">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                <a class="language-item" href="/{{ language.code }}/card">
+                    {{ language.name_local }}
+                </a>
+            {% endfor %}
+        </div>
+
         <div class="selected-card-body">
-            <button type="button" id="capture-btn" onclick="captureCard()" style="display:none;"> 캡처하기 </button>
+            <button type="button" id="capture-btn" onclick="captureCard()" style="display:none;"> {% trans "캡처하기" %} </button>
             <div class="selected-card" id="capture-area"></div>
             <div class="selected-card-side">
                 <img id="swap-text-btn" onclick="swapTextTo('story')" src="{% static 'card/Texture2D/UI_Icon_story 1.png' %}" style="display:none;">
@@ -111,5 +144,9 @@
     var select_card_id = 0;
     var link_card_ids = '';
     var link_card_idx = 0;
+
+<!-- page information -->
+    var baseUrl = "{{ base_url_from_django_view_context }}";
+    var lang = window.location.pathname.split("/")[1];
 </script>
 </html>
