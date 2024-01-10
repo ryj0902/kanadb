@@ -1,4 +1,12 @@
 function drawCard(card, className){
+    let name = (lang == 'ko') ? card.name : card.name_us;
+    let tag = (lang == 'ko') ? card.tag : card.tag_us;
+    let skill_turn = (lang == 'ko') ? card.skill_turn : card.skill_turn_us;
+    let skill_instance = (lang == 'ko') ? card.skill_instance : card.skill_instance_us;
+    let skill_attack = (lang == 'ko') ? card.skill_attack : card.skill_attack_us;
+    let skill_defend = (lang == 'ko') ? card.skill_defend : card.skill_defend_us;
+    let desc = (lang == 'ko') ? card.desc : card.desc_us;
+
     result = '' +
     '<div class="' + className + '-image'  + (card.producible ? '' : ' unproducible-card') + '">' +
         '<div class="image-card" style="background-image: url(' + card.url + ');"></div>' +
@@ -10,22 +18,22 @@ function drawCard(card, className){
     '</div>' +
     '<div class="' + className + '-title">' +
         '<div class="top-row">' +
-            '<p class="p-name">' + card.name + '</p>' +
+            '<p class="p-name">' + name + '</p>' +
             '<div class="right-column">' +
                 '<p class="p-episode">' + card.episode + '</p>' +
                 '<p class="p-rarity">' + card.rarity + '</p>' +
             '</div>' +
         '</div>' +
-        '<p class="p-tag">' + card.tag + '</p>' +
+        '<p class="p-tag">' + tag + '</p>' +
     '</div>' + 
     '<div class="' + className + '-skill">' +
-        '<p class="p-skill">' + card.skill_turn + '</p>' +
-        '<p class="p-skill">' + card.skill_instance + '</p>' +
-        '<p class="p-skill">' + card.skill_attack + '</p>' +
-        '<p class="p-skill">' + card.skill_defend + '</p>' +
+        '<p class="p-skill">' + skill_turn + '</p>' +
+        '<p class="p-skill">' + skill_instance + '</p>' +
+        '<p class="p-skill">' + skill_attack + '</p>' +
+        '<p class="p-skill">' + skill_defend + '</p>' +
     '</div>' + 
     '<div class="' + className + '-story" style="display:none;">' +
-        '<p class="p-skill">' + card.desc + '</p>' +
+        '<p class="p-skill">' + desc + '</p>' +
     '</div>'
 
     return result

@@ -22,7 +22,7 @@ function updatePage(mode) {
     // console.log(serializedData)
 
     $.ajax({
-        url: '/card/',
+        url: baseUrl + '/' + lang + '/card/',
         type: 'POST',
         data: serializedData,
         traditional: true,
