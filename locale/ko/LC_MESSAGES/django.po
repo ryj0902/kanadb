@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-10 22:08+0900\n"
+"POT-Creation-Date: 2024-01-11 02:06+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,27 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\card\forms.py:9
+#: .\card\forms.py:10
 msgid "이름"
 msgstr "이름"
 
-#: .\card\forms.py:10
+#: .\card\forms.py:11
 msgid "태그"
 msgstr "태그"
 
-#: .\card\forms.py:11
+#: .\card\forms.py:12
 msgid "효과"
 msgstr "효과"
 
-#: .\card\models.py:6
+#: .\card\models.py:6 .\templates\card\index.html:68
 msgid "캐릭터"
 msgstr "캐릭터"
 
-#: .\card\models.py:6
+#: .\card\models.py:6 .\templates\card\index.html:70
 msgid "스펠"
 msgstr "스펠"
 
-#: .\card\models.py:6
+#: .\card\models.py:6 .\templates\card\index.html:69
 msgid "추종자"
 msgstr "추종자"
 
@@ -126,6 +126,6 @@ msgstr "시즌 2"
 msgid "이벤트"
 msgstr "이벤트"
 
-#: .\templates\card\index.html:96
+#: .\templates\card\index.html:99
 msgid "캡처하기"
 msgstr "캡처하기"

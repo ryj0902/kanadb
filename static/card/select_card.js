@@ -7,14 +7,19 @@ function drawCard(card, className){
     let skill_defend = (lang == 'ko') ? card.skill_defend : card.skill_defend_us;
     let desc = (lang == 'ko') ? card.desc : card.desc_us;
 
+    let character = (lang == 'ko') ? '캐릭터' : 'Character';
+    let spell = (lang == 'ko') ? '스펠' : 'Spell';
+    let follower = (lang == 'ko') ? '추종자' : 'Follower';
+
+    console.log(card);
     result = '' +
     '<div class="' + className + '-image'  + (card.producible ? '' : ' unproducible-card') + '">' +
         '<div class="image-card" style="background-image: url(' + card.url + ');"></div>' +
         '<div class="image-frame" style="background-image: url(' + card.frame + ');"></div>' +
-        '<div class="text-stat" id="card-size"' + (card.category === '캐릭터' ? ' style="display:none;"' : '')  + '>' + card.size + '</div>' +
-        '<div class="text-stat" id="card-atk"' + (card.category === '추종자' ? '' : ' style="display:none;"') + '>' + card.atk + '</div>' +
-        '<div class="text-stat" id="card-def"' + (card.category === '추종자' ? '' : ' style="display:none;"') + '>' + card.defs + '</div>' +
-        '<div class="text-stat" id="card-hp"' + (card.category === '스펠' ? ' style="display:none;"' : '') + '>' + card.hp + '</div>' +
+        '<div class="text-stat" id="card-size"' + (card.category === character ? ' style="display:none;"' : '')  + '>' + card.size + '</div>' +
+        '<div class="text-stat" id="card-atk"' + (card.category === follower ? '' : ' style="display:none;"') + '>' + card.atk + '</div>' +
+        '<div class="text-stat" id="card-def"' + (card.category === follower ? '' : ' style="display:none;"') + '>' + card.defs + '</div>' +
+        '<div class="text-stat" id="card-hp"' + (card.category === spell ? ' style="display:none;"' : '') + '>' + card.hp + '</div>' +
     '</div>' +
     '<div class="' + className + '-title">' +
         '<div class="top-row">' +
@@ -41,7 +46,7 @@ function drawCard(card, className){
 
 function selectCard(id, type){
     $.ajax({
-        url: '/card/select/' + id,
+        url: baseUrl + '/' + lang + '/card/select/' + id,
         type: 'GET',
         success: function(data) {
             const card = JSON.parse(data).selected_card;

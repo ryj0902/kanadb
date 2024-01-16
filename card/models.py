@@ -1,22 +1,23 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Card(models.Model):
-    CATEGORY_CHOICES = [(1, "캐릭터"), (2, "스펠"), (3, "추종자")]
+    CATEGORY_CHOICES = [(1, _("캐릭터")), (2, _("스펠")), (3, _("추종자"))]
     RARITY_CHOICES = [
-        ("언커먼", "언커먼"),
-        ("커먼", "커먼"),
-        ("슈페리어", "슈페리어"),
-        ("레어", "레어"),
-        ("더블레어", "더블레어"),
-        ("유니크", "유니크"),
+        (1, _("언커먼")),
+        (2, _("커먼")),
+        (3, _("슈페리어")),
+        (4, _("레어")),
+        (5, _("더블레어")),
+        (6, _("유니크")),
     ]
     THEME_CHOICES = [
-        (1, "공립"),
-        (2, "사립"),
-        (3, "크룩스"),
-        (4, "다크로어"),
-        (5, "무소속"),
+        (1, _("공립")),
+        (2, _("사립")),
+        (3, _("크룩스")),
+        (4, _("다크로어")),
+        (5, _("무소속")),
     ]
     EPISODE_SEASON1 = [(100 + i, f"EP{i}") for i in range(0, 9)]
     EPISODE_SEASON2 = [(100 + i, f"EP{i}") for i in range(9, 17)]
@@ -26,7 +27,7 @@ class Card(models.Model):
     name = models.CharField(max_length=20)
     name_us = models.CharField(max_length=20)
     category = models.IntegerField()
-    rarity = models.CharField(max_length=4)
+    rarity = models.IntegerField()
     theme = models.IntegerField()
     tag = models.CharField(max_length=30)  # list of string
     tag_us = models.CharField(max_length=30)  # list of string
@@ -57,6 +58,10 @@ class Card(models.Model):
     for value in CATEGORY_CHOICES:
         category_map[value[0]] = value[1]
 
+    rarity_map = dict()
+    for value in RARITY_CHOICES:
+        rarity_map[value[0]] = value[1]
+
     theme_map = dict()
     for value in THEME_CHOICES:
         theme_map[value[0]] = value[1]
@@ -68,12 +73,14 @@ class Card(models.Model):
     def parse_to_string(card):
         if type(card) == dict:
             card["category"] = Card.category_map[card["category"]]
+            card["rarity"] = Card.rarity_map[card["rarity"]]
             card["theme"] = Card.theme_map[card["theme"]]
             episode = card["episode"]
             prefix = "EP" if episode // 100 == 1 else "EV"
             card["episode"] = prefix + str(card["episode"] % 100)
         else:
             card.category = Card.category_map[card.category]
+            card.rarity = Card.rarity_map[card.rarity]
             card.theme = Card.theme_map[card.theme]
             episode = card.episode
             prefix = "EP" if episode // 100 == 1 else "EV"

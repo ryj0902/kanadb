@@ -4,10 +4,19 @@ from django.http import HttpResponse
 from django.http.request import QueryDict, MultiValueDict
 from django.forms.models import model_to_dict
 from django.templatetags.static import static
+from django.utils.functional import Promise
+from django.utils.encoding import force_str
 
 import json
 from .models import Card
 from .forms import CardSearchForm
+
+
+class LazyEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, Promise):
+            return force_str(obj)
+        return super().default(obj)
 
 
 def index(request):
@@ -60,7 +69,7 @@ def index(request):
 
     # QueryDict is immutable, so save it as native dictionary
     request.session["post_data"] = dict(request.POST)
-    return render(request, "card/index.html", context)
+    return render(request, f"card/index.html", context)
 
 
 def select(request, card_id):
@@ -90,4 +99,6 @@ def select(request, card_id):
         card[key] = card[key].replace("\n◈", "<br/>◈")
         card[key] = card[key].replace("\n ", "<br/>&nbsp;")
 
-    return HttpResponse(json.dumps({"selected_card": card}, ensure_ascii=False))
+    return HttpResponse(
+        json.dumps({"selected_card": card}, ensure_ascii=False, cls=LazyEncoder)
+    )
