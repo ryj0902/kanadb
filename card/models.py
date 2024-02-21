@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.templatetags.static import static
 
 
 class Card(models.Model):
@@ -38,6 +39,7 @@ class Card(models.Model):
     defs = models.IntegerField()
     hp = models.IntegerField()
     limit = models.IntegerField()
+    enhance = models.IntegerField()
     frame = models.CharField(max_length=30)  # image file name
     collect = models.BooleanField()
     desc = models.TextField()
@@ -52,6 +54,8 @@ class Card(models.Model):
     skill_defend_us = models.TextField()
     link = models.CharField(max_length=40)  # list of id
     producible = models.BooleanField()
+    enh_prev = models.IntegerField()  # card id
+    enh_next = models.IntegerField()  # card id
 
     # parsing variable
     category_map = dict()
@@ -85,6 +89,19 @@ class Card(models.Model):
             episode = card.episode
             prefix = "EP" if episode // 100 == 1 else "EV"
             card.episode = prefix + str(card.episode % 100)
+
+    @staticmethod
+    def parse_static_url(card):
+        if type(card) == dict:
+            card["url"] = static(
+                f"card/Texture2D/CARD_{int(card['id'] // 10 * 10)}.png"
+            )
+            card["frame"] = static(f"card/Texture2D/{card['frame']}.png")
+            card["frame_enh"] = static(f"card/Texture2D/UI_Layout_enhance.png")
+        else:
+            card.url = static(f"card/Texture2D/CARD_{int(card.id // 10 * 10)}.png")
+            card.frame = static(f"card/Texture2D/{card.frame}.png")
+            card.frame_enh = static(f"card/Texture2D/UI_Layout_enhance.png")
 
     class Meta:
         ordering = ["category", "theme", "episode", "point"]

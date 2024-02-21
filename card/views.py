@@ -47,8 +47,7 @@ def index(request):
 
     # update url value to static url
     for card in cards:
-        card.url = static(f"card/Texture2D/CARD_{card.id}.png")
-        card.frame = static(f"card/Texture2D/{card.frame}.png")
+        Card.parse_static_url(card)
         Card.parse_to_string(card)
 
     context = {
@@ -63,7 +62,7 @@ def index(request):
     if request.method == "POST" and "page" in request.POST:
         for card in cards:
             card = model_to_dict(card)
-            card["url"] = static(f'card/Texture2D/CARD_{card["id"]}.png')
+            Card.parse_static_url(card)
 
         return HttpResponse(render(request, "card/index.html", context))
 
@@ -75,8 +74,7 @@ def index(request):
 def select(request, card_id):
     card = Card.objects.get(id=card_id)
     card = model_to_dict(card)
-    card["url"] = static(f"card/Texture2D/CARD_{card_id}.png")
-    card["frame"] = static(f'card/Texture2D/{card["frame"]}.png')
+    Card.parse_static_url(card)
     Card.parse_to_string(card)
     # make space between tag
     card["tag"] = card["tag"].replace(",", ", ")
