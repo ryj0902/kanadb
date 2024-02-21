@@ -20,6 +20,8 @@ function drawCard(card, className){
         '<div class="text-stat" id="card-atk"' + (card.category === follower ? '' : ' style="display:none;"') + '>' + card.atk + '</div>' +
         '<div class="text-stat" id="card-def"' + (card.category === follower ? '' : ' style="display:none;"') + '>' + card.defs + '</div>' +
         '<div class="text-stat" id="card-hp"' + (card.category === spell ? ' style="display:none;"' : '') + '>' + card.hp + '</div>' +
+        '<div class="image-enhance" style="background-image: url(' + card.frame_enh + ');' + (card.enhance === 0 ? ' display:none;"' : '') + '"></div>' +
+        '<div class="text-stat" id="card-enhance"' + (card.enhance === 0 ? ' style="display:none;"' : '') + '>' + card.enhance + '</div>' +
     '</div>' +
     '<div class="' + className + '-title">' +
         '<div class="top-row">' +
@@ -44,7 +46,7 @@ function drawCard(card, className){
     return result
 }
 
-function selectCard(id, type){
+function selectCard(id, init_link){
     $.ajax({
         url: baseUrl + '/' + lang + '/card/select/' + id,
         type: 'GET',
@@ -56,12 +58,13 @@ function selectCard(id, type){
             }
             document.getElementById('capture-btn').style.display = 'inline-block';
             document.getElementById('swap-text-btn').style.display = 'inline-block';
-            if (type === 0) {
-                select_card_id = card.id;
+
+            if (init_link === 0) { // activate link button
+                link_origin_id = card.id;
                 document.getElementById('card-link-btn').style.display = 'inline-block';
                 if (card.link === "-1") {
                     document.getElementById('card-link-btn').classList.add('grayscale');
-                }else {
+                } else {
                     document.getElementById('card-link-btn').classList.remove('grayscale');
                 }
                 document.getElementById('card-link-prev').style.display = 'none';
@@ -69,6 +72,25 @@ function selectCard(id, type){
                 document.getElementById('card-link-next').style.display = 'none';
                 link_card_ids = card.link;
             }
+
+            if (card.category === '추종자' || card.category === 'Follower') {
+                document.getElementById('card-enhance-img').style.display = 'inline-block';
+                document.getElementById('card-enhance-down').style.display = 'inline-block';
+                document.getElementById('card-enhance-up').style.display = 'inline-block';
+
+                enhance_card_prev = card.enh_prev;
+                enhance_card_next = card.enh_next;
+                if (enhance_card_prev === -1) {
+                    enhance_origin_id = card.id;
+                }
+                document.getElementById('card-enhance-down').style.opacity = (enhance_card_prev === -1) ? 0.5 : 1.0;
+                document.getElementById('card-enhance-up').style.opacity = (enhance_card_next === -1) ? 0.5 : 1.0;
+            } else {
+                document.getElementById('card-enhance-img').style.display = 'none';
+                document.getElementById('card-enhance-down').style.display = 'none';
+                document.getElementById('card-enhance-up').style.display = 'none';
+            }
+
             $('.selected-card').html(
                 drawCard(card, "selected-card")
             );
@@ -103,7 +125,7 @@ function captureCard() {
 }
 
 function showLinkCard(offset) {
-    console.log(link_card_ids, link_card_idx, offset);
+    // console.log(link_card_ids, link_card_idx, offset);
     // no link card exist
     if (link_card_ids === '-1') { 
         return
@@ -130,6 +152,22 @@ function showLinkCard(offset) {
 }
 
 function resetLinkCard() {
-    selectCard(select_card_id, 0);
+    selectCard(link_origin_id, 0);
     link_card_idx = 0;
+}
+
+function showEnhanceCard(offset) {
+    if (enhance_card_prev === -1 && offset === -1) { 
+        return
+    }
+    if (enhance_card_next === -1 && offset === 1) { 
+        return
+    }
+
+    let cardId = (offset === -1) ? enhance_card_prev : enhance_card_next;
+    selectCard(cardId, 1);
+}
+
+function resetEnhanceCard() {
+    selectCard(enhance_origin_id, 1);
 }
