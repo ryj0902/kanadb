@@ -1,0 +1,92 @@
+# 쿠마's Unique Tier List
+출처: <a href="https://game.naver.com/lounge/kanatales/board/detail/3663492" target="_blank">(요청) 쿠마가 생각하는 현 유니크티어</a>  
+출처: <a href="https://game.naver.com/lounge/kanatales/board/detail/3715437" target="_blank">(유니크 0티어 추가) 익스트림 퓨전</a>
+
+**※ If parentheses are present, they are only valid under tag conditions**
+
+## Tier 0
+* {Coin Factory}(2100320)
+* {El Fortuna(Royle)}(2100260)
+* {Nativitas Imai(Darklore)}(2100360)
+* {The end of Ruin}(2100070) + {2nd Witness Kana. DND}(3100070)
+* {Epilogue}(2100080)
+* {Toad House}(2100300)
+* {Holiday Ereshkigal}(3100380)
+* {Sita}(2100560)/{Cinia}(2100570)/{Luthica}(2100580)/{Iri}(2100590)'s Winter
+* {Extreme Fusion}(2100050)
+
+## Tier 1
+* {Successor of Moon Luna(Darklore/Nether)}(3100460)
+* {Leaf watching}(2100400)
+* {Curse of Full Moon(Darklore/Nether)}(2100390)
+* {Revenge of The Sea}(2100130)
+* {Visitor}(2100040)
+* {Dream Conversation}(2100030)
+* {Transcendental Muzisitter Linus(Royle)}(3100310)
+* {Trinity Universe(Royle)}(2100340)
+* {Secret Art: Arhat(Vita)}(2100250)
+* {Miko of Illusion Helena(Darklore)}(3100330)
+* {Crux Visitor Hanobelle +2↑}(3100370)
+* {Stride of Lightning Wolf}(2100160)
+
+## Tier 1.5
+* {El Brillo(Crux)}(2100350)
+* {Anniversary Party}(2100220)
+* {Vertiae's Dream}(2100140)
+* {Deceptive Dancing Sword}(2100180)
+* {No Prank}(2100120)
+* {Wedding Rehearsal}(2100230)
+* {Pioneer of Path Rosalia(Crux)}(3100320)
+* {Head Maid Seron(Royle/Nether)}(3100440)
+* {Tomorrow's Promise}(2100290)
+* {Shield Breaker Pintail(Crux/Nether)}(3100450)
+* {Parca De Elmond(Darklore)}(2100280)
+* {Slipper Smash}(2100010)
+* {Stigma of Southern Cross(Crux)}(2100270)
+* {Tornado of Disaster}(2100170)
+* {Imperial Order(Inperial Deck)}(2100240)
+* {Christmas Night}(2100090)
+* {Maximum Sugar Mass Recall}(2100100)
+* {Key of Causality Sita(Vita)}(3100130)
+* {Key of Spacetime Cinia(Royle)}(3100140)
+* Waterpark {Cinia}(3100410)/{Luthica}(3100420)/{Iri}(3100430)(Each Theme/Summer)
+* {Christmas Phantom Thief Salome}(3100340)
+* {Holy Beast of Phantom Felpix}(3100220)
+* {Halloween Sion}(3100280)
+* {Dimensional Frozen}(2100190)
+* {SionRion Extreme}(3100050)
+* {Visitor Ophelia}(3100040)
+* {Sage Esprit}(3100010)
+
+## Tier 2
+* {Mirror Match}(2100110)
+* {1st Witness Kana. DKD}(3100060)
+* {3rd Witness Kana. DTD}(3100080)
+* {4th Witness Kana. DDT}(3100230)
+* {Key of Life and Death Iri(Darklore)}(3100160)
+* {Goldion Hammer(Royle/Nether)}(2100370)
+* {Witness of Kana}(2100060)
+* {Transcendental Observer}(3100390)
+* {Dimension Bullet}(2100310)
+* {Key of Creation Luthica(Crux)}(3100150)
+* {Apprentice Witness Rico}(3100180)
+* {Holy Beast of Bloom Henlifei}(3100200)
+* {Tenth Blood Sion & Rion}(3100190)
+* {Holy Beast of Disaster Kit}(3100210)
+* {Loungewear Rico}(3100090)
+* {Bunny Girl Cannelle}(3100110)
+* {Successive Love}(2100150)
+* {Waterpark Sita(Vita/Summer)}(3100400)
+* {Halloween Lion}(3100290)
+* {Lovestruck Lady Isfeldt}(3100100)
+* {Holy Beast of Hope Crevasse}(3100170)
+* {Annual Event(Crux/Nether)}(2100380)
+
+## Tier 2.5
+* {Traveller of Truth Asmis(Vita)}(3100300)
+* {Rio's Barrier}(2100020)
+* {Girls' Memories}(3100030)
+
+## Tier 3
+* {Etlangze of Black Tiger Navi}(3100350)
+* {Etlangze of Black Rabbit Dalsam}(3100360)

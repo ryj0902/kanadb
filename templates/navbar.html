@@ -1,0 +1,19 @@
+{% load i18n %}
+<nav>
+    <ul class="navbar">
+        {% get_current_language as LANGUAGE_CODE %}
+        <li class="navbar-item"><a href="/{{LANGUAGE_CODE}}/card">{% trans "카드(네비)" %}</a></li>
+        <li class="navbar-item"><a href="/{{LANGUAGE_CODE}}/guide">{% trans "가이드(네비)" %}</a></li>
+    </ul>
+
+    <div class="language-menu">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <a class="language-item" href="/{{ language.code }}/card">
+                {{ language.name_local }}
+            </a>
+        {% endfor %}
+    </div>
+</nav>

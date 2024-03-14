@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 02:06+0900\n"
+"POT-Creation-Date: 2024-03-13 00:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,102 +30,110 @@ msgstr "Tag"
 msgid "효과"
 msgstr "Skill"
 
-#: .\card\models.py:6 .\templates\card\index.html:68
+#: .\card\models.py:7 .\templates\card\index.html:70
 msgid "캐릭터"
 msgstr "Character"
 
-#: .\card\models.py:6 .\templates\card\index.html:70
+#: .\card\models.py:7 .\templates\card\index.html:72
 msgid "스펠"
 msgstr "Spell"
 
-#: .\card\models.py:6 .\templates\card\index.html:69
+#: .\card\models.py:7 .\templates\card\index.html:71
 msgid "추종자"
 msgstr "Follower"
 
-#: .\card\models.py:8
+#: .\card\models.py:9
 msgid "언커먼"
 msgstr "Uncommon"
 
-#: .\card\models.py:9
+#: .\card\models.py:10
 msgid "커먼"
 msgstr "Common"
 
-#: .\card\models.py:10
+#: .\card\models.py:11
 msgid "슈페리어"
 msgstr "Superior"
 
-#: .\card\models.py:11
+#: .\card\models.py:12
 msgid "레어"
 msgstr "Rare"
 
-#: .\card\models.py:12
+#: .\card\models.py:13
 msgid "더블레어"
 msgstr "Double Rare"
 
-#: .\card\models.py:13
+#: .\card\models.py:14
 msgid "유니크"
 msgstr "Unique"
 
-#: .\card\models.py:16
-msgid "공립"
-msgstr "Public"
-
 #: .\card\models.py:17
-msgid "사립"
-msgstr "Private"
+msgid "공립"
+msgstr "Vita"
 
 #: .\card\models.py:18
+msgid "사립"
+msgstr "Royle"
+
+#: .\card\models.py:19
 msgid "크룩스"
 msgstr "Crux"
 
-#: .\card\models.py:19
-msgid "다크로어"
-msgstr "Dark Lore"
-
 #: .\card\models.py:20
+msgid "다크로어"
+msgstr "Darklore"
+
+#: .\card\models.py:21
 msgid "무소속"
 msgstr "Independence"
 
-#: .\templates\card\index.html:21
+#: .\templates\card\index.html:23
 msgid "에피소드"
 msgstr "Episode"
 
-#: .\templates\card\index.html:22
+#: .\templates\card\index.html:24
 msgid "상세"
 msgstr "Details"
 
-#: .\templates\card\index.html:27
+#: .\templates\card\index.html:29
 msgid "종류"
 msgstr "Category"
 
-#: .\templates\card\index.html:28
+#: .\templates\card\index.html:30
 msgid "등급"
 msgstr "Rarity"
 
-#: .\templates\card\index.html:29
+#: .\templates\card\index.html:31
 msgid "소속"
 msgstr "Theme"
 
-#: .\templates\card\index.html:30
+#: .\templates\card\index.html:32
 msgid "사이즈"
 msgstr "Size"
 
-#: .\templates\card\index.html:31 .\templates\card\index.html:60
+#: .\templates\card\index.html:33 .\templates\card\index.html:62
 msgid "검색"
 msgstr "search"
 
-#: .\templates\card\index.html:36
+#: .\templates\card\index.html:38
 msgid "시즌 1"
 msgstr "Season 1"
 
-#: .\templates\card\index.html:44
+#: .\templates\card\index.html:46
 msgid "시즌 2"
 msgstr "Season 2"
 
-#: .\templates\card\index.html:52
+#: .\templates\card\index.html:54
 msgid "이벤트"
 msgstr "Event"
 
-#: .\templates\card\index.html:99
+#: .\templates\card\select_card.html:5
 msgid "캡처하기"
 msgstr "Capture"
+
+#: .\templates\navbar.html:4
+msgid "카드(네비)"
+msgstr "Card"
+
+#: .\templates\navbar.html:5
+msgid "가이드(네비)"
+msgstr "Guide"
