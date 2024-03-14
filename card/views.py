@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http.request import QueryDict, MultiValueDict
 from django.forms.models import model_to_dict
-from django.templatetags.static import static
 from django.utils.functional import Promise
 from django.utils.encoding import force_str
 

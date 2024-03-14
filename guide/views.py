@@ -1,0 +1,34 @@
+from django.shortcuts import render
+from django.utils.translation import get_language
+from markdown import markdown
+
+from glob import glob
+import os
+
+
+# Create your views here.
+def index(request):
+    language_code = get_language()
+    context = {"contents": []}
+
+    for file in sorted(glob(f"templates/guide/{language_code}/*.md")):
+        with open(file, "r", encoding="utf-8") as f:
+            line = f.readline()
+
+        title = line.rstrip()
+        title = title.split("# ")[1]
+
+        context["contents"].append([os.path.basename(file), title])
+
+    return render(request, f"guide/index.html", context)
+
+
+def guide_detail(request, guide_name):
+    language_code = get_language()
+    markdown_path = f"templates/guide/{language_code}/{guide_name}"
+    with open(markdown_path, "r", encoding="utf-8") as file:
+        markdown_content = file.read()
+
+    html_content = markdown(markdown_content)
+
+    return render(request, "guide/guide_detail.html", {"html_content": html_content})

@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
@@ -21,4 +22,5 @@ from django.conf.urls.i18n import i18n_patterns
 urlpatterns = [
     path("admin/", admin.site.urls),
     *i18n_patterns(path("card/", include("card.urls"))),
+    *i18n_patterns(path("guide/", include("guide.urls"))),
 ]

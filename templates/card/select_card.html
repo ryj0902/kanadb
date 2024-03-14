@@ -1,0 +1,17 @@
+{% load static %}
+{% load i18n %}
+
+<div class="selected-card-body">
+    <button type="button" id="capture-btn" onclick="captureCard()" style="display:none;"> {% trans "캡처하기" %} </button>
+    <div class="selected-card" id="capture-area"></div>
+    <div class="selected-card-side">
+        <img id="swap-text-btn" onclick="swapTextTo('story')" src="{% static 'card/Texture2D/UI_Icon_story 1.png' %}" style="display:none;">
+        <img id="card-link-btn" onclick="showLinkCard(0)" src="{% static 'card/Texture2D/UI_icon_linked.png' %}" style="display:none;">
+        <img id="card-link-prev" onclick="showLinkCard(-1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
+        <img id="card-link-next" onclick="showLinkCard(1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
+        <img id="card-link-reset" onclick="resetLinkCard()" src="{% static 'card/Texture2D/UI_icon_reset.png' %}" style="display:none;">
+        <img id="card-enhance-img" onclick="resetEnhanceCard()" src="{% static 'card/Texture2D/UI_icon_Tempered.png' %}" style="display:none;">
+        <img id="card-enhance-down" onclick="showEnhanceCard(-1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
+        <img id="card-enhance-up" onclick="showEnhanceCard(1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
+    </div>
+</div>

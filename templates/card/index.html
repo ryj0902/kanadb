@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-{% load filters %}
+{% load card_filters %}
 {% load i18n %}
 <html lang="ko">
 <head>
@@ -17,100 +17,78 @@
     </script>
 </head>
 <body>
-    <div class="left">
-        <button class="search-btn" id="btn-episode" onclick="openTab('episode')">{% trans "에피소드" %}</button>
-        <button class="search-btn" id="btn-detail" class="passive" onclick="openTab('detail')">{% trans "상세" %}</button>
-        <form method='POST' id='search-form'>
-            {% csrf_token %}
-            <div class="search-filter" id="search-filter-detail">
-                <table>
-                    <tr><td class="search-filter-title">{% trans "종류" %}</td><td class="search-filter-contents">{{ form.category }}</td></tr>
-                    <tr><td class="search-filter-title">{% trans "등급" %}</td><td class="search-filter-contents">{{ form.rarity }}</td></tr>
-                    <tr><td class="search-filter-title">{% trans "소속" %}</td><td class="search-filter-contents">{{ form.theme }}</td></tr>
-                    <tr><td class="search-filter-title">{% trans "사이즈" %}</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
-                    <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="detail">{% trans "검색" %}</button></td></tr>    
-                </table>
-            </div>
-            <div class="search-filter" id="search-filter-episode">
-                <table>
-                    <tr><td class="search-filter-title">{% trans "시즌 1" %}</td><td class="search-filter-contents">
-                        {% for sublist in form.episode_season1|split_by_9 %}
-                            {% for item in sublist %}
-                                {{ item }}
+    {% include 'navbar.html' %}
+    <div class="container">
+        <div class="left">
+            <button class="search-btn" id="btn-episode" onclick="openTab('episode')">{% trans "에피소드" %}</button>
+            <button class="search-btn" id="btn-detail" class="passive" onclick="openTab('detail')">{% trans "상세" %}</button>
+            <form method='POST' id='search-form'>
+                {% csrf_token %}
+                <div class="search-filter" id="search-filter-detail">
+                    <table>
+                        <tr><td class="search-filter-title">{% trans "종류" %}</td><td class="search-filter-contents">{{ form.category }}</td></tr>
+                        <tr><td class="search-filter-title">{% trans "등급" %}</td><td class="search-filter-contents">{{ form.rarity }}</td></tr>
+                        <tr><td class="search-filter-title">{% trans "소속" %}</td><td class="search-filter-contents">{{ form.theme }}</td></tr>
+                        <tr><td class="search-filter-title">{% trans "사이즈" %}</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
+                        <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="detail">{% trans "검색" %}</button></td></tr>    
+                    </table>
+                </div>
+                <div class="search-filter" id="search-filter-episode">
+                    <table>
+                        <tr><td class="search-filter-title">{% trans "시즌 1" %}</td><td class="search-filter-contents">
+                            {% for sublist in form.episode_season1|split_by_9 %}
+                                {% for item in sublist %}
+                                    {{ item }}
+                                {% endfor %}
+                                <br>
                             {% endfor %}
-                            <br>
-                        {% endfor %}
+                            </td></tr>
+                        <tr><td class="search-filter-title">{% trans "시즌 2" %}</td><td class="search-filter-contents">
+                            {% for sublist in form.episode_season2|split_by_9 %}
+                                {% for item in sublist %}
+                                    {{ item }}
+                                {% endfor %}
+                                <br>
+                            {% endfor %}
                         </td></tr>
-                    <tr><td class="search-filter-title">{% trans "시즌 2" %}</td><td class="search-filter-contents">
-                        {% for sublist in form.episode_season2|split_by_9 %}
-                            {% for item in sublist %}
-                                {{ item }}
+                        <tr><td class="search-filter-title">{% trans "이벤트" %}</td><td class="search-filter-contents">
+                            {% for sublist in form.episode_event|split_by_9 %}
+                                {% for item in sublist %}
+                                    {{ item }}
+                                {% endfor %}
+                                <br>
                             {% endfor %}
-                            <br>
-                        {% endfor %}
-                    </td></tr>
-                    <tr><td class="search-filter-title">{% trans "이벤트" %}</td><td class="search-filter-contents">
-                        {% for sublist in form.episode_event|split_by_9 %}
-                            {% for item in sublist %}
-                                {{ item }}
-                            {% endfor %}
-                            <br>
-                        {% endfor %}
-                    </td></tr>
-                    <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="episode">{% trans "검색" %}</button></td></tr>
-                </table>
-            </div>
-        </form>
+                        </td></tr>
+                        <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="episode">{% trans "검색" %}</button></td></tr>
+                    </table>
+                </div>
+            </form>
 
-        <div class="search-result">
-            <div class="image-grid">
-                {% for card in card_list %}
-                    {% trans "캐릭터" as character %}
-                    {% trans "추종자" as follower %}
-                    {% trans "스펠" as spell %}
-                    <div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)">
-                        <div class="image-card" style="background-image: url({{ card.url }});"></div>
-                        <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
-                        <div class="text-stat" id="card-size" {% if card.category ==  character %} style="display:none;" {% endif %}>{{ card.size }}</div>
-                        <div class="text-stat" id="card-atk" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.atk }}</div>
-                        <div class="text-stat" id="card-def" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.defs }}</div>
-                        <div class="text-stat" id="card-hp" {% if card.category == spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
-                    </div>
-                {% endfor %}
+            <div class="search-result">
+                <div class="image-grid">
+                    {% for card in card_list %}
+                        {% trans "캐릭터" as character %}
+                        {% trans "추종자" as follower %}
+                        {% trans "스펠" as spell %}
+                        <div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)">
+                            <div class="image-card" style="background-image: url({{ card.url }});"></div>
+                            <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
+                            <div class="text-stat" id="card-size" {% if card.category ==  character %} style="display:none;" {% endif %}>{{ card.size }}</div>
+                            <div class="text-stat" id="card-atk" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.atk }}</div>
+                            <div class="text-stat" id="card-def" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.defs }}</div>
+                            <div class="text-stat" id="card-hp" {% if card.category == spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="image-grid-page">
+                </div>
             </div>
-            <div class="image-grid-page">
-            </div>
+        </div>
+
+        <div class="right">
+            {% include 'card/select_card.html' %}
         </div>
     </div>
-
-    <div class="right">
-        <div class="language-menu">
-            {% get_current_language as LANGUAGE_CODE %}
-            {% get_available_languages as LANGUAGES %}
-            {% get_language_info_list for LANGUAGES as languages %}
-            {% for language in languages %}
-                <a class="language-item" href="/{{ language.code }}/card">
-                    {{ language.name_local }}
-                </a>
-            {% endfor %}
-        </div>
-
-        <div class="selected-card-body">
-            <button type="button" id="capture-btn" onclick="captureCard()" style="display:none;"> {% trans "캡처하기" %} </button>
-            <div class="selected-card" id="capture-area"></div>
-            <div class="selected-card-side">
-                <img id="swap-text-btn" onclick="swapTextTo('story')" src="{% static 'card/Texture2D/UI_Icon_story 1.png' %}" style="display:none;">
-                <img id="card-link-btn" onclick="showLinkCard(0)" src="{% static 'card/Texture2D/UI_icon_linked.png' %}" style="display:none;">
-                <img id="card-link-prev" onclick="showLinkCard(-1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
-                <img id="card-link-next" onclick="showLinkCard(1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
-                <img id="card-link-reset" onclick="resetLinkCard()" src="{% static 'card/Texture2D/UI_icon_reset.png' %}" style="display:none;">
-                <img id="card-enhance-img" onclick="resetEnhanceCard()" src="{% static 'card/Texture2D/UI_icon_Tempered.png' %}" style="display:none;">
-                <img id="card-enhance-down" onclick="showEnhanceCard(-1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
-                <img id="card-enhance-up" onclick="showEnhanceCard(1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
-            </div>
-        </div>
-    </div>
-
 </body>
 <script> 
 <!-- page in search result -->
@@ -126,14 +104,13 @@
     openTab(tab);
     syncSearchFilter();
 
+<!-- selected card variable -->
     var link_origin_id = 0;
     var link_card_ids = '';
     var link_card_idx = 0;
     var enhance_origin_id = 0;
     var enhance_card_prev = -1;
     var enhance_card_next = -1;
-
-<!-- page information -->
     var baseUrl = "{{ base_url_from_django_view_context }}";
     var lang = window.location.pathname.split("/")[1];
 </script>
