@@ -116,9 +116,9 @@ nav {
 }
 
 .right {
-    min-width: 360px;
-    max-width: 360px;
-    overflow-y: auto;
+    min-width: 370px;
+    max-width: 370px;
+    overflow-y: scroll;
 }
 .selected-card-body {
     outline: solid 1px black;
