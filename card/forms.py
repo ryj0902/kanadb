@@ -80,7 +80,10 @@ class CardSearchForm(forms.Form):
             if search_type == "name":
                 cards = cards.filter(name__icontains=search_text)
             elif search_type == "tag":
-                cards = cards.filter(tag__icontains=search_text)
+                multi_tags = search_text.split(",")
+                for tag in multi_tags:
+                    tag = tag.strip()
+                    cards = cards.filter(tag__icontains=tag)
             elif search_type == "skill":
                 cards = cards.filter(
                     Q(skill_turn__icontains=search_text)
@@ -92,7 +95,10 @@ class CardSearchForm(forms.Form):
             if search_type == "name":
                 cards = cards.filter(name_us__icontains=search_text)
             elif search_type == "tag":
-                cards = cards.filter(tag_us__icontains=search_text)
+                multi_tags = search_text.split(",")
+                for tag in multi_tags:
+                    tag = tag.strip()
+                    cards = cards.filter(tag_us__icontains=tag)
             elif search_type == "skill":
                 cards = cards.filter(
                     Q(skill_turn_us__icontains=search_text)
