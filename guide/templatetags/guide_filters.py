@@ -8,5 +8,7 @@ register = template.Library()
 def card_filter(value):
     # 정규 표현식을 사용하여 패턴을 찾고 링크를 추가합니다.
     return re.sub(
-        r"\{(.+?)\}\((\d+)\)", r'<a href="#" onclick="selectCard(\2, 0)">\1</a>', value
+        r"\{(.+?)\}\((\d+)\)",
+        r'<a href="javascript:void(0);" onclick="selectCard(\2, 0)">\1</a>',
+        value,
     )
