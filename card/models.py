@@ -6,8 +6,8 @@ from django.templatetags.static import static
 class Card(models.Model):
     CATEGORY_CHOICES = [(1, _("캐릭터")), (2, _("스펠")), (3, _("추종자"))]
     RARITY_CHOICES = [
-        (1, _("언커먼")),
-        (2, _("커먼")),
+        (1, _("커먼")),
+        (2, _("언커먼")),
         (3, _("슈페리어")),
         (4, _("레어")),
         (5, _("더블레어")),
