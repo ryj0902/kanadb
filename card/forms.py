@@ -11,6 +11,10 @@ class CardSearchForm(forms.Form):
         ("tag", _("태그")),
         ("skill", _("효과")),
     ]
+    ETC_CHOICES = [
+        # ("uncollectable", _("수집 불가 포함")),
+        ("producible", _("제작 가능만")),
+    ]
 
     category = forms.MultipleChoiceField(
         choices=Card.CATEGORY_CHOICES,
@@ -60,6 +64,13 @@ class CardSearchForm(forms.Form):
         label="event",
     )
 
+    etc = forms.MultipleChoiceField(
+        choices=ETC_CHOICES,
+        widget=forms.CheckboxSelectMultiple(attrs={"class": "checkbox-inline"}),
+        required=False,
+        label="etc",
+    )
+
     def filter_cards(self):
         cards = Card.objects.all()
 
@@ -74,6 +85,8 @@ class CardSearchForm(forms.Form):
         episode_season1 = self.cleaned_data.get("episode_season1")
         episode_season2 = self.cleaned_data.get("episode_season2")
         episode_event = self.cleaned_data.get("episode_event")
+
+        etc = self.cleaned_data.get("etc", [])
 
         language = get_language()
         if language == "ko":
@@ -122,5 +135,10 @@ class CardSearchForm(forms.Form):
             cards = cards.filter(episode__in=episode_season2)
         if episode_event:
             cards = cards.filter(episode__in=episode_event)
+
+        if "uncollectable" not in etc:
+            cards = cards.filter(collect=True)
+        if "producible" in etc:
+            cards = cards.filter(producible=True)
 
         return cards

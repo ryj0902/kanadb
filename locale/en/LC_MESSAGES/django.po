@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-13 00:32+0900\n"
+"POT-Creation-Date: 2024-03-25 00:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,15 +30,23 @@ msgstr "Tag"
 msgid "효과"
 msgstr "Skill"
 
-#: .\card\models.py:7 .\templates\card\index.html:70
+#: .\card\forms.py:15
+msgid "수집 불가 포함"
+msgstr "Also Uncollectable"
+
+#: .\card\forms.py:16
+msgid "제작 가능만"
+msgstr "Only Producible"
+
+#: .\card\models.py:7 .\templates\card\index.html:77
 msgid "캐릭터"
 msgstr "Character"
 
-#: .\card\models.py:7 .\templates\card\index.html:72
+#: .\card\models.py:7 .\templates\card\index.html:79
 msgid "스펠"
 msgstr "Spell"
 
-#: .\card\models.py:7 .\templates\card\index.html:71
+#: .\card\models.py:7 .\templates\card\index.html:78
 msgid "추종자"
 msgstr "Follower"
 
@@ -94,35 +102,40 @@ msgstr "Episode"
 msgid "상세"
 msgstr "Details"
 
-#: .\templates\card\index.html:29
+#: .\templates\card\index.html:25 .\templates\card\index.html:68
+msgid "기타"
+msgstr "Etc"
+
+#: .\templates\card\index.html:30
 msgid "종류"
 msgstr "Category"
 
-#: .\templates\card\index.html:30
+#: .\templates\card\index.html:31
 msgid "등급"
 msgstr "Rarity"
 
-#: .\templates\card\index.html:31
+#: .\templates\card\index.html:32
 msgid "소속"
 msgstr "Theme"
 
-#: .\templates\card\index.html:32
+#: .\templates\card\index.html:33
 msgid "사이즈"
 msgstr "Size"
 
-#: .\templates\card\index.html:33 .\templates\card\index.html:62
+#: .\templates\card\index.html:34 .\templates\card\index.html:63
+#: .\templates\card\index.html:69
 msgid "검색"
 msgstr "search"
 
-#: .\templates\card\index.html:38
+#: .\templates\card\index.html:39
 msgid "시즌 1"
 msgstr "Season 1"
 
-#: .\templates\card\index.html:46
+#: .\templates\card\index.html:47
 msgid "시즌 2"
 msgstr "Season 2"
 
-#: .\templates\card\index.html:54
+#: .\templates\card\index.html:55
 msgid "이벤트"
 msgstr "Event"
 
@@ -130,10 +143,10 @@ msgstr "Event"
 msgid "캡처하기"
 msgstr "Capture"
 
-#: .\templates\navbar.html:4
+#: .\templates\navbar.html:5
 msgid "카드(네비)"
 msgstr "Card"
 
-#: .\templates\navbar.html:5
+#: .\templates\navbar.html:6
 msgid "가이드(네비)"
 msgstr "Guide"

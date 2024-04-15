@@ -54,10 +54,11 @@ function openTab(tabName) {
 
 function syncSearchFilter(){
     // search
-    $('#search-filter-detail, #search-filter-episode').on('input change', function(e) {
+    $('#search-filter-detail, #search-filter-episode, #search-filter-etc').on('input change', function(e) {
         if (e.target.name === 'search_text' || e.target.name === 'search_type') {
             $('#search-filter-detail input[name="' + e.target.name + '"], #search-filter-detail select[name="' + e.target.name + '"]').val(e.target.value);
             $('#search-filter-episode input[name="' + e.target.name + '"], #search-filter-episode select[name="' + e.target.name + '"]').val(e.target.value);
+            $('#search-filter-etc input[name="' + e.target.name + '"], #search-filter-etc select[name="' + e.target.name + '"]').val(e.target.value);
         }
     });
 }

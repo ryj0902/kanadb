@@ -30,14 +30,17 @@ def index(request):
     form = CardSearchForm(post_data or None)
 
     try:
-        cards = form.filter_cards() if form.is_valid() else Card.objects.all()
+        if form.is_valid():
+            cards = form.filter_cards()
+        else:
+            cards = Card.objects.all().filter(collect=True)
     except Card.DoesNotExist:
         cards = None
 
     tab = request.POST.get("tab", "detail")
 
     # filter `CARD_COLLECT == false`
-    cards = cards.filter(collect=True)
+    cards = cards.filter(enhance=0)
 
     paginator = Paginator(cards, 12)
     page_total = paginator.num_pages
