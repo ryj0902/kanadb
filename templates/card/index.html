@@ -22,6 +22,7 @@
         <div class="left">
             <button class="search-btn" id="btn-episode" onclick="openTab('episode')">{% trans "에피소드" %}</button>
             <button class="search-btn" id="btn-detail" class="passive" onclick="openTab('detail')">{% trans "상세" %}</button>
+            <button class="search-btn" id="btn-etc" class="passive" onclick="openTab('etc')">{% trans "기타" %}</button>
             <form method='POST' id='search-form'>
                 {% csrf_token %}
                 <div class="search-filter" id="search-filter-detail">
@@ -60,6 +61,12 @@
                             {% endfor %}
                         </td></tr>
                         <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="episode">{% trans "검색" %}</button></td></tr>
+                    </table>
+                </div>
+                <div class="search-filter" id="search-filter-etc">
+                    <table>
+                        <tr><td class="search-filter-title">{% trans "기타" %}</td><td class="search-filter-contents">{{ form.etc }}</td></tr>
+                        <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="etc">{% trans "검색" %}</button></td></tr>
                     </table>
                 </div>
             </form>
