@@ -129,12 +129,9 @@ class CardSearchForm(forms.Form):
         if size_min and size_max:
             cards = cards.filter(size__range=(size_min, size_max))
 
-        if episode_season1:
-            cards = cards.filter(episode__in=episode_season1)
-        if episode_season2:
-            cards = cards.filter(episode__in=episode_season2)
-        if episode_event:
-            cards = cards.filter(episode__in=episode_event)
+        episode_list = episode_season1 + episode_season2 + episode_event
+        if episode_season1 or episode_season2 or episode_event:
+            cards = cards.filter(episode__in=episode_list)
 
         if "uncollectable" not in etc:
             cards = cards.filter(collect=True)
