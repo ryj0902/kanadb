@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-25 00:54+0900\n"
+"POT-Creation-Date: 2024-04-24 01:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,10 +30,6 @@ msgstr "태그"
 msgid "효과"
 msgstr "효과"
 
-#: .\card\forms.py:15
-msgid "수집 불가 포함"
-msgstr "수집 불가 포함"
-
 #: .\card\forms.py:16
 msgid "제작 가능만"
 msgstr "제작 가능만"
@@ -51,12 +47,12 @@ msgid "추종자"
 msgstr "추종자"
 
 #: .\card\models.py:9
-msgid "언커먼"
-msgstr "언커먼"
-
-#: .\card\models.py:10
 msgid "커먼"
 msgstr "커먼"
+
+#: .\card\models.py:10
+msgid "언커먼"
+msgstr "언커먼"
 
 #: .\card\models.py:11
 msgid "슈페리어"
@@ -139,6 +135,14 @@ msgstr "시즌 2"
 msgid "이벤트"
 msgstr "이벤트"
 
+#: .\templates\card\index.html:96
+msgid "탈렌티움 리스토어"
+msgstr "탈렌티움 리스토어"
+
+#: .\templates\card\index.html:99
+msgid "파괴의 날개 아델리아"
+msgstr "파괴의 날개 아델리아"
+
 #: .\templates\card\select_card.html:5
 msgid "캡처하기"
 msgstr "캡처하기"
@@ -150,3 +154,6 @@ msgstr "카드"
 #: .\templates\navbar.html:6
 msgid "가이드(네비)"
 msgstr "가이드"
+
+#~ msgid "수집 불가 포함"
+#~ msgstr "수집 불가 포함"
