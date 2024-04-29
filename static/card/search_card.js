@@ -62,3 +62,58 @@ function syncSearchFilter(){
         }
     });
 }
+
+function addToggleAllEventListener(){
+    // episode
+    document.getElementById('toggle-all-episode-season1').addEventListener('click', function() {
+        let checkboxes = document.querySelectorAll('input[name="episode_season1"]');
+
+        let isChecked = this.checked;
+        checkboxes.forEach(function(checkbox) {
+          checkbox.checked = isChecked;
+        });
+    });
+    document.getElementById('toggle-all-episode-season2').addEventListener('click', function() {
+        let checkboxes = document.querySelectorAll('input[name="episode_season2"]');
+
+        let isChecked = this.checked;
+        checkboxes.forEach(function(checkbox) {
+          checkbox.checked = isChecked;
+        });
+    });
+    document.getElementById('toggle-all-episode-event').addEventListener('click', function() {
+        let checkboxes = document.querySelectorAll('input[name="episode_event"]');
+
+        let isChecked = this.checked;
+        checkboxes.forEach(function(checkbox) {
+          checkbox.checked = isChecked;
+        });
+    });
+    // details
+    document.getElementById('toggle-all-category').addEventListener('click', function() {
+        let checkboxes = document.querySelectorAll('input[name="category"]');
+
+        let isChecked = this.checked;
+        checkboxes.forEach(function(checkbox) {
+          checkbox.checked = isChecked;
+        });
+    });
+    document.getElementById('toggle-all-rarity').addEventListener('click', function() {
+        let checkboxes = document.querySelectorAll('input[name="rarity"]');
+
+        let isChecked = this.checked;
+        checkboxes.forEach(function(checkbox) {
+          checkbox.checked = isChecked;
+        });
+    });
+    document.getElementById('toggle-all-theme').addEventListener('click', function() {
+        let checkboxes = document.querySelectorAll('input[name="theme"]');
+
+        let isChecked = this.checked;
+        checkboxes.forEach(function(checkbox) {
+          checkbox.checked = isChecked;
+        });
+    });
+
+
+}
