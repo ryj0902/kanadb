@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils.translation import get_language
 from markdown import markdown
+from django.utils.translation import gettext as _
 
 from glob import glob
 import os
@@ -31,4 +32,10 @@ def guide_detail(request, guide_name):
 
     html_content = markdown(markdown_content)
 
-    return render(request, "guide/guide_detail.html", {"html_content": html_content})
+    context = {
+        "html_content": html_content,
+        "horizontal_layout": _("가로 모드"),
+        "vertical_layout": _("세로 모드"),
+    }
+
+    return render(request, "guide/guide_detail.html", context)

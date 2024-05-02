@@ -2,12 +2,10 @@
     font-family: 'title';
     src: url('fonts/NEXON Lv1 Gothic OTF Bold.otf') format('opentype');
 }
-
 @font-face {
     font-family: 'contents';
     src: url('fonts/NEXON Lv1 Gothic OTF.otf') format('opentype');
 }
-
 @font-face {
     font-family: 'skill';
     src: url('fonts/BinggraeMelona-Bold.otf') format('opentype');
@@ -63,7 +61,7 @@ nav {
 .search-filter-title {
     font-family: 'title';
     padding-left: 5px;
-    width: 80px;
+    width: 100px;
 }
 .active {
     background-color: white;
@@ -116,13 +114,18 @@ nav {
 }
 
 .right {
+    overflow-y: scroll;
     min-width: 370px;
     max-width: 370px;
-    overflow-y: scroll;
+}
+.right.horz-layout {
+    min-width: 720px;
+    max-width: 720px;
 }
 .selected-card-body {
     outline: solid 1px black;
     position: relative;
+    min-height: 500px;
 }
 #capture-btn {
     width: 75px;
@@ -130,17 +133,47 @@ nav {
     margin-bottom: 5px;
     margin-left: 15px;
 }
+#vert-horz-btn {
+    width: 75px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.selected-card {
+    display: flex;
+    flex-direction: column;
+}
+.selected-card.horz-layout {
+    flex-direction: row;
+}
+
 .selected-card-side {
     position: absolute;
     top: 40px;
-    left: 260px;
+    left: 250px;
 }
-#swap-text-btn {
+#card-enhance-img {
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 300px;
+    top: 160px;
     left: 0px;
+}
+#card-enhance-up {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    top: 160px;
+    left: 50px;
+    transform: rotate(180deg);
+}
+#card-enhance-down {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    top: 185px;
+    left: 50px;
 }
 #card-link-btn {
     width: 50px;
@@ -171,28 +204,78 @@ nav {
     left: 50px;
     transform: rotate(180deg);
 }
-#card-enhance-img {
+#swap-text-btn {
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 160px;
+    top: 300px;
     left: 0px;
 }
-#card-enhance-down {
-    width: 40px;
-    height: 20px;
+
+.selected-card-side.horz-layout {
     position: absolute;
-    top: 185px;
-    left: 50px;
+    top: 420px;
+    left: 10px;
 }
-#card-enhance-up {
+.horz-layout #card-enhance-img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+}
+.horz-layout #card-enhance-up {
     width: 40px;
     height: 20px;
     position: absolute;
-    top: 160px;
-    left: 50px;
+    top: -23px;
+    left: 15px;
     transform: rotate(180deg);
 }
+.horz-layout #card-enhance-down {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    top: 50px;
+    left: 15px;
+}
+.horz-layout #card-link-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    left: 95px;
+}
+.horz-layout #card-link-reset {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    left: 95px;
+}
+.horz-layout #card-link-prev {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    top: 50px;
+    left: 99px;
+}
+.horz-layout #card-link-next {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    top: -23px;
+    left: 99px;
+    transform: rotate(180deg);
+}
+.horz-layout #swap-text-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    left: 180px;
+}
+
 .grayscale {
     filter: grayscale(100%);
 }
@@ -204,6 +287,7 @@ nav {
     display: flex;
     justify-content: center;
     position: relative;
+    flex-shrink: 0;
 }
 .unproducible-card {
     box-shadow:0px 0px 8px 4px red inset;
@@ -273,6 +357,11 @@ nav {
     right: 20.5%;
     font-size: 24px;
     transform: translate(50%, 0%);
+}
+
+.selected-card-texts {
+    display: flex;
+    flex-direction: column;
 }
 
 .selected-card-title {

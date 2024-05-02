@@ -11,6 +11,10 @@ function drawCard(card, className){
     let spell = (lang == 'ko') ? '스펠' : 'Spell';
     let follower = (lang == 'ko') ? '추종자' : 'Follower';
 
+    const button = document.getElementById('vert-horz-btn');
+    const currentText = button.textContent.trim();
+    const vert_horz = currentText === horizontalLayout ? 'vert': 'horz' 
+
     console.log(card);
     result = '' +
     '<div class="' + className + '-image'  + (card.producible ? '' : ' unproducible-card') + '">' +
@@ -23,24 +27,26 @@ function drawCard(card, className){
         '<div class="image-enhance" style="background-image: url(' + card.frame_enh + ');' + (card.enhance === 0 ? ' display:none;"' : '') + '"></div>' +
         '<div class="text-stat" id="card-enhance"' + (card.enhance === 0 ? ' style="display:none;"' : '') + '>' + card.enhance + '</div>' +
     '</div>' +
-    '<div class="' + className + '-title">' +
-        '<div class="top-row">' +
-            '<p class="p-name">' + name + '</p>' +
-            '<div class="right-column">' +
-                '<p class="p-episode">' + card.episode + '</p>' +
-                '<p class="p-rarity">' + card.rarity + '</p>' +
+    '<div class="selected-card-texts">' +
+        '<div class="' + className + '-title">' +
+            '<div class="top-row">' +
+                '<p class="p-name">' + name + '</p>' +
+                '<div class="right-column">' +
+                    '<p class="p-episode">' + card.episode + '</p>' +
+                    '<p class="p-rarity">' + card.rarity + '</p>' +
+                '</div>' +
             '</div>' +
+            '<p class="p-tag">' + tag + '</p>' +
+        '</div>' + 
+        '<div class="' + className + '-skill">' +
+            '<p class="p-skill">' + skill_turn + '</p>' +
+            '<p class="p-skill">' + skill_instance + '</p>' +
+            '<p class="p-skill">' + skill_attack + '</p>' +
+            '<p class="p-skill">' + skill_defend + '</p>' +
+        '</div>' + 
+        '<div class="' + className + '-story" style="display:none;">' +
+            '<p class="p-skill">' + desc + '</p>' +
         '</div>' +
-        '<p class="p-tag">' + tag + '</p>' +
-    '</div>' + 
-    '<div class="' + className + '-skill">' +
-        '<p class="p-skill">' + skill_turn + '</p>' +
-        '<p class="p-skill">' + skill_instance + '</p>' +
-        '<p class="p-skill">' + skill_attack + '</p>' +
-        '<p class="p-skill">' + skill_defend + '</p>' +
-    '</div>' + 
-    '<div class="' + className + '-story" style="display:none;">' +
-        '<p class="p-skill">' + desc + '</p>' +
     '</div>'
 
     return result
@@ -57,6 +63,7 @@ function selectCard(id, init_link){
                 swapTextTo('skill');
             }
             document.getElementById('capture-btn').style.display = 'inline-block';
+            document.getElementById('vert-horz-btn').style.display = 'inline-block';
             document.getElementById('swap-text-btn').style.display = 'inline-block';
 
             if (init_link === 0) { // activate link button
@@ -171,4 +178,29 @@ function showEnhanceCard(offset) {
 
 function resetEnhanceCard() {
     selectCard(enhance_origin_id, 1);
+}
+
+const changeLayoutClass = ['right', 'selected-card', 'selected-card-side']
+const changeLayoutId = ['card-enhance-img', 'card-enhance-up', 'card-enhance-down',
+                        'card-link-btn', 'card-link-prev', 'card-link-next', 'card-link-reset',
+                        'swap-text-btn']
+function verthorzCard() {
+    const button = document.getElementById('vert-horz-btn');
+    const currentText = button.textContent.trim();
+    const vert_horz = currentText === horizontalLayout ? 'horz': 'vert' 
+
+    changeLayoutClass.forEach(className => {
+        const elements = document.querySelectorAll(`.${className}`);
+        elements.forEach(element => {
+            if (vert_horz === 'horz') {
+                element.classList.add('horz-layout');
+            } else {
+                element.classList.remove('horz-layout');
+            }
+            // element.classList.remove(vert_horz === 'horz' ? 'vert-layout' : 'horz-layout');
+            // element.classList.add(vert_horz === 'horz' ? 'horz-layout' : 'vert-layout');
+        });
+      });
+    
+    button.textContent = vert_horz === 'horz' ? verticalLayout : horizontalLayout;
 }

@@ -114,6 +114,4 @@ function addToggleAllEventListener(){
           checkbox.checked = isChecked;
         });
     });
-
-
 }
