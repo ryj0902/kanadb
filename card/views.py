@@ -5,6 +5,7 @@ from django.http.request import QueryDict, MultiValueDict
 from django.forms.models import model_to_dict
 from django.utils.functional import Promise
 from django.utils.encoding import force_str
+from django.utils.translation import gettext as _
 
 import json
 from .models import Card
@@ -59,6 +60,8 @@ def index(request):
         "selected_card": None,
         "form": form,
         "tab": tab,
+        "horizontal_layout": _("가로 모드"),
+        "vertical_layout": _("세로 모드"),
     }
 
     if request.method == "POST" and "page" in request.POST:
