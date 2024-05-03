@@ -14,6 +14,8 @@
 * {Holiday Ereshkigal}(3100380)
 * {Sita}(2100560)/{Cinia}(2100570)/{Luthica}(2100580)/{Iri}(2100590)'s Winter
 * {Extreme Fusion}(2100050)
+* {Talentium Restore}(2100330)
+* {Administration Bureau}(2100200)
 
 ## Tier 1
 * {Successor of Moon Luna(Darklore/Nether)}(3100460)
@@ -63,6 +65,7 @@
 * {1st Witness Kana. DKD}(3100060)
 * {3rd Witness Kana. DTD}(3100080)
 * {4th Witness Kana. DDT}(3100230)
+* {5th Witness Kana. DDD}(3100240)
 * {Key of Life and Death Iri(Darklore)}(3100160)
 * {Goldion Hammer(Royle/Nether)}(2100370)
 * {Witness of Kana}(2100060)
