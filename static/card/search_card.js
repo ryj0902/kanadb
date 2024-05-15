@@ -49,6 +49,12 @@ function openTab(tabName) {
     $("#search-filter-"+tabName)[0].style.display = "block";
     $("#btn-"+tabName)[0].className += " active";
 
+    // change all submit button's value to current tab 
+    let buttons = document.getElementsByClassName("btn-submit");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].value = tabName;
+    }
+
     tab = tabName;
 }
 

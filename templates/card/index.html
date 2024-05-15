@@ -51,7 +51,7 @@
                                 <br>
                             {% endfor %}
                         </td></tr>
-                        <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="episode">{% trans "검색" %}</button></td></tr>
+                        <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button class="btn-submit" type="submit" name="tab" value="episode">{% trans "검색" %}</button></td></tr>
                     </table>
                 </div>
                 <div class="search-filter" id="search-filter-detail">
@@ -60,13 +60,13 @@
                         <tr><td class="search-filter-title">{% trans "등급" %} <input type="checkbox" id="toggle-all-rarity"> </td><td class="search-filter-contents">{{ form.rarity }}</td></tr>
                         <tr><td class="search-filter-title">{% trans "소속" %} <input type="checkbox" id="toggle-all-theme"> </td><td class="search-filter-contents">{{ form.theme }}</td></tr>
                         <tr><td class="search-filter-title">{% trans "사이즈" %}</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
-                        <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="detail">{% trans "검색" %}</button></td></tr>    
+                        <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button class="btn-submit" type="submit" name="tab" value="detail">{% trans "검색" %}</button></td></tr>    
                     </table>
                 </div>
                 <div class="search-filter" id="search-filter-etc">
                     <table>
                         <tr><td class="search-filter-title">{% trans "기타" %}</td><td class="search-filter-contents">{{ form.etc }}</td></tr>
-                        <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button type="submit" name="tab" value="etc">{% trans "검색" %}</button></td></tr>
+                        <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button class="btn-submit" type="submit" name="tab" value="etc">{% trans "검색" %}</button></td></tr>
                     </table>
                 </div>
             </form>
