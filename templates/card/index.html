@@ -139,9 +139,7 @@
         const functionName = parts[0];
         const arg1 = parts[1];
         const arg2 = parts[2];
-        console.log(functionName, arg1, arg2);
         if (functionName && typeof window[functionName] === 'function') {
-            console.log(functionName, arg1, arg2);
             window[functionName](arg1, arg2);
         }
     };
