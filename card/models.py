@@ -22,7 +22,7 @@ class Card(models.Model):
     ]
     EPISODE_SEASON1 = [(100 + i, f"EP{i}") for i in range(0, 9)]
     EPISODE_SEASON2 = [(100 + i, f"EP{i}") for i in range(9, 17)]
-    EPISODE_EVENT = [(500 + i, f"EV{i}") for i in range(0, 11)]
+    EPISODE_EVENT = [(500 + i, f"EV{i}") for i in range(0, 12)]
 
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=20)
