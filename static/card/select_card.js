@@ -66,7 +66,7 @@ function selectCard(id, init_link){
             document.getElementById('vert-horz-btn').style.display = 'inline-block';
             document.getElementById('swap-text-btn').style.display = 'inline-block';
 
-            if (init_link === 0) { // activate link button
+            if (Number(init_link) === 0) { // activate link button
                 link_origin_id = card.id;
                 document.getElementById('card-link-btn').style.display = 'inline-block';
                 if (card.link === "-1") {
