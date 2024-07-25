@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.templatetags.static import static
+from django.utils.translation import gettext_lazy as _
 
 
 class Card(models.Model):
@@ -25,13 +25,13 @@ class Card(models.Model):
     EPISODE_EVENT = [(500 + i, f"EV{i}") for i in range(0, 12)]
 
     id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=20)
-    name_us = models.CharField(max_length=20)
+    name = models.CharField(max_length=40)
+    name_us = models.CharField(max_length=40)
     category = models.IntegerField()
     rarity = models.IntegerField()
     theme = models.IntegerField()
-    tag = models.CharField(max_length=30)  # list of string
-    tag_us = models.CharField(max_length=30)  # list of string
+    tag = models.CharField(max_length=40)  # list of string
+    tag_us = models.CharField(max_length=40)  # list of string
     episode = models.IntegerField()
     point = models.IntegerField()
     size = models.IntegerField()
@@ -40,7 +40,7 @@ class Card(models.Model):
     hp = models.IntegerField()
     limit = models.IntegerField()
     enhance = models.IntegerField()
-    frame = models.CharField(max_length=30)  # image file name
+    frame = models.CharField(max_length=40)  # image file name
     collect = models.BooleanField()
     desc = models.TextField()
     skill_turn = models.TextField()
@@ -75,7 +75,7 @@ class Card(models.Model):
 
     @staticmethod
     def parse_to_string(card):
-        if type(card) == dict:
+        if isinstance(card, dict):
             card["category"] = Card.category_map[card["category"]]
             card["rarity"] = Card.rarity_map[card["rarity"]]
             card["theme"] = Card.theme_map[card["theme"]]
@@ -92,16 +92,16 @@ class Card(models.Model):
 
     @staticmethod
     def parse_static_url(card):
-        if type(card) == dict:
+        if isinstance(card, dict):
             card["url"] = static(
                 f"card/Texture2D/CARD_{int(card['id'] // 10 * 10)}.png"
             )
             card["frame"] = static(f"card/Texture2D/{card['frame']}.png")
-            card["frame_enh"] = static(f"card/Texture2D/UI_Layout_enhance.png")
+            card["frame_enh"] = static("card/Texture2D/UI_Layout_enhance.png")
         else:
             card.url = static(f"card/Texture2D/CARD_{int(card.id // 10 * 10)}.png")
             card.frame = static(f"card/Texture2D/{card.frame}.png")
-            card.frame_enh = static(f"card/Texture2D/UI_Layout_enhance.png")
+            card.frame_enh = static("card/Texture2D/UI_Layout_enhance.png")
 
     class Meta:
         ordering = ["category", "theme", "episode", "point"]

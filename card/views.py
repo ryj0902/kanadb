@@ -1,15 +1,16 @@
+import json
+
 from django.core.paginator import Paginator
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.http.request import QueryDict, MultiValueDict
 from django.forms.models import model_to_dict
-from django.utils.functional import Promise
+from django.http import HttpResponse
+from django.http.request import MultiValueDict, QueryDict
+from django.shortcuts import render
 from django.utils.encoding import force_str
+from django.utils.functional import Promise
 from django.utils.translation import gettext as _
 
-import json
-from .models import Card
 from .forms import CardSearchForm
+from .models import Card
 
 
 class LazyEncoder(json.JSONEncoder):
@@ -73,7 +74,7 @@ def index(request):
 
     # QueryDict is immutable, so save it as native dictionary
     request.session["post_data"] = dict(request.POST)
-    return render(request, f"card/index.html", context)
+    return render(request, "card/index.html", context)
 
 
 def select(request, card_id):
