@@ -1,10 +1,10 @@
+import os
+from glob import glob
+
 from django.shortcuts import render
 from django.utils.translation import get_language
-from markdown import markdown
 from django.utils.translation import gettext as _
-
-from glob import glob
-import os
+from markdown import markdown
 
 
 # Create your views here.
@@ -21,7 +21,7 @@ def index(request):
 
         context["contents"].append([os.path.basename(file), title])
 
-    return render(request, f"guide/index.html", context)
+    return render(request, "guide/index.html", context)
 
 
 def guide_detail(request, guide_name):
