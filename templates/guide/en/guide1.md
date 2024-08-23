@@ -59,6 +59,7 @@
 * {SionRion Extreme}(3100050)
 * {Visitor Ophelia}(3100040)
 * {Sage Esprit}(3100010)
+* {Etlangze of Black Tiger Navi}(3100350)
 
 ## Tier 2
 * {Mirror Match}(2100110)
@@ -84,12 +85,9 @@
 * {Lovestruck Lady Isfeldt}(3100100)
 * {Holy Beast of Hope Crevasse}(3100170)
 * {Annual Event(Crux/Nether)}(2100380)
+* {Etlangze of Black Rabbit Dalsam}(3100360)
 
 ## Tier 2.5
 * {Traveller of Truth Asmis(Vita)}(3100300)
 * {Rio's Barrier}(2100020)
 * {Girls' Memories}(3100030)
-
-## Tier 3
-* {Etlangze of Black Tiger Navi}(3100350)
-* {Etlangze of Black Rabbit Dalsam}(3100360)

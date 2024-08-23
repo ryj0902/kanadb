@@ -7,7 +7,6 @@ from django.utils.translation import gettext as _
 from markdown import markdown
 
 
-# Create your views here.
 def index(request):
     language_code = get_language()
     context = {"contents": []}
