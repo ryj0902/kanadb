@@ -2,7 +2,8 @@
 {% load static %}
 {% load card_filters %}
 {% load i18n %}
-<html lang="ko">
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -125,7 +126,7 @@
     var enhance_card_prev = -1;
     var enhance_card_next = -1;
     var baseUrl = "{{ base_url_from_django_view_context }}";
-    var lang = window.location.pathname.split("/")[1];
+    var lang = "{{ LANGUAGE_CODE }}"
     const horizontalLayout = "{{ horizontal_layout }}";
     const verticalLayout = "{{ vertical_layout }}";
 
