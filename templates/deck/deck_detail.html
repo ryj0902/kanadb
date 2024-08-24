@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'card/html2canvas.min.js' %}"></script>
+    <script src="{% static 'card/select_card.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'card/style.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <div class="left">
+            <div class="deck-character">
+                <table>
+                    <td>
+                        <div class="image-grid-element{% if not card_character.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card_character.id }}, 0)">
+                            <div class="image-card" style="background-image: url({{ card_character.url }});"></div>
+                            <div class="image-frame" style="background-image: url({{ card_character.frame }});"></div>
+                            <div class="text-stat" id="card-hp" {% if card_character.category == spell %} style="display:none;" {% endif %}>{{ card_character.hp }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        {% if LANGUAGE_CODE == 'ko' %}
+                            <p class="deck-chapter-name">{{ chapter_name }}</p>
+                            <p class="deck-loading-name">{{ loading_name }}</p>
+                            <p class="deck-loading-desc">{{ loading_desc }}</p>
+                        {% elif LANGUAGE_CODE == 'en' %}
+                            <p class="deck-chapter-name">{{ chapter_name_us }}</p>
+                            <p class="deck-loading-name">{{ loading_name_us }}</p>
+                            <p class="deck-loading-desc">{{ loading_desc_us }}</p>
+                        {% endif %}
+                    </td>
+                </table>
+            </div>
+
+            <div class="deck-image-grid">
+                {% for card in card_list %}
+                    {% trans "캐릭터" as character %}
+                    {% trans "추종자" as follower %}
+                    {% trans "스펠" as spell %}
+                    <div class="deck-image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)">
+                        <div class="image-card" style="background-image: url({{ card.url }});"></div>
+                        <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
+                        <div class="text-stat" id="card-size" {% if card.category ==  character %} style="display:none;" {% endif %}>{{ card.size }}</div>
+                        <div class="text-stat" id="card-atk" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.atk }}</div>
+                        <div class="text-stat" id="card-def" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.defs }}</div>
+                        <div class="text-stat" id="card-hp" {% if card.category == spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
+                        <div class="image-count">
+                            <div class="text-stat" id="card-x">x</div>
+                            <div class="text-stat" id="card-count">{{ card.count }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="right">
+            {% include 'card/select_card.html' %}
+        </div>
+    </div>
+
+    {% comment %} debug
+    {% for card in card_list %}
+        <li> {{ card.id }} {{ card.name }} {{ card.url }} </li>
+    {% endfor %} 
+    {% endcomment %}
+</body>
+
+<script>
+    <!-- selected card variable -->
+    var link_origin_id = 0;
+    var link_card_ids = '';
+    var link_card_idx = 0;
+    var enhance_origin_id = 0;
+    var enhance_card_prev = -1;
+    var enhance_card_next = -1;
+    var baseUrl = "{{ base_url_from_django_view_context }}";
+    var lang = "{{ LANGUAGE_CODE }}"
+    const horizontalLayout = "{{ horizontal_layout }}";
+    const verticalLayout = "{{ vertical_layout }}";
+</script>
