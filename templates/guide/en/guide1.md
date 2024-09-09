@@ -16,6 +16,7 @@
 * {Extreme Fusion}(2100050)
 * {Talentium Restore}(2100330)
 * {Administration Bureau}(2100200)
+* {Curse of Dark Sky}(2100600)
 
 ## Tier 1
 * {Successor of Moon Luna(Darklore/Nether)}(3100460)
@@ -30,6 +31,7 @@
 * {Miko of Illusion Helena(Darklore)}(3100330)
 * {Crux Visitor Hanobelle +2↑}(3100370)
 * {Stride of Lightning Wolf}(2100160)
+* {Blessing of Blue Sky}(2100610)
 
 ## Tier 1.5
 * {El Brillo(Crux)}(2100350)
