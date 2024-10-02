@@ -41,7 +41,6 @@ def index(request):
 
     tab = request.POST.get("tab", "detail")
 
-    # filter `CARD_COLLECT == false`
     cards = cards.filter(enhance=0)
 
     paginator = Paginator(cards, 12)
