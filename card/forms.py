@@ -1,8 +1,9 @@
 from django import forms
-from .models import Card
 from django.db.models import Q
-from django.utils.translation import gettext_lazy as _
 from django.utils.translation import get_language
+from django.utils.translation import gettext_lazy as _
+
+from .models import Card
 
 
 class CardSearchForm(forms.Form):
@@ -12,7 +13,7 @@ class CardSearchForm(forms.Form):
         ("skill", _("효과")),
     ]
     ETC_CHOICES = [
-        # ("uncollectable", _("수집 불가 포함")),
+        ("uncollectable", _("수집 불가 포함")),
         ("producible", _("제작 가능만")),
     ]
 
