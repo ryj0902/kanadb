@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-24 23:59+0900\n"
+"POT-Creation-Date: 2024-10-03 23:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,34 +18,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\card\forms.py:10
+#: .\card\forms.py:11
 msgid "이름"
 msgstr "이름"
 
-#: .\card\forms.py:11
+#: .\card\forms.py:12
 msgid "태그"
 msgstr "태그"
 
-#: .\card\forms.py:12
+#: .\card\forms.py:13
 msgid "효과"
 msgstr "효과"
 
 #: .\card\forms.py:16
+msgid "수집 불가 포함"
+msgstr "수집 불가 포함"
+
+#: .\card\forms.py:17
 msgid "제작 가능만"
 msgstr "제작 가능만"
 
-#: .\card\models.py:7 .\templates\card\index.html:78
-#: .\templates\deck\deck_detail.html:41
+#: .\card\models.py:7 .\templates\card\index.html:79
+#: .\templates\deck\deck_detail.html:41 .\templates\favorite.html:9
 msgid "캐릭터"
 msgstr "캐릭터"
 
-#: .\card\models.py:7 .\templates\card\index.html:80
-#: .\templates\deck\deck_detail.html:43
+#: .\card\models.py:7 .\templates\card\index.html:81
+#: .\templates\deck\deck_detail.html:43 .\templates\favorite.html:11
 msgid "스펠"
 msgstr "스펠"
 
-#: .\card\models.py:7 .\templates\card\index.html:79
-#: .\templates\deck\deck_detail.html:42
+#: .\card\models.py:7 .\templates\card\index.html:80
+#: .\templates\deck\deck_detail.html:42 .\templates\favorite.html:10
 msgid "추종자"
 msgstr "추종자"
 
@@ -73,19 +77,19 @@ msgstr "더블레어"
 msgid "유니크"
 msgstr "유니크"
 
-#: .\card\models.py:17
+#: .\card\models.py:17 .\templates\deck\index.html:775
 msgid "공립"
 msgstr "공립"
 
-#: .\card\models.py:18
+#: .\card\models.py:18 .\templates\deck\index.html:776
 msgid "사립"
 msgstr "사립"
 
-#: .\card\models.py:19
+#: .\card\models.py:19 .\templates\deck\index.html:777
 msgid "크룩스"
 msgstr "크룩스"
 
-#: .\card\models.py:20
+#: .\card\models.py:20 .\templates\deck\index.html:778
 msgid "다크로어"
 msgstr "다크로어"
 
@@ -93,66 +97,66 @@ msgstr "다크로어"
 msgid "무소속"
 msgstr "무소속"
 
-#: .\card\views.py:64 .\deck\views.py:50 .\guide\views.py:36
+#: .\card\views.py:73 .\deck\views.py:50 .\guide\views.py:36
 msgid "가로 모드"
 msgstr "가로 모드"
 
-#: .\card\views.py:65 .\deck\views.py:51 .\guide\views.py:37
+#: .\card\views.py:74 .\deck\views.py:51 .\guide\views.py:37
 msgid "세로 모드"
 msgstr "세로 모드"
 
-#: .\templates\card\index.html:24
+#: .\templates\card\index.html:25
 msgid "에피소드"
 msgstr "에피소드"
 
-#: .\templates\card\index.html:25
+#: .\templates\card\index.html:26
 msgid "상세"
 msgstr "상세"
 
-#: .\templates\card\index.html:26 .\templates\card\index.html:69
+#: .\templates\card\index.html:27 .\templates\card\index.html:70
 msgid "기타"
 msgstr "기타"
 
-#: .\templates\card\index.html:31 .\templates\deck\index.html:13
+#: .\templates\card\index.html:32 .\templates\deck\index.html:13
 #: .\templates\deck\index.html:383
 msgid "시즌 1"
 msgstr "시즌 1"
 
-#: .\templates\card\index.html:39 .\templates\deck\index.html:138
+#: .\templates\card\index.html:40 .\templates\deck\index.html:138
 #: .\templates\deck\index.html:508
 msgid "시즌 2"
 msgstr "시즌 2"
 
-#: .\templates\card\index.html:47
+#: .\templates\card\index.html:48
 msgid "이벤트"
 msgstr "이벤트"
 
-#: .\templates\card\index.html:55 .\templates\card\index.html:64
-#: .\templates\card\index.html:70
+#: .\templates\card\index.html:56 .\templates\card\index.html:65
+#: .\templates\card\index.html:71
 msgid "검색"
 msgstr "검색"
 
-#: .\templates\card\index.html:60
+#: .\templates\card\index.html:61
 msgid "종류"
 msgstr "종류"
 
-#: .\templates\card\index.html:61
+#: .\templates\card\index.html:62
 msgid "등급"
 msgstr "등급"
 
-#: .\templates\card\index.html:62
+#: .\templates\card\index.html:63
 msgid "소속"
 msgstr "소속"
 
-#: .\templates\card\index.html:63
+#: .\templates\card\index.html:64
 msgid "사이즈"
 msgstr "사이즈"
 
-#: .\templates\card\index.html:95
+#: .\templates\card\index.html:96
 msgid "검색 불가 카드 리스트(임시)"
 msgstr "검색 불가 카드 리스트(임시)"
 
-#: .\templates\card\index.html:97
+#: .\templates\card\index.html:98
 msgid "탈렌티움 리스토어"
 msgstr "탈렌티움 리스토어"
 
@@ -459,7 +463,7 @@ msgstr "카타콤"
 msgid "고대 성역"
 msgstr "고대 성역"
 
-#: .\templates\deck\index.html:143
+#: .\templates\deck\index.html:143 .\templates\deck\index.html:513
 msgid "SS흥신소"
 msgstr "SS흥신소"
 
@@ -683,6 +687,25 @@ msgstr "성탄의 카나 시니아"
 #: .\templates\deck\index.html:767
 msgid "초월의 관찰자"
 msgstr "초월의 관찰자"
+
+#: .\templates\deck\index.html:772
+msgid "시험의 전당"
+msgstr "시험의 전당"
+
+#: .\templates\deck\index.html:782 .\templates\deck\index.html:787
+#: .\templates\deck\index.html:792 .\templates\deck\index.html:797
+msgid "이지"
+msgstr "이지"
+
+#: .\templates\deck\index.html:783 .\templates\deck\index.html:788
+#: .\templates\deck\index.html:793 .\templates\deck\index.html:798
+msgid "노말"
+msgstr "노말"
+
+#: .\templates\deck\index.html:784 .\templates\deck\index.html:789
+#: .\templates\deck\index.html:794 .\templates\deck\index.html:799
+msgid "하드"
+msgstr "하드"
 
 #: .\templates\navbar.html:5
 msgid "카드(네비)"
