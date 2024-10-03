@@ -98,9 +98,11 @@ def select(request, card_id):
         "skill_defend_us",
         "desc_us",
     ]:
-        card[key] = card[key].replace("◈\n ", "◈<br/>&nbsp;")
+        card[key] = card[key].replace("◈\n", "◈<br/>")
         card[key] = card[key].replace("\n◈", "<br/>◈")
-        card[key] = card[key].replace("\n ", "<br/>&nbsp;")
+        card[key] = card[key].replace("\n", "<br/>")
+
+    print(card)
 
     return HttpResponse(
         json.dumps({"selected_card": card}, ensure_ascii=False, cls=LazyEncoder)
