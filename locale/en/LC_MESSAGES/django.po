@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-24 23:59+0900\n"
+"POT-Creation-Date: 2024-10-03 23:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,34 +18,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\card\forms.py:10
+#: .\card\forms.py:11
 msgid "이름"
 msgstr "Name"
 
-#: .\card\forms.py:11
+#: .\card\forms.py:12
 msgid "태그"
 msgstr "Tag"
 
-#: .\card\forms.py:12
+#: .\card\forms.py:13
 msgid "효과"
 msgstr "Skill"
 
 #: .\card\forms.py:16
+msgid "수집 불가 포함"
+msgstr "Also uncollectable"
+
+#: .\card\forms.py:17
 msgid "제작 가능만"
 msgstr "Only Producible"
 
-#: .\card\models.py:7 .\templates\card\index.html:78
-#: .\templates\deck\deck_detail.html:41
+#: .\card\models.py:7 .\templates\card\index.html:79
+#: .\templates\deck\deck_detail.html:41 .\templates\favorite.html:9
 msgid "캐릭터"
 msgstr "Character"
 
-#: .\card\models.py:7 .\templates\card\index.html:80
-#: .\templates\deck\deck_detail.html:43
+#: .\card\models.py:7 .\templates\card\index.html:81
+#: .\templates\deck\deck_detail.html:43 .\templates\favorite.html:11
 msgid "스펠"
 msgstr "Spell"
 
-#: .\card\models.py:7 .\templates\card\index.html:79
-#: .\templates\deck\deck_detail.html:42
+#: .\card\models.py:7 .\templates\card\index.html:80
+#: .\templates\deck\deck_detail.html:42 .\templates\favorite.html:10
 msgid "추종자"
 msgstr "Follower"
 
@@ -73,19 +77,19 @@ msgstr "Double Rare"
 msgid "유니크"
 msgstr "Unique"
 
-#: .\card\models.py:17
+#: .\card\models.py:17 .\templates\deck\index.html:775
 msgid "공립"
 msgstr "Vita"
 
-#: .\card\models.py:18
+#: .\card\models.py:18 .\templates\deck\index.html:776
 msgid "사립"
 msgstr "Royle"
 
-#: .\card\models.py:19
+#: .\card\models.py:19 .\templates\deck\index.html:777
 msgid "크룩스"
 msgstr "Crux"
 
-#: .\card\models.py:20
+#: .\card\models.py:20 .\templates\deck\index.html:778
 msgid "다크로어"
 msgstr "Darklore"
 
@@ -93,66 +97,66 @@ msgstr "Darklore"
 msgid "무소속"
 msgstr "Independence"
 
-#: .\card\views.py:64 .\deck\views.py:50 .\guide\views.py:36
+#: .\card\views.py:73 .\deck\views.py:50 .\guide\views.py:36
 msgid "가로 모드"
 msgstr "Horizontal"
 
-#: .\card\views.py:65 .\deck\views.py:51 .\guide\views.py:37
+#: .\card\views.py:74 .\deck\views.py:51 .\guide\views.py:37
 msgid "세로 모드"
 msgstr "Vertical"
 
-#: .\templates\card\index.html:24
+#: .\templates\card\index.html:25
 msgid "에피소드"
 msgstr "Episode"
 
-#: .\templates\card\index.html:25
+#: .\templates\card\index.html:26
 msgid "상세"
 msgstr "Details"
 
-#: .\templates\card\index.html:26 .\templates\card\index.html:69
+#: .\templates\card\index.html:27 .\templates\card\index.html:70
 msgid "기타"
 msgstr "Etc"
 
-#: .\templates\card\index.html:31 .\templates\deck\index.html:13
+#: .\templates\card\index.html:32 .\templates\deck\index.html:13
 #: .\templates\deck\index.html:383
 msgid "시즌 1"
 msgstr "Season 1"
 
-#: .\templates\card\index.html:39 .\templates\deck\index.html:138
+#: .\templates\card\index.html:40 .\templates\deck\index.html:138
 #: .\templates\deck\index.html:508
 msgid "시즌 2"
 msgstr "Season 2"
 
-#: .\templates\card\index.html:47
+#: .\templates\card\index.html:48
 msgid "이벤트"
 msgstr "Event"
 
-#: .\templates\card\index.html:55 .\templates\card\index.html:64
-#: .\templates\card\index.html:70
+#: .\templates\card\index.html:56 .\templates\card\index.html:65
+#: .\templates\card\index.html:71
 msgid "검색"
 msgstr "search"
 
-#: .\templates\card\index.html:60
+#: .\templates\card\index.html:61
 msgid "종류"
 msgstr "Category"
 
-#: .\templates\card\index.html:61
+#: .\templates\card\index.html:62
 msgid "등급"
 msgstr "Rarity"
 
-#: .\templates\card\index.html:62
+#: .\templates\card\index.html:63
 msgid "소속"
 msgstr "Theme"
 
-#: .\templates\card\index.html:63
+#: .\templates\card\index.html:64
 msgid "사이즈"
 msgstr "Size"
 
-#: .\templates\card\index.html:95
+#: .\templates\card\index.html:96
 msgid "검색 불가 카드 리스트(임시)"
 msgstr "Unsearchable Card List(temporary)"
 
-#: .\templates\card\index.html:97
+#: .\templates\card\index.html:98
 msgid "탈렌티움 리스토어"
 msgstr "Talentium Restore"
 
@@ -459,7 +463,7 @@ msgstr "Catacombs"
 msgid "고대 성역"
 msgstr "Ancient Sanctuary"
 
-#: .\templates\deck\index.html:143
+#: .\templates\deck\index.html:143 .\templates\deck\index.html:513
 msgid "SS흥신소"
 msgstr "2S Agency"
 
@@ -683,6 +687,25 @@ msgstr "X-mas Kana Cinia"
 #: .\templates\deck\index.html:767
 msgid "초월의 관찰자"
 msgstr "Transcendental Observer"
+
+#: .\templates\deck\index.html:772
+msgid "시험의 전당"
+msgstr "Exam Hall"
+
+#: .\templates\deck\index.html:782 .\templates\deck\index.html:787
+#: .\templates\deck\index.html:792 .\templates\deck\index.html:797
+msgid "이지"
+msgstr "Easy"
+
+#: .\templates\deck\index.html:783 .\templates\deck\index.html:788
+#: .\templates\deck\index.html:793 .\templates\deck\index.html:798
+msgid "노말"
+msgstr "Normal"
+
+#: .\templates\deck\index.html:784 .\templates\deck\index.html:789
+#: .\templates\deck\index.html:794 .\templates\deck\index.html:799
+msgid "하드"
+msgstr "Hard"
 
 #: .\templates\navbar.html:5
 msgid "카드(네비)"
