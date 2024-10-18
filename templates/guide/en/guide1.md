@@ -32,6 +32,7 @@
 * {Crux Visitor Hanobelle +2↑}(3100370)
 * {Stride of Lightning Wolf}(2100160)
 * {Blessing of Blue Sky}(2100610)
+* {Akashic Record}(2100210)
 
 ## Tier 1.5
 * {El Brillo(Crux)}(2100350)
@@ -62,6 +63,7 @@
 * {Visitor Ophelia}(3100040)
 * {Sage Esprit}(3100010)
 * {Etlangze of Black Tiger Navi}(3100350)
+* {6th Witness Kana. GLS}(3100250)
 
 ## Tier 2
 * {Mirror Match}(2100110)
