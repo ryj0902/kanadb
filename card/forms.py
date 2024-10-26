@@ -64,6 +64,12 @@ class CardSearchForm(forms.Form):
         required=False,
         label="event",
     )
+    episode_extra = forms.MultipleChoiceField(
+        choices=Card.EPISODE_EXTRA,
+        widget=forms.CheckboxSelectMultiple(attrs={"class": "checkbox-inline"}),
+        required=False,
+        label="extra",
+    )
 
     etc = forms.MultipleChoiceField(
         choices=ETC_CHOICES,
@@ -86,6 +92,7 @@ class CardSearchForm(forms.Form):
         episode_season1 = self.cleaned_data.get("episode_season1")
         episode_season2 = self.cleaned_data.get("episode_season2")
         episode_event = self.cleaned_data.get("episode_event")
+        episode_extra = self.cleaned_data.get("episode_extra")
 
         etc = self.cleaned_data.get("etc", [])
 
@@ -130,8 +137,8 @@ class CardSearchForm(forms.Form):
         if size_min and size_max:
             cards = cards.filter(size__range=(size_min, size_max))
 
-        episode_list = episode_season1 + episode_season2 + episode_event
-        if episode_season1 or episode_season2 or episode_event:
+        episode_list = episode_season1 + episode_season2 + episode_event + episode_extra
+        if episode_season1 or episode_season2 or episode_event or episode_extra:
             cards = cards.filter(episode__in=episode_list)
 
         if "uncollectable" not in etc:

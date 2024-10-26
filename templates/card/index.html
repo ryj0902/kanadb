@@ -52,6 +52,14 @@
                                 <br>
                             {% endfor %}
                         </td></tr>
+<tr><td class="search-filter-title">{% trans "엑스트라" %} <input type="checkbox" id="toggle-all-episode-extra"> </td><td class="search-filter-contents">
+                            {% for sublist in form.episode_extra|split_by_9 %}
+                                {% for item in sublist %}
+                                    {{ item }}
+                                {% endfor %}
+                                <br>
+                            {% endfor %}
+                        </td></tr>
                         <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button class="btn-submit" type="submit" name="tab" value="episode">{% trans "검색" %}</button></td></tr>
                     </table>
                 </div>
