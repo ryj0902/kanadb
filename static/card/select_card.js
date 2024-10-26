@@ -80,23 +80,17 @@ function selectCard(id, init_link){
                 link_card_ids = card.link;
             }
 
-            if (card.category === '추종자' || card.category === 'Follower') {
-                document.getElementById('card-enhance-img').style.display = 'inline-block';
-                document.getElementById('card-enhance-down').style.display = 'inline-block';
-                document.getElementById('card-enhance-up').style.display = 'inline-block';
+            document.getElementById('card-enhance-img').style.display = 'inline-block';
+            document.getElementById('card-enhance-down').style.display = 'inline-block';
+            document.getElementById('card-enhance-up').style.display = 'inline-block';
 
-                enhance_card_prev = card.enh_prev;
-                enhance_card_next = card.enh_next;
-                if (enhance_card_prev === -1) {
-                    enhance_origin_id = card.id;
-                }
-                document.getElementById('card-enhance-down').style.opacity = (enhance_card_prev === -1) ? 0.5 : 1.0;
-                document.getElementById('card-enhance-up').style.opacity = (enhance_card_next === -1) ? 0.5 : 1.0;
-            } else {
-                document.getElementById('card-enhance-img').style.display = 'none';
-                document.getElementById('card-enhance-down').style.display = 'none';
-                document.getElementById('card-enhance-up').style.display = 'none';
+            enhance_card_prev = card.enh_prev;
+            enhance_card_next = card.enh_next;
+            if (enhance_card_prev === -1) {
+                enhance_origin_id = card.id;
             }
+            document.getElementById('card-enhance-down').style.opacity = (enhance_card_prev === -1) ? 0.5 : 1.0;
+            document.getElementById('card-enhance-up').style.opacity = (enhance_card_next === -1) ? 0.5 : 1.0;
 
             $('.selected-card').html(
                 drawCard(card, "selected-card")

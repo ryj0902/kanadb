@@ -22,7 +22,8 @@ class Card(models.Model):
     ]
     EPISODE_SEASON1 = [(100 + i, f"EP{i}") for i in range(0, 9)]
     EPISODE_SEASON2 = [(100 + i, f"EP{i}") for i in range(9, 17)]
-    EPISODE_EVENT = [(500 + i, f"EV{i}") for i in range(0, 12)]
+    EPISODE_EVENT = [(500 + i, f"EV{i}") for i in range(0, 12)] + [(518, "EV18")]
+    EPISODE_EXTRA = [(801, _("쉐도우랜드")), (802, _("제국")), (803, _("명계"))]
 
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=40)
@@ -80,15 +81,33 @@ class Card(models.Model):
             card["rarity"] = Card.rarity_map[card["rarity"]]
             card["theme"] = Card.theme_map[card["theme"]]
             episode = card["episode"]
-            prefix = "EP" if episode // 100 == 1 else "EV"
-            card["episode"] = prefix + str(card["episode"] % 100)
+            if episode // 100 < 8:
+                prefix = "EP" if episode // 100 == 1 else "EV"
+                episode = prefix + str(card["episode"] % 100)
+            else:
+                if episode == 801:
+                    episode = "SH"
+                elif episode == 802:
+                    episode = "EM"
+                else:
+                    episode = "MH0"
+            card["episode"] = episode
         else:
             card.category = Card.category_map[card.category]
             card.rarity = Card.rarity_map[card.rarity]
             card.theme = Card.theme_map[card.theme]
             episode = card.episode
-            prefix = "EP" if episode // 100 == 1 else "EV"
-            card.episode = prefix + str(card.episode % 100)
+            if episode // 100 < 8:
+                prefix = "EP" if episode // 100 == 1 else "EV"
+                episode = prefix + str(card.episode % 100)
+            else:
+                if episode == 801:
+                    episode = "SH"
+                elif episode == 802:
+                    episode = "EM"
+                else:
+                    episode = "MH0"
+            card.episode = episode
 
     @staticmethod
     def parse_static_url(card):
