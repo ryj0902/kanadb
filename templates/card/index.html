@@ -89,6 +89,8 @@
                         <div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)">
                             <div class="image-card" style="background-image: url({{ card.url }});"></div>
                             <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
+                            <div class="image-enhance" style="background-image: url({{ card.frame_enh }}){% if card.enhance == 0 %};display:none;{% endif %}"></div>
+                            <div class="text-stat" id="card-enhance" {% if card.enhance == 0 %} style="display:none;" {% endif %}>{{ card.enhance }}</div>
                             <div class="text-stat" id="card-size" {% if card.category ==  character %} style="display:none;" {% endif %}>{{ card.size }}</div>
                             <div class="text-stat" id="card-atk" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.atk }}</div>
                             <div class="text-stat" id="card-def" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.defs }}</div>
