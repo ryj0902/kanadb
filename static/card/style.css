@@ -471,6 +471,10 @@ nav {
     font-size: 13px;
 }
 
+.deck-image-grid #card-enhance {
+    font-size: 8px;
+}
+
 .image-count {
     position: absolute;
     left: 30%;
