@@ -349,11 +349,11 @@
             <th>EV9 {% trans "크룩스 리조트" %}</th>
             <th>EV10 {% trans "시니아의 별장" %}</th>
             <th>EV11 {% trans "화신의 마을" %}</th>
+            {% comment %} <th></th>
             <th></th>
             <th></th>
             <th></th>
-            <th></th>
-            <th>EV18 {% trans "꿈의 스테이지" %}</th>
+            <th>EV18 {% trans "꿈의 스테이지" %}</th> {% endcomment %}
         </tr>
         <tr>
             <td> <!-- EV9 --> 
@@ -392,7 +392,7 @@
                 <li><a href="{% url 'deck_detail' 99111109 %}">{% trans "9층" %}</a></li>
                 <li><a href="{% url 'deck_detail' 99111110 %}">{% trans "10층" %}</a></li>
             </td>
-            <td></td> <!-- dummy -->
+            {% comment %} <td></td> <!-- dummy -->
             <td></td> <!-- dummy -->
             <td></td> <!-- dummy -->
             <td></td> <!-- dummy -->
@@ -407,7 +407,7 @@
                 <li><a href="{% url 'deck_detail' 99181108 %}">{% trans "8층" %}</a></li>
                 <li><a href="{% url 'deck_detail' 99181109 %}">{% trans "9층" %}</a></li>
                 <li><a href="{% url 'deck_detail' 99181110 %}">{% trans "10층" %}</a></li>
-            </td>
+            </td> {% endcomment %}
         </tr>
 
         <tr>
@@ -798,6 +798,30 @@
             </td>
             <td>
                 <li><a href="{% url 'deck_detail' 96001101 %}">{% trans "초월의 관찰자" %}</a></li>
+            </td>
+        </tr>
+
+        <tr>
+            <th class="chapter-header" colspan="9">{% trans "궁극의 아이돌" %}</th>
+        </tr>
+        <tr>
+            <td>
+                <li><a href="{% url 'deck_detail' 31101101 %}">{% trans "1층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101102 %}">{% trans "2층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101103 %}">{% trans "3층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101104 %}">{% trans "4층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101105 %}">{% trans "5층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101106 %}">{% trans "6층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101107 %}">{% trans "7층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101108 %}">{% trans "8층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101109 %}">{% trans "9층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101110 %}">{% trans "10층" %}</a></li>
+            </td>
+            <td>
+                <li><a href="{% url 'deck_detail' 31101201 %}">{% trans "이지 모드" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101202 %}">{% trans "노말 모드" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101203 %}">{% trans "하드 모드" %}</a></li>
+                <li><a href="{% url 'deck_detail' 31101301 %}">{% trans "스페셜" %}</a></li>
             </td>
         </tr>
 
