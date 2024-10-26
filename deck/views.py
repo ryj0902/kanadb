@@ -28,15 +28,15 @@ def deck_detail(request, deck_id):
     cards = list()
     for card_id, count in zip(card_ids, counts):
         card = Card.objects.all().filter(id=card_id)[0]
-        Card.parse_static_url(card)
-        Card.parse_to_string(card)
         card.count = count
         cards.append(card)
 
     sorted_cards = sorted(cards[1:], key=lambda card: (card.category, card.size))
 
-    loading_desc = deck.loading_desc.replace("\n", "<br/>")
-    loading_desc_us = deck.loading_desc_us.replace("\n", "<br/>")
+    # parse string after sorting
+    for card in cards:
+        Card.parse_static_url(card)
+        Card.parse_to_string(card)
 
     context = {
         "chapter_name": deck.chapter_name,
