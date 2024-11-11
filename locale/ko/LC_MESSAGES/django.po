@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-26 22:04+0900\n"
+"POT-Creation-Date: 2024-11-11 23:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,18 +97,22 @@ msgstr "다크로어"
 msgid "무소속"
 msgstr "무소속"
 
-#: .\card\models.py:26 .\templates\deck\index.html:416
+#: .\card\models.py:27 .\templates\deck\index.html:416
 #: .\templates\deck\index.html:422
 msgid "쉐도우랜드"
 msgstr "쉐도우랜드"
 
-#: .\card\models.py:26
+#: .\card\models.py:28
 msgid "제국"
 msgstr "제국"
 
-#: .\card\models.py:26
+#: .\card\models.py:29
 msgid "명계"
 msgstr "명계"
+
+#: .\card\models.py:30
+msgid "재료"
+msgstr "재료"
 
 #: .\card\views.py:73 .\deck\views.py:50 .\guide\views.py:36
 msgid "가로 모드"
@@ -169,11 +173,11 @@ msgstr "소속"
 msgid "사이즈"
 msgstr "사이즈"
 
-#: .\templates\card\index.html:104
+#: .\templates\card\index.html:106
 msgid "검색 불가 카드 리스트(임시)"
 msgstr "검색 불가 카드 리스트(임시)"
 
-#: .\templates\card\index.html:106
+#: .\templates\card\index.html:108
 msgid "탈렌티움 리스토어"
 msgstr "탈렌티움 리스토어"
 
@@ -243,7 +247,7 @@ msgstr "심상 세계"
 #: .\templates\deck\index.html:735 .\templates\deck\index.html:741
 #: .\templates\deck\index.html:747 .\templates\deck\index.html:760
 #: .\templates\deck\index.html:766 .\templates\deck\index.html:772
-#: .\templates\deck\index.html:812
+#: .\templates\deck\index.html:845
 msgid "1층"
 msgstr "1층"
 
@@ -273,7 +277,7 @@ msgstr "1층"
 #: .\templates\deck\index.html:736 .\templates\deck\index.html:742
 #: .\templates\deck\index.html:748 .\templates\deck\index.html:761
 #: .\templates\deck\index.html:767 .\templates\deck\index.html:773
-#: .\templates\deck\index.html:813
+#: .\templates\deck\index.html:846
 msgid "2층"
 msgstr "2층"
 
@@ -303,7 +307,7 @@ msgstr "2층"
 #: .\templates\deck\index.html:737 .\templates\deck\index.html:743
 #: .\templates\deck\index.html:749 .\templates\deck\index.html:762
 #: .\templates\deck\index.html:768 .\templates\deck\index.html:774
-#: .\templates\deck\index.html:814
+#: .\templates\deck\index.html:847
 msgid "3층"
 msgstr "3층"
 
@@ -333,7 +337,7 @@ msgstr "3층"
 #: .\templates\deck\index.html:738 .\templates\deck\index.html:744
 #: .\templates\deck\index.html:750 .\templates\deck\index.html:763
 #: .\templates\deck\index.html:769 .\templates\deck\index.html:775
-#: .\templates\deck\index.html:815
+#: .\templates\deck\index.html:848
 msgid "4층"
 msgstr "4층"
 
@@ -358,7 +362,7 @@ msgstr "4층"
 #: .\templates\deck\index.html:561 .\templates\deck\index.html:573
 #: .\templates\deck\index.html:585 .\templates\deck\index.html:597
 #: .\templates\deck\index.html:609 .\templates\deck\index.html:621
-#: .\templates\deck\index.html:633 .\templates\deck\index.html:816
+#: .\templates\deck\index.html:633 .\templates\deck\index.html:849
 msgid "5층"
 msgstr "5층"
 
@@ -382,7 +386,7 @@ msgstr "5층"
 #: .\templates\deck\index.html:562 .\templates\deck\index.html:574
 #: .\templates\deck\index.html:586 .\templates\deck\index.html:598
 #: .\templates\deck\index.html:610 .\templates\deck\index.html:622
-#: .\templates\deck\index.html:634 .\templates\deck\index.html:817
+#: .\templates\deck\index.html:634 .\templates\deck\index.html:850
 msgid "6층"
 msgstr "6층"
 
@@ -406,7 +410,7 @@ msgstr "6층"
 #: .\templates\deck\index.html:563 .\templates\deck\index.html:575
 #: .\templates\deck\index.html:587 .\templates\deck\index.html:599
 #: .\templates\deck\index.html:611 .\templates\deck\index.html:623
-#: .\templates\deck\index.html:635 .\templates\deck\index.html:818
+#: .\templates\deck\index.html:635 .\templates\deck\index.html:851
 msgid "7층"
 msgstr "7층"
 
@@ -430,7 +434,7 @@ msgstr "7층"
 #: .\templates\deck\index.html:564 .\templates\deck\index.html:576
 #: .\templates\deck\index.html:588 .\templates\deck\index.html:600
 #: .\templates\deck\index.html:612 .\templates\deck\index.html:624
-#: .\templates\deck\index.html:636 .\templates\deck\index.html:819
+#: .\templates\deck\index.html:636 .\templates\deck\index.html:852
 msgid "8층"
 msgstr "8층"
 
@@ -454,7 +458,7 @@ msgstr "8층"
 #: .\templates\deck\index.html:565 .\templates\deck\index.html:577
 #: .\templates\deck\index.html:589 .\templates\deck\index.html:601
 #: .\templates\deck\index.html:613 .\templates\deck\index.html:625
-#: .\templates\deck\index.html:637 .\templates\deck\index.html:820
+#: .\templates\deck\index.html:637 .\templates\deck\index.html:853
 msgid "9층"
 msgstr "9층"
 
@@ -478,7 +482,7 @@ msgstr "9층"
 #: .\templates\deck\index.html:566 .\templates\deck\index.html:578
 #: .\templates\deck\index.html:590 .\templates\deck\index.html:602
 #: .\templates\deck\index.html:614 .\templates\deck\index.html:626
-#: .\templates\deck\index.html:638 .\templates\deck\index.html:821
+#: .\templates\deck\index.html:638 .\templates\deck\index.html:854
 msgid "10층"
 msgstr "10층"
 
@@ -711,23 +715,23 @@ msgstr "성탄의 카나 시니아"
 msgid "초월의 관찰자"
 msgstr "초월의 관찰자"
 
-#: .\templates\deck\index.html:808
+#: .\templates\deck\index.html:841
 msgid "궁극의 아이돌"
 msgstr "궁극의 아이돌"
 
-#: .\templates\deck\index.html:824
+#: .\templates\deck\index.html:857
 msgid "이지 모드"
 msgstr "이지 모드"
 
-#: .\templates\deck\index.html:825
+#: .\templates\deck\index.html:858
 msgid "노말 모드"
 msgstr "노말 모드"
 
-#: .\templates\deck\index.html:826
+#: .\templates\deck\index.html:859
 msgid "하드 모드"
 msgstr "하드 모드"
 
-#: .\templates\deck\index.html:827
+#: .\templates\deck\index.html:860
 msgid "스페셜"
 msgstr "스페셜"
 
