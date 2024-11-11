@@ -23,7 +23,12 @@ class Card(models.Model):
     EPISODE_SEASON1 = [(100 + i, f"EP{i}") for i in range(0, 9)]
     EPISODE_SEASON2 = [(100 + i, f"EP{i}") for i in range(9, 17)]
     EPISODE_EVENT = [(500 + i, f"EV{i}") for i in range(0, 12)] + [(518, "EV18")]
-    EPISODE_EXTRA = [(801, _("쉐도우랜드")), (802, _("제국")), (803, _("명계"))]
+    EPISODE_EXTRA = [
+        (801, _("쉐도우랜드")),
+        (802, _("제국")),
+        (803, _("명계")),
+        (830, _("재료")),
+    ]
 
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=40)
@@ -76,38 +81,33 @@ class Card(models.Model):
 
     @staticmethod
     def parse_to_string(card):
+        def get_episode_string(int_episode):
+            episode = int_episode
+            if episode // 100 < 8:
+                prefix = "EP" if episode // 100 == 1 else "EV"
+                episode = prefix + str(int_episode % 100)
+            else:
+                if episode == 801:
+                    episode = "SH"
+                elif episode == 802:
+                    episode = "EM"
+                elif episode == 803:
+                    episode = "MH0"
+                else:
+                    episode = "MH30"
+
+            return episode
+
         if isinstance(card, dict):
             card["category"] = Card.category_map[card["category"]]
             card["rarity"] = Card.rarity_map[card["rarity"]]
             card["theme"] = Card.theme_map[card["theme"]]
-            episode = card["episode"]
-            if episode // 100 < 8:
-                prefix = "EP" if episode // 100 == 1 else "EV"
-                episode = prefix + str(card["episode"] % 100)
-            else:
-                if episode == 801:
-                    episode = "SH"
-                elif episode == 802:
-                    episode = "EM"
-                else:
-                    episode = "MH0"
-            card["episode"] = episode
+            card["episode"] = get_episode_string(card["episode"])
         else:
             card.category = Card.category_map[card.category]
             card.rarity = Card.rarity_map[card.rarity]
             card.theme = Card.theme_map[card.theme]
-            episode = card.episode
-            if episode // 100 < 8:
-                prefix = "EP" if episode // 100 == 1 else "EV"
-                episode = prefix + str(card.episode % 100)
-            else:
-                if episode == 801:
-                    episode = "SH"
-                elif episode == 802:
-                    episode = "EM"
-                else:
-                    episode = "MH0"
-            card.episode = episode
+            card.episode = get_episode_string(card.episode)
 
     @staticmethod
     def parse_static_url(card):
