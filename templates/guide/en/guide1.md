@@ -17,6 +17,7 @@
 * {Talentium Restore}(2100330)
 * {Administration Bureau}(2100200)
 * {Curse of Dark Sky}(2100600)
+* {Ultimate Idol}(2100730)
 
 ## Tier 1
 * {Successor of Moon Luna(Darklore/Nether)}(3100460)
@@ -64,6 +65,7 @@
 * {Sage Esprit}(3100010)
 * {Etlangze of Black Tiger Navi}(3100350)
 * {6th Witness Kana. GLS}(3100250)
+* {Idol Qubeley}(3100690)
 
 ## Tier 2
 * {Mirror Match}(2100110)
