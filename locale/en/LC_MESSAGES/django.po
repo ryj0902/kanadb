@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-11 23:22+0900\n"
+"POT-Creation-Date: 2024-12-16 09:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,8 +97,8 @@ msgstr "Darklore"
 msgid "무소속"
 msgstr "Independence"
 
-#: .\card\models.py:27 .\templates\deck\index.html:416
-#: .\templates\deck\index.html:422
+#: .\card\models.py:27 .\templates\deck\index.html:429
+#: .\templates\deck\index.html:435
 msgid "쉐도우랜드"
 msgstr "Shadowland"
 
@@ -114,11 +114,13 @@ msgstr "Nether"
 msgid "재료"
 msgstr "Materials"
 
-#: .\card\views.py:73 .\deck\views.py:50 .\guide\views.py:36
+#: .\card\views.py:73 .\deck\views.py:50 .\deck\views.py:113
+#: .\guide\views.py:36
 msgid "가로 모드"
 msgstr "Horizontal"
 
-#: .\card\views.py:74 .\deck\views.py:51 .\guide\views.py:37
+#: .\card\views.py:74 .\deck\views.py:51 .\deck\views.py:114
+#: .\guide\views.py:37
 msgid "세로 모드"
 msgstr "Vertical"
 
@@ -135,20 +137,20 @@ msgid "기타"
 msgstr "Etc"
 
 #: .\templates\card\index.html:32 .\templates\deck\index.html:13
-#: .\templates\deck\index.html:419
+#: .\templates\deck\index.html:432
 msgid "시즌 1"
 msgstr "Season 1"
 
 #: .\templates\card\index.html:40 .\templates\deck\index.html:138
-#: .\templates\deck\index.html:544
+#: .\templates\deck\index.html:557
 msgid "시즌 2"
 msgstr "Season 2"
 
-#: .\templates\card\index.html:48 .\templates\deck\index.html:237
+#: .\templates\card\index.html:48 .\templates\deck\index.html:250
 msgid "이벤트"
 msgstr "Event"
 
-#: .\templates\card\index.html:56 .\templates\deck\index.html:643
+#: .\templates\card\index.html:56 .\templates\deck\index.html:669
 msgid "엑스트라"
 msgstr "Extra"
 
@@ -189,35 +191,35 @@ msgstr "Capture"
 msgid "시공관리국"
 msgstr "Administration Bureau"
 
-#: .\templates\deck\index.html:17 .\templates\deck\index.html:423
+#: .\templates\deck\index.html:17 .\templates\deck\index.html:436
 msgid "변경 유적"
 msgstr "Frontier Ruins"
 
-#: .\templates\deck\index.html:18 .\templates\deck\index.html:424
+#: .\templates\deck\index.html:18 .\templates\deck\index.html:437
 msgid "마녀의 탑"
 msgstr "Witch's Tower"
 
-#: .\templates\deck\index.html:19 .\templates\deck\index.html:425
+#: .\templates\deck\index.html:19 .\templates\deck\index.html:438
 msgid "죽림향"
 msgstr "Bamboo Garden"
 
-#: .\templates\deck\index.html:20 .\templates\deck\index.html:426
+#: .\templates\deck\index.html:20 .\templates\deck\index.html:439
 msgid "크룩스 훈련소"
 msgstr "Crux Training Camp"
 
-#: .\templates\deck\index.html:21 .\templates\deck\index.html:427
+#: .\templates\deck\index.html:21 .\templates\deck\index.html:440
 msgid "리니아관"
 msgstr "Linia's Mansion"
 
-#: .\templates\deck\index.html:22 .\templates\deck\index.html:428
+#: .\templates\deck\index.html:22 .\templates\deck\index.html:441
 msgid "흡혈귀의 땅"
 msgstr "Land of Vampires"
 
-#: .\templates\deck\index.html:23 .\templates\deck\index.html:429
+#: .\templates\deck\index.html:23 .\templates\deck\index.html:442
 msgid "비타 학교"
 msgstr "Vita School"
 
-#: .\templates\deck\index.html:24 .\templates\deck\index.html:430
+#: .\templates\deck\index.html:24 .\templates\deck\index.html:443
 msgid "심상 세계"
 msgstr "Inner World"
 
@@ -225,29 +227,30 @@ msgstr "Inner World"
 #: .\templates\deck\index.html:52 .\templates\deck\index.html:64
 #: .\templates\deck\index.html:76 .\templates\deck\index.html:88
 #: .\templates\deck\index.html:100 .\templates\deck\index.html:112
-#: .\templates\deck\index.html:124 .\templates\deck\index.html:151
-#: .\templates\deck\index.html:163 .\templates\deck\index.html:175
-#: .\templates\deck\index.html:187 .\templates\deck\index.html:199
-#: .\templates\deck\index.html:211 .\templates\deck\index.html:223
-#: .\templates\deck\index.html:251 .\templates\deck\index.html:263
-#: .\templates\deck\index.html:275 .\templates\deck\index.html:287
-#: .\templates\deck\index.html:299 .\templates\deck\index.html:311
-#: .\templates\deck\index.html:323 .\templates\deck\index.html:335
-#: .\templates\deck\index.html:361 .\templates\deck\index.html:373
-#: .\templates\deck\index.html:385 .\templates\deck\index.html:434
-#: .\templates\deck\index.html:446 .\templates\deck\index.html:458
-#: .\templates\deck\index.html:470 .\templates\deck\index.html:482
-#: .\templates\deck\index.html:494 .\templates\deck\index.html:506
-#: .\templates\deck\index.html:518 .\templates\deck\index.html:530
-#: .\templates\deck\index.html:557 .\templates\deck\index.html:569
-#: .\templates\deck\index.html:581 .\templates\deck\index.html:593
-#: .\templates\deck\index.html:605 .\templates\deck\index.html:617
-#: .\templates\deck\index.html:629 .\templates\deck\index.html:717
-#: .\templates\deck\index.html:723 .\templates\deck\index.html:729
-#: .\templates\deck\index.html:735 .\templates\deck\index.html:741
-#: .\templates\deck\index.html:747 .\templates\deck\index.html:760
-#: .\templates\deck\index.html:766 .\templates\deck\index.html:772
-#: .\templates\deck\index.html:845
+#: .\templates\deck\index.html:124 .\templates\deck\index.html:152
+#: .\templates\deck\index.html:164 .\templates\deck\index.html:176
+#: .\templates\deck\index.html:188 .\templates\deck\index.html:200
+#: .\templates\deck\index.html:212 .\templates\deck\index.html:224
+#: .\templates\deck\index.html:236 .\templates\deck\index.html:264
+#: .\templates\deck\index.html:276 .\templates\deck\index.html:288
+#: .\templates\deck\index.html:300 .\templates\deck\index.html:312
+#: .\templates\deck\index.html:324 .\templates\deck\index.html:336
+#: .\templates\deck\index.html:348 .\templates\deck\index.html:374
+#: .\templates\deck\index.html:386 .\templates\deck\index.html:398
+#: .\templates\deck\index.html:447 .\templates\deck\index.html:459
+#: .\templates\deck\index.html:471 .\templates\deck\index.html:483
+#: .\templates\deck\index.html:495 .\templates\deck\index.html:507
+#: .\templates\deck\index.html:519 .\templates\deck\index.html:531
+#: .\templates\deck\index.html:543 .\templates\deck\index.html:571
+#: .\templates\deck\index.html:583 .\templates\deck\index.html:595
+#: .\templates\deck\index.html:607 .\templates\deck\index.html:619
+#: .\templates\deck\index.html:631 .\templates\deck\index.html:643
+#: .\templates\deck\index.html:655 .\templates\deck\index.html:743
+#: .\templates\deck\index.html:749 .\templates\deck\index.html:755
+#: .\templates\deck\index.html:761 .\templates\deck\index.html:767
+#: .\templates\deck\index.html:773 .\templates\deck\index.html:787
+#: .\templates\deck\index.html:793 .\templates\deck\index.html:799
+#: .\templates\deck\index.html:805
 msgid "1층"
 msgstr "1F"
 
@@ -255,29 +258,30 @@ msgstr "1F"
 #: .\templates\deck\index.html:53 .\templates\deck\index.html:65
 #: .\templates\deck\index.html:77 .\templates\deck\index.html:89
 #: .\templates\deck\index.html:101 .\templates\deck\index.html:113
-#: .\templates\deck\index.html:125 .\templates\deck\index.html:152
-#: .\templates\deck\index.html:164 .\templates\deck\index.html:176
-#: .\templates\deck\index.html:188 .\templates\deck\index.html:200
-#: .\templates\deck\index.html:212 .\templates\deck\index.html:224
-#: .\templates\deck\index.html:252 .\templates\deck\index.html:264
-#: .\templates\deck\index.html:276 .\templates\deck\index.html:288
-#: .\templates\deck\index.html:300 .\templates\deck\index.html:312
-#: .\templates\deck\index.html:324 .\templates\deck\index.html:336
-#: .\templates\deck\index.html:362 .\templates\deck\index.html:374
-#: .\templates\deck\index.html:386 .\templates\deck\index.html:435
-#: .\templates\deck\index.html:447 .\templates\deck\index.html:459
-#: .\templates\deck\index.html:471 .\templates\deck\index.html:483
-#: .\templates\deck\index.html:495 .\templates\deck\index.html:507
-#: .\templates\deck\index.html:519 .\templates\deck\index.html:531
-#: .\templates\deck\index.html:558 .\templates\deck\index.html:570
-#: .\templates\deck\index.html:582 .\templates\deck\index.html:594
-#: .\templates\deck\index.html:606 .\templates\deck\index.html:618
-#: .\templates\deck\index.html:630 .\templates\deck\index.html:718
-#: .\templates\deck\index.html:724 .\templates\deck\index.html:730
-#: .\templates\deck\index.html:736 .\templates\deck\index.html:742
-#: .\templates\deck\index.html:748 .\templates\deck\index.html:761
-#: .\templates\deck\index.html:767 .\templates\deck\index.html:773
-#: .\templates\deck\index.html:846
+#: .\templates\deck\index.html:125 .\templates\deck\index.html:153
+#: .\templates\deck\index.html:165 .\templates\deck\index.html:177
+#: .\templates\deck\index.html:189 .\templates\deck\index.html:201
+#: .\templates\deck\index.html:213 .\templates\deck\index.html:225
+#: .\templates\deck\index.html:237 .\templates\deck\index.html:265
+#: .\templates\deck\index.html:277 .\templates\deck\index.html:289
+#: .\templates\deck\index.html:301 .\templates\deck\index.html:313
+#: .\templates\deck\index.html:325 .\templates\deck\index.html:337
+#: .\templates\deck\index.html:349 .\templates\deck\index.html:375
+#: .\templates\deck\index.html:387 .\templates\deck\index.html:399
+#: .\templates\deck\index.html:448 .\templates\deck\index.html:460
+#: .\templates\deck\index.html:472 .\templates\deck\index.html:484
+#: .\templates\deck\index.html:496 .\templates\deck\index.html:508
+#: .\templates\deck\index.html:520 .\templates\deck\index.html:532
+#: .\templates\deck\index.html:544 .\templates\deck\index.html:572
+#: .\templates\deck\index.html:584 .\templates\deck\index.html:596
+#: .\templates\deck\index.html:608 .\templates\deck\index.html:620
+#: .\templates\deck\index.html:632 .\templates\deck\index.html:644
+#: .\templates\deck\index.html:656 .\templates\deck\index.html:744
+#: .\templates\deck\index.html:750 .\templates\deck\index.html:756
+#: .\templates\deck\index.html:762 .\templates\deck\index.html:768
+#: .\templates\deck\index.html:774 .\templates\deck\index.html:788
+#: .\templates\deck\index.html:794 .\templates\deck\index.html:800
+#: .\templates\deck\index.html:806
 msgid "2층"
 msgstr "2F"
 
@@ -285,29 +289,30 @@ msgstr "2F"
 #: .\templates\deck\index.html:54 .\templates\deck\index.html:66
 #: .\templates\deck\index.html:78 .\templates\deck\index.html:90
 #: .\templates\deck\index.html:102 .\templates\deck\index.html:114
-#: .\templates\deck\index.html:126 .\templates\deck\index.html:153
-#: .\templates\deck\index.html:165 .\templates\deck\index.html:177
-#: .\templates\deck\index.html:189 .\templates\deck\index.html:201
-#: .\templates\deck\index.html:213 .\templates\deck\index.html:225
-#: .\templates\deck\index.html:253 .\templates\deck\index.html:265
-#: .\templates\deck\index.html:277 .\templates\deck\index.html:289
-#: .\templates\deck\index.html:301 .\templates\deck\index.html:313
-#: .\templates\deck\index.html:325 .\templates\deck\index.html:337
-#: .\templates\deck\index.html:363 .\templates\deck\index.html:375
-#: .\templates\deck\index.html:387 .\templates\deck\index.html:436
-#: .\templates\deck\index.html:448 .\templates\deck\index.html:460
-#: .\templates\deck\index.html:472 .\templates\deck\index.html:484
-#: .\templates\deck\index.html:496 .\templates\deck\index.html:508
-#: .\templates\deck\index.html:520 .\templates\deck\index.html:532
-#: .\templates\deck\index.html:559 .\templates\deck\index.html:571
-#: .\templates\deck\index.html:583 .\templates\deck\index.html:595
-#: .\templates\deck\index.html:607 .\templates\deck\index.html:619
-#: .\templates\deck\index.html:631 .\templates\deck\index.html:719
-#: .\templates\deck\index.html:725 .\templates\deck\index.html:731
-#: .\templates\deck\index.html:737 .\templates\deck\index.html:743
-#: .\templates\deck\index.html:749 .\templates\deck\index.html:762
-#: .\templates\deck\index.html:768 .\templates\deck\index.html:774
-#: .\templates\deck\index.html:847
+#: .\templates\deck\index.html:126 .\templates\deck\index.html:154
+#: .\templates\deck\index.html:166 .\templates\deck\index.html:178
+#: .\templates\deck\index.html:190 .\templates\deck\index.html:202
+#: .\templates\deck\index.html:214 .\templates\deck\index.html:226
+#: .\templates\deck\index.html:238 .\templates\deck\index.html:266
+#: .\templates\deck\index.html:278 .\templates\deck\index.html:290
+#: .\templates\deck\index.html:302 .\templates\deck\index.html:314
+#: .\templates\deck\index.html:326 .\templates\deck\index.html:338
+#: .\templates\deck\index.html:350 .\templates\deck\index.html:376
+#: .\templates\deck\index.html:388 .\templates\deck\index.html:400
+#: .\templates\deck\index.html:449 .\templates\deck\index.html:461
+#: .\templates\deck\index.html:473 .\templates\deck\index.html:485
+#: .\templates\deck\index.html:497 .\templates\deck\index.html:509
+#: .\templates\deck\index.html:521 .\templates\deck\index.html:533
+#: .\templates\deck\index.html:545 .\templates\deck\index.html:573
+#: .\templates\deck\index.html:585 .\templates\deck\index.html:597
+#: .\templates\deck\index.html:609 .\templates\deck\index.html:621
+#: .\templates\deck\index.html:633 .\templates\deck\index.html:645
+#: .\templates\deck\index.html:657 .\templates\deck\index.html:745
+#: .\templates\deck\index.html:751 .\templates\deck\index.html:757
+#: .\templates\deck\index.html:763 .\templates\deck\index.html:769
+#: .\templates\deck\index.html:775 .\templates\deck\index.html:789
+#: .\templates\deck\index.html:795 .\templates\deck\index.html:801
+#: .\templates\deck\index.html:807
 msgid "3층"
 msgstr "3F"
 
@@ -315,29 +320,30 @@ msgstr "3F"
 #: .\templates\deck\index.html:55 .\templates\deck\index.html:67
 #: .\templates\deck\index.html:79 .\templates\deck\index.html:91
 #: .\templates\deck\index.html:103 .\templates\deck\index.html:115
-#: .\templates\deck\index.html:127 .\templates\deck\index.html:154
-#: .\templates\deck\index.html:166 .\templates\deck\index.html:178
-#: .\templates\deck\index.html:190 .\templates\deck\index.html:202
-#: .\templates\deck\index.html:214 .\templates\deck\index.html:226
-#: .\templates\deck\index.html:254 .\templates\deck\index.html:266
-#: .\templates\deck\index.html:278 .\templates\deck\index.html:290
-#: .\templates\deck\index.html:302 .\templates\deck\index.html:314
-#: .\templates\deck\index.html:326 .\templates\deck\index.html:338
-#: .\templates\deck\index.html:364 .\templates\deck\index.html:376
-#: .\templates\deck\index.html:388 .\templates\deck\index.html:437
-#: .\templates\deck\index.html:449 .\templates\deck\index.html:461
-#: .\templates\deck\index.html:473 .\templates\deck\index.html:485
-#: .\templates\deck\index.html:497 .\templates\deck\index.html:509
-#: .\templates\deck\index.html:521 .\templates\deck\index.html:533
-#: .\templates\deck\index.html:560 .\templates\deck\index.html:572
-#: .\templates\deck\index.html:584 .\templates\deck\index.html:596
-#: .\templates\deck\index.html:608 .\templates\deck\index.html:620
-#: .\templates\deck\index.html:632 .\templates\deck\index.html:720
-#: .\templates\deck\index.html:726 .\templates\deck\index.html:732
-#: .\templates\deck\index.html:738 .\templates\deck\index.html:744
-#: .\templates\deck\index.html:750 .\templates\deck\index.html:763
-#: .\templates\deck\index.html:769 .\templates\deck\index.html:775
-#: .\templates\deck\index.html:848
+#: .\templates\deck\index.html:127 .\templates\deck\index.html:155
+#: .\templates\deck\index.html:167 .\templates\deck\index.html:179
+#: .\templates\deck\index.html:191 .\templates\deck\index.html:203
+#: .\templates\deck\index.html:215 .\templates\deck\index.html:227
+#: .\templates\deck\index.html:239 .\templates\deck\index.html:267
+#: .\templates\deck\index.html:279 .\templates\deck\index.html:291
+#: .\templates\deck\index.html:303 .\templates\deck\index.html:315
+#: .\templates\deck\index.html:327 .\templates\deck\index.html:339
+#: .\templates\deck\index.html:351 .\templates\deck\index.html:377
+#: .\templates\deck\index.html:389 .\templates\deck\index.html:401
+#: .\templates\deck\index.html:450 .\templates\deck\index.html:462
+#: .\templates\deck\index.html:474 .\templates\deck\index.html:486
+#: .\templates\deck\index.html:498 .\templates\deck\index.html:510
+#: .\templates\deck\index.html:522 .\templates\deck\index.html:534
+#: .\templates\deck\index.html:546 .\templates\deck\index.html:574
+#: .\templates\deck\index.html:586 .\templates\deck\index.html:598
+#: .\templates\deck\index.html:610 .\templates\deck\index.html:622
+#: .\templates\deck\index.html:634 .\templates\deck\index.html:646
+#: .\templates\deck\index.html:658 .\templates\deck\index.html:746
+#: .\templates\deck\index.html:752 .\templates\deck\index.html:758
+#: .\templates\deck\index.html:764 .\templates\deck\index.html:770
+#: .\templates\deck\index.html:776 .\templates\deck\index.html:790
+#: .\templates\deck\index.html:796 .\templates\deck\index.html:802
+#: .\templates\deck\index.html:808
 msgid "4층"
 msgstr "4F"
 
@@ -345,24 +351,25 @@ msgstr "4F"
 #: .\templates\deck\index.html:56 .\templates\deck\index.html:68
 #: .\templates\deck\index.html:80 .\templates\deck\index.html:92
 #: .\templates\deck\index.html:104 .\templates\deck\index.html:116
-#: .\templates\deck\index.html:128 .\templates\deck\index.html:155
-#: .\templates\deck\index.html:167 .\templates\deck\index.html:179
-#: .\templates\deck\index.html:191 .\templates\deck\index.html:203
-#: .\templates\deck\index.html:215 .\templates\deck\index.html:227
-#: .\templates\deck\index.html:255 .\templates\deck\index.html:267
-#: .\templates\deck\index.html:279 .\templates\deck\index.html:291
-#: .\templates\deck\index.html:303 .\templates\deck\index.html:315
-#: .\templates\deck\index.html:327 .\templates\deck\index.html:339
-#: .\templates\deck\index.html:365 .\templates\deck\index.html:377
-#: .\templates\deck\index.html:389 .\templates\deck\index.html:438
-#: .\templates\deck\index.html:450 .\templates\deck\index.html:462
-#: .\templates\deck\index.html:474 .\templates\deck\index.html:486
-#: .\templates\deck\index.html:498 .\templates\deck\index.html:510
-#: .\templates\deck\index.html:522 .\templates\deck\index.html:534
-#: .\templates\deck\index.html:561 .\templates\deck\index.html:573
-#: .\templates\deck\index.html:585 .\templates\deck\index.html:597
-#: .\templates\deck\index.html:609 .\templates\deck\index.html:621
-#: .\templates\deck\index.html:633 .\templates\deck\index.html:849
+#: .\templates\deck\index.html:128 .\templates\deck\index.html:156
+#: .\templates\deck\index.html:168 .\templates\deck\index.html:180
+#: .\templates\deck\index.html:192 .\templates\deck\index.html:204
+#: .\templates\deck\index.html:216 .\templates\deck\index.html:228
+#: .\templates\deck\index.html:240 .\templates\deck\index.html:268
+#: .\templates\deck\index.html:280 .\templates\deck\index.html:292
+#: .\templates\deck\index.html:304 .\templates\deck\index.html:316
+#: .\templates\deck\index.html:328 .\templates\deck\index.html:340
+#: .\templates\deck\index.html:352 .\templates\deck\index.html:378
+#: .\templates\deck\index.html:390 .\templates\deck\index.html:402
+#: .\templates\deck\index.html:451 .\templates\deck\index.html:463
+#: .\templates\deck\index.html:475 .\templates\deck\index.html:487
+#: .\templates\deck\index.html:499 .\templates\deck\index.html:511
+#: .\templates\deck\index.html:523 .\templates\deck\index.html:535
+#: .\templates\deck\index.html:547 .\templates\deck\index.html:575
+#: .\templates\deck\index.html:587 .\templates\deck\index.html:599
+#: .\templates\deck\index.html:611 .\templates\deck\index.html:623
+#: .\templates\deck\index.html:635 .\templates\deck\index.html:647
+#: .\templates\deck\index.html:659
 msgid "5층"
 msgstr "5F"
 
@@ -370,23 +377,24 @@ msgstr "5F"
 #: .\templates\deck\index.html:69 .\templates\deck\index.html:81
 #: .\templates\deck\index.html:93 .\templates\deck\index.html:105
 #: .\templates\deck\index.html:117 .\templates\deck\index.html:129
-#: .\templates\deck\index.html:156 .\templates\deck\index.html:168
-#: .\templates\deck\index.html:180 .\templates\deck\index.html:192
-#: .\templates\deck\index.html:204 .\templates\deck\index.html:216
-#: .\templates\deck\index.html:228 .\templates\deck\index.html:256
-#: .\templates\deck\index.html:268 .\templates\deck\index.html:280
-#: .\templates\deck\index.html:292 .\templates\deck\index.html:304
-#: .\templates\deck\index.html:316 .\templates\deck\index.html:328
-#: .\templates\deck\index.html:340 .\templates\deck\index.html:366
-#: .\templates\deck\index.html:378 .\templates\deck\index.html:390
-#: .\templates\deck\index.html:451 .\templates\deck\index.html:463
-#: .\templates\deck\index.html:475 .\templates\deck\index.html:487
-#: .\templates\deck\index.html:499 .\templates\deck\index.html:511
-#: .\templates\deck\index.html:523 .\templates\deck\index.html:535
-#: .\templates\deck\index.html:562 .\templates\deck\index.html:574
-#: .\templates\deck\index.html:586 .\templates\deck\index.html:598
-#: .\templates\deck\index.html:610 .\templates\deck\index.html:622
-#: .\templates\deck\index.html:634 .\templates\deck\index.html:850
+#: .\templates\deck\index.html:157 .\templates\deck\index.html:169
+#: .\templates\deck\index.html:181 .\templates\deck\index.html:193
+#: .\templates\deck\index.html:205 .\templates\deck\index.html:217
+#: .\templates\deck\index.html:229 .\templates\deck\index.html:241
+#: .\templates\deck\index.html:269 .\templates\deck\index.html:281
+#: .\templates\deck\index.html:293 .\templates\deck\index.html:305
+#: .\templates\deck\index.html:317 .\templates\deck\index.html:329
+#: .\templates\deck\index.html:341 .\templates\deck\index.html:353
+#: .\templates\deck\index.html:379 .\templates\deck\index.html:391
+#: .\templates\deck\index.html:403 .\templates\deck\index.html:464
+#: .\templates\deck\index.html:476 .\templates\deck\index.html:488
+#: .\templates\deck\index.html:500 .\templates\deck\index.html:512
+#: .\templates\deck\index.html:524 .\templates\deck\index.html:536
+#: .\templates\deck\index.html:548 .\templates\deck\index.html:576
+#: .\templates\deck\index.html:588 .\templates\deck\index.html:600
+#: .\templates\deck\index.html:612 .\templates\deck\index.html:624
+#: .\templates\deck\index.html:636 .\templates\deck\index.html:648
+#: .\templates\deck\index.html:660
 msgid "6층"
 msgstr "6F"
 
@@ -394,23 +402,24 @@ msgstr "6F"
 #: .\templates\deck\index.html:70 .\templates\deck\index.html:82
 #: .\templates\deck\index.html:94 .\templates\deck\index.html:106
 #: .\templates\deck\index.html:118 .\templates\deck\index.html:130
-#: .\templates\deck\index.html:157 .\templates\deck\index.html:169
-#: .\templates\deck\index.html:181 .\templates\deck\index.html:193
-#: .\templates\deck\index.html:205 .\templates\deck\index.html:217
-#: .\templates\deck\index.html:229 .\templates\deck\index.html:257
-#: .\templates\deck\index.html:269 .\templates\deck\index.html:281
-#: .\templates\deck\index.html:293 .\templates\deck\index.html:305
-#: .\templates\deck\index.html:317 .\templates\deck\index.html:329
-#: .\templates\deck\index.html:341 .\templates\deck\index.html:367
-#: .\templates\deck\index.html:379 .\templates\deck\index.html:391
-#: .\templates\deck\index.html:452 .\templates\deck\index.html:464
-#: .\templates\deck\index.html:476 .\templates\deck\index.html:488
-#: .\templates\deck\index.html:500 .\templates\deck\index.html:512
-#: .\templates\deck\index.html:524 .\templates\deck\index.html:536
-#: .\templates\deck\index.html:563 .\templates\deck\index.html:575
-#: .\templates\deck\index.html:587 .\templates\deck\index.html:599
-#: .\templates\deck\index.html:611 .\templates\deck\index.html:623
-#: .\templates\deck\index.html:635 .\templates\deck\index.html:851
+#: .\templates\deck\index.html:158 .\templates\deck\index.html:170
+#: .\templates\deck\index.html:182 .\templates\deck\index.html:194
+#: .\templates\deck\index.html:206 .\templates\deck\index.html:218
+#: .\templates\deck\index.html:230 .\templates\deck\index.html:242
+#: .\templates\deck\index.html:270 .\templates\deck\index.html:282
+#: .\templates\deck\index.html:294 .\templates\deck\index.html:306
+#: .\templates\deck\index.html:318 .\templates\deck\index.html:330
+#: .\templates\deck\index.html:342 .\templates\deck\index.html:354
+#: .\templates\deck\index.html:380 .\templates\deck\index.html:392
+#: .\templates\deck\index.html:404 .\templates\deck\index.html:465
+#: .\templates\deck\index.html:477 .\templates\deck\index.html:489
+#: .\templates\deck\index.html:501 .\templates\deck\index.html:513
+#: .\templates\deck\index.html:525 .\templates\deck\index.html:537
+#: .\templates\deck\index.html:549 .\templates\deck\index.html:577
+#: .\templates\deck\index.html:589 .\templates\deck\index.html:601
+#: .\templates\deck\index.html:613 .\templates\deck\index.html:625
+#: .\templates\deck\index.html:637 .\templates\deck\index.html:649
+#: .\templates\deck\index.html:661
 msgid "7층"
 msgstr "7F"
 
@@ -418,23 +427,24 @@ msgstr "7F"
 #: .\templates\deck\index.html:71 .\templates\deck\index.html:83
 #: .\templates\deck\index.html:95 .\templates\deck\index.html:107
 #: .\templates\deck\index.html:119 .\templates\deck\index.html:131
-#: .\templates\deck\index.html:158 .\templates\deck\index.html:170
-#: .\templates\deck\index.html:182 .\templates\deck\index.html:194
-#: .\templates\deck\index.html:206 .\templates\deck\index.html:218
-#: .\templates\deck\index.html:230 .\templates\deck\index.html:258
-#: .\templates\deck\index.html:270 .\templates\deck\index.html:282
-#: .\templates\deck\index.html:294 .\templates\deck\index.html:306
-#: .\templates\deck\index.html:318 .\templates\deck\index.html:330
-#: .\templates\deck\index.html:342 .\templates\deck\index.html:368
-#: .\templates\deck\index.html:380 .\templates\deck\index.html:392
-#: .\templates\deck\index.html:453 .\templates\deck\index.html:465
-#: .\templates\deck\index.html:477 .\templates\deck\index.html:489
-#: .\templates\deck\index.html:501 .\templates\deck\index.html:513
-#: .\templates\deck\index.html:525 .\templates\deck\index.html:537
-#: .\templates\deck\index.html:564 .\templates\deck\index.html:576
-#: .\templates\deck\index.html:588 .\templates\deck\index.html:600
-#: .\templates\deck\index.html:612 .\templates\deck\index.html:624
-#: .\templates\deck\index.html:636 .\templates\deck\index.html:852
+#: .\templates\deck\index.html:159 .\templates\deck\index.html:171
+#: .\templates\deck\index.html:183 .\templates\deck\index.html:195
+#: .\templates\deck\index.html:207 .\templates\deck\index.html:219
+#: .\templates\deck\index.html:231 .\templates\deck\index.html:243
+#: .\templates\deck\index.html:271 .\templates\deck\index.html:283
+#: .\templates\deck\index.html:295 .\templates\deck\index.html:307
+#: .\templates\deck\index.html:319 .\templates\deck\index.html:331
+#: .\templates\deck\index.html:343 .\templates\deck\index.html:355
+#: .\templates\deck\index.html:381 .\templates\deck\index.html:393
+#: .\templates\deck\index.html:405 .\templates\deck\index.html:466
+#: .\templates\deck\index.html:478 .\templates\deck\index.html:490
+#: .\templates\deck\index.html:502 .\templates\deck\index.html:514
+#: .\templates\deck\index.html:526 .\templates\deck\index.html:538
+#: .\templates\deck\index.html:550 .\templates\deck\index.html:578
+#: .\templates\deck\index.html:590 .\templates\deck\index.html:602
+#: .\templates\deck\index.html:614 .\templates\deck\index.html:626
+#: .\templates\deck\index.html:638 .\templates\deck\index.html:650
+#: .\templates\deck\index.html:662
 msgid "8층"
 msgstr "8F"
 
@@ -442,23 +452,24 @@ msgstr "8F"
 #: .\templates\deck\index.html:72 .\templates\deck\index.html:84
 #: .\templates\deck\index.html:96 .\templates\deck\index.html:108
 #: .\templates\deck\index.html:120 .\templates\deck\index.html:132
-#: .\templates\deck\index.html:159 .\templates\deck\index.html:171
-#: .\templates\deck\index.html:183 .\templates\deck\index.html:195
-#: .\templates\deck\index.html:207 .\templates\deck\index.html:219
-#: .\templates\deck\index.html:231 .\templates\deck\index.html:259
-#: .\templates\deck\index.html:271 .\templates\deck\index.html:283
-#: .\templates\deck\index.html:295 .\templates\deck\index.html:307
-#: .\templates\deck\index.html:319 .\templates\deck\index.html:331
-#: .\templates\deck\index.html:343 .\templates\deck\index.html:369
-#: .\templates\deck\index.html:381 .\templates\deck\index.html:393
-#: .\templates\deck\index.html:454 .\templates\deck\index.html:466
-#: .\templates\deck\index.html:478 .\templates\deck\index.html:490
-#: .\templates\deck\index.html:502 .\templates\deck\index.html:514
-#: .\templates\deck\index.html:526 .\templates\deck\index.html:538
-#: .\templates\deck\index.html:565 .\templates\deck\index.html:577
-#: .\templates\deck\index.html:589 .\templates\deck\index.html:601
-#: .\templates\deck\index.html:613 .\templates\deck\index.html:625
-#: .\templates\deck\index.html:637 .\templates\deck\index.html:853
+#: .\templates\deck\index.html:160 .\templates\deck\index.html:172
+#: .\templates\deck\index.html:184 .\templates\deck\index.html:196
+#: .\templates\deck\index.html:208 .\templates\deck\index.html:220
+#: .\templates\deck\index.html:232 .\templates\deck\index.html:244
+#: .\templates\deck\index.html:272 .\templates\deck\index.html:284
+#: .\templates\deck\index.html:296 .\templates\deck\index.html:308
+#: .\templates\deck\index.html:320 .\templates\deck\index.html:332
+#: .\templates\deck\index.html:344 .\templates\deck\index.html:356
+#: .\templates\deck\index.html:382 .\templates\deck\index.html:394
+#: .\templates\deck\index.html:406 .\templates\deck\index.html:467
+#: .\templates\deck\index.html:479 .\templates\deck\index.html:491
+#: .\templates\deck\index.html:503 .\templates\deck\index.html:515
+#: .\templates\deck\index.html:527 .\templates\deck\index.html:539
+#: .\templates\deck\index.html:551 .\templates\deck\index.html:579
+#: .\templates\deck\index.html:591 .\templates\deck\index.html:603
+#: .\templates\deck\index.html:615 .\templates\deck\index.html:627
+#: .\templates\deck\index.html:639 .\templates\deck\index.html:651
+#: .\templates\deck\index.html:663
 msgid "9층"
 msgstr "9F"
 
@@ -466,274 +477,263 @@ msgstr "9F"
 #: .\templates\deck\index.html:73 .\templates\deck\index.html:85
 #: .\templates\deck\index.html:97 .\templates\deck\index.html:109
 #: .\templates\deck\index.html:121 .\templates\deck\index.html:133
-#: .\templates\deck\index.html:160 .\templates\deck\index.html:172
-#: .\templates\deck\index.html:184 .\templates\deck\index.html:196
-#: .\templates\deck\index.html:208 .\templates\deck\index.html:220
-#: .\templates\deck\index.html:232 .\templates\deck\index.html:260
-#: .\templates\deck\index.html:272 .\templates\deck\index.html:284
-#: .\templates\deck\index.html:296 .\templates\deck\index.html:308
-#: .\templates\deck\index.html:320 .\templates\deck\index.html:332
-#: .\templates\deck\index.html:344 .\templates\deck\index.html:370
-#: .\templates\deck\index.html:382 .\templates\deck\index.html:394
-#: .\templates\deck\index.html:455 .\templates\deck\index.html:467
-#: .\templates\deck\index.html:479 .\templates\deck\index.html:491
-#: .\templates\deck\index.html:503 .\templates\deck\index.html:515
-#: .\templates\deck\index.html:527 .\templates\deck\index.html:539
-#: .\templates\deck\index.html:566 .\templates\deck\index.html:578
-#: .\templates\deck\index.html:590 .\templates\deck\index.html:602
-#: .\templates\deck\index.html:614 .\templates\deck\index.html:626
-#: .\templates\deck\index.html:638 .\templates\deck\index.html:854
+#: .\templates\deck\index.html:161 .\templates\deck\index.html:173
+#: .\templates\deck\index.html:185 .\templates\deck\index.html:197
+#: .\templates\deck\index.html:209 .\templates\deck\index.html:221
+#: .\templates\deck\index.html:233 .\templates\deck\index.html:245
+#: .\templates\deck\index.html:273 .\templates\deck\index.html:285
+#: .\templates\deck\index.html:297 .\templates\deck\index.html:309
+#: .\templates\deck\index.html:321 .\templates\deck\index.html:333
+#: .\templates\deck\index.html:345 .\templates\deck\index.html:357
+#: .\templates\deck\index.html:383 .\templates\deck\index.html:395
+#: .\templates\deck\index.html:407 .\templates\deck\index.html:468
+#: .\templates\deck\index.html:480 .\templates\deck\index.html:492
+#: .\templates\deck\index.html:504 .\templates\deck\index.html:516
+#: .\templates\deck\index.html:528 .\templates\deck\index.html:540
+#: .\templates\deck\index.html:552 .\templates\deck\index.html:580
+#: .\templates\deck\index.html:592 .\templates\deck\index.html:604
+#: .\templates\deck\index.html:616 .\templates\deck\index.html:628
+#: .\templates\deck\index.html:640 .\templates\deck\index.html:652
+#: .\templates\deck\index.html:664
 msgid "10층"
 msgstr "10F"
 
-#: .\templates\deck\index.html:141 .\templates\deck\index.html:547
+#: .\templates\deck\index.html:141 .\templates\deck\index.html:560
 msgid "카타콤"
 msgstr "Catacombs"
 
-#: .\templates\deck\index.html:142 .\templates\deck\index.html:548
+#: .\templates\deck\index.html:142 .\templates\deck\index.html:561
 msgid "고대 성역"
 msgstr "Ancient Sanctuary"
 
-#: .\templates\deck\index.html:143 .\templates\deck\index.html:549
+#: .\templates\deck\index.html:143 .\templates\deck\index.html:562
 msgid "SS흥신소"
 msgstr "2S Agency"
 
-#: .\templates\deck\index.html:144 .\templates\deck\index.html:550
+#: .\templates\deck\index.html:144 .\templates\deck\index.html:563
 msgid "비타 도서관"
 msgstr "Vita Library"
 
-#: .\templates\deck\index.html:145 .\templates\deck\index.html:551
+#: .\templates\deck\index.html:145 .\templates\deck\index.html:564
 msgid "매장 도서관"
 msgstr "Burial Library"
 
-#: .\templates\deck\index.html:146 .\templates\deck\index.html:552
+#: .\templates\deck\index.html:146 .\templates\deck\index.html:565
 msgid "로일 시티"
 msgstr "Royle City"
 
-#: .\templates\deck\index.html:147 .\templates\deck\index.html:553
+#: .\templates\deck\index.html:147 .\templates\deck\index.html:566
 msgid "뮤지시터랜드"
 msgstr "Muzisitter Land"
 
-#: .\templates\deck\index.html:240
+#: .\templates\deck\index.html:148 .\templates\deck\index.html:567
+msgid "카나의 제단"
+msgstr "Altar of Kana"
+
+#: .\templates\deck\index.html:253
 msgid "겨울의 숲"
 msgstr "Winter Forest"
 
-#: .\templates\deck\index.html:241
+#: .\templates\deck\index.html:254
 msgid "화신의 저택"
 msgstr "Etlangze's Mansion"
 
-#: .\templates\deck\index.html:242
+#: .\templates\deck\index.html:255
 msgid "소녀의 방"
 msgstr "Girl's Room"
 
-#: .\templates\deck\index.html:243
+#: .\templates\deck\index.html:256
 msgid "사탕 공장"
 msgstr "Candy Factory"
 
-#: .\templates\deck\index.html:244
+#: .\templates\deck\index.html:257
 msgid "이상한 나라"
 msgstr "Windland"
 
-#: .\templates\deck\index.html:245
+#: .\templates\deck\index.html:258
 msgid "꿈의 바다"
 msgstr "Sea of Dreams"
 
-#: .\templates\deck\index.html:246
+#: .\templates\deck\index.html:259
 msgid "할로윈랜드"
 msgstr "Halloweenland"
 
-#: .\templates\deck\index.html:247
+#: .\templates\deck\index.html:260
 msgid "드림 월드"
 msgstr "Dream World"
 
-#: .\templates\deck\index.html:349
+#: .\templates\deck\index.html:362
 msgid "크룩스 리조트"
 msgstr "Crux Resort"
 
-#: .\templates\deck\index.html:350
+#: .\templates\deck\index.html:363
 msgid "시니아의 별장"
 msgstr "Cinia's Villa"
 
-#: .\templates\deck\index.html:351
+#: .\templates\deck\index.html:364
 msgid "화신의 마을"
 msgstr "Etlangze's Village"
 
-#: .\templates\deck\index.html:647
+#: .\templates\deck\index.html:673
 msgid "쉐도우랜드(시온)"
 msgstr "Shadowland(Sion)"
 
-#: .\templates\deck\index.html:650
+#: .\templates\deck\index.html:676
 msgid "쉐도우랜드(리온)"
 msgstr "Shadowland(Rion)"
 
-#: .\templates\deck\index.html:655
+#: .\templates\deck\index.html:681
 msgid "제국 연구소"
 msgstr "Empire Lab"
 
-#: .\templates\deck\index.html:658
+#: .\templates\deck\index.html:684
 msgid "월"
 msgstr "Mon"
 
-#: .\templates\deck\index.html:659
+#: .\templates\deck\index.html:685
 msgid "화"
 msgstr "Tue"
 
-#: .\templates\deck\index.html:660
+#: .\templates\deck\index.html:686
 msgid "수"
 msgstr "Wed"
 
-#: .\templates\deck\index.html:661
+#: .\templates\deck\index.html:687
 msgid "목"
 msgstr "Thu"
 
-#: .\templates\deck\index.html:662
+#: .\templates\deck\index.html:688
 msgid "금"
 msgstr "Fri"
 
-#: .\templates\deck\index.html:663
+#: .\templates\deck\index.html:689
 msgid "토"
 msgstr "Sat"
 
-#: .\templates\deck\index.html:664
+#: .\templates\deck\index.html:690
 msgid "일"
 msgstr "Sun"
 
-#: .\templates\deck\index.html:668 .\templates\deck\index.html:673
-#: .\templates\deck\index.html:678 .\templates\deck\index.html:683
-#: .\templates\deck\index.html:688 .\templates\deck\index.html:693
-#: .\templates\deck\index.html:698
+#: .\templates\deck\index.html:694 .\templates\deck\index.html:699
+#: .\templates\deck\index.html:704 .\templates\deck\index.html:709
+#: .\templates\deck\index.html:714 .\templates\deck\index.html:719
+#: .\templates\deck\index.html:724
 msgid "연구소 A동"
 msgstr "A-Lab"
 
-#: .\templates\deck\index.html:669 .\templates\deck\index.html:674
-#: .\templates\deck\index.html:679 .\templates\deck\index.html:684
-#: .\templates\deck\index.html:689 .\templates\deck\index.html:694
-#: .\templates\deck\index.html:699
+#: .\templates\deck\index.html:695 .\templates\deck\index.html:700
+#: .\templates\deck\index.html:705 .\templates\deck\index.html:710
+#: .\templates\deck\index.html:715 .\templates\deck\index.html:720
+#: .\templates\deck\index.html:725
 msgid "연구소 B동"
 msgstr "B-Lab"
 
-#: .\templates\deck\index.html:670 .\templates\deck\index.html:675
-#: .\templates\deck\index.html:680 .\templates\deck\index.html:685
-#: .\templates\deck\index.html:690 .\templates\deck\index.html:695
-#: .\templates\deck\index.html:700
+#: .\templates\deck\index.html:696 .\templates\deck\index.html:701
+#: .\templates\deck\index.html:706 .\templates\deck\index.html:711
+#: .\templates\deck\index.html:716 .\templates\deck\index.html:721
+#: .\templates\deck\index.html:726
 msgid "연구소 C동"
 msgstr "C-Lab"
 
-#: .\templates\deck\index.html:705
+#: .\templates\deck\index.html:731
 msgid "무스펠헤임"
 msgstr "Muspelheim"
 
-#: .\templates\deck\index.html:708
+#: .\templates\deck\index.html:734
 msgid "명계의 왕"
 msgstr "Ruler of the Nether"
 
-#: .\templates\deck\index.html:709
+#: .\templates\deck\index.html:735
 msgid "괴한 습격 사건"
 msgstr "Attack of the Unknown"
 
-#: .\templates\deck\index.html:710
+#: .\templates\deck\index.html:736
 msgid "메이드 밴드 파티"
 msgstr "Maid Band Party"
 
-#: .\templates\deck\index.html:711
+#: .\templates\deck\index.html:737
 msgid "막내의 일기"
 msgstr "The Diary of a Youngest"
 
-#: .\templates\deck\index.html:712
+#: .\templates\deck\index.html:738
 msgid "새로운 만월"
 msgstr "New Full Moon"
 
-#: .\templates\deck\index.html:713
+#: .\templates\deck\index.html:739
 msgid "테니스 체험"
 msgstr "Tennis Experience"
 
-#: .\templates\deck\index.html:754
+#: .\templates\deck\index.html:780
 msgid "시타 빌로사"
 msgstr "Sita Vilosa"
 
-#: .\templates\deck\index.html:755
+#: .\templates\deck\index.html:781
 msgid "시니아 퍼시피카"
 msgstr "Cinia Pacifica"
 
-#: .\templates\deck\index.html:756
+#: .\templates\deck\index.html:782
 msgid "루티카 프리벤터"
 msgstr "Luthica Preventer"
 
-#: .\templates\deck\index.html:780
+#: .\templates\deck\index.html:783
+msgid "아이리 플리나"
+msgstr "Iri Flina"
+
+#: .\templates\deck\index.html:813
 msgid "차원의 틈"
 msgstr "Dimensional Rift"
 
-#: .\templates\deck\index.html:788
+#: .\templates\deck\index.html:821
 msgid "성탄의 관찰자"
 msgstr "Christmas Observer"
 
-#: .\templates\deck\index.html:789
+#: .\templates\deck\index.html:822
 msgid "구정의 관찰자"
 msgstr "New Year Observer"
 
-#: .\templates\deck\index.html:790
+#: .\templates\deck\index.html:823
 msgid "연정의 관찰자"
 msgstr "Lovestruck Observer"
 
-#: .\templates\deck\index.html:791
+#: .\templates\deck\index.html:824
 msgid "사탕의 관찰자"
 msgstr "Candy Observer"
 
-#: .\templates\deck\index.html:792
+#: .\templates\deck\index.html:825
 msgid "히어로 관찰자"
 msgstr "Hero Observer"
 
-#: .\templates\deck\index.html:793
+#: .\templates\deck\index.html:826
 msgid "매니저 관찰자"
 msgstr "Manager Observer"
 
-#: .\templates\deck\index.html:795
+#: .\templates\deck\index.html:828
 msgid "동화의 관찰자"
 msgstr "Fairytale Observer"
 
-#: .\templates\deck\index.html:796
+#: .\templates\deck\index.html:829
 msgid "여름의 관찰자"
 msgstr "Summer Observer"
 
-#: .\templates\deck\index.html:797
+#: .\templates\deck\index.html:830
 msgid "할로윈의 관찰자"
 msgstr "Halloween Observer"
 
-#: .\templates\deck\index.html:798
+#: .\templates\deck\index.html:831
 msgid "어린이 관찰자"
 msgstr "Child Observer"
 
-#: .\templates\deck\index.html:799
+#: .\templates\deck\index.html:832
 msgid "바다의 관찰자"
 msgstr "Beach Observer"
 
-#: .\templates\deck\index.html:800
+#: .\templates\deck\index.html:833
 msgid "성탄의 카나 시니아"
 msgstr "X-mas Kana Cinia"
 
-#: .\templates\deck\index.html:803
+#: .\templates\deck\index.html:836
 msgid "초월의 관찰자"
 msgstr "Transcendental Observer"
-
-#: .\templates\deck\index.html:841
-msgid "궁극의 아이돌"
-msgstr "Ultimate Idol"
-
-#: .\templates\deck\index.html:857
-msgid "이지 모드"
-msgstr "Easy Mode"
-
-#: .\templates\deck\index.html:858
-msgid "노말 모드"
-msgstr "Normal Mode"
-
-#: .\templates\deck\index.html:859
-msgid "하드 모드"
-msgstr "Hard Mode"
-
-#: .\templates\deck\index.html:860
-msgid "스페셜"
-msgstr "Special"
 
 #: .\templates\navbar.html:5
 msgid "카드(네비)"
@@ -742,6 +742,21 @@ msgstr "Card"
 #: .\templates\navbar.html:6
 msgid "가이드(네비)"
 msgstr "Guide"
+
+#~ msgid "궁극의 아이돌"
+#~ msgstr "Ultimate Idol"
+
+#~ msgid "이지 모드"
+#~ msgstr "Easy Mode"
+
+#~ msgid "노말 모드"
+#~ msgstr "Normal Mode"
+
+#~ msgid "하드 모드"
+#~ msgstr "Hard Mode"
+
+#~ msgid "스페셜"
+#~ msgstr "Special"
 
 #~ msgid "꿈의 스테이지"
 #~ msgstr "Stage of Dream"
