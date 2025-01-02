@@ -24,9 +24,10 @@ class Card(models.Model):
     EPISODE_SEASON2 = [(100 + i, f"EP{i}") for i in range(9, 17)]
     EPISODE_EVENT = [(500 + i, f"EV{i}") for i in range(0, 12)] + [(518, "EV18")]
     EPISODE_EXTRA = [
-        (801, _("쉐도우랜드")),
-        (802, _("제국")),
-        (803, _("명계")),
+        (901, _("쉐도우랜드")),
+        (902, _("제국")),
+        (800, _("명계")),
+        (829, _("차원의 틈")),
         (830, _("재료")),
     ]
 
@@ -83,18 +84,20 @@ class Card(models.Model):
     def parse_to_string(card):
         def get_episode_string(int_episode):
             episode = int_episode
-            if episode // 100 < 8:
-                prefix = "EP" if episode // 100 == 1 else "EV"
+            if episode // 100 < 9:
+                if episode // 100 == 1:
+                    prefix = "EP"
+                elif episode // 100 == 5:
+                    prefix = "EV"
+                else:  # 8
+                    prefix = "MH"
+
                 episode = prefix + str(int_episode % 100)
             else:
-                if episode == 801:
+                if episode == 901:
                     episode = "SH"
-                elif episode == 802:
+                elif episode == 902:
                     episode = "EM"
-                elif episode == 803:
-                    episode = "MH0"
-                else:
-                    episode = "MH30"
 
             return episode
 

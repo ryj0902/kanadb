@@ -161,5 +161,6 @@ cython_debug/
 
 data.lnk
 Texture2D/
+TextAsset/
 migrations/
 secret_key.txt
