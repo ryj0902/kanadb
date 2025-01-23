@@ -779,6 +779,8 @@
             <th>{% trans "시니아 퍼시피카" %}</th>
             <th>{% trans "루티카 프리벤터" %}</th>
             <th>{% trans "아이리 플리나" %}</th>
+            <th></th>
+            <th>{% trans "문의 저편으로" %}</th>
         </tr>
         <tr>
             <td> <!-- 시타 빌로사 -->
@@ -805,6 +807,13 @@
                 <li><a href="{% url 'deck_detail' 97091103 %}">{% trans "3층" %}</a></li>
                 <li><a href="{% url 'deck_detail' 97091104 %}">{% trans "4층" %}</a></li>
             </td>
+            <td>
+            </td>
+            <td> <!-- 문의 저편으로 -->
+                <li><a href="{% url 'deck_detail' 97101101 %}">{% trans "1층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 97101102 %}">{% trans "2층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 97101103 %}">{% trans "3층" %}</a></li>
+                <li><a href="{% url 'deck_detail' 97101104 %}">{% trans "4층" %}</a></li>
         </tr>
 
         <tr>
@@ -891,5 +900,5 @@
         </tr> {% endcomment %}
     </table>
 
-    {% comment %} <a href="{% url 'deck_temp' %}">EV11</a> {% endcomment %}
+    <a href="{% url 'deck_temp' %}">EV11</a>
 </body>
