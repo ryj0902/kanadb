@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-16 09:28+0900\n"
+"POT-Creation-Date: 2025-01-23 09:59+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,16 +110,20 @@ msgstr "Empire"
 msgid "명계"
 msgstr "Nether"
 
-#: .\card\models.py:30
+#: .\card\models.py:30 .\templates\deck\index.html:822
+msgid "차원의 틈"
+msgstr "Dimensional Rift"
+
+#: .\card\models.py:31
 msgid "재료"
 msgstr "Materials"
 
-#: .\card\views.py:73 .\deck\views.py:50 .\deck\views.py:113
+#: .\card\views.py:73 .\deck\views.py:50 .\deck\views.py:114
 #: .\guide\views.py:36
 msgid "가로 모드"
 msgstr "Horizontal"
 
-#: .\card\views.py:74 .\deck\views.py:51 .\deck\views.py:114
+#: .\card\views.py:74 .\deck\views.py:51 .\deck\views.py:115
 #: .\guide\views.py:37
 msgid "세로 모드"
 msgstr "Vertical"
@@ -248,9 +252,9 @@ msgstr "Inner World"
 #: .\templates\deck\index.html:655 .\templates\deck\index.html:743
 #: .\templates\deck\index.html:749 .\templates\deck\index.html:755
 #: .\templates\deck\index.html:761 .\templates\deck\index.html:767
-#: .\templates\deck\index.html:773 .\templates\deck\index.html:787
-#: .\templates\deck\index.html:793 .\templates\deck\index.html:799
-#: .\templates\deck\index.html:805
+#: .\templates\deck\index.html:773 .\templates\deck\index.html:789
+#: .\templates\deck\index.html:795 .\templates\deck\index.html:801
+#: .\templates\deck\index.html:807 .\templates\deck\index.html:815
 msgid "1층"
 msgstr "1F"
 
@@ -279,9 +283,9 @@ msgstr "1F"
 #: .\templates\deck\index.html:656 .\templates\deck\index.html:744
 #: .\templates\deck\index.html:750 .\templates\deck\index.html:756
 #: .\templates\deck\index.html:762 .\templates\deck\index.html:768
-#: .\templates\deck\index.html:774 .\templates\deck\index.html:788
-#: .\templates\deck\index.html:794 .\templates\deck\index.html:800
-#: .\templates\deck\index.html:806
+#: .\templates\deck\index.html:774 .\templates\deck\index.html:790
+#: .\templates\deck\index.html:796 .\templates\deck\index.html:802
+#: .\templates\deck\index.html:808 .\templates\deck\index.html:816
 msgid "2층"
 msgstr "2F"
 
@@ -310,9 +314,9 @@ msgstr "2F"
 #: .\templates\deck\index.html:657 .\templates\deck\index.html:745
 #: .\templates\deck\index.html:751 .\templates\deck\index.html:757
 #: .\templates\deck\index.html:763 .\templates\deck\index.html:769
-#: .\templates\deck\index.html:775 .\templates\deck\index.html:789
-#: .\templates\deck\index.html:795 .\templates\deck\index.html:801
-#: .\templates\deck\index.html:807
+#: .\templates\deck\index.html:775 .\templates\deck\index.html:791
+#: .\templates\deck\index.html:797 .\templates\deck\index.html:803
+#: .\templates\deck\index.html:809 .\templates\deck\index.html:817
 msgid "3층"
 msgstr "3F"
 
@@ -341,9 +345,9 @@ msgstr "3F"
 #: .\templates\deck\index.html:658 .\templates\deck\index.html:746
 #: .\templates\deck\index.html:752 .\templates\deck\index.html:758
 #: .\templates\deck\index.html:764 .\templates\deck\index.html:770
-#: .\templates\deck\index.html:776 .\templates\deck\index.html:790
-#: .\templates\deck\index.html:796 .\templates\deck\index.html:802
-#: .\templates\deck\index.html:808
+#: .\templates\deck\index.html:776 .\templates\deck\index.html:792
+#: .\templates\deck\index.html:798 .\templates\deck\index.html:804
+#: .\templates\deck\index.html:810 .\templates\deck\index.html:818
 msgid "4층"
 msgstr "4F"
 
@@ -679,59 +683,59 @@ msgstr "Luthica Preventer"
 msgid "아이리 플리나"
 msgstr "Iri Flina"
 
-#: .\templates\deck\index.html:813
-msgid "차원의 틈"
-msgstr "Dimensional Rift"
+#: .\templates\deck\index.html:785
+msgid "문의 저편으로"
+msgstr "Other Side of Door"
 
-#: .\templates\deck\index.html:821
+#: .\templates\deck\index.html:830
 msgid "성탄의 관찰자"
 msgstr "Christmas Observer"
 
-#: .\templates\deck\index.html:822
+#: .\templates\deck\index.html:831
 msgid "구정의 관찰자"
 msgstr "New Year Observer"
 
-#: .\templates\deck\index.html:823
+#: .\templates\deck\index.html:832
 msgid "연정의 관찰자"
 msgstr "Lovestruck Observer"
 
-#: .\templates\deck\index.html:824
+#: .\templates\deck\index.html:833
 msgid "사탕의 관찰자"
 msgstr "Candy Observer"
 
-#: .\templates\deck\index.html:825
+#: .\templates\deck\index.html:834
 msgid "히어로 관찰자"
 msgstr "Hero Observer"
 
-#: .\templates\deck\index.html:826
+#: .\templates\deck\index.html:835
 msgid "매니저 관찰자"
 msgstr "Manager Observer"
 
-#: .\templates\deck\index.html:828
+#: .\templates\deck\index.html:837
 msgid "동화의 관찰자"
 msgstr "Fairytale Observer"
 
-#: .\templates\deck\index.html:829
+#: .\templates\deck\index.html:838
 msgid "여름의 관찰자"
 msgstr "Summer Observer"
 
-#: .\templates\deck\index.html:830
+#: .\templates\deck\index.html:839
 msgid "할로윈의 관찰자"
 msgstr "Halloween Observer"
 
-#: .\templates\deck\index.html:831
+#: .\templates\deck\index.html:840
 msgid "어린이 관찰자"
 msgstr "Child Observer"
 
-#: .\templates\deck\index.html:832
+#: .\templates\deck\index.html:841
 msgid "바다의 관찰자"
 msgstr "Beach Observer"
 
-#: .\templates\deck\index.html:833
+#: .\templates\deck\index.html:842
 msgid "성탄의 카나 시니아"
 msgstr "X-mas Kana Cinia"
 
-#: .\templates\deck\index.html:836
+#: .\templates\deck\index.html:845
 msgid "초월의 관찰자"
 msgstr "Transcendental Observer"
 
