@@ -6,6 +6,7 @@
     <button type="button" id="vert-horz-btn" onclick="verthorzCard()" style="display:none;"> {{ horizontal_layout }} </button>
     <div class="selected-card" id="capture-area"></div>
     <div class="selected-card-side">
+        <img id="card-product-btn" onclick="toggleProducts()" src="{% static 'card/Texture2D/UI_icon_inventory.png' %}" style="display:none;">
         <img id="card-enhance-img" onclick="resetEnhanceCard()" src="{% static 'card/Texture2D/UI_icon_Tempered.png' %}" style="display:none;">
         <img id="card-enhance-up" onclick="showEnhanceCard(1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
         <img id="card-enhance-down" onclick="showEnhanceCard(-1)" src="{% static 'card/Texture2D/UI_icon_arrow_text.png' %}" style="display:none;">
