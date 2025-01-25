@@ -11,6 +11,11 @@ function drawCard(card, className){
     let spell = (lang == 'ko') ? '스펠' : 'Spell';
     let follower = (lang == 'ko') ? '추종자' : 'Follower';
 
+    let product1_url = card.product1_url;
+    let product1_str = (lang == 'ko') ? card.product1 : card.product1_us;
+    let product2_url = card.product2_url;
+    let product2_str = (lang == 'ko') ? card.product2 : card.product2_us;
+
     const button = document.getElementById('vert-horz-btn');
     const currentText = button.textContent.trim();
     const vert_horz = currentText === horizontalLayout ? 'vert': 'horz' 
@@ -46,8 +51,30 @@ function drawCard(card, className){
         '</div>' + 
         '<div class="' + className + '-story" style="display:none;">' +
             '<p class="p-skill">' + desc + '</p>' +
-        '</div>' +
-    '</div>'
+        '</div>';
+
+    result += '' +
+    '<div class="' + className + '-product" style="display:none;">' + 
+        '<table>';
+    if (product1_url !== "-1") {
+        result += '' +
+            '<tr>' +
+                '<td class="image-product" style="background-image: url(' + product1_url + ');"></td>' +
+                '<td>' + product1_str + '</td>' +
+            '</tr>';
+    }
+    if (product2_url !== "-1") {
+        result += '' + 
+            '<tr>' +
+                '<td class="image-product" style="background-image: url(' + product2_url + ');"></td>' +
+                '<td>' + product2_str + '</td>' +
+            '</tr>';
+    }
+    result += '' +
+        '</table>' +
+    '</div>';
+
+    result += '</div>'; // Close selected-card-texts
 
     return result
 }
@@ -59,13 +86,31 @@ function selectCard(id, init_link){
         success: function(data) {
             const card = JSON.parse(data).selected_card;
             // console.log(data);
-            if (document.getElementsByClassName('selected-card-skill').length > 0) {
-                swapTextTo('skill');
-            }
+
             document.getElementById('capture-btn').style.display = 'inline-block';
             document.getElementById('vert-horz-btn').style.display = 'inline-block';
             document.getElementById('swap-text-btn').style.display = 'inline-block';
 
+            // product
+            document.getElementById('card-product-btn').style.display = 'inline-block';
+            if (card.product1_url === "-1") {
+                document.getElementById('card-product-btn').classList.add('grayscale')
+            } else {
+                document.getElementById('card-product-btn').classList.remove('grayscale')
+            }
+
+            // enhance
+            document.getElementById('card-enhance-img').style.display = 'inline-block';
+            document.getElementById('card-enhance-down').style.display = 'inline-block';
+            document.getElementById('card-enhance-up').style.display = 'inline-block';
+            document.getElementById('card-enhance-down').style.opacity = (enhance_card_prev === -1) ? 0.5 : 1.0;
+            document.getElementById('card-enhance-up').style.opacity = (enhance_card_next === -1) ? 0.5 : 1.0;
+
+            enhance_card_prev = card.enh_prev;
+            enhance_card_next = card.enh_next;
+            enhance_card_orig = card.enh_orig;
+
+            // link
             if (Number(init_link) === 0) { // activate link button
                 link_origin_id = card.id;
                 document.getElementById('card-link-btn').style.display = 'inline-block';
@@ -80,18 +125,12 @@ function selectCard(id, init_link){
                 link_card_ids = card.link;
             }
 
-            document.getElementById('card-enhance-img').style.display = 'inline-block';
-            document.getElementById('card-enhance-down').style.display = 'inline-block';
-            document.getElementById('card-enhance-up').style.display = 'inline-block';
-
-            enhance_card_prev = card.enh_prev;
-            enhance_card_next = card.enh_next;
-            if (enhance_card_prev === -1) {
-                enhance_origin_id = card.id;
+            // card description
+            if (document.getElementsByClassName('selected-card-skill').length > 0) {
+                swapTextTo('skill');
             }
-            document.getElementById('card-enhance-down').style.opacity = (enhance_card_prev === -1) ? 0.5 : 1.0;
-            document.getElementById('card-enhance-up').style.opacity = (enhance_card_next === -1) ? 0.5 : 1.0;
 
+            // re-rendering
             $('.selected-card').html(
                 drawCard(card, "selected-card")
             );
@@ -171,7 +210,7 @@ function showEnhanceCard(offset) {
 }
 
 function resetEnhanceCard() {
-    selectCard(enhance_origin_id, 1);
+    selectCard(enhance_card_orig, 1);
 }
 
 const changeLayoutClass = ['right', 'selected-card', 'selected-card-side']
@@ -197,4 +236,11 @@ function verthorzCard() {
       });
     
     button.textContent = vert_horz === 'horz' ? verticalLayout : horizontalLayout;
+}
+
+function toggleProducts() {
+    const element = document.getElementsByClassName('selected-card-product')[0];
+    element.style.display = (element.style.display === 'none' || element.style.display === '') 
+            ? 'inline-block' 
+            : 'none';
 }

@@ -108,11 +108,24 @@ class Card(models.Model):
             card["rarity"] = Card.rarity_map[card["rarity"]]
             card["theme"] = Card.theme_map[card["theme"]]
             card["episode"] = get_episode_string(card["episode"])
+
+            product_split = card["product"].split(",")
+            card["product1"] = f"{product_split[2]} x {product_split[1]}"
+            card["product1_us"] = f"{product_split[3]} x {product_split[1]}"
+            card["product2"] = f"{product_split[6]} x {product_split[5]}"
+            card["product2_us"] = f"{product_split[7]} x {product_split[5]}"
+
         else:
             card.category = Card.category_map[card.category]
             card.rarity = Card.rarity_map[card.rarity]
             card.theme = Card.theme_map[card.theme]
             card.episode = get_episode_string(card.episode)
+
+            product_split = card.product.split(",")
+            card.product1 = f"{product_split[2]} x {product_split[1]}"
+            card.product1_us = f"{product_split[3]} x {product_split[1]}"
+            card.product2 = f"{product_split[6]} x {product_split[5]}"
+            card.product2_us = f"{product_split[7]} x {product_split[5]}"
 
     @staticmethod
     def parse_static_url(card):
@@ -122,10 +135,36 @@ class Card(models.Model):
             )
             card["frame"] = static(f"card/Texture2D/{card['frame']}.png")
             card["frame_enh"] = static("card/Texture2D/UI_Layout_enhance.png")
+
+            product_split = card["product"].split(",")
+            product1_id, product2_id = product_split[0], product_split[4]
+            card["product1_url"] = (
+                static(f"card/Texture2D/CASH_{product1_id}_I.png")
+                if product1_id != "-1"
+                else "-1"
+            )
+            card["product2_url"] = (
+                static(f"card/Texture2D/CASH_{product2_id}_I.png")
+                if product2_id != "-1"
+                else "-1"
+            )
         else:
             card.url = static(f"card/Texture2D/CARD_{int(card.id // 10 * 10)}.png")
             card.frame = static(f"card/Texture2D/{card.frame}.png")
             card.frame_enh = static("card/Texture2D/UI_Layout_enhance.png")
+
+            product_split = card.product.split(",")
+            product1_id, product2_id = product_split[0], product_split[4]
+            card.product1_url = (
+                static(f"card/Texture2D/CASH_{product1_id}_I.png")
+                if product1_id != "-1"
+                else "-1"
+            )
+            card.product2_url = (
+                static(f"card/Texture2D/CASH_{product2_id}_I.png")
+                if product2_id != "-1"
+                else "-1"
+            )
 
     class Meta:
         ordering = ["category", "theme", "episode", "point"]
