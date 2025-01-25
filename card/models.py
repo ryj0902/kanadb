@@ -32,13 +32,13 @@ class Card(models.Model):
     ]
 
     id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=40)
-    name_us = models.CharField(max_length=40)
+    name = models.TextField()
+    name_us = models.TextField()
     category = models.IntegerField()
     rarity = models.IntegerField()
     theme = models.IntegerField()
-    tag = models.CharField(max_length=40)  # list of string
-    tag_us = models.CharField(max_length=40)  # list of string
+    tag = models.TextField()  # list of string
+    tag_us = models.TextField()  # list of string
     episode = models.IntegerField()
     point = models.IntegerField()
     size = models.IntegerField()
@@ -47,7 +47,7 @@ class Card(models.Model):
     hp = models.IntegerField()
     limit = models.IntegerField()
     enhance = models.IntegerField()
-    frame = models.CharField(max_length=40)  # image file name
+    frame = models.TextField()  # image file name
     collect = models.BooleanField()
     desc = models.TextField()
     skill_turn = models.TextField()
@@ -59,10 +59,12 @@ class Card(models.Model):
     skill_instance_us = models.TextField()
     skill_attack_us = models.TextField()
     skill_defend_us = models.TextField()
-    link = models.CharField(max_length=40)  # list of id
+    link = models.TextField()  # list of id
     producible = models.BooleanField()
+    product = models.TextField()
     enh_prev = models.IntegerField()  # card id
     enh_next = models.IntegerField()  # card id
+    enh_orig = models.IntegerField()  # card id
 
     # parsing variable
     category_map = dict()
