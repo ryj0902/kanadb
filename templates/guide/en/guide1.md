@@ -4,7 +4,7 @@
 
 **※ If parentheses are present, they are only valid under tag conditions**
 
-## Tier 0
+## S
 * {Coin Factory}(2100320)
 * {El Fortuna(Royle)}(2100260)
 * {Nativitas Imai(Darklore)}(2100360)
@@ -19,7 +19,7 @@
 * {Curse of Dark Sky}(2100600)
 * {Ultimate Idol}(2100730)
 
-## Tier 1
+## A
 * {Successor of Moon Luna(Darklore/Nether)}(3100460)
 * {Leaf watching}(2100400)
 * {Curse of Full Moon(Darklore/Nether)}(2100390)
@@ -35,7 +35,7 @@
 * {Blessing of Blue Sky}(2100610)
 * {Akashic Record}(2100210)
 
-## Tier 1.5
+## B
 * {El Brillo(Crux)}(2100350)
 * {Anniversary Party}(2100220)
 * {Vertiae's Dream}(2100140)
@@ -67,7 +67,7 @@
 * {6th Witness Kana. GLS}(3100250)
 * {Idol Qubeley}(3100690)
 
-## Tier 2
+## C
 * {Mirror Match}(2100110)
 * {1st Witness Kana. DKD}(3100060)
 * {3rd Witness Kana. DTD}(3100080)
@@ -93,7 +93,7 @@
 * {Annual Event(Crux/Nether)}(2100380)
 * {Etlangze of Black Rabbit Dalsam}(3100360)
 
-## Tier 2.5
+## D
 * {Traveller of Truth Asmis(Vita)}(3100300)
 * {Rio's Barrier}(2100020)
 * {Girls' Memories}(3100030)
