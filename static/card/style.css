@@ -51,7 +51,7 @@ nav {
 }
 
 .left {
-    width: 750px;
+    width: 770px;
     overflow-y: auto;
 }
 .search-filter {
@@ -446,6 +446,24 @@ nav {
     width: 100%; /* 테이블 전체 너비를 100%로 설정 */
     table-layout: fixed; /* 고정된 테이블 레이아웃 사용 */
     border-collapse: collapse; /* 셀 간의 중복된 테두리를 제거 */
+}
+
+.floor-navigation {
+    display: flex;
+    align-items: center; /* 세로 정렬 */
+}
+.floor-button {
+    font-size: 24px;
+    text-decoration: none;
+    color: black; /* 기본 텍스트 색상 */
+}
+.floor-button:hover {
+    text-decoration: none; /* 호버 시 밑줄 */
+    color: red; /* 호버 시 효과 */
+}
+.floor-selector {
+    font-size: 12px; /* 텍스트 크기 */
+    padding: 5px; /* 내부 여백 */
 }
 
 .chapter-header {
