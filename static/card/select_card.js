@@ -99,16 +99,16 @@ function selectCard(id, init_link){
                 document.getElementById('card-product-btn').classList.remove('grayscale')
             }
 
+            enhance_card_prev = card.enh_prev;
+            enhance_card_next = card.enh_next;
+            enhance_card_orig = card.enh_orig;
+
             // enhance
             document.getElementById('card-enhance-img').style.display = 'inline-block';
             document.getElementById('card-enhance-down').style.display = 'inline-block';
             document.getElementById('card-enhance-up').style.display = 'inline-block';
             document.getElementById('card-enhance-down').style.opacity = (enhance_card_prev === -1) ? 0.5 : 1.0;
             document.getElementById('card-enhance-up').style.opacity = (enhance_card_next === -1) ? 0.5 : 1.0;
-
-            enhance_card_prev = card.enh_prev;
-            enhance_card_next = card.enh_next;
-            enhance_card_orig = card.enh_orig;
 
             // link
             if (Number(init_link) === 0) { // activate link button
