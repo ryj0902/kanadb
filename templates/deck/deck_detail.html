@@ -13,6 +13,25 @@
     {% include 'navbar.html' %}
     <div class="container">
         <div class="left">
+            <div class="floor-navigation">
+                {% if floor_down != -1 %}
+                <a class="floor-button" href="{% url 'deck_detail' floor_down %}">◀</a>
+                {% else %}
+                <a class="floor-button" style="opacity: 0.5; pointer-events: none;">◀</a>
+                {% endif %}
+                <select class="floor-selector" onchange="navigateToFloor(this)">
+                    {% for i in floors %}
+                    <option value="{% url 'deck_detail' i %}" {% if i == current_floor %}selected{% endif %}>
+                        {{ forloop.counter }}
+                    </option>
+                    {% endfor %}
+                </select>
+                {% if floor_up != -1 %}
+                <a class="floor-button" href="{% url 'deck_detail' floor_up %}">▶</a>
+                {% else %}
+                <a class="floor-button" style="opacity: 0.5; pointer-events: none;">▶</a>
+                {% endif %}
+            </div>
             <div class="deck-character">
                 <table>
                     <td>
@@ -83,4 +102,13 @@
     var lang = "{{ LANGUAGE_CODE }}"
     const horizontalLayout = "{{ horizontal_layout }}";
     const verticalLayout = "{{ vertical_layout }}";
+</script>
+
+<script>
+    function navigateToFloor(selectElement) {
+        const url = selectElement.value;
+        if (url) {
+            window.location.href = url;
+        }
+    }
 </script>
