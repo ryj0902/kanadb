@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-23 09:59+0900\n"
+"POT-Creation-Date: 2025-01-26 01:38+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,7 +77,9 @@ msgstr "더블레어"
 msgid "유니크"
 msgstr "유니크"
 
-#: .\card\models.py:17
+#: .\card\models.py:17 .\templates\deck\index.html:862
+#: .\templates\deck\index.html:876 .\templates\deck\index.html:890
+#: .\templates\deck\index.html:904 .\templates\deck\index.html:918
 msgid "공립"
 msgstr "공립"
 
@@ -89,7 +91,9 @@ msgstr "사립"
 msgid "크룩스"
 msgstr "크룩스"
 
-#: .\card\models.py:20
+#: .\card\models.py:20 .\templates\deck\index.html:871
+#: .\templates\deck\index.html:885 .\templates\deck\index.html:899
+#: .\templates\deck\index.html:913 .\templates\deck\index.html:927
 msgid "다크로어"
 msgstr "다크로어"
 
@@ -738,6 +742,107 @@ msgstr "성탄의 카나 시니아"
 #: .\templates\deck\index.html:845
 msgid "초월의 관찰자"
 msgstr "초월의 관찰자"
+
+#: .\templates\deck\index.html:861 .\templates\deck\index.html:875
+#: .\templates\deck\index.html:889 .\templates\deck\index.html:903
+#: .\templates\deck\index.html:917
+msgid "시타"
+msgstr "시타"
+
+#: .\templates\deck\index.html:862 .\templates\deck\index.html:871
+#: .\templates\deck\index.html:876 .\templates\deck\index.html:885
+#: .\templates\deck\index.html:890 .\templates\deck\index.html:899
+#: .\templates\deck\index.html:904 .\templates\deck\index.html:913
+#: .\templates\deck\index.html:918 .\templates\deck\index.html:927
+msgid "베르니카"
+msgstr "베르니카"
+
+#: .\templates\deck\index.html:863 .\templates\deck\index.html:877
+#: .\templates\deck\index.html:891 .\templates\deck\index.html:905
+#: .\templates\deck\index.html:919
+msgid "리안나"
+msgstr "리안나"
+
+#: .\templates\deck\index.html:864 .\templates\deck\index.html:878
+#: .\templates\deck\index.html:892 .\templates\deck\index.html:906
+#: .\templates\deck\index.html:920
+msgid "시니아"
+msgstr "시니아"
+
+#: .\templates\deck\index.html:865 .\templates\deck\index.html:879
+#: .\templates\deck\index.html:893 .\templates\deck\index.html:907
+#: .\templates\deck\index.html:921 .\templates\deck\index.html:933
+msgid "로제"
+msgstr "로제"
+
+#: .\templates\deck\index.html:866 .\templates\deck\index.html:880
+#: .\templates\deck\index.html:894 .\templates\deck\index.html:908
+#: .\templates\deck\index.html:922
+msgid "리니아"
+msgstr "리니아"
+
+#: .\templates\deck\index.html:867 .\templates\deck\index.html:881
+#: .\templates\deck\index.html:895 .\templates\deck\index.html:909
+#: .\templates\deck\index.html:923
+msgid "루티카"
+msgstr "루티카"
+
+#: .\templates\deck\index.html:868 .\templates\deck\index.html:882
+#: .\templates\deck\index.html:896 .\templates\deck\index.html:910
+#: .\templates\deck\index.html:924
+msgid "클라리스"
+msgstr "클라리스"
+
+#: .\templates\deck\index.html:869 .\templates\deck\index.html:883
+#: .\templates\deck\index.html:897 .\templates\deck\index.html:911
+#: .\templates\deck\index.html:925 .\templates\deck\index.html:937
+msgid "제이나"
+msgstr "제이나"
+
+#: .\templates\deck\index.html:870 .\templates\deck\index.html:884
+#: .\templates\deck\index.html:898 .\templates\deck\index.html:912
+#: .\templates\deck\index.html:926
+msgid "아이리"
+msgstr "아이리"
+
+#: .\templates\deck\index.html:872 .\templates\deck\index.html:886
+#: .\templates\deck\index.html:900 .\templates\deck\index.html:914
+#: .\templates\deck\index.html:928
+msgid "시온 리온"
+msgstr "시온 리온"
+
+#: .\templates\deck\index.html:933 .\templates\deck\index.html:936
+#: .\templates\deck\index.html:937 .\templates\deck\index.html:943
+msgid "[影] 코르"
+msgstr "[影] 코르"
+
+#: .\templates\deck\index.html:934
+msgid "[影] 구름슬라임"
+msgstr "[影] 구름슬라임"
+
+#: .\templates\deck\index.html:935
+msgid "[影] 45423"
+msgstr "[影] 45423"
+
+#: .\templates\deck\index.html:936
+msgid "페르비아"
+msgstr "페르비아"
+
+#: .\templates\deck\index.html:938
+msgid "[影] BerlyDraco"
+msgstr "[影] BerlyDraco"
+
+#: .\templates\deck\index.html:946
+msgid "[影] 시타냥"
+msgstr "[影] 시타냥"
+
+#: .\templates\deck\index.html:949
+msgid "[影] 쿠마"
+msgstr "[影] 쿠마"
+
+#: .\templates\deck\index.html:950
+msgid "[影] Zaciel"
+msgstr "[影] Zaciel"
 
 #: .\templates\navbar.html:5
 msgid "카드(네비)"
