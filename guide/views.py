@@ -40,7 +40,10 @@ def guide_detail(request, guide_name):
         markdown_content = file.read()
 
     if guide_name == "guide3.md":  # 유니크 티어 리스트
-        content = guide_unique_tier(request)
+        content = guide_vote(request, "unique")
+        markdown_content += content
+    elif guide_name == "guide4.md":  # 제국 DR 추종자 티어 리스트
+        content = guide_vote(request, "empire_dr")
         markdown_content += content
 
     html_content = markdown(markdown_content)
@@ -64,18 +67,25 @@ def get_client_ip(request: HttpRequest):
     return ip
 
 
-def guide_unique_tier(request):
+def guide_vote(request, guide_category):
+    if guide_category == "unique":
+        card_filter = {"rarity": 6}
+        vote_filter = {"category": "unique"}
+    elif guide_category == "empire_dr":
+        card_filter = {"category": 3, "rarity": 5, "theme": 5, "tag__icontains": "제국"}
+        vote_filter = {"category": "empire_dr"}
+
     user_ip = get_client_ip(request)
     language_code = get_language()
 
-    cards = Card.objects.filter(collect=True, rarity=6)
+    cards = Card.objects.filter(collect=True, **card_filter)
 
     tier_table = [[] for _ in range(len(Vote.TIER_MAP))]
-    user_votes = Vote.objects.filter(ip=user_ip)
+    user_votes = Vote.objects.filter(ip=user_ip, **vote_filter)
     user_voted_cards = {vote.card.id: vote.tier for vote in user_votes}
 
     for card in cards:
-        votings = Vote.objects.filter(card=card.id)
+        votings = Vote.objects.filter(card=card.id, **vote_filter)
         tier_counts = Counter(votings.values_list("tier", flat=True))
         already_voted = user_voted_cards.get(card.id, None)
 
@@ -105,11 +115,9 @@ def guide_unique_tier(request):
             votes_str = ",".join(f"{k}:{v}" for k, v in tier_votes.items())
 
             if voted_tier is not None:
-                content += (
-                    f"* {{{name}}}({id})(vote: {voted_tier})(votes: {votes_str})  \n"
-                )
+                content += f"* {{{name}}}({id})(category: {guide_category})(vote: {voted_tier})(votes: {votes_str})  \n"
             else:
-                content += f"* {{{name}}}({id})(vote)(votes: {votes_str})  \n"
+                content += f"* {{{name}}}({id})(category: {guide_category})(vote)(votes: {votes_str})  \n"
 
     return mark_safe(content)
 
@@ -119,11 +127,14 @@ def vote(request):
     data = json.loads(request.body)
     card_id = data.get("cardId")
     tier = data.get("tier")
+    category = data.get("category")
     ip_address = get_client_ip(request)
 
     card = Card.objects.filter(id=card_id).first()
 
-    existing_vote = Vote.objects.filter(card=card, ip=ip_address).first()
+    existing_vote = Vote.objects.filter(
+        card=card, category=category, ip=ip_address
+    ).first()
     if existing_vote:
         if existing_vote.tier == tier:
             existing_vote.delete()
@@ -131,7 +142,7 @@ def vote(request):
             existing_vote.tier = tier
             existing_vote.save()
     else:
-        Vote.objects.create(card=card, tier=tier, ip=ip_address)
+        Vote.objects.create(card=card, category=category, tier=tier, ip=ip_address)
 
     # reload title
     language_code = get_language()
@@ -141,7 +152,7 @@ def vote(request):
     with open(markdown_path, "r", encoding="utf-8") as file:
         markdown_content = file.read()
 
-    updated_content = guide_unique_tier(request)
+    updated_content = guide_vote(request, category)
     full_content = markdown_content + updated_content
     html_content = markdown(full_content)
     filtered_html = card_filter(html_content)
