@@ -6,7 +6,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{% static 'card/html2canvas.min.js' %}"></script>
     <script src="{% static 'card/select_card.js' %}"></script>
+    <script src="{% static 'card/vote_card.js' %}"></script>
     <link rel="stylesheet" href="{% static 'card/style.css' %}">
+    <script>
+        $.ajaxSetup({
+            headers: { "X-CSRFToken": '{{ csrf_token }}' }
+        });
+    </script>
 </head>
 <body>
     {% include 'navbar.html' %}
