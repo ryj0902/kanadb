@@ -69,16 +69,22 @@ def get_client_ip(request: HttpRequest):
 
 def guide_vote(request, guide_category):
     if guide_category == "unique":
-        card_filter = {"rarity": 6}
+        card_filter = {"collect": True, "rarity": 6}
         vote_filter = {"category": "unique"}
     elif guide_category == "empire_dr":
-        card_filter = {"category": 3, "rarity": 5, "theme": 5, "tag__icontains": "제국"}
+        card_filter = {
+            "category": 3,
+            "rarity": 5,
+            "theme": 5,
+            "tag__icontains": "제국",
+            "enhance": 5,
+        }
         vote_filter = {"category": "empire_dr"}
 
     user_ip = get_client_ip(request)
     language_code = get_language()
 
-    cards = Card.objects.filter(collect=True, **card_filter)
+    cards = Card.objects.filter(**card_filter)
 
     tier_table = [[] for _ in range(len(Vote.TIER_MAP))]
     user_votes = Vote.objects.filter(ip=user_ip, **vote_filter)
