@@ -542,3 +542,21 @@ nav {
     color: white;
     font-size: 10px;
 }
+
+.vote-tier-img {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.vote-tier-img:not(.grayscale) {
+    filter: none;
+}
+
+.vote-tier-img.grayscale:hover {
+    filter: none;
+}
