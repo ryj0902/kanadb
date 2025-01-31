@@ -174,13 +174,16 @@ class Vote(models.Model):
     card = models.ForeignKey(Card, on_delete=models.CASCADE, to_field="id")
     ip = models.GenericIPAddressField()
     tier = models.IntegerField()
+    category = models.TextField()
     timestamp = models.DateTimeField(auto_now=True)
 
     TIER_MAP = {0: "S", 1: "A", 2: "B", 3: "C", 4: "D", 5: "E"}
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=["card", "ip"], name="unique_vote_per_ip")
+            models.UniqueConstraint(
+                fields=["card", "ip", "category"], name="unique_card_ip_category"
+            )
         ]
 
     def __str__(self):
