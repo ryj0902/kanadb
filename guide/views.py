@@ -113,6 +113,25 @@ def guide_vote(request, guide_category):
             [card.id, card.name, card.name_us, already_voted, dict(tier_counts)]
         )
 
+    def get_sort_key(card_entry, target_tier):
+        """
+        The higher the vote value of the tier, the higher the rank.
+        If the value of the tier immediately after is high, it means that opinions are divided.
+        Therefore, the lower the values ​​of the next tier, higher rank is assigned.
+        If all the above values ​​are the same, they are sorted by card ID.
+        """
+        counts = card_entry[4]
+        key = [-counts.get(target_tier, 0)]
+
+        for t in range(target_tier + 1, len(Vote.TIER_MAP)):
+            key.append(counts.get(t, 0))
+
+        key.append(card_entry[0])
+        return tuple(key)
+
+    for tier, card_list in enumerate(tier_table):
+        card_list.sort(key=lambda entry: get_sort_key(entry, tier))
+
     content = "\n\n"
     for index, value in Vote.TIER_MAP.items():
         content += f"## {value}\n\n"
