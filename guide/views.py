@@ -116,12 +116,22 @@ def guide_vote(request, guide_category):
     def get_sort_key(card_entry, target_tier):
         """
         The higher the vote value of the tier, the higher the rank.
+
+        * Tier S:
         If the value of the tier immediately after is high, it means that opinions are divided.
         Therefore, the lower the values ​​of the next tier, higher rank is assigned.
+
+        * Tier A~E:
+        If there are a lot of votes for a higher tier, there is room for a tier increase.
+        So here, sort in descending order based on the highest tier.
+
         If all the above values ​​are the same, they are sorted by card ID.
         """
         counts = card_entry[4]
         key = [-counts.get(target_tier, 0)]
+
+        for t in range(0, target_tier):
+            key.append(-counts.get(t, 0))
 
         for t in range(target_tier + 1, len(Vote.TIER_MAP)):
             key.append(counts.get(t, 0))
