@@ -128,9 +128,9 @@ def guide_vote(request, guide_category):
         If all the above values ​​are the same, they are sorted by card ID.
         """
         counts = card_entry[4]
-        key = [-counts.get(target_tier, 0)]
+        key = []
 
-        for t in range(0, target_tier):
+        for t in range(0, target_tier + 1):
             key.append(-counts.get(t, 0))
 
         for t in range(target_tier + 1, len(Vote.TIER_MAP)):
