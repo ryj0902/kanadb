@@ -25,12 +25,12 @@ def card_filter(value):
         )
 
         for index, tier in Vote.TIER_MAP.items():
-            grayscale_class = "grayscale" if str(voted_tier) != str(index) else ""
+            deactive_class = "deactive" if str(voted_tier) != str(index) else ""
             vote_count = vote_counts.get(str(index), "0")
 
             images += (
                 f'<img src="{static(f"card/Texture2D/result_{tier}.png")}" '
-                f'alt="{tier}" class="vote-tier-img {grayscale_class}" '
+                f'alt="{tier}" class="vote-tier-img {deactive_class}" '
                 f"onclick=\"voteTier({num}, '{category}', {index})\" "
                 f'id="vote-img-{num}-{index}">'
                 f'<span class="vote-count" id="vote-count-{num}-{index}"> {vote_count} </span>'

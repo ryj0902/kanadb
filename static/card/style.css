@@ -549,14 +549,15 @@ nav {
     cursor: pointer;
 }
 
-.grayscale {
+.deactive {
     filter: grayscale(100%);
+opacity: 0.4;
 }
 
-.vote-tier-img:not(.grayscale) {
+.vote-tier-img:not(.deactive) {
     filter: none;
 }
 
-.vote-tier-img.grayscale:hover {
+.vote-tier-img.deactive:hover {
     filter: none;
 }
