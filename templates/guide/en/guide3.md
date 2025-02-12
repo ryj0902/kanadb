@@ -1,1 +1,1 @@
-# Participatory Unique Tier List (Test)
+# Participatory Unique Tier List
