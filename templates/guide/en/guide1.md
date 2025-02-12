@@ -4,6 +4,10 @@
 
 **※ If parentheses are present, they are only valid under tag conditions**
 
+## Notice
+**This page will no longer be updated.**  
+**Please refer to the [Participatory Unique Tier List](/en/guide/guide3.md) page.**  
+
 ## S
 * {Coin Factory}(2100320)
 * {El Fortuna(Royle)}(2100260)
@@ -18,6 +22,8 @@
 * {Administration Bureau}(2100200)
 * {Curse of Dark Sky}(2100600)
 * {Ultimate Idol}(2100730)
+* {Other Side of Door}(2100740)
+* {Festival Cannelle}(3100380)
 
 ## A
 * {Successor of Moon Luna(Darklore/Nether)}(3100460)
@@ -34,6 +40,7 @@
 * {Stride of Lightning Wolf}(2100160)
 * {Blessing of Blue Sky}(2100610)
 * {Akashic Record}(2100210)
+* {Ancient Guardian Novic}(3100740)
 
 ## B
 * {El Brillo(Crux)}(2100350)
@@ -66,6 +73,8 @@
 * {Etlangze of Black Tiger Navi}(3100350)
 * {6th Witness Kana. GLS}(3100250)
 * {Idol Qubeley}(3100690)
+* {Guardian of Altar Novic}(3100260)
+* {Guardian of Altar Pallas}(3100270)
 
 ## C
 * {Mirror Match}(2100110)
