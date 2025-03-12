@@ -22,7 +22,9 @@ class Card(models.Model):
     ]
     EPISODE_SEASON1 = [(100 + i, f"EP{i}") for i in range(0, 9)]
     EPISODE_SEASON2 = [(100 + i, f"EP{i}") for i in range(9, 17)]
-    EPISODE_EVENT = [(500 + i, f"EV{i}") for i in range(0, 12)] + [(518, "EV18")]
+    EPISODE_EVENT = (
+        [(500 + i, f"EV{i}") for i in range(0, 12)] + [(516, "EV16")] + [(518, "EV18")]
+    )
     EPISODE_EXTRA = [
         (901, _("쉐도우랜드")),
         (902, _("제국")),
