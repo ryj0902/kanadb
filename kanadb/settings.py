@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "card.apps.CardConfig",
     "guide.apps.GuideConfig",
-    "deck.apps.DeckConfig",
+    "npc.apps.NpcConfig",
 ]
 
 MIDDLEWARE = [

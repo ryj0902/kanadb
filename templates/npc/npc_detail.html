@@ -15,24 +15,24 @@
         <div class="left">
             <div class="floor-navigation">
                 {% if floor_down != -1 %}
-                <a class="floor-button" href="{% url 'deck_detail' floor_down %}">◀</a>
+                <a class="floor-button" href="{% url 'npc_detail' floor_down %}">◀</a>
                 {% else %}
                 <a class="floor-button" style="opacity: 0.5; pointer-events: none;">◀</a>
                 {% endif %}
                 <select class="floor-selector" onchange="navigateToFloor(this)">
                     {% for i in floors %}
-                    <option value="{% url 'deck_detail' i %}" {% if i == current_floor %}selected{% endif %}>
+                    <option value="{% url 'npc_detail' i %}" {% if i == current_floor %}selected{% endif %}>
                         {{ forloop.counter }}
                     </option>
                     {% endfor %}
                 </select>
                 {% if floor_up != -1 %}
-                <a class="floor-button" href="{% url 'deck_detail' floor_up %}">▶</a>
+                <a class="floor-button" href="{% url 'npc_detail' floor_up %}">▶</a>
                 {% else %}
                 <a class="floor-button" style="opacity: 0.5; pointer-events: none;">▶</a>
                 {% endif %}
             </div>
-            <div class="deck-character">
+            <div class="npc-character">
                 <table>
                     <td>
                         <div class="image-grid-element{% if not card_character.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card_character.id }}, 0)">
@@ -43,24 +43,24 @@
                     </td>
                     <td>
                         {% if LANGUAGE_CODE == 'ko' %}
-                            <p class="deck-chapter-name">{{ chapter_name }}</p>
-                            <p class="deck-loading-name">{{ loading_name }}</p>
-                            <p class="deck-loading-desc">{{ loading_desc }}</p>
+                            <p class="npc-chapter-name">{{ chapter_name }}</p>
+                            <p class="npc-loading-name">{{ loading_name }}</p>
+                            <p class="npc-loading-desc">{{ loading_desc }}</p>
                         {% elif LANGUAGE_CODE == 'en' %}
-                            <p class="deck-chapter-name">{{ chapter_name_us }}</p>
-                            <p class="deck-loading-name">{{ loading_name_us }}</p>
-                            <p class="deck-loading-desc">{{ loading_desc_us }}</p>
+                            <p class="npc-chapter-name">{{ chapter_name_us }}</p>
+                            <p class="npc-loading-name">{{ loading_name_us }}</p>
+                            <p class="npc-loading-desc">{{ loading_desc_us }}</p>
                         {% endif %}
                     </td>
                 </table>
             </div>
 
-            <div class="deck-image-grid">
+            <div class="npc-image-grid">
                 {% for card in card_list %}
                     {% trans "캐릭터" as character %}
                     {% trans "추종자" as follower %}
                     {% trans "스펠" as spell %}
-                    <div class="deck-image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)">
+                    <div class="npc-image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)">
                         <div class="image-card" style="background-image: url({{ card.url }});"></div>
                         <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
                         <div class="image-enhance" style="background-image: url({{ card.frame_enh }}){% if card.enhance == 0 %};display:none;{% endif %}"></div>

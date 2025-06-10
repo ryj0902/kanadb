@@ -442,7 +442,7 @@ nav {
     background-position: center; /* 이미지 중앙 정렬 */
 }
 
-.deck-table {
+.npc-table {
     width: 100%; /* 테이블 전체 너비를 100%로 설정 */
     table-layout: fixed; /* 고정된 테이블 레이아웃 사용 */
     border-collapse: collapse; /* 셀 간의 중복된 테두리를 제거 */
@@ -473,7 +473,7 @@ nav {
     padding-bottom: 10px;
 }
 
-.deck-chapter-name {
+.npc-chapter-name {
     font-family: 'title';
     font-size: 24px;
     margin-top: 0px;
@@ -481,7 +481,7 @@ nav {
     margin-left: 10px;
 }
 
-.deck-loading-name {
+.npc-loading-name {
     font-family: 'skill';
     font-size: 20px;
     margin-top: 0px;
@@ -489,33 +489,33 @@ nav {
     margin-left: 10px;
 }
 
-.deck-loading-desc {
+.npc-loading-desc {
     font-family: 'skill';
     white-space: pre-line;
     margin-left: 10px;
 }
 
-.deck-character #card-hp {
+.npc-character #card-hp {
     font-size: 25px;
 }
 
-.deck-image-grid {
+.npc-image-grid {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
 }
 
-.deck-image-grid-element {
+.npc-image-grid-element {
     width: 80px;
     height: 120px;
     margin-bottom: 20px;
     position: relative;
 }
 
-.deck-image-grid .text-stat {
+.npc-image-grid .text-stat {
     font-size: 13px;
 }
 
-.deck-image-grid #card-enhance {
+.npc-image-grid #card-enhance {
     font-size: 8px;
 }
 
