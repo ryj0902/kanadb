@@ -23,5 +23,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     *i18n_patterns(path("card/", include("card.urls"))),
     *i18n_patterns(path("guide/", include("guide.urls"))),
-    *i18n_patterns(path("deck/", include("deck.urls"))),
+    *i18n_patterns(path("npc/", include("npc.urls"))),
 ]

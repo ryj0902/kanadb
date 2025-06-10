@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Deck(models.Model):
+class Npc(models.Model):
     id = models.IntegerField(primary_key=True)
     chapter_name = models.TextField()
     chapter_name_us = models.TextField()
