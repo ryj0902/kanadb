@@ -29,7 +29,7 @@ def card_filter(value):
             vote_count = vote_counts.get(str(index), "0")
 
             images += (
-                f'<img src="{static(f"card/Texture2D/result_{tier}.png")}" '
+                f'<img src="{static(f"card/Texture2D/result_{tier}.webp")}" '
                 f'alt="{tier}" class="vote-tier-img {deactive_class}" '
                 f"onclick=\"voteTier({num}, '{category}', {index})\" "
                 f'id="vote-img-{num}-{index}">'

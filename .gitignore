@@ -160,7 +160,7 @@ cython_debug/
 #.idea/
 
 data.lnk
-Texture2D/
+Texture2D*/
 TextAsset/
 migrations/
 secret_key.txt
