@@ -466,6 +466,11 @@ nav {
     padding: 5px; /* 내부 여백 */
 }
 
+.center-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
 .chapter-header {
     font-family: 'title';
     font-size: 25px;
