@@ -133,37 +133,37 @@ class Card(models.Model):
     def parse_static_url(card):
         if isinstance(card, dict):
             card["url"] = static(
-                f"card/Texture2D_2/CARD_{int(card['id'] // 10 * 10)}.webp"
+                f"card/Texture2D/CARD_{int(card['id'] // 10 * 10)}.webp"
             )
-            card["frame"] = static(f"card/Texture2D_2/{card['frame']}.webp")
-            card["frame_enh"] = static("card/Texture2D_2/UI_Layout_enhance.webp")
+            card["frame"] = static(f"card/Texture2D/{card['frame']}.webp")
+            card["frame_enh"] = static("card/Texture2D/UI_Layout_enhance.webp")
 
             product_split = card["product"].split(",")
             product1_id, product2_id = product_split[0], product_split[4]
             card["product1_url"] = (
-                static(f"card/Texture2D_2/CASH_{product1_id}_I.webp")
+                static(f"card/Texture2D/CASH_{product1_id}_I.webp")
                 if product1_id != "-1"
                 else "-1"
             )
             card["product2_url"] = (
-                static(f"card/Texture2D_2/CASH_{product2_id}_I.webp")
+                static(f"card/Texture2D/CASH_{product2_id}_I.webp")
                 if product2_id != "-1"
                 else "-1"
             )
         else:
-            card.url = static(f"card/Texture2D_2/CARD_{int(card.id // 10 * 10)}.webp")
-            card.frame = static(f"card/Texture2D_2/{card.frame}.webp")
-            card.frame_enh = static("card/Texture2D_2/UI_Layout_enhance.webp")
+            card.url = static(f"card/Texture2D/CARD_{int(card.id // 10 * 10)}.webp")
+            card.frame = static(f"card/Texture2D/{card.frame}.webp")
+            card.frame_enh = static("card/Texture2D/UI_Layout_enhance.webp")
 
             product_split = card.product.split(",")
             product1_id, product2_id = product_split[0], product_split[4]
             card.product1_url = (
-                static(f"card/Texture2D_2/CASH_{product1_id}_I.webp")
+                static(f"card/Texture2D/CASH_{product1_id}_I.webp")
                 if product1_id != "-1"
                 else "-1"
             )
             card.product2_url = (
-                static(f"card/Texture2D_2/CASH_{product2_id}_I.webp")
+                static(f"card/Texture2D/CASH_{product2_id}_I.webp")
                 if product2_id != "-1"
                 else "-1"
             )
