@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 22:50+0900\n"
+"POT-Creation-Date: 2025-07-05 17:58+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,18 +38,19 @@ msgstr "Also uncollectable"
 msgid "제작 가능만"
 msgstr "Only Producible"
 
-#: .\card\models.py:7 .\templates\card\search_card.html:67
-#: .\templates\favorite.html:9 .\templates\npc\npc_detail.html:60
+#: .\card\models.py:7 .\templates\card\search_card.html:70
+#: .\templates\deck\index.html:53 .\templates\favorite.html:9
+#: .\templates\npc\npc_deck.html:30
 msgid "캐릭터"
 msgstr "Character"
 
-#: .\card\models.py:7 .\templates\card\search_card.html:69
-#: .\templates\favorite.html:11 .\templates\npc\npc_detail.html:62
+#: .\card\models.py:7 .\templates\card\search_card.html:72
+#: .\templates\favorite.html:11 .\templates\npc\npc_deck.html:32
 msgid "스펠"
 msgstr "Spell"
 
-#: .\card\models.py:7 .\templates\card\search_card.html:68
-#: .\templates\favorite.html:10 .\templates\npc\npc_detail.html:61
+#: .\card\models.py:7 .\templates\card\search_card.html:71
+#: .\templates\favorite.html:10 .\templates\npc\npc_deck.html:31
 msgid "추종자"
 msgstr "Follower"
 
@@ -121,21 +122,13 @@ msgstr "Dimensional Rift"
 msgid "재료"
 msgstr "Materials"
 
-#: .\card\views.py:73 .\deck\views.py:52 .\guide\views.py:53 .\npc\views.py:56
+#: .\card\views.py:73 .\deck\views.py:69 .\guide\views.py:53 .\npc\views.py:56
 msgid "가로 모드"
 msgstr "Horizontal"
 
-#: .\card\views.py:74 .\deck\views.py:53 .\guide\views.py:54 .\npc\views.py:57
+#: .\card\views.py:74 .\deck\views.py:70 .\guide\views.py:54 .\npc\views.py:57
 msgid "세로 모드"
 msgstr "Vertical"
-
-#: .\templates\card\index.html:27
-msgid "검색 불가 카드 리스트(임시)"
-msgstr "Unsearchable Card List(temporary)"
-
-#: .\templates\card\index.html:28
-msgid "탈렌티움 리스토어"
-msgstr "Talentium Restore"
 
 #: .\templates\card\search_card.html:5
 msgid "에피소드"
@@ -186,9 +179,13 @@ msgstr "Theme"
 msgid "사이즈"
 msgstr "Size"
 
-#: .\templates\card\select_card.html:5
+#: .\templates\card\select_card.html:19
 msgid "캡처하기"
 msgstr "Capture"
+
+#: .\templates\deck\index.html:30
+msgid "덱 미리보기"
+msgstr "Deck Preview"
 
 #: .\templates\navbar.html:5
 msgid "카드(네비)"
@@ -762,10 +759,6 @@ msgstr "Iri Flina"
 msgid "문의 저편으로"
 msgstr "Other Side of Door"
 
-#: .\templates\npc\index.html:1003
-msgid "코인 팩토리"
-msgstr "Coin Factory"
-
 #: .\templates\npc\index.html:1008
 msgid "시작의 관찰자"
 msgstr "Beginner Observer"
@@ -886,6 +879,15 @@ msgstr "쿠마 - Shadow"
 #: .\templates\npc\index.html:1119
 msgid "[影] Zaciel"
 msgstr "Zaciel Zaciel - Shadow"
+
+#~ msgid "검색 불가 카드 리스트(임시)"
+#~ msgstr "Unsearchable Card List(temporary)"
+
+#~ msgid "탈렌티움 리스토어"
+#~ msgstr "Talentium Restore"
+
+#~ msgid "코인 팩토리"
+#~ msgstr "Coin Factory"
 
 #~ msgid "6층"
 #~ msgstr "6F"
