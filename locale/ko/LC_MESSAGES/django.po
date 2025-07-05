@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 22:50+0900\n"
+"POT-Creation-Date: 2025-07-05 17:58+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,18 +38,19 @@ msgstr "수집 불가 포함"
 msgid "제작 가능만"
 msgstr "제작 가능만"
 
-#: .\card\models.py:7 .\templates\card\search_card.html:67
-#: .\templates\favorite.html:9 .\templates\npc\npc_detail.html:60
+#: .\card\models.py:7 .\templates\card\search_card.html:70
+#: .\templates\deck\index.html:53 .\templates\favorite.html:9
+#: .\templates\npc\npc_deck.html:30
 msgid "캐릭터"
 msgstr "캐릭터"
 
-#: .\card\models.py:7 .\templates\card\search_card.html:69
-#: .\templates\favorite.html:11 .\templates\npc\npc_detail.html:62
+#: .\card\models.py:7 .\templates\card\search_card.html:72
+#: .\templates\favorite.html:11 .\templates\npc\npc_deck.html:32
 msgid "스펠"
 msgstr "스펠"
 
-#: .\card\models.py:7 .\templates\card\search_card.html:68
-#: .\templates\favorite.html:10 .\templates\npc\npc_detail.html:61
+#: .\card\models.py:7 .\templates\card\search_card.html:71
+#: .\templates\favorite.html:10 .\templates\npc\npc_deck.html:31
 msgid "추종자"
 msgstr "추종자"
 
@@ -121,21 +122,13 @@ msgstr "차원의 틈"
 msgid "재료"
 msgstr "재료"
 
-#: .\card\views.py:73 .\deck\views.py:52 .\guide\views.py:53 .\npc\views.py:56
+#: .\card\views.py:73 .\deck\views.py:69 .\guide\views.py:53 .\npc\views.py:56
 msgid "가로 모드"
 msgstr "가로 모드"
 
-#: .\card\views.py:74 .\deck\views.py:53 .\guide\views.py:54 .\npc\views.py:57
+#: .\card\views.py:74 .\deck\views.py:70 .\guide\views.py:54 .\npc\views.py:57
 msgid "세로 모드"
 msgstr "세로 모드"
-
-#: .\templates\card\index.html:27
-msgid "검색 불가 카드 리스트(임시)"
-msgstr "검색 불가 카드 리스트(임시)"
-
-#: .\templates\card\index.html:28
-msgid "탈렌티움 리스토어"
-msgstr "탈렌티움 리스토어"
 
 #: .\templates\card\search_card.html:5
 msgid "에피소드"
@@ -186,9 +179,13 @@ msgstr "소속"
 msgid "사이즈"
 msgstr "사이즈"
 
-#: .\templates\card\select_card.html:5
+#: .\templates\card\select_card.html:19
 msgid "캡처하기"
 msgstr "캡처하기"
+
+#: .\templates\deck\index.html:30
+msgid "덱 미리보기"
+msgstr "Deck Preview"
 
 #: .\templates\navbar.html:5
 msgid "카드(네비)"
@@ -704,19 +701,15 @@ msgstr "연구소 C동"
 #: .\templates\npc\index.html:875 .\templates\npc\index.html:882
 #: .\templates\npc\index.html:889 .\templates\npc\index.html:896
 #: .\templates\npc\index.html:903
-#, fuzzy
-#| msgid "연구소 A동"
 msgid "연구소 D동"
-msgstr "연구소 A동"
+msgstr "연구소 D동"
 
 #: .\templates\npc\index.html:862 .\templates\npc\index.html:869
 #: .\templates\npc\index.html:876 .\templates\npc\index.html:883
 #: .\templates\npc\index.html:890 .\templates\npc\index.html:897
 #: .\templates\npc\index.html:904
-#, fuzzy
-#| msgid "연구소 A동"
 msgid "연구소 E동"
-msgstr "연구소 A동"
+msgstr "연구소 E동"
 
 #: .\templates\npc\index.html:909
 msgid "무스펠헤임"
@@ -766,33 +759,21 @@ msgstr "아이리 플리나"
 msgid "문의 저편으로"
 msgstr "문의 저편으로"
 
-#: .\templates\npc\index.html:1003
-msgid "코인 팩토리"
-msgstr ""
-
 #: .\templates\npc\index.html:1008
-#, fuzzy
-#| msgid "연정의 관찰자"
 msgid "시작의 관찰자"
-msgstr "연정의 관찰자"
+msgstr "시작의 관찰자"
 
 #: .\templates\npc\index.html:1009
-#, fuzzy
-#| msgid "성탄의 관찰자"
 msgid "은둔형 관찰자"
-msgstr "성탄의 관찰자"
+msgstr "은둔형 관찰자"
 
 #: .\templates\npc\index.html:1010
-#, fuzzy
-#| msgid "초월의 관찰자"
 msgid "수집형 관찰자"
-msgstr "초월의 관찰자"
+msgstr "수집형 관찰자"
 
 #: .\templates\npc\index.html:1011
-#, fuzzy
-#| msgid "성탄의 관찰자"
 msgid "게임광 관찰자"
-msgstr "성탄의 관찰자"
+msgstr "게임광 관찰자"
 
 #: .\templates\npc\index.html:1014
 msgid "초월의 관찰자"
@@ -898,6 +879,12 @@ msgstr "[影] 쿠마"
 #: .\templates\npc\index.html:1119
 msgid "[影] Zaciel"
 msgstr "[影] Zaciel"
+
+#~ msgid "검색 불가 카드 리스트(임시)"
+#~ msgstr "검색 불가 카드 리스트(임시)"
+
+#~ msgid "탈렌티움 리스토어"
+#~ msgstr "탈렌티움 리스토어"
 
 #~ msgid "6층"
 #~ msgstr "6층"
