@@ -69,10 +69,16 @@
         '<button id="page-up" onclick="updatePage(1)">&gt;</button>'
     );
     
-    // tab
+    // search tab
     var tab = '{{ tab }}';
     openTab(tab);
     syncSearchFilter();
+
+    // deck tab
+    var deckTab = '{{ deck_tab }}'
+    if (deckTab === 'edit') {
+        showEdit();
+    }
 
     // url
     const staticUrl = "{% static '' %}";
