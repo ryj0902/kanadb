@@ -140,14 +140,18 @@ function updateDeckPreview(response) {
     const characterTrans = document.getElementById('deck-preview-data').dataset.characterTrans;
     const countStyle = response['num_cards'] > 30 ? 'style="color:red;"' : '';
 
+    if (charCard != null){
+        deckHtml += `
+            <div class="deck-preview-card" onclick="selectCard(${charCard.id}, 0)" draggable="true" card-id="${charCard.id}">
+                <div class="image-card" style="background-image: url(${charCard.d_url});"></div>
+                <div class="image-frame" style="background-image: url(${charCard.d_frame});"></div>
+                <div class="image-enhance" style="background-image: url(${charCard.d_frame_enh})${charCard.enhance == 0 ? ';display:none;' : ''}"></div>
+                <div class="text-stat" id="card-enhance" ${charCard.enhance == 0 ? 'style="display:none;"' : ''}>${charCard.enhance}</div>
+            </div>
+        `;
+    }
 
     deckHtml += `
-        <div class="deck-preview-card" onclick="selectCard(${charCard.id}, 0)" draggable="true" card-id="${charCard.id}">
-            <div class="image-card" style="background-image: url(${charCard.d_url});"></div>
-            <div class="image-frame" style="background-image: url(${charCard.d_frame});"></div>
-            <div class="image-enhance" style="background-image: url(${charCard.d_frame_enh})${charCard.enhance == 0 ? ';display:none;' : ''}"></div>
-            <div class="text-stat" id="card-enhance" ${charCard.enhance == 0 ? 'style="display:none;"' : ''}>${charCard.enhance}</div>
-        </div>
         <div class="deck-preview-summary">
             <div class="deck-preview-summary-left">
                 <img src="${staticUrl}card/Texture2D/UI_icon_card.webp" style="width:15%;">
@@ -156,7 +160,7 @@ function updateDeckPreview(response) {
             </div>
             <p id="deck-preview-point">${response['deck_points']} PT</p>
         </div>
-    `;
+    `
 
     cardList.forEach(card => {
         let cardName = (lang == 'ko') ? card.name : card.name_us;
