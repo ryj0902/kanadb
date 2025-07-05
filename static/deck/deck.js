@@ -147,6 +147,7 @@ function updateDeckPreview(response) {
                 <div class="image-frame" style="background-image: url(${charCard.d_frame});"></div>
                 <div class="image-enhance" style="background-image: url(${charCard.d_frame_enh})${charCard.enhance == 0 ? ';display:none;' : ''}"></div>
                 <div class="text-stat" id="card-enhance" ${charCard.enhance == 0 ? 'style="display:none;"' : ''}>${charCard.enhance}</div>
+                <div class="text-stat" id="card-name">${charCard.name}</div>
             </div>
         `;
     }
