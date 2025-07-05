@@ -59,6 +59,8 @@
             <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button class="btn-submit" type="submit" name="tab" value="etc">{% trans "검색" %}</button></td></tr>
         </table>
     </div>
+    {% comment %} used in deck page {% endcomment %}
+    <input type="hidden" name="deck_tab" value="edit"/>
 </form>
 
 <div class="search-result">

@@ -44,6 +44,7 @@ def index(request):
         cards = None
 
     tab = request.POST.get("tab", "detail")
+    deck_tab = request.POST.get("deck_tab", "view")
 
     cards = cards.filter(enhance=0)
 
@@ -64,6 +65,7 @@ def index(request):
         "selected_card": None,
         "form": form,
         "tab": tab,
+        "deck_tab": deck_tab,
         "horizontal_layout": _("가로 모드"),
         "vertical_layout": _("세로 모드"),
     }
@@ -116,8 +118,13 @@ def deck_from_url(request):
         deck_points += card["point"] * card["count"]
         num_cards += card["count"]
 
-    card_character = cards[0]
-    deck_card_list = cards[1:]
+    if len(cards) != 0 and cards[0]["category"] == "캐릭터":
+        card_character = cards[0]
+        deck_card_list = cards[1:]
+        num_cards -= 1
+    else:
+        card_character = None
+        deck_card_list = cards
 
     rendered_html = render_to_string(
         "npc/npc_deck.html",
