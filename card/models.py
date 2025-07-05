@@ -150,6 +150,10 @@ class Card(models.Model):
                 if product2_id != "-1"
                 else "-1"
             )
+
+            card["d_url"] = card["url"].replace("CARD", "D_CARD")
+            card["d_frame"] = static("card/Texture2D/UI_card_frame.webp")
+            card["d_frame_size"] = static("card/Texture2D/UI_icon_cost.webp")
         else:
             card.url = static(f"card/Texture2D/CARD_{int(card.id // 10 * 10)}.webp")
             card.frame = static(f"card/Texture2D/{card.frame}.webp")
@@ -167,6 +171,10 @@ class Card(models.Model):
                 if product2_id != "-1"
                 else "-1"
             )
+
+            card.d_url = card.url.replace("CARD", "D_CARD")
+            card.d_frame = static("card/Texture2D/UI_card_frame.webp")
+            card.d_frame_size = static("card/Texture2D/UI_icon_cost.webp")
 
     class Meta:
         ordering = ["category", "theme", "episode", "point"]

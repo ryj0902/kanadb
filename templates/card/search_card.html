@@ -1,0 +1,102 @@
+{% load static %}
+{% load card_filters %}
+{% load i18n %}
+
+<button class="search-btn" id="btn-episode" onclick="openTab('episode')">{% trans "에피소드" %}</button>
+<button class="search-btn" id="btn-detail" class="passive" onclick="openTab('detail')">{% trans "상세" %}</button>
+<button class="search-btn" id="btn-etc" class="passive" onclick="openTab('etc')">{% trans "기타" %}</button>
+<form method='POST' id='search-form'>
+    {% csrf_token %}
+    <div class="search-filter" id="search-filter-episode">
+        <table>
+            <tr><td class="search-filter-title">{% trans "시즌 1" %} <input type="checkbox" id="toggle-all-episode-season1"> </td><td class="search-filter-contents">
+                {% for sublist in form.episode_season1|split_by_9 %}
+                    {% for item in sublist %}
+                        {{ item }}
+                    {% endfor %}
+                    <br>
+                {% endfor %}
+                </td></tr>
+            <tr><td class="search-filter-title">{% trans "시즌 2" %} <input type="checkbox" id="toggle-all-episode-season2"> </td><td class="search-filter-contents">
+                {% for sublist in form.episode_season2|split_by_9 %}
+                    {% for item in sublist %}
+                        {{ item }}
+                    {% endfor %}
+                    <br>
+                {% endfor %}
+            </td></tr>
+            <tr><td class="search-filter-title">{% trans "이벤트" %} <input type="checkbox" id="toggle-all-episode-event"> </td><td class="search-filter-contents">
+                {% for sublist in form.episode_event|split_by_9 %}
+                    {% for item in sublist %}
+                        {{ item }}
+                    {% endfor %}
+                    <br>
+                {% endfor %}
+            </td></tr>
+            <tr><td class="search-filter-title">{% trans "엑스트라" %} <input type="checkbox" id="toggle-all-episode-extra"> </td><td class="search-filter-contents">
+                {% for sublist in form.episode_extra|split_by_9 %}
+                    {% for item in sublist %}
+                        {{ item }}
+                    {% endfor %}
+                    <br>
+                {% endfor %}
+            </td></tr>
+            <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button class="btn-submit" type="submit" name="tab" value="episode">{% trans "검색" %}</button></td></tr>
+        </table>
+    </div>
+    <div class="search-filter" id="search-filter-detail">
+        <table>
+            <tr><td class="search-filter-title">{% trans "종류" %} <input type="checkbox" id="toggle-all-category"> </td><td class="search-filter-contents">{{ form.category }}</td></tr>
+            <tr><td class="search-filter-title">{% trans "등급" %} <input type="checkbox" id="toggle-all-rarity"> </td><td class="search-filter-contents">{{ form.rarity }}</td></tr>
+            <tr><td class="search-filter-title">{% trans "소속" %} <input type="checkbox" id="toggle-all-theme"> </td><td class="search-filter-contents">{{ form.theme }}</td></tr>
+            <tr><td class="search-filter-title">{% trans "사이즈" %}</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
+            <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button class="btn-submit" type="submit" name="tab" value="detail">{% trans "검색" %}</button></td></tr>    
+        </table>
+    </div>
+    <div class="search-filter" id="search-filter-etc">
+        <table>
+            <tr><td class="search-filter-title">{% trans "기타" %}</td><td class="search-filter-contents">{{ form.etc }}</td></tr>
+            <tr><td class="search-filter-title">{{ form.search_type }}</td><td class="search-filter-contents">{{ form.search_text }} <button class="btn-submit" type="submit" name="tab" value="etc">{% trans "검색" %}</button></td></tr>
+        </table>
+    </div>
+</form>
+
+<div class="search-result">
+    <div class="image-grid">
+        {% for card in card_list %}
+            {% trans "캐릭터" as character %}
+            {% trans "추종자" as follower %}
+            {% trans "스펠" as spell %}
+            <div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)" draggable="true" card-id="{{ card.id }}">
+                <div class="image-card" style="background-image: url({{ card.url }});"></div>
+                <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
+                <div class="image-enhance" style="background-image: url({{ card.frame_enh }}){% if card.enhance == 0 %};display:none;{% endif %}"></div>
+                <div class="text-stat" id="card-enhance" {% if card.enhance == 0 %} style="display:none;" {% endif %}>{{ card.enhance }}</div>
+                <div class="text-stat" id="card-size" {% if card.category ==  character %} style="display:none;" {% endif %}>{{ card.size }}</div>
+                <div class="text-stat" id="card-atk" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.atk }}</div>
+                <div class="text-stat" id="card-def" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.defs }}</div>
+                <div class="text-stat" id="card-hp" {% if card.category == spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="image-grid-page">
+    </div>
+</div>
+
+<script>
+<!-- page in search result -->
+    var page = {{ page }};
+    var page_total = {{ page_total }};
+    $('.image-grid-page').html(
+        '<button id="page-down" onclick="updatePage(0)">&lt;</button>' +
+            '<p class="page">' + page + ' / ' + page_total + '</p>'+
+        '<button id="page-up" onclick="updatePage(1)">&gt;</button>'
+    )
+<!-- tab in search filter -->
+    var tab = '{{ tab }}';
+    openTab(tab);
+    syncSearchFilter();
+
+<!-- toggle all checkbox -->
+    addToggleAllEventListener();
+</script>
