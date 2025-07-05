@@ -22,7 +22,7 @@ function drawCard(card, className){
 
     console.log(card);
     result = '' +
-    '<div class="' + className + '-image'  + (card.producible ? '' : ' unproducible-card') + '">' +
+    '<div class="' + className + '-image'  + (card.producible ? '' : ' unproducible-card') + '"' + ' draggable="true" ' + 'card-id="' + card.id + '">' +
         '<div class="image-card" style="background-image: url(' + card.url + ');"></div>' +
         '<div class="image-frame" style="background-image: url(' + card.frame + ');"></div>' +
         '<div class="text-stat" id="card-size"' + (card.category === character ? ' style="display:none;"' : '')  + '>' + card.size + '</div>' +
@@ -39,6 +39,10 @@ function drawCard(card, className){
                 '<div class="right-column">' +
                     '<p class="p-episode">' + card.episode + '</p>' +
                     '<p class="p-rarity">' + card.rarity + '</p>' +
+                '</div>' +
+                '<div class="right-column">' +
+                    '<p class="p-point">&nbsp;</p>' +
+                    '<p class="p-point">' + card.point + ' PT</p>' +
                 '</div>' +
             '</div>' +
             '<p class="p-tag">' + tag + '</p>' +
@@ -243,4 +247,130 @@ function toggleProducts() {
     element.style.display = (element.style.display === 'none' || element.style.display === '') 
             ? 'inline-block' 
             : 'none';
+}
+
+function attachTooltipHandler() {
+    let tooltipTimer = null;
+    let activeTooltip = null;
+    let currentCard = null;
+    let currentMouseX = 0;
+    let currentMouseY = 0;
+
+    document.body.addEventListener('mousemove', (e) => {
+        currentMouseX = e.pageX;
+        currentMouseY = e.pageY;
+
+        // If a tooltip is already active, update its position immediately
+        if (activeTooltip) {
+            updateTooltipPosition(currentMouseX, currentMouseY);
+        }
+    });
+
+    // Function to hide the active tooltip
+    const hideTooltip = () => {
+        if (activeTooltip) {
+            activeTooltip.remove();
+            activeTooltip = null;
+        }
+        if (tooltipTimer) {
+            clearTimeout(tooltipTimer);
+            tooltipTimer = null;
+        }
+        // Remove event listeners that track mouse movement for the tooltip
+        document.removeEventListener('mousemove', updateTooltipPosition);
+        // Clean up the mouseout listener from the *previously hovered card*
+        if (currentCard) {
+            currentCard.removeEventListener('mouseleave', handleCardMouseLeave);
+            currentCard = null;
+        }
+    };
+
+    // Function to update tooltip position
+    const updateTooltipPosition = (x, y) => {
+        if (activeTooltip) {
+            activeTooltip.style.left = `${x + 15}px`;
+            activeTooltip.style.top = `${y + 15}px`;
+        }
+    };
+
+    // Handle mouse leaving the card
+    const handleCardMouseLeave = () => {
+        hideTooltip();
+    };
+
+    // Main mouseover handler on the document body
+    document.body.addEventListener('mouseover', (e) => {
+        const card = e.target.closest('.image-card');
+
+        // If no card is hovered, or if we're already hovering the same card, or if a tooltip is already active, hide any existing tooltip and return.
+        if (!card) {
+            hideTooltip();
+            return;
+        }
+
+        // If the mouse is still over the same card, do nothing
+        if (card === currentCard) {
+            return;
+        }
+
+        // If hovering a new card, hide any existing tooltip first
+        hideTooltip();
+
+        currentCard = card; // Set the current hovered card
+
+        const cardContainer = card.closest('[card-id]');
+        if (!cardContainer) return;
+
+        const cardId = cardContainer.getAttribute('card-id');
+        if (!cardId) return;
+
+        const delay = 350;
+        tooltipTimer = setTimeout(() => {
+            // If another tooltip has appeared or the card is no longer hovered,
+            // or the card has been removed from the DOM, prevent showing.
+            if (activeTooltip || !document.body.contains(card)) {
+                tooltipTimer = null;
+                return;
+            }
+
+            const tooltip = Object.assign(document.createElement('div'), {
+                className: 'custom-tooltip',
+                textContent: `CARD_${cardId}`
+            });
+            document.body.appendChild(tooltip);
+            activeTooltip = tooltip;
+
+            updateTooltipPosition(currentMouseX, currentMouseY);
+
+            // Attach listeners for dynamic positioning and hiding
+            document.addEventListener('mousemove', updateTooltipPosition);
+            card.addEventListener('mouseleave', handleCardMouseLeave);
+
+            tooltipTimer = null; // Clear the timer after tooltip is shown
+        }, delay);
+
+        // This listener ensures that if the mouse leaves the card *before* the delay,
+        // the timer is cleared and no tooltip appears.
+        card.addEventListener('mouseleave', () => {
+            if (tooltipTimer) {
+                clearTimeout(tooltipTimer);
+                tooltipTimer = null;
+            }
+            // If the mouse leaves and no tooltip has been shown yet,
+            // also clear the `currentCard` reference
+            if (!activeTooltip) {
+                currentCard = null;
+            }
+        }, { once: true }); // Use { once: true } to automatically remove this listener after it fires
+    });
+
+    // Handle cases where the mouse might leave the entire document or a tooltip is active
+    // but not over a specific card. This is a fallback to ensure cleanup.
+    document.body.addEventListener('mouseout', (e) => {
+        // If the mouse leaves an image card, and it's not entering another image card, hide the tooltip.
+        // This helps when dragging a card out of the view or onto an area without cards.
+        if (e.target.closest('.image-card') && !e.relatedTarget?.closest('.image-card')) {
+            hideTooltip();
+        }
+    });
 }

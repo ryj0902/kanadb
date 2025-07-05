@@ -199,8 +199,6 @@ msgid "가이드(네비)"
 msgstr "Guide"
 
 #: .\templates\navbar.html:8
-#, fuzzy
-#| msgid "카드(네비)"
 msgid "덱(네비)"
 msgstr "Deck"
 

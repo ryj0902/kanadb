@@ -1,6 +1,20 @@
 {% load static %}
 {% load i18n %}
 
+<!-- selected card variable -->
+<script>
+    var link_origin_id = 0;
+    var link_card_ids = '';
+    var link_card_idx = 0;
+    var enhance_card_orig = 0;
+    var enhance_card_prev = -1;
+    var enhance_card_next = -1;
+    var baseUrl = "{{ base_url_from_django_view_context }}";
+    var lang = "{{ LANGUAGE_CODE }}"
+    const horizontalLayout = "{{ horizontal_layout }}";
+    const verticalLayout = "{{ vertical_layout }}";
+</script>
+
 <div class="selected-card-body">
     <button type="button" id="capture-btn" onclick="captureCard()" style="display:none;"> {% trans "캡처하기" %} </button>
     <button type="button" id="vert-horz-btn" onclick="verthorzCard()" style="display:none;"> {{ horizontal_layout }} </button>
@@ -17,3 +31,7 @@
         <img id="swap-text-btn" onclick="swapTextTo('story')" src="{% static 'card/Texture2D/UI_Icon_story 1.webp' %}" style="display:none;">
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', attachTooltipHandler);
+</script>

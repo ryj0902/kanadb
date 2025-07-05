@@ -25,7 +25,7 @@ def npc_detail(request, npc_id):
 
     cards = list()
     for card_id, count in zip(card_ids, counts):
-        card = Card.objects.all().filter(id=card_id)[0]
+        card = Card.objects.get(id=card_id)
         card.count = count
         cards.append(card)
 
@@ -52,7 +52,7 @@ def npc_detail(request, npc_id):
         "loading_desc": npc.loading_desc,
         "loading_desc_us": npc.loading_desc_us,
         "card_character": cards[0],
-        "card_list": sorted_cards,
+        "deck_card_list": sorted_cards,
         "horizontal_layout": _("가로 모드"),
         "vertical_layout": _("세로 모드"),
         "floors": floors,

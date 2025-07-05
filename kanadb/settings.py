@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "card.apps.CardConfig",
     "guide.apps.GuideConfig",
     "npc.apps.NpcConfig",
+    "deck.apps.DeckConfig",
 ]
 
 MIDDLEWARE = [

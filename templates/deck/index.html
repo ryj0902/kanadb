@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'card/html2canvas.min.js' %}"></script>
+    <script src="{% static 'card/select_card.js' %}"></script>
+    <script src="{% static 'card/search_card.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'card/style.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div id="deck-main-layout">
+        <div id="deck-left-wrapper">
+            <div class="button-group">
+                <button id="view-button" class="toggle-button active" onclick="showView()">View</button>
+                <button id="edit-button" class="toggle-button" onclick="showEdit()">Edit</button>
+            </div>
+            
+            <div id="deck-edit" style="display:none">
+                <div class="left">
+                    {% include 'card/search_card.html' %}
+                </div>
+                    
+                <div id="deck-preview-content">
+                    <h2 style="margin-top: 0px;">{% trans "덱 미리보기" %}</h2>
+                    <div class="deck-preview">
+                    </div>
+                </div>              
+            </div>
+
+            <div id="deck-view">
+                {% include 'npc/npc_deck.html' %}
+            </div>
+    
+            <div id="deck-statistics">
+                <div class="panel">
+                    <h2>Statistics</h2>
+                    Work in Progress...
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            {% include 'card/select_card.html' %}
+        </div>
+    </div>
+
+    <div id="deck-preview-data" data-character-trans="{% trans '캐릭터' %}"></div>
+    <script src="{% static 'deck/deck.js' %}"></script>
+</body>
+
+<script>
+    $.ajaxSetup({
+        headers: { "X-CSRFToken": '{{ csrf_token }}' }
+    });
+
+    // page in search result
+    var page = {{ page }};
+    var page_total = {{ page_total }};
+
+    $('.image-grid-page').html(
+        '<button id="page-down" onclick="updatePage(0)">&lt;</button>' +
+            '<p class="page">' + page + ' / ' + page_total + '</p>'+
+        '<button id="page-up" onclick="updatePage(1)">&gt;</button>'
+    );
+    
+    // tab
+    var tab = '{{ tab }}';
+    openTab(tab);
+    syncSearchFilter();
+
+    // url
+    const staticUrl = "{% static '' %}";
+
+    $(document).ready(function() {
+        refreshDeckPreview();  // 초기 URL 기반 렌더링
+    });
+
+</script>
+
+</html>
