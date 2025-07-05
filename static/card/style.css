@@ -645,7 +645,7 @@ opacity: 0.4;
     display: flex;
     gap: 4px; /* 숫자와 / 사이의 간격 조절 */
     align-items: center;
-    max-width: 100px;
+    max-width: 90px;
 }
 
 #deck-preview-point {
