@@ -85,7 +85,6 @@ document.body.addEventListener('dragstart', function(event) {
         event.preventDefault(); // 기본 드래그 동작 방지
         draggedCardId = null;
     }
-    console.log(mouseX, mouseY, isDragging, draggedFromDeck);
 });
 
 document.addEventListener('dragend', (event) => {

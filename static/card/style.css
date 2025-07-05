@@ -10,6 +10,10 @@
     font-family: 'skill';
     src: url('fonts/BinggraeMelona-Bold.otf') format('opentype');
 }
+@font-face {
+    font-family: 'summary';
+    src: url('fonts/Maplestory Bold.ttf') format('opentype');
+}
 
 body {
     display: flex;
