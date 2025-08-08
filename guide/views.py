@@ -73,9 +73,8 @@ def guide_vote(request, guide_category):
         vote_filter = {"category": "unique"}
     elif guide_category == "empire_dr":
         card_filter = {
-            "category": 3,
-            "rarity": 5,
-            "theme": 5,
+            "category": 3,  # 추종자
+            "rarity": 5,  # 더블레어
             "tag__icontains": "제국",
             "enhance": 5,
         }
