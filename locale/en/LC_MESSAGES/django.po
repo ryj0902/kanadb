@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-05 17:58+0900\n"
+"POT-Creation-Date: 2025-08-17 22:50+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,9 +78,9 @@ msgstr "Double Rare"
 msgid "유니크"
 msgstr "Unique"
 
-#: .\card\models.py:17 .\templates\npc\index.html:1031
-#: .\templates\npc\index.html:1045 .\templates\npc\index.html:1059
-#: .\templates\npc\index.html:1073 .\templates\npc\index.html:1087
+#: .\card\models.py:17 .\templates\npc\index.html:1036
+#: .\templates\npc\index.html:1050 .\templates\npc\index.html:1064
+#: .\templates\npc\index.html:1078 .\templates\npc\index.html:1092
 msgid "공립"
 msgstr "Vita"
 
@@ -92,9 +92,9 @@ msgstr "Royle"
 msgid "크룩스"
 msgstr "Crux"
 
-#: .\card\models.py:20 .\templates\npc\index.html:1040
-#: .\templates\npc\index.html:1054 .\templates\npc\index.html:1068
-#: .\templates\npc\index.html:1082 .\templates\npc\index.html:1096
+#: .\card\models.py:20 .\templates\npc\index.html:1045
+#: .\templates\npc\index.html:1059 .\templates\npc\index.html:1073
+#: .\templates\npc\index.html:1087 .\templates\npc\index.html:1101
 msgid "다크로어"
 msgstr "Darklore"
 
@@ -114,7 +114,7 @@ msgstr "Empire"
 msgid "명계"
 msgstr "Nether"
 
-#: .\card\models.py:32 .\templates\npc\index.html:1000
+#: .\card\models.py:32 .\templates\npc\index.html:1005
 msgid "차원의 틈"
 msgstr "Dimensional Rift"
 
@@ -301,7 +301,8 @@ msgstr "Easy"
 #: .\templates\npc\index.html:939 .\templates\npc\index.html:945
 #: .\templates\npc\index.html:951 .\templates\npc\index.html:967
 #: .\templates\npc\index.html:973 .\templates\npc\index.html:979
-#: .\templates\npc\index.html:985 .\templates\npc\index.html:993
+#: .\templates\npc\index.html:985 .\templates\npc\index.html:991
+#: .\templates\npc\index.html:997 .\templates\npc\index.html:1195
 msgid "1층"
 msgstr "1F"
 
@@ -353,7 +354,8 @@ msgstr "1F"
 #: .\templates\npc\index.html:940 .\templates\npc\index.html:946
 #: .\templates\npc\index.html:952 .\templates\npc\index.html:968
 #: .\templates\npc\index.html:974 .\templates\npc\index.html:980
-#: .\templates\npc\index.html:986 .\templates\npc\index.html:994
+#: .\templates\npc\index.html:986 .\templates\npc\index.html:992
+#: .\templates\npc\index.html:998 .\templates\npc\index.html:1196
 msgid "2층"
 msgstr "2F"
 
@@ -405,7 +407,8 @@ msgstr "2F"
 #: .\templates\npc\index.html:941 .\templates\npc\index.html:947
 #: .\templates\npc\index.html:953 .\templates\npc\index.html:969
 #: .\templates\npc\index.html:975 .\templates\npc\index.html:981
-#: .\templates\npc\index.html:987 .\templates\npc\index.html:995
+#: .\templates\npc\index.html:987 .\templates\npc\index.html:993
+#: .\templates\npc\index.html:999 .\templates\npc\index.html:1197
 msgid "3층"
 msgstr "3F"
 
@@ -457,7 +460,8 @@ msgstr "3F"
 #: .\templates\npc\index.html:942 .\templates\npc\index.html:948
 #: .\templates\npc\index.html:954 .\templates\npc\index.html:970
 #: .\templates\npc\index.html:976 .\templates\npc\index.html:982
-#: .\templates\npc\index.html:988 .\templates\npc\index.html:996
+#: .\templates\npc\index.html:988 .\templates\npc\index.html:994
+#: .\templates\npc\index.html:1000 .\templates\npc\index.html:1198
 msgid "4층"
 msgstr "4F"
 
@@ -504,7 +508,7 @@ msgstr "4F"
 #: .\templates\npc\index.html:767 .\templates\npc\index.html:774
 #: .\templates\npc\index.html:785 .\templates\npc\index.html:804
 #: .\templates\npc\index.html:811 .\templates\npc\index.html:818
-#: .\templates\npc\index.html:829
+#: .\templates\npc\index.html:829 .\templates\npc\index.html:1199
 msgid "5층"
 msgstr "5F"
 
@@ -755,154 +759,286 @@ msgstr "Luthica Preventer"
 msgid "아이리 플리나"
 msgstr "Iri Flina"
 
-#: .\templates\npc\index.html:963
+#: .\templates\npc\index.html:962
 msgid "문의 저편으로"
 msgstr "Other Side of Door"
 
-#: .\templates\npc\index.html:1008
+#: .\templates\npc\index.html:963
+msgid "코발트색 추억"
+msgstr "Cobalt Memory"
+
+#: .\templates\npc\index.html:1013
 msgid "시작의 관찰자"
 msgstr "Beginner Observer"
 
-#: .\templates\npc\index.html:1009
+#: .\templates\npc\index.html:1014
 msgid "은둔형 관찰자"
 msgstr "Loner Observer"
 
-#: .\templates\npc\index.html:1010
+#: .\templates\npc\index.html:1015
 msgid "수집형 관찰자"
 msgstr "Collector Observer"
 
-#: .\templates\npc\index.html:1011
+#: .\templates\npc\index.html:1016
 msgid "게임광 관찰자"
 msgstr "Duelist Observer"
 
-#: .\templates\npc\index.html:1014
+#: .\templates\npc\index.html:1019
 msgid "초월의 관찰자"
 msgstr "Transcendental Observer"
-
-#: .\templates\npc\index.html:1030 .\templates\npc\index.html:1044
-#: .\templates\npc\index.html:1058 .\templates\npc\index.html:1072
-#: .\templates\npc\index.html:1086
-msgid "시타"
-msgstr "Sita"
-
-#: .\templates\npc\index.html:1031 .\templates\npc\index.html:1040
-#: .\templates\npc\index.html:1045 .\templates\npc\index.html:1054
-#: .\templates\npc\index.html:1059 .\templates\npc\index.html:1068
-#: .\templates\npc\index.html:1073 .\templates\npc\index.html:1082
-#: .\templates\npc\index.html:1087 .\templates\npc\index.html:1096
-msgid "베르니카"
-msgstr "Vernika"
-
-#: .\templates\npc\index.html:1032 .\templates\npc\index.html:1046
-#: .\templates\npc\index.html:1060 .\templates\npc\index.html:1074
-#: .\templates\npc\index.html:1088
-msgid "리안나"
-msgstr "Rianna"
-
-#: .\templates\npc\index.html:1033 .\templates\npc\index.html:1047
-#: .\templates\npc\index.html:1061 .\templates\npc\index.html:1075
-#: .\templates\npc\index.html:1089
-msgid "시니아"
-msgstr "Cinia"
-
-#: .\templates\npc\index.html:1034 .\templates\npc\index.html:1048
-#: .\templates\npc\index.html:1062 .\templates\npc\index.html:1076
-#: .\templates\npc\index.html:1090 .\templates\npc\index.html:1102
-msgid "로제"
-msgstr "Rose"
 
 #: .\templates\npc\index.html:1035 .\templates\npc\index.html:1049
 #: .\templates\npc\index.html:1063 .\templates\npc\index.html:1077
 #: .\templates\npc\index.html:1091
-msgid "리니아"
-msgstr "Linia"
+msgid "시타"
+msgstr "Sita"
 
-#: .\templates\npc\index.html:1036 .\templates\npc\index.html:1050
-#: .\templates\npc\index.html:1064 .\templates\npc\index.html:1078
-#: .\templates\npc\index.html:1092
-msgid "루티카"
-msgstr "Luthica"
+#: .\templates\npc\index.html:1036 .\templates\npc\index.html:1045
+#: .\templates\npc\index.html:1050 .\templates\npc\index.html:1059
+#: .\templates\npc\index.html:1064 .\templates\npc\index.html:1073
+#: .\templates\npc\index.html:1078 .\templates\npc\index.html:1087
+#: .\templates\npc\index.html:1092 .\templates\npc\index.html:1101
+msgid "베르니카"
+msgstr "Vernika"
 
 #: .\templates\npc\index.html:1037 .\templates\npc\index.html:1051
 #: .\templates\npc\index.html:1065 .\templates\npc\index.html:1079
 #: .\templates\npc\index.html:1093
-msgid "클라리스"
-msgstr "Clarice"
+msgid "리안나"
+msgstr "Rianna"
 
 #: .\templates\npc\index.html:1038 .\templates\npc\index.html:1052
 #: .\templates\npc\index.html:1066 .\templates\npc\index.html:1080
-#: .\templates\npc\index.html:1094 .\templates\npc\index.html:1106
-msgid "제이나"
-msgstr "Jaina"
+#: .\templates\npc\index.html:1094
+msgid "시니아"
+msgstr "Cinia"
 
 #: .\templates\npc\index.html:1039 .\templates\npc\index.html:1053
 #: .\templates\npc\index.html:1067 .\templates\npc\index.html:1081
-#: .\templates\npc\index.html:1095
-msgid "아이리"
-msgstr "Iri"
+#: .\templates\npc\index.html:1095 .\templates\npc\index.html:1107
+msgid "로제"
+msgstr "Rose"
+
+#: .\templates\npc\index.html:1040 .\templates\npc\index.html:1054
+#: .\templates\npc\index.html:1068 .\templates\npc\index.html:1082
+#: .\templates\npc\index.html:1096
+msgid "리니아"
+msgstr "Linia"
 
 #: .\templates\npc\index.html:1041 .\templates\npc\index.html:1055
 #: .\templates\npc\index.html:1069 .\templates\npc\index.html:1083
 #: .\templates\npc\index.html:1097
+msgid "루티카"
+msgstr "Luthica"
+
+#: .\templates\npc\index.html:1042 .\templates\npc\index.html:1056
+#: .\templates\npc\index.html:1070 .\templates\npc\index.html:1084
+#: .\templates\npc\index.html:1098
+msgid "클라리스"
+msgstr "Clarice"
+
+#: .\templates\npc\index.html:1043 .\templates\npc\index.html:1057
+#: .\templates\npc\index.html:1071 .\templates\npc\index.html:1085
+#: .\templates\npc\index.html:1099 .\templates\npc\index.html:1111
+msgid "제이나"
+msgstr "Jaina"
+
+#: .\templates\npc\index.html:1044 .\templates\npc\index.html:1058
+#: .\templates\npc\index.html:1072 .\templates\npc\index.html:1086
+#: .\templates\npc\index.html:1100
+msgid "아이리"
+msgstr "Iri"
+
+#: .\templates\npc\index.html:1046 .\templates\npc\index.html:1060
+#: .\templates\npc\index.html:1074 .\templates\npc\index.html:1088
+#: .\templates\npc\index.html:1102
 msgid "시온 리온"
 msgstr "Sion & Rion"
 
-#: .\templates\npc\index.html:1102 .\templates\npc\index.html:1105
-#: .\templates\npc\index.html:1106 .\templates\npc\index.html:1112
+#: .\templates\npc\index.html:1107 .\templates\npc\index.html:1110
+#: .\templates\npc\index.html:1111 .\templates\npc\index.html:1117
 msgid "[影] 코르"
 msgstr "코르 - Shadow"
 
-#: .\templates\npc\index.html:1103
+#: .\templates\npc\index.html:1108
 msgid "[影] 구름슬라임"
 msgstr "구름슬라임 - Shadow"
 
-#: .\templates\npc\index.html:1104
+#: .\templates\npc\index.html:1109
 msgid "[影] 45423"
 msgstr "45423 - Shadow"
 
-#: .\templates\npc\index.html:1105
+#: .\templates\npc\index.html:1110
 msgid "페르비아"
 msgstr "Perbia"
 
-#: .\templates\npc\index.html:1107
+#: .\templates\npc\index.html:1112
 msgid "[影] BerlyDraco"
 msgstr "BerlyDraco - Shadow"
 
-#: .\templates\npc\index.html:1115
+#: .\templates\npc\index.html:1120
 msgid "[影] 시타냥"
 msgstr "시타냥 - Shadow"
 
-#: .\templates\npc\index.html:1118
+#: .\templates\npc\index.html:1123
 msgid "[影] 쿠마"
 msgstr "쿠마 - Shadow"
 
-#: .\templates\npc\index.html:1119
+#: .\templates\npc\index.html:1124
 msgid "[影] Zaciel"
 msgstr "Zaciel Zaciel - Shadow"
 
-#~ msgid "검색 불가 카드 리스트(임시)"
-#~ msgstr "Unsearchable Card List(temporary)"
+#: .\templates\npc\index.html:1188
+msgid "시험의 전당"
+msgstr "Exam Hall"
 
-#~ msgid "탈렌티움 리스토어"
-#~ msgstr "Talentium Restore"
+#: .\templates\npc\index.html:1191
+msgid "여름의 탑"
+msgstr "Tower of Summer"
+
+#: .\templates\npc\index.html:1200
+msgid "6층"
+msgstr "6F"
+
+#: .\templates\npc\index.html:1201
+msgid "7층"
+msgstr "7F"
+
+#: .\templates\npc\index.html:1202
+msgid "8층"
+msgstr "8F"
+
+#: .\templates\npc\index.html:1205
+msgid "9층"
+msgstr "9F"
+
+#: .\templates\npc\index.html:1206
+msgid "10층"
+msgstr "10F"
+
+#: .\templates\npc\index.html:1207
+msgid "11층"
+msgstr "11F"
+
+#: .\templates\npc\index.html:1208
+msgid "12층"
+msgstr "12F"
+
+#: .\templates\npc\index.html:1209
+msgid "13층"
+msgstr "13F"
+
+#: .\templates\npc\index.html:1210
+msgid "14층"
+msgstr "14F"
+
+#: .\templates\npc\index.html:1211
+msgid "15층"
+msgstr "15F"
+
+#: .\templates\npc\index.html:1212
+msgid "16층"
+msgstr "16F"
+
+#: .\templates\npc\index.html:1213
+msgid "17층"
+msgstr "17F"
+
+#: .\templates\npc\index.html:1214
+msgid "18층"
+msgstr "18F"
+
+#: .\templates\npc\index.html:1215
+msgid "19층"
+msgstr "19F"
+
+#: .\templates\npc\index.html:1216
+msgid "20층"
+msgstr "20F"
+
+#: .\templates\npc\index.html:1217
+msgid "21층"
+msgstr "21F"
+
+#: .\templates\npc\index.html:1218
+msgid "22층"
+msgstr "22F"
+
+#: .\templates\npc\index.html:1219
+msgid "23층"
+msgstr "23F"
+
+#: .\templates\npc\index.html:1220
+msgid "24층"
+msgstr "24F"
+
+#: .\templates\npc\index.html:1221
+msgid "25층"
+msgstr "25F"
+
+#: .\templates\npc\index.html:1222
+msgid "26층"
+msgstr "26F"
+
+#: .\templates\npc\index.html:1223
+msgid "27층"
+msgstr "27F"
+
+#: .\templates\npc\index.html:1224
+msgid "28층"
+msgstr "28F"
+
+#: .\templates\npc\index.html:1227
+msgid "29층"
+msgstr "29F"
+
+#: .\templates\npc\index.html:1228
+msgid "30층"
+msgstr "30F"
+
+#: .\templates\npc\index.html:1229
+msgid "31층"
+msgstr "31F"
+
+#: .\templates\npc\index.html:1230
+msgid "32층"
+msgstr "32F"
+
+#: .\templates\npc\index.html:1233
+msgid "33층"
+msgstr "33F"
+
+#: .\templates\npc\index.html:1234
+msgid "34층"
+msgstr "34F"
+
+#: .\templates\npc\index.html:1235
+msgid "35층"
+msgstr "35F"
+
+#: .\templates\npc\index.html:1236
+msgid "36층"
+msgstr "36F"
+
+#: .\templates\npc\index.html:1239
+msgid "37층"
+msgstr "37F"
+
+#: .\templates\npc\index.html:1240
+msgid "38층"
+msgstr "38F"
+
+#: .\templates\npc\index.html:1241
+msgid "39층"
+msgstr "39F"
+
+#: .\templates\npc\index.html:1242
+msgid "40층"
+msgstr "40F"
+
 
 #~ msgid "코인 팩토리"
 #~ msgstr "Coin Factory"
-
-#~ msgid "6층"
-#~ msgstr "6F"
-
-#~ msgid "7층"
-#~ msgstr "7F"
-
-#~ msgid "8층"
-#~ msgstr "8F"
-
-#~ msgid "9층"
-#~ msgstr "9F"
-
-#~ msgid "10층"
-#~ msgstr "10F"
 
 #~ msgid "쉐도우랜드(시온)"
 #~ msgstr "Shadowland(Sion)"
@@ -925,9 +1061,6 @@ msgstr "Zaciel Zaciel - Shadow"
 #~ msgid "동화의 관찰자"
 #~ msgstr "Fairytale Observer"
 
-#~ msgid "여름의 관찰자"
-#~ msgstr "Summer Observer"
-
 #~ msgid "할로윈의 관찰자"
 #~ msgstr "Halloween Observer"
 
@@ -939,9 +1072,6 @@ msgstr "Zaciel Zaciel - Shadow"
 
 #~ msgid "성탄의 카나 시니아"
 #~ msgstr "X-mas Kana Cinia"
-
-#~ msgid "시험의 전당"
-#~ msgstr "Exam Hall"
 
 #~ msgid "츄파츄파 페스티벌"
 #~ msgstr "Chupachupa Festival"
