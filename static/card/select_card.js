@@ -93,6 +93,7 @@ function selectCard(id, init_link){
 
             document.getElementById('capture-btn').style.display = 'inline-block';
             document.getElementById('vert-horz-btn').style.display = 'inline-block';
+            document.getElementById('hyperlink-btn').style.display = 'inline-block';
             document.getElementById('swap-text-btn').style.display = 'inline-block';
 
             // product
@@ -168,6 +169,25 @@ function captureCard() {
         link.click(); // 링크 클릭
     });
 }
+
+function getLinkCard() {
+    const selectedCard = document.querySelector('.selected-card-image');
+    const cardId = selectedCard.getAttribute('card-id')
+    const button = document.getElementById('hyperlink-btn');
+
+    const baseUrl = window.location.origin;
+    const link = `${baseUrl}/card/#selectCard/${cardId}/0`;
+    
+    navigator.clipboard.writeText(link)
+        .then(() => {
+            button.textContent = "✅";
+        })
+        .catch(err => {
+            console.error("클립보드 복사 실패: ", err);
+            alert("클립보드 복사에 실패했습니다.");
+        });
+}
+
 
 function showLinkCard(offset) {
     // console.log(link_card_ids, link_card_idx, offset);

@@ -143,6 +143,12 @@ nav {
     margin-bottom: 5px;
     margin-left: 5px;
 }
+#hyperlink-btn {
+    width: 75px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
 
 .selected-card {
     display: flex;
