@@ -178,14 +178,30 @@ function getLinkCard() {
     const baseUrl = window.location.origin;
     const link = `${baseUrl}/card/#selectCard/${cardId}/0`;
     
-    navigator.clipboard.writeText(link)
-        .then(() => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(link)
+            .then(() => {
+                button.textContent = "✅";
+            })
+            .catch(err => {
+                console.error("클립보드 복사 실패: ", err);
+                alert("클립보드 복사에 실패했습니다.");
+            });
+    } else {
+        // http 환경
+        const textarea = document.createElement("textarea");
+        textarea.value = link;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
             button.textContent = "✅";
-        })
-        .catch(err => {
-            console.error("클립보드 복사 실패: ", err);
+        } catch (err) {
+            console.error("Fallback 복사 실패: ", err);
             alert("클립보드 복사에 실패했습니다.");
-        });
+        }
+        document.body.removeChild(textarea);
+    }
 }
 
 
