@@ -21,9 +21,9 @@
     <div class="container">
         {% block left %}
         <div class="left">
-            <li><a href="https://open.kakao.com/o/gfZ9sxib">(외부 링크)오픈카톡 정보방</a></li>
+            <li class="guide-li"><a href="https://open.kakao.com/o/gfZ9sxib">(외부 링크)오픈카톡 정보방</a></li>
             {% for content in contents %}
-                <li><a href="{% url 'guide_detail' content.0 %}">{{ content.1 }}</a></li>
+                <li class="guide-li"><a href="{% url 'guide_detail' content.0 %}">{{ content.1 }}</a></li>
             {% endfor %}
         </div>
         {% endblock %}

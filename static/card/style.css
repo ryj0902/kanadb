@@ -56,7 +56,7 @@ nav {
 
 .left {
     width: 770px;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 .search-filter {
     outline: solid 1px black; /* temporary */
@@ -465,8 +465,8 @@ nav {
 }
 
 .npc-table {
-    width: 100%; /* 테이블 전체 너비를 100%로 설정 */
-    table-layout: fixed; /* 고정된 테이블 레이아웃 사용 */
+    width: 100%; 
+    table-layout: fixed; 
     border-collapse: collapse; /* 셀 간의 중복된 테두리를 제거 */
 }
 
@@ -589,7 +589,12 @@ opacity: 0.4;
     filter: none;
 }
 
+.guide-li {
+    margin-left: 20px;
+}
+
 #deck-main-layout {
+    margin: 10px;
     display: flex;
     gap: 20px;
     align-items: flex-start;
@@ -598,6 +603,10 @@ opacity: 0.4;
 #deck-left-wrapper {
     display: flex;
     flex-direction: column;
+}
+
+.button-group {
+    margin-bottom: 5px;
 }
 
 #deck-edit {
@@ -610,9 +619,10 @@ opacity: 0.4;
     overflow-y: auto;
     width: 200px;
     padding: 10px;
+    margin-top: 25px;
 
     overflow-y: auto;
-    max-height: 600px;
+    max-height: 586px;
 }
 
 #deck-preview-content.green-highlight {
@@ -722,9 +732,108 @@ opacity: 0.4;
     text-overflow: ellipsis;
 }
 
-#deck-statistics {
+.deck-statistics {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px; 
+    padding: 10px;
+
     margin-top: 10px;
-    width: 770px;
+    width: 730px;
     border: 2px solid black;
     text-align: center;
 }
+
+.deck-statistics-box {
+    display: flex;
+    gap: 15px;
+}
+
+#deck-statistics-category {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    gap: 10px;
+}
+
+#deck-statistics-size { grid-row: 2; grid-column: 1; }
+#deck-statistics-theme { grid-row: 2; grid-column: 2; }
+#deck-statistics-rarity { grid-row: 2; grid-column: 3; }
+
+#deck-statistics-count {
+  grid-column: 1 / 4;
+  grid-row: 3; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+#deck-statistics-count p {
+    text-align: left;
+    margin: 0;
+}
+
+.deck-statistics-icon {
+    height: 20px;
+}
+
+.deck-statistics-icon-large {
+    height: 30px;
+}
+
+.deck-statistics-category-text {
+    font-family: skill;
+    font-size: 15px;
+    color: #ebdcb5;
+    text-shadow: -1px 0 #52391e, 0 1px #52391e, 1px 0 #52391e, 0 -1px #52391e;
+    margin-right: 5px;
+}
+
+.stat-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    height: 100%;
+    justify-content: space-between;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-row > span:first-child {
+    width: 20px;
+    text-align: center;
+}
+
+.stat-row .text-stat {
+    font-size: 15px;
+    width: 10px;
+    text-align: center;
+}
+
+.bar-frame {
+    position: relative;
+    width: 60px; /* 바 길이 */
+    height: 6px; /* 바 두께 */
+    background-color: #000;
+    border: 1px solid #c5a670; /* 금색 테두리 */
+    border-radius: 10px; /* 둥근 모서리 */
+    overflow: hidden; /* 내부 채우기가 튀어나가지 않게 */
+}
+
+.bar-fill {
+    height: 100%;
+    background-color: #3b82f6; /* 파란색 */
+    width: 0%; /* JS로 제어됨 */
+    transition: width 0.5s ease-out; /* 부드러운 애니메이션 */
+    border-radius: 8px 0 0 8px;
+}
+
+.bar-fill[style*="width: 100%"] {
+    border-radius: 8px;
+}
+

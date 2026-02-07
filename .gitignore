@@ -165,3 +165,4 @@ TextAsset/
 migrations/
 secret_key.txt
 *.sql
+test.ipynb

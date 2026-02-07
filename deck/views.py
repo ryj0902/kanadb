@@ -15,6 +15,7 @@ from django.views.decorators.http import require_POST
 
 from card.forms import CardSearchForm
 from card.models import Card
+from npc.views import calculate_statistics
 
 
 class LazyEncoder(json.JSONEncoder):
@@ -104,6 +105,8 @@ def deck_from_url(request):
 
     cards_ = sorted(cards_, key=lambda card: (card.category, card.size))
 
+    statistics = calculate_statistics(cards_)
+
     deck_points, num_cards = 0, 0
     cards = []
     for card in cards_:
@@ -126,18 +129,22 @@ def deck_from_url(request):
         card_character = None
         deck_card_list = cards
 
+    context = {
+        "card_character": card_character,
+        "deck_card_list": deck_card_list,
+        "chapter_name": title,
+        "chapter_name_us": title,
+        "loading_name": summary,
+        "loading_name_us": summary,
+        "loading_desc": description,
+        "loading_desc_us": description,
+    }
+
+    context |= statistics
+
     rendered_html = render_to_string(
         "npc/npc_deck.html",
-        {
-            "card_character": card_character,
-            "deck_card_list": deck_card_list,
-            "chapter_name": title,
-            "chapter_name_us": title,
-            "loading_name": summary,
-            "loading_name_us": summary,
-            "loading_desc": description,
-            "loading_desc_us": description,
-        },
+        context,
         request=request,
     )
 

@@ -39,8 +39,8 @@ class Card(models.Model):
     category = models.IntegerField()
     rarity = models.IntegerField()
     theme = models.IntegerField()
-    tag = models.TextField()  # list of string
-    tag_us = models.TextField()  # list of string
+    tag = models.TextField()
+    tag_us = models.TextField()
     episode = models.IntegerField()
     point = models.IntegerField()
     size = models.IntegerField()
@@ -85,31 +85,32 @@ class Card(models.Model):
         return self.name
 
     @staticmethod
+    def get_episode_string(int_episode):
+        episode = int_episode
+        if episode // 100 < 9:
+            if episode // 100 == 1:
+                prefix = "EP"
+            elif episode // 100 == 5:
+                prefix = "EV"
+            else:  # 8
+                prefix = "MH"
+
+            episode = prefix + str(int_episode % 100)
+        else:
+            if episode == 901:
+                episode = "SH"
+            elif episode == 902:
+                episode = "EM"
+
+        return episode
+
+    @staticmethod
     def parse_to_string(card):
-        def get_episode_string(int_episode):
-            episode = int_episode
-            if episode // 100 < 9:
-                if episode // 100 == 1:
-                    prefix = "EP"
-                elif episode // 100 == 5:
-                    prefix = "EV"
-                else:  # 8
-                    prefix = "MH"
-
-                episode = prefix + str(int_episode % 100)
-            else:
-                if episode == 901:
-                    episode = "SH"
-                elif episode == 902:
-                    episode = "EM"
-
-            return episode
-
         if isinstance(card, dict):
             card["category"] = Card.category_map[card["category"]]
             card["rarity"] = Card.rarity_map[card["rarity"]]
             card["theme"] = Card.theme_map[card["theme"]]
-            card["episode"] = get_episode_string(card["episode"])
+            card["episode"] = Card.get_episode_string(card["episode"])
 
             product_split = card["product"].split(",")
             card["product1"] = f"{product_split[2]} x {product_split[1]}"
@@ -121,7 +122,7 @@ class Card(models.Model):
             card.category = Card.category_map[card.category]
             card.rarity = Card.rarity_map[card.rarity]
             card.theme = Card.theme_map[card.theme]
-            card.episode = get_episode_string(card.episode)
+            card.episode = Card.get_episode_string(card.episode)
 
             product_split = card.product.split(",")
             card.product1 = f"{product_split[2]} x {product_split[1]}"
