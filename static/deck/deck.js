@@ -208,7 +208,7 @@ function refreshDeckPreview() {
     const cards = getCardIdsFromUrl().join(',')
     const deckInfo = getDeckInfoFromUrl();
 
-    $.get('/deck/set/', {
+    $.get(baseUrl + '/' + lang + '/deck/set/', {
         card: cards,
         title: deckInfo.title,
         summary: deckInfo.summary,

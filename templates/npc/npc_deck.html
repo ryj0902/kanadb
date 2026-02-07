@@ -1,3 +1,4 @@
+{% load static %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
@@ -45,4 +46,100 @@
             </div>
         </div>
     {% endfor %}
+</div>
+
+<div class="deck-statistics">
+    <div class="deck-statistics-box" id="deck-statistics-category">
+        {% for category, count in stat_category %}
+            <img class="deck-statistics-icon" src="{% get_static_prefix %}card/Texture2D/UI_icon_card_{{ category }}.webp">
+            <span class="deck-statistics-category-text">{{ count }}</span>
+        {% endfor %}
+
+        <img class="deck-statistics-icon" src="{% get_static_prefix %}card/Texture2D/result_{{ stat_rank_char }}.webp">
+        <span class="deck-statistics-category-text">{{ stat_point }}</span>
+    </div>
+
+    <div class="deck-statistics-box" id="deck-statistics-size">
+        <div class="stat-column">
+            {% for count in stat_size|slice:":5" %}
+                <div class="stat-row">
+                    <span style="font-family: skill;">{{ forloop.counter }}</span>
+                    <div class="bar-frame">
+                        <div class="bar-fill" style="width: {% widthratio count 30 100 %}%;"></div>
+                    </div>
+                    <span class="text-stat">{{ count }}</span>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="stat-column">
+            {% for count in stat_size|slice:"5:" %}
+                <div class="stat-row">
+                    <span style="font-family: skill;">{{ forloop.counter|add:5 }}</span>
+                    <div class="bar-frame">
+                        <div class="bar-fill" style="width: {% widthratio count 30 100 %}%;"></div>
+                    </div>
+                    <span class="text-stat">{{ count }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="deck-statistics-box" id="deck-statistics-theme">
+        <div class="stat-column">
+            {% for theme, count in stat_theme|slice:":3" %}
+                <div class="stat-row">
+                    <img class="deck-statistics-icon-large" src="{% get_static_prefix %}card/Texture2D/icon_E_{{ theme }}.webp">
+                    <div class="bar-frame">
+                        <div class="bar-fill" style="width: {% widthratio count 30 100 %}%;"></div>
+                    </div>
+                    <span class="text-stat">{{ count }}</span>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="stat-column">
+            {% for theme, count in stat_theme|slice:"3:" %}
+                <div class="stat-row">
+                    <img class="deck-statistics-icon-large" src="{% get_static_prefix %}card/Texture2D/icon_E_{{ theme }}.webp">
+                    <div class="bar-frame">
+                        <div class="bar-fill" style="width: {% widthratio count 30 100 %}%;"></div>
+                    </div>
+                    <span class="text-stat">{{ count }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="deck-statistics-box" id="deck-statistics-rarity">
+        <div class="stat-column">
+            {% for rarity, count in stat_rarity|slice:":3" %}
+                <div class="stat-row">
+                    <img class="deck-statistics-icon-large" src="{% get_static_prefix %}card/Texture2D/UI_icon_grade_{{ rarity }}.webp">
+                    <div class="bar-frame">
+                        <div class="bar-fill" style="width: {% widthratio count 30 100 %}%;"></div>
+                    </div>
+                    <span class="text-stat">{{ count }}</span>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="stat-column">
+            {% for rarity, count in stat_rarity|slice:"3:" %}
+                <div class="stat-row">
+                    <img class="deck-statistics-icon-large" src="{% get_static_prefix %}card/Texture2D/UI_icon_grade_{{ rarity }}.webp">
+                    <div class="bar-frame">
+                        <div class="bar-fill" style="width: {% widthratio count 30 100 %}%;"></div>
+                    </div>
+                    <span class="text-stat">{{ count }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="deck-statistics-box" id="deck-statistics-count">
+        <p>{{ ep_enh_str }}</p>
+        {% if LANGUAGE_CODE == 'ko' %}
+            <p>{{ tag_enh_str }}</p>
+        {% elif LANGUAGE_CODE == 'en' %}
+            <p>{{ tag_enh_str_us }}</p>
+        {% endif %}
+    </div>
 </div>
