@@ -14,25 +14,51 @@
     <div class="container">
         <div class="left">
             <div class="floor-navigation">
-                {% if floor_down != -1 %}
-                <a class="floor-button" href="{% url 'npc_detail' floor_down %}">◀</a>
-                {% else %}
-                <a class="floor-button" style="opacity: 0.5; pointer-events: none;">◀</a>
-                {% endif %}
-                <select class="floor-selector" onchange="navigateToFloor(this)">
-                    {% for i in floors %}
-                    <option value="{% url 'npc_detail' i %}" {% if i == current_floor %}selected{% endif %}>
-                        {{ forloop.counter }}
-                    </option>
-                    {% endfor %}
-                </select>
-                {% if floor_up != -1 %}
-                <a class="floor-button" href="{% url 'npc_detail' floor_up %}">▶</a>
-                {% else %}
-                <a class="floor-button" style="opacity: 0.5; pointer-events: none;">▶</a>
-                {% endif %}
-            </div>
+                <!-- 1. 던전 난이도/요일 네비게이션 그룹 -->
+                <div class="nav-group">
+                    {% if diff_prev_id != -1 %}
+                    <a class="floor-button" href="{% url 'npc_detail' diff_prev_id %}">◀</a>
+                    {% else %}
+                    <a class="floor-button" style="opacity: 0.3; pointer-events: none;">◀</a>
+                    {% endif %}
+                    <select class="difficulty-selector" onchange="navigateToUrl(this)">
+                        {% for diff in difficulty_list %}
+                        <option value="{% url 'npc_detail' diff.url_id %}" {% if diff.value == current_diff %}selected{% endif %}>
+                            {% trans diff.label %}
+                        </option>
+                        {% endfor %}
+                    </select>
             
+                    {% if diff_next_id != -1 %}
+                    <a class="floor-button" href="{% url 'npc_detail' diff_next_id %}">▶</a>
+                    {% else %}
+                    <a class="floor-button" style="opacity: 0.3; pointer-events: none;">▶</a>
+                    {% endif %}
+                </div>
+            
+                <!-- 2. 층수 네비게이션 그룹 -->
+                <div class="nav-group">
+                    {% if floor_prev_id != -1 %}
+                    <a class="floor-button" href="{% url 'npc_detail' floor_prev_id %}">◀</a>
+                    {% else %}
+                    <a class="floor-button" style="opacity: 0.3; pointer-events: none;">◀</a>
+                    {% endif %}
+            
+                    <select class="floor-selector" onchange="navigateToUrl(this)">
+                        {% for f_opt in floor_options %}
+                        <option value="{% url 'npc_detail' f_opt.id %}" {% if f_opt.is_current %}selected{% endif %}>
+                            {{ f_opt.label }}
+                        </option>
+                        {% endfor %}
+                    </select>
+            
+                    {% if floor_next_id != -1 %}
+                    <a class="floor-button" href="{% url 'npc_detail' floor_next_id %}">▶</a>
+                    {% else %}
+                    <a class="floor-button" style="opacity: 0.3; pointer-events: none;">▶</a>
+                    {% endif %}
+                </div>
+            </div>
             {% include 'npc/npc_deck.html' %}
         </div>
 
@@ -43,7 +69,7 @@
 </body>
 
 <script>
-    function navigateToFloor(selectElement) {
+    function navigateToUrl(selectElement) {
         const url = selectElement.value;
         if (url) {
             window.location.href = url;

@@ -58,6 +58,12 @@ class CardSearchForm(forms.Form):
         required=False,
         label="season2",
     )
+    episode_season3 = forms.MultipleChoiceField(
+        choices=Card.EPISODE_SEASON3,
+        widget=forms.CheckboxSelectMultiple(attrs={"class": "checkbox-inline"}),
+        required=False,
+        label="season3",
+    )
     episode_event = forms.MultipleChoiceField(
         choices=Card.EPISODE_EVENT,
         widget=forms.CheckboxSelectMultiple(attrs={"class": "checkbox-inline"}),
@@ -91,6 +97,7 @@ class CardSearchForm(forms.Form):
 
         episode_season1 = self.cleaned_data.get("episode_season1")
         episode_season2 = self.cleaned_data.get("episode_season2")
+        episode_season3 = self.cleaned_data.get("episode_season3")
         episode_event = self.cleaned_data.get("episode_event")
         episode_extra = self.cleaned_data.get("episode_extra")
 
@@ -137,8 +144,20 @@ class CardSearchForm(forms.Form):
         if size_min and size_max:
             cards = cards.filter(size__range=(size_min, size_max))
 
-        episode_list = episode_season1 + episode_season2 + episode_event + episode_extra
-        if episode_season1 or episode_season2 or episode_event or episode_extra:
+        episode_list = (
+            episode_season1
+            + episode_season2
+            + episode_season3
+            + episode_event
+            + episode_extra
+        )
+        if (
+            episode_season1
+            or episode_season2
+            or episode_season3
+            or episode_event
+            or episode_extra
+        ):
             cards = cards.filter(episode__in=episode_list)
 
         if "uncollectable" not in etc:

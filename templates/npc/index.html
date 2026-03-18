@@ -10,7 +10,7 @@
 
     <table class="npc-table" border="1">
         <tr>
-            <th class="chapter-header" colspan="9">{% trans "시즌 1" %}</th>
+            <th class="chapter-header" colspan="9">{% trans "시즌" %} 1</th>
         </tr>
         <tr>
             <th>EP0 {% trans "시공관리국" %}</th>
@@ -307,7 +307,7 @@
         </tr>
 
         <tr>
-            <th class="chapter-header" colspan="9">{% trans "시즌 2" %}</th>
+            <th class="chapter-header" colspan="9">{% trans "시즌" %} 2</th>
         </tr>
         <tr>
             <th>EP9 {% trans "카타콤" %}</th>
@@ -568,6 +568,55 @@
                     <li><a href="{% url 'npc_detail' 11163103 %}">{% trans "3층" %}</a></li>
                     <li><a href="{% url 'npc_detail' 11163104 %}">{% trans "4층" %}</a></li>
                     <li><a href="{% url 'npc_detail' 11163105 %}">{% trans "5층" %}</a></li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <th class="chapter-header" colspan="9">{% trans "시즌" %} 3</th>
+        </tr>
+        <tr>
+            <th>EP17 {% trans "묘족의 유적" %}</th>
+        </tr>
+        <tr>
+            <td class="center-cell"> {% trans "이지" %} </td>
+        </tr>
+        <tr>
+            <td> <!-- EP17 --> 
+                <ul>
+                    <li><a href="{% url 'npc_detail' 11171101 %}">{% trans "1층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11171102 %}">{% trans "2층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11171103 %}">{% trans "3층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11171104 %}">{% trans "4층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11171105 %}">{% trans "5층" %}</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="center-cell"> {% trans "노말" %} </td>
+        </tr>
+        <tr>
+            <td> <!-- EP17 --> 
+                <ul>
+                    <li><a href="{% url 'npc_detail' 11172101 %}">{% trans "1층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11172102 %}">{% trans "2층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11172103 %}">{% trans "3층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11172104 %}">{% trans "4층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11172105 %}">{% trans "5층" %}</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="center-cell"> {% trans "하드" %} </td>
+        </tr>
+        <tr>
+            <td> <!-- EP17 --> 
+                <ul>
+                    <li><a href="{% url 'npc_detail' 11173101 %}">{% trans "1층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11173102 %}">{% trans "2층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11173103 %}">{% trans "3층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11173104 %}">{% trans "4층" %}</a></li>
+                    <li><a href="{% url 'npc_detail' 11173105 %}">{% trans "5층" %}</a></li>
                 </ul>
             </td>
         </tr>
@@ -1428,7 +1477,7 @@
         </tr>
     </table> {% endcomment %}
 
-    <tr>
+    {% comment %} <tr>
         <th class="chapter-header" colspan="9">{% trans "시험의 전당" %}</th>
     </tr>
     <tr>
@@ -1495,6 +1544,6 @@
                 <li><a href="{% url 'npc_detail' 81147140 %}">{% trans "40층" %}</a></li>
             </ul>
         </td>
-    </tr>
+    </tr> {% endcomment %}
 
 </body>
