@@ -471,21 +471,47 @@ nav {
 }
 
 .floor-navigation {
-    display: flex;
-    align-items: center; /* 세로 정렬 */
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    /* justify-content를 center에서 flex-start로 변경 */
+    justify-content: flex-start !important; 
+    gap: 10px; /* 그룹 간의 간격 */
+    width: 100%;
+    margin-bottom: 10px;
+    padding-left: 0; /* 필요 시 왼쪽 여백 조절 */
 }
+
+.nav-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 2px; /* 화살표와 셀렉터 사이의 간격 줄임 */
+}
+
 .floor-button {
     font-size: 24px;
+    line-height: 1;
     text-decoration: none;
-    color: black; /* 기본 텍스트 색상 */
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    cursor: pointer;
 }
+
 .floor-button:hover {
-    text-decoration: none; /* 호버 시 밑줄 */
-    color: red; /* 호버 시 효과 */
+    color: red;
 }
+
+.difficulty-selector,
 .floor-selector {
-    font-size: 12px; /* 텍스트 크기 */
-    padding: 5px; /* 내부 여백 */
+    font-size: 12px;
+    height: 28px;
+    padding: 0 4px;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .center-cell {

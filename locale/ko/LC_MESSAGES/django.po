@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 21:42+0900\n"
+"POT-Creation-Date: 2026-03-18 23:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,19 +38,19 @@ msgstr "수집 불가 포함"
 msgid "제작 가능만"
 msgstr "제작 가능만"
 
-#: .\card\models.py:7 .\templates\card\search_card.html:70
-#: .\templates\deck\index.html:53 .\templates\favorite.html:9
-#: .\templates\npc\npc_deck.html:30
+#: .\card\models.py:7 .\templates\card\search_card.html:78
+#: .\templates\deck\index.html:46 .\templates\favorite.html:9
+#: .\templates\npc\npc_deck.html:31
 msgid "캐릭터"
 msgstr "캐릭터"
 
-#: .\card\models.py:7 .\templates\card\search_card.html:72
-#: .\templates\favorite.html:11 .\templates\npc\npc_deck.html:32
+#: .\card\models.py:7 .\templates\card\search_card.html:80
+#: .\templates\favorite.html:11 .\templates\npc\npc_deck.html:33
 msgid "스펠"
 msgstr "스펠"
 
-#: .\card\models.py:7 .\templates\card\search_card.html:71
-#: .\templates\favorite.html:10 .\templates\npc\npc_deck.html:31
+#: .\card\models.py:7 .\templates\card\search_card.html:79
+#: .\templates\favorite.html:10 .\templates\npc\npc_deck.html:32
 msgid "추종자"
 msgstr "추종자"
 
@@ -78,9 +78,9 @@ msgstr "더블레어"
 msgid "유니크"
 msgstr "유니크"
 
-#: .\card\models.py:17 .\templates\npc\index.html:1036
-#: .\templates\npc\index.html:1050 .\templates\npc\index.html:1064
-#: .\templates\npc\index.html:1078 .\templates\npc\index.html:1092
+#: .\card\models.py:17 .\templates\npc\index.html:1302
+#: .\templates\npc\index.html:1318 .\templates\npc\index.html:1334
+#: .\templates\npc\index.html:1350 .\templates\npc\index.html:1366
 msgid "공립"
 msgstr "공립"
 
@@ -92,9 +92,9 @@ msgstr "사립"
 msgid "크룩스"
 msgstr "크룩스"
 
-#: .\card\models.py:20 .\templates\npc\index.html:1045
-#: .\templates\npc\index.html:1059 .\templates\npc\index.html:1073
-#: .\templates\npc\index.html:1087 .\templates\npc\index.html:1101
+#: .\card\models.py:20 .\templates\npc\index.html:1311
+#: .\templates\npc\index.html:1327 .\templates\npc\index.html:1343
+#: .\templates\npc\index.html:1359 .\templates\npc\index.html:1375
 msgid "다크로어"
 msgstr "다크로어"
 
@@ -102,33 +102,118 @@ msgstr "다크로어"
 msgid "무소속"
 msgstr "무소속"
 
-#: .\card\models.py:29 .\templates\npc\index.html:834
+#: .\card\models.py:30 .\templates\npc\index.html:1057
 msgid "쉐도우랜드"
 msgstr "쉐도우랜드"
 
-#: .\card\models.py:30
+#: .\card\models.py:31
 msgid "제국"
 msgstr "제국"
 
-#: .\card\models.py:31
+#: .\card\models.py:32
 msgid "명계"
 msgstr "명계"
 
-#: .\card\models.py:32 .\templates\npc\index.html:1005
+#: .\card\models.py:33 .\templates\npc\index.html:1266
 msgid "차원의 틈"
 msgstr "차원의 틈"
 
-#: .\card\models.py:33
+#: .\card\models.py:34
 msgid "재료"
 msgstr "재료"
 
-#: .\card\views.py:73 .\deck\views.py:69 .\guide\views.py:53 .\npc\views.py:56
+#: .\card\views.py:73 .\deck\views.py:70 .\guide\views.py:53 .\npc\views.py:299
 msgid "가로 모드"
 msgstr "가로 모드"
 
-#: .\card\views.py:74 .\deck\views.py:70 .\guide\views.py:54 .\npc\views.py:57
+#: .\card\views.py:74 .\deck\views.py:71 .\guide\views.py:54 .\npc\views.py:300
 msgid "세로 모드"
 msgstr "세로 모드"
+
+#: .\npc\views.py:147 .\templates\npc\index.html:1071
+msgid "월"
+msgstr "월"
+
+#: .\npc\views.py:148 .\templates\npc\index.html:1072
+msgid "화"
+msgstr "화"
+
+#: .\npc\views.py:149 .\templates\npc\index.html:1073
+msgid "수"
+msgstr "수"
+
+#: .\npc\views.py:150 .\templates\npc\index.html:1074
+msgid "목"
+msgstr "목"
+
+#: .\npc\views.py:151 .\templates\npc\index.html:1075
+msgid "금"
+msgstr "금"
+
+#: .\npc\views.py:152 .\templates\npc\index.html:1076
+msgid "토"
+msgstr "토"
+
+#: .\npc\views.py:153 .\templates\npc\index.html:1077
+msgid "일"
+msgstr "일"
+
+#: .\npc\views.py:226 .\templates\npc\index.html:27
+#: .\templates\npc\index.html:28 .\templates\npc\index.html:29
+#: .\templates\npc\index.html:30 .\templates\npc\index.html:31
+#: .\templates\npc\index.html:32 .\templates\npc\index.html:33
+#: .\templates\npc\index.html:34 .\templates\npc\index.html:35
+#: .\templates\npc\index.html:323 .\templates\npc\index.html:324
+#: .\templates\npc\index.html:325 .\templates\npc\index.html:326
+#: .\templates\npc\index.html:327 .\templates\npc\index.html:328
+#: .\templates\npc\index.html:329 .\templates\npc\index.html:330
+#: .\templates\npc\index.html:582 .\templates\npc\index.html:638
+#: .\templates\npc\index.html:639 .\templates\npc\index.html:640
+#: .\templates\npc\index.html:641 .\templates\npc\index.html:642
+#: .\templates\npc\index.html:643 .\templates\npc\index.html:644
+#: .\templates\npc\index.html:645 .\templates\npc\index.html:900
+#: .\templates\npc\index.html:901 .\templates\npc\index.html:902
+#: .\templates\npc\index.html:907
+msgid "이지"
+msgstr "이지"
+
+#: .\npc\views.py:226 .\templates\npc\index.html:121
+#: .\templates\npc\index.html:122 .\templates\npc\index.html:123
+#: .\templates\npc\index.html:124 .\templates\npc\index.html:125
+#: .\templates\npc\index.html:126 .\templates\npc\index.html:127
+#: .\templates\npc\index.html:128 .\templates\npc\index.html:129
+#: .\templates\npc\index.html:407 .\templates\npc\index.html:408
+#: .\templates\npc\index.html:409 .\templates\npc\index.html:410
+#: .\templates\npc\index.html:411 .\templates\npc\index.html:412
+#: .\templates\npc\index.html:413 .\templates\npc\index.html:414
+#: .\templates\npc\index.html:596 .\templates\npc\index.html:722
+#: .\templates\npc\index.html:723 .\templates\npc\index.html:724
+#: .\templates\npc\index.html:725 .\templates\npc\index.html:726
+#: .\templates\npc\index.html:727 .\templates\npc\index.html:728
+#: .\templates\npc\index.html:729 .\templates\npc\index.html:952
+#: .\templates\npc\index.html:953 .\templates\npc\index.html:954
+#: .\templates\npc\index.html:959
+msgid "노말"
+msgstr "노말"
+
+#: .\npc\views.py:226 .\templates\npc\index.html:215
+#: .\templates\npc\index.html:216 .\templates\npc\index.html:217
+#: .\templates\npc\index.html:218 .\templates\npc\index.html:219
+#: .\templates\npc\index.html:220 .\templates\npc\index.html:221
+#: .\templates\npc\index.html:222 .\templates\npc\index.html:223
+#: .\templates\npc\index.html:491 .\templates\npc\index.html:492
+#: .\templates\npc\index.html:493 .\templates\npc\index.html:494
+#: .\templates\npc\index.html:495 .\templates\npc\index.html:496
+#: .\templates\npc\index.html:497 .\templates\npc\index.html:498
+#: .\templates\npc\index.html:610 .\templates\npc\index.html:806
+#: .\templates\npc\index.html:807 .\templates\npc\index.html:808
+#: .\templates\npc\index.html:809 .\templates\npc\index.html:810
+#: .\templates\npc\index.html:811 .\templates\npc\index.html:812
+#: .\templates\npc\index.html:813 .\templates\npc\index.html:1004
+#: .\templates\npc\index.html:1005 .\templates\npc\index.html:1006
+#: .\templates\npc\index.html:1011
+msgid "하드"
+msgstr "하드"
 
 #: .\templates\card\search_card.html:5
 msgid "에피소드"
@@ -138,44 +223,42 @@ msgstr "에피소드"
 msgid "상세"
 msgstr "상세"
 
-#: .\templates\card\search_card.html:7 .\templates\card\search_card.html:58
+#: .\templates\card\search_card.html:7 .\templates\card\search_card.html:66
 msgid "기타"
 msgstr "기타"
 
-#: .\templates\card\search_card.html:12 .\templates\npc\index.html:13
-msgid "시즌 1"
-msgstr "시즌 1"
+#: .\templates\card\search_card.html:12 .\templates\card\search_card.html:20
+#: .\templates\card\search_card.html:28 .\templates\npc\index.html:13
+#: .\templates\npc\index.html:310 .\templates\npc\index.html:576
+msgid "시즌"
+msgstr "시즌"
 
-#: .\templates\card\search_card.html:20 .\templates\npc\index.html:256
-msgid "시즌 2"
-msgstr "시즌 2"
-
-#: .\templates\card\search_card.html:28 .\templates\npc\index.html:474
+#: .\templates\card\search_card.html:36 .\templates\npc\index.html:625
 msgid "이벤트"
 msgstr "이벤트"
 
-#: .\templates\card\search_card.html:36
+#: .\templates\card\search_card.html:44
 msgid "엑스트라"
 msgstr "엑스트라"
 
-#: .\templates\card\search_card.html:44 .\templates\card\search_card.html:53
-#: .\templates\card\search_card.html:59
+#: .\templates\card\search_card.html:52 .\templates\card\search_card.html:61
+#: .\templates\card\search_card.html:67
 msgid "검색"
 msgstr "검색"
 
-#: .\templates\card\search_card.html:49
+#: .\templates\card\search_card.html:57
 msgid "종류"
 msgstr "종류"
 
-#: .\templates\card\search_card.html:50
+#: .\templates\card\search_card.html:58
 msgid "등급"
 msgstr "등급"
 
-#: .\templates\card\search_card.html:51
+#: .\templates\card\search_card.html:59
 msgid "소속"
 msgstr "소속"
 
-#: .\templates\card\search_card.html:52
+#: .\templates\card\search_card.html:60
 msgid "사이즈"
 msgstr "사이즈"
 
@@ -239,804 +322,736 @@ msgstr "비타 학교"
 msgid "심상 세계"
 msgstr "심상 세계"
 
-#: .\templates\npc\index.html:27 .\templates\npc\index.html:28
-#: .\templates\npc\index.html:29 .\templates\npc\index.html:30
-#: .\templates\npc\index.html:31 .\templates\npc\index.html:32
-#: .\templates\npc\index.html:33 .\templates\npc\index.html:34
-#: .\templates\npc\index.html:35 .\templates\npc\index.html:269
-#: .\templates\npc\index.html:270 .\templates\npc\index.html:271
-#: .\templates\npc\index.html:272 .\templates\npc\index.html:273
-#: .\templates\npc\index.html:274 .\templates\npc\index.html:275
-#: .\templates\npc\index.html:276 .\templates\npc\index.html:487
-#: .\templates\npc\index.html:488 .\templates\npc\index.html:489
-#: .\templates\npc\index.html:490 .\templates\npc\index.html:491
-#: .\templates\npc\index.html:492 .\templates\npc\index.html:493
-#: .\templates\npc\index.html:494 .\templates\npc\index.html:701
-#: .\templates\npc\index.html:702 .\templates\npc\index.html:703
-#: .\templates\npc\index.html:708
-msgid "이지"
-msgstr "이지"
-
-#: .\templates\npc\index.html:39 .\templates\npc\index.html:46
-#: .\templates\npc\index.html:53 .\templates\npc\index.html:60
-#: .\templates\npc\index.html:67 .\templates\npc\index.html:74
-#: .\templates\npc\index.html:81 .\templates\npc\index.html:88
-#: .\templates\npc\index.html:95 .\templates\npc\index.html:115
-#: .\templates\npc\index.html:122 .\templates\npc\index.html:129
-#: .\templates\npc\index.html:136 .\templates\npc\index.html:143
-#: .\templates\npc\index.html:150 .\templates\npc\index.html:157
-#: .\templates\npc\index.html:164 .\templates\npc\index.html:171
-#: .\templates\npc\index.html:191 .\templates\npc\index.html:198
-#: .\templates\npc\index.html:205 .\templates\npc\index.html:212
-#: .\templates\npc\index.html:219 .\templates\npc\index.html:226
-#: .\templates\npc\index.html:233 .\templates\npc\index.html:240
-#: .\templates\npc\index.html:247 .\templates\npc\index.html:280
-#: .\templates\npc\index.html:287 .\templates\npc\index.html:294
-#: .\templates\npc\index.html:301 .\templates\npc\index.html:308
-#: .\templates\npc\index.html:315 .\templates\npc\index.html:322
-#: .\templates\npc\index.html:329 .\templates\npc\index.html:348
-#: .\templates\npc\index.html:355 .\templates\npc\index.html:362
-#: .\templates\npc\index.html:369 .\templates\npc\index.html:376
-#: .\templates\npc\index.html:383 .\templates\npc\index.html:390
-#: .\templates\npc\index.html:397 .\templates\npc\index.html:416
-#: .\templates\npc\index.html:423 .\templates\npc\index.html:430
-#: .\templates\npc\index.html:437 .\templates\npc\index.html:444
-#: .\templates\npc\index.html:451 .\templates\npc\index.html:458
-#: .\templates\npc\index.html:465 .\templates\npc\index.html:498
-#: .\templates\npc\index.html:505 .\templates\npc\index.html:512
-#: .\templates\npc\index.html:519 .\templates\npc\index.html:526
-#: .\templates\npc\index.html:533 .\templates\npc\index.html:540
-#: .\templates\npc\index.html:547 .\templates\npc\index.html:566
-#: .\templates\npc\index.html:573 .\templates\npc\index.html:580
-#: .\templates\npc\index.html:587 .\templates\npc\index.html:594
-#: .\templates\npc\index.html:601 .\templates\npc\index.html:608
-#: .\templates\npc\index.html:615 .\templates\npc\index.html:634
-#: .\templates\npc\index.html:641 .\templates\npc\index.html:648
-#: .\templates\npc\index.html:655 .\templates\npc\index.html:662
-#: .\templates\npc\index.html:669 .\templates\npc\index.html:676
-#: .\templates\npc\index.html:683 .\templates\npc\index.html:712
-#: .\templates\npc\index.html:719 .\templates\npc\index.html:726
-#: .\templates\npc\index.html:737 .\templates\npc\index.html:756
-#: .\templates\npc\index.html:763 .\templates\npc\index.html:770
-#: .\templates\npc\index.html:781 .\templates\npc\index.html:800
-#: .\templates\npc\index.html:807 .\templates\npc\index.html:814
-#: .\templates\npc\index.html:825 .\templates\npc\index.html:921
-#: .\templates\npc\index.html:927 .\templates\npc\index.html:933
-#: .\templates\npc\index.html:939 .\templates\npc\index.html:945
-#: .\templates\npc\index.html:951 .\templates\npc\index.html:967
-#: .\templates\npc\index.html:973 .\templates\npc\index.html:979
-#: .\templates\npc\index.html:985 .\templates\npc\index.html:991
-#: .\templates\npc\index.html:997 .\templates\npc\index.html:1195
+#: .\templates\npc\index.html:40 .\templates\npc\index.html:49
+#: .\templates\npc\index.html:58 .\templates\npc\index.html:67
+#: .\templates\npc\index.html:76 .\templates\npc\index.html:85
+#: .\templates\npc\index.html:94 .\templates\npc\index.html:103
+#: .\templates\npc\index.html:112 .\templates\npc\index.html:134
+#: .\templates\npc\index.html:143 .\templates\npc\index.html:152
+#: .\templates\npc\index.html:161 .\templates\npc\index.html:170
+#: .\templates\npc\index.html:179 .\templates\npc\index.html:188
+#: .\templates\npc\index.html:197 .\templates\npc\index.html:206
+#: .\templates\npc\index.html:228 .\templates\npc\index.html:237
+#: .\templates\npc\index.html:246 .\templates\npc\index.html:255
+#: .\templates\npc\index.html:264 .\templates\npc\index.html:273
+#: .\templates\npc\index.html:282 .\templates\npc\index.html:291
+#: .\templates\npc\index.html:300 .\templates\npc\index.html:335
+#: .\templates\npc\index.html:344 .\templates\npc\index.html:353
+#: .\templates\npc\index.html:362 .\templates\npc\index.html:371
+#: .\templates\npc\index.html:380 .\templates\npc\index.html:389
+#: .\templates\npc\index.html:398 .\templates\npc\index.html:419
+#: .\templates\npc\index.html:428 .\templates\npc\index.html:437
+#: .\templates\npc\index.html:446 .\templates\npc\index.html:455
+#: .\templates\npc\index.html:464 .\templates\npc\index.html:473
+#: .\templates\npc\index.html:482 .\templates\npc\index.html:503
+#: .\templates\npc\index.html:512 .\templates\npc\index.html:521
+#: .\templates\npc\index.html:530 .\templates\npc\index.html:539
+#: .\templates\npc\index.html:548 .\templates\npc\index.html:557
+#: .\templates\npc\index.html:566 .\templates\npc\index.html:587
+#: .\templates\npc\index.html:601 .\templates\npc\index.html:615
+#: .\templates\npc\index.html:650 .\templates\npc\index.html:659
+#: .\templates\npc\index.html:668 .\templates\npc\index.html:677
+#: .\templates\npc\index.html:686 .\templates\npc\index.html:695
+#: .\templates\npc\index.html:704 .\templates\npc\index.html:713
+#: .\templates\npc\index.html:734 .\templates\npc\index.html:743
+#: .\templates\npc\index.html:752 .\templates\npc\index.html:761
+#: .\templates\npc\index.html:770 .\templates\npc\index.html:779
+#: .\templates\npc\index.html:788 .\templates\npc\index.html:797
+#: .\templates\npc\index.html:818 .\templates\npc\index.html:827
+#: .\templates\npc\index.html:836 .\templates\npc\index.html:845
+#: .\templates\npc\index.html:854 .\templates\npc\index.html:863
+#: .\templates\npc\index.html:872 .\templates\npc\index.html:881
+#: .\templates\npc\index.html:912 .\templates\npc\index.html:921
+#: .\templates\npc\index.html:930 .\templates\npc\index.html:943
+#: .\templates\npc\index.html:964 .\templates\npc\index.html:973
+#: .\templates\npc\index.html:982 .\templates\npc\index.html:995
+#: .\templates\npc\index.html:1016 .\templates\npc\index.html:1025
+#: .\templates\npc\index.html:1034 .\templates\npc\index.html:1047
+#: .\templates\npc\index.html:1159 .\templates\npc\index.html:1167
+#: .\templates\npc\index.html:1175 .\templates\npc\index.html:1183
+#: .\templates\npc\index.html:1191 .\templates\npc\index.html:1199
+#: .\templates\npc\index.html:1217 .\templates\npc\index.html:1225
+#: .\templates\npc\index.html:1233 .\templates\npc\index.html:1241
+#: .\templates\npc\index.html:1249 .\templates\npc\index.html:1257
+#: .\templates\npc\index.html:1491
 msgid "1층"
 msgstr "1층"
 
-#: .\templates\npc\index.html:40 .\templates\npc\index.html:47
-#: .\templates\npc\index.html:54 .\templates\npc\index.html:61
-#: .\templates\npc\index.html:68 .\templates\npc\index.html:75
-#: .\templates\npc\index.html:82 .\templates\npc\index.html:89
-#: .\templates\npc\index.html:96 .\templates\npc\index.html:116
-#: .\templates\npc\index.html:123 .\templates\npc\index.html:130
-#: .\templates\npc\index.html:137 .\templates\npc\index.html:144
-#: .\templates\npc\index.html:151 .\templates\npc\index.html:158
-#: .\templates\npc\index.html:165 .\templates\npc\index.html:172
-#: .\templates\npc\index.html:192 .\templates\npc\index.html:199
-#: .\templates\npc\index.html:206 .\templates\npc\index.html:213
-#: .\templates\npc\index.html:220 .\templates\npc\index.html:227
-#: .\templates\npc\index.html:234 .\templates\npc\index.html:241
-#: .\templates\npc\index.html:248 .\templates\npc\index.html:281
-#: .\templates\npc\index.html:288 .\templates\npc\index.html:295
-#: .\templates\npc\index.html:302 .\templates\npc\index.html:309
-#: .\templates\npc\index.html:316 .\templates\npc\index.html:323
-#: .\templates\npc\index.html:330 .\templates\npc\index.html:349
-#: .\templates\npc\index.html:356 .\templates\npc\index.html:363
-#: .\templates\npc\index.html:370 .\templates\npc\index.html:377
-#: .\templates\npc\index.html:384 .\templates\npc\index.html:391
-#: .\templates\npc\index.html:398 .\templates\npc\index.html:417
-#: .\templates\npc\index.html:424 .\templates\npc\index.html:431
-#: .\templates\npc\index.html:438 .\templates\npc\index.html:445
-#: .\templates\npc\index.html:452 .\templates\npc\index.html:459
-#: .\templates\npc\index.html:466 .\templates\npc\index.html:499
-#: .\templates\npc\index.html:506 .\templates\npc\index.html:513
-#: .\templates\npc\index.html:520 .\templates\npc\index.html:527
-#: .\templates\npc\index.html:534 .\templates\npc\index.html:541
-#: .\templates\npc\index.html:548 .\templates\npc\index.html:567
-#: .\templates\npc\index.html:574 .\templates\npc\index.html:581
-#: .\templates\npc\index.html:588 .\templates\npc\index.html:595
-#: .\templates\npc\index.html:602 .\templates\npc\index.html:609
-#: .\templates\npc\index.html:616 .\templates\npc\index.html:635
-#: .\templates\npc\index.html:642 .\templates\npc\index.html:649
-#: .\templates\npc\index.html:656 .\templates\npc\index.html:663
-#: .\templates\npc\index.html:670 .\templates\npc\index.html:677
-#: .\templates\npc\index.html:684 .\templates\npc\index.html:713
-#: .\templates\npc\index.html:720 .\templates\npc\index.html:727
-#: .\templates\npc\index.html:738 .\templates\npc\index.html:757
-#: .\templates\npc\index.html:764 .\templates\npc\index.html:771
-#: .\templates\npc\index.html:782 .\templates\npc\index.html:801
-#: .\templates\npc\index.html:808 .\templates\npc\index.html:815
-#: .\templates\npc\index.html:826 .\templates\npc\index.html:922
-#: .\templates\npc\index.html:928 .\templates\npc\index.html:934
-#: .\templates\npc\index.html:940 .\templates\npc\index.html:946
-#: .\templates\npc\index.html:952 .\templates\npc\index.html:968
-#: .\templates\npc\index.html:974 .\templates\npc\index.html:980
-#: .\templates\npc\index.html:986 .\templates\npc\index.html:992
-#: .\templates\npc\index.html:998 .\templates\npc\index.html:1196
+#: .\templates\npc\index.html:41 .\templates\npc\index.html:50
+#: .\templates\npc\index.html:59 .\templates\npc\index.html:68
+#: .\templates\npc\index.html:77 .\templates\npc\index.html:86
+#: .\templates\npc\index.html:95 .\templates\npc\index.html:104
+#: .\templates\npc\index.html:113 .\templates\npc\index.html:135
+#: .\templates\npc\index.html:144 .\templates\npc\index.html:153
+#: .\templates\npc\index.html:162 .\templates\npc\index.html:171
+#: .\templates\npc\index.html:180 .\templates\npc\index.html:189
+#: .\templates\npc\index.html:198 .\templates\npc\index.html:207
+#: .\templates\npc\index.html:229 .\templates\npc\index.html:238
+#: .\templates\npc\index.html:247 .\templates\npc\index.html:256
+#: .\templates\npc\index.html:265 .\templates\npc\index.html:274
+#: .\templates\npc\index.html:283 .\templates\npc\index.html:292
+#: .\templates\npc\index.html:301 .\templates\npc\index.html:336
+#: .\templates\npc\index.html:345 .\templates\npc\index.html:354
+#: .\templates\npc\index.html:363 .\templates\npc\index.html:372
+#: .\templates\npc\index.html:381 .\templates\npc\index.html:390
+#: .\templates\npc\index.html:399 .\templates\npc\index.html:420
+#: .\templates\npc\index.html:429 .\templates\npc\index.html:438
+#: .\templates\npc\index.html:447 .\templates\npc\index.html:456
+#: .\templates\npc\index.html:465 .\templates\npc\index.html:474
+#: .\templates\npc\index.html:483 .\templates\npc\index.html:504
+#: .\templates\npc\index.html:513 .\templates\npc\index.html:522
+#: .\templates\npc\index.html:531 .\templates\npc\index.html:540
+#: .\templates\npc\index.html:549 .\templates\npc\index.html:558
+#: .\templates\npc\index.html:567 .\templates\npc\index.html:588
+#: .\templates\npc\index.html:602 .\templates\npc\index.html:616
+#: .\templates\npc\index.html:651 .\templates\npc\index.html:660
+#: .\templates\npc\index.html:669 .\templates\npc\index.html:678
+#: .\templates\npc\index.html:687 .\templates\npc\index.html:696
+#: .\templates\npc\index.html:705 .\templates\npc\index.html:714
+#: .\templates\npc\index.html:735 .\templates\npc\index.html:744
+#: .\templates\npc\index.html:753 .\templates\npc\index.html:762
+#: .\templates\npc\index.html:771 .\templates\npc\index.html:780
+#: .\templates\npc\index.html:789 .\templates\npc\index.html:798
+#: .\templates\npc\index.html:819 .\templates\npc\index.html:828
+#: .\templates\npc\index.html:837 .\templates\npc\index.html:846
+#: .\templates\npc\index.html:855 .\templates\npc\index.html:864
+#: .\templates\npc\index.html:873 .\templates\npc\index.html:882
+#: .\templates\npc\index.html:913 .\templates\npc\index.html:922
+#: .\templates\npc\index.html:931 .\templates\npc\index.html:944
+#: .\templates\npc\index.html:965 .\templates\npc\index.html:974
+#: .\templates\npc\index.html:983 .\templates\npc\index.html:996
+#: .\templates\npc\index.html:1017 .\templates\npc\index.html:1026
+#: .\templates\npc\index.html:1035 .\templates\npc\index.html:1048
+#: .\templates\npc\index.html:1160 .\templates\npc\index.html:1168
+#: .\templates\npc\index.html:1176 .\templates\npc\index.html:1184
+#: .\templates\npc\index.html:1192 .\templates\npc\index.html:1200
+#: .\templates\npc\index.html:1218 .\templates\npc\index.html:1226
+#: .\templates\npc\index.html:1234 .\templates\npc\index.html:1242
+#: .\templates\npc\index.html:1250 .\templates\npc\index.html:1258
+#: .\templates\npc\index.html:1492
 msgid "2층"
 msgstr "2층"
 
-#: .\templates\npc\index.html:41 .\templates\npc\index.html:48
-#: .\templates\npc\index.html:55 .\templates\npc\index.html:62
-#: .\templates\npc\index.html:69 .\templates\npc\index.html:76
-#: .\templates\npc\index.html:83 .\templates\npc\index.html:90
-#: .\templates\npc\index.html:97 .\templates\npc\index.html:117
-#: .\templates\npc\index.html:124 .\templates\npc\index.html:131
-#: .\templates\npc\index.html:138 .\templates\npc\index.html:145
-#: .\templates\npc\index.html:152 .\templates\npc\index.html:159
-#: .\templates\npc\index.html:166 .\templates\npc\index.html:173
-#: .\templates\npc\index.html:193 .\templates\npc\index.html:200
-#: .\templates\npc\index.html:207 .\templates\npc\index.html:214
-#: .\templates\npc\index.html:221 .\templates\npc\index.html:228
-#: .\templates\npc\index.html:235 .\templates\npc\index.html:242
-#: .\templates\npc\index.html:249 .\templates\npc\index.html:282
-#: .\templates\npc\index.html:289 .\templates\npc\index.html:296
-#: .\templates\npc\index.html:303 .\templates\npc\index.html:310
-#: .\templates\npc\index.html:317 .\templates\npc\index.html:324
-#: .\templates\npc\index.html:331 .\templates\npc\index.html:350
-#: .\templates\npc\index.html:357 .\templates\npc\index.html:364
-#: .\templates\npc\index.html:371 .\templates\npc\index.html:378
-#: .\templates\npc\index.html:385 .\templates\npc\index.html:392
-#: .\templates\npc\index.html:399 .\templates\npc\index.html:418
-#: .\templates\npc\index.html:425 .\templates\npc\index.html:432
-#: .\templates\npc\index.html:439 .\templates\npc\index.html:446
-#: .\templates\npc\index.html:453 .\templates\npc\index.html:460
-#: .\templates\npc\index.html:467 .\templates\npc\index.html:500
-#: .\templates\npc\index.html:507 .\templates\npc\index.html:514
-#: .\templates\npc\index.html:521 .\templates\npc\index.html:528
-#: .\templates\npc\index.html:535 .\templates\npc\index.html:542
-#: .\templates\npc\index.html:549 .\templates\npc\index.html:568
-#: .\templates\npc\index.html:575 .\templates\npc\index.html:582
-#: .\templates\npc\index.html:589 .\templates\npc\index.html:596
-#: .\templates\npc\index.html:603 .\templates\npc\index.html:610
-#: .\templates\npc\index.html:617 .\templates\npc\index.html:636
-#: .\templates\npc\index.html:643 .\templates\npc\index.html:650
-#: .\templates\npc\index.html:657 .\templates\npc\index.html:664
-#: .\templates\npc\index.html:671 .\templates\npc\index.html:678
-#: .\templates\npc\index.html:685 .\templates\npc\index.html:714
-#: .\templates\npc\index.html:721 .\templates\npc\index.html:728
-#: .\templates\npc\index.html:739 .\templates\npc\index.html:758
-#: .\templates\npc\index.html:765 .\templates\npc\index.html:772
-#: .\templates\npc\index.html:783 .\templates\npc\index.html:802
-#: .\templates\npc\index.html:809 .\templates\npc\index.html:816
-#: .\templates\npc\index.html:827 .\templates\npc\index.html:923
-#: .\templates\npc\index.html:929 .\templates\npc\index.html:935
-#: .\templates\npc\index.html:941 .\templates\npc\index.html:947
-#: .\templates\npc\index.html:953 .\templates\npc\index.html:969
-#: .\templates\npc\index.html:975 .\templates\npc\index.html:981
-#: .\templates\npc\index.html:987 .\templates\npc\index.html:993
-#: .\templates\npc\index.html:999 .\templates\npc\index.html:1197
+#: .\templates\npc\index.html:42 .\templates\npc\index.html:51
+#: .\templates\npc\index.html:60 .\templates\npc\index.html:69
+#: .\templates\npc\index.html:78 .\templates\npc\index.html:87
+#: .\templates\npc\index.html:96 .\templates\npc\index.html:105
+#: .\templates\npc\index.html:114 .\templates\npc\index.html:136
+#: .\templates\npc\index.html:145 .\templates\npc\index.html:154
+#: .\templates\npc\index.html:163 .\templates\npc\index.html:172
+#: .\templates\npc\index.html:181 .\templates\npc\index.html:190
+#: .\templates\npc\index.html:199 .\templates\npc\index.html:208
+#: .\templates\npc\index.html:230 .\templates\npc\index.html:239
+#: .\templates\npc\index.html:248 .\templates\npc\index.html:257
+#: .\templates\npc\index.html:266 .\templates\npc\index.html:275
+#: .\templates\npc\index.html:284 .\templates\npc\index.html:293
+#: .\templates\npc\index.html:302 .\templates\npc\index.html:337
+#: .\templates\npc\index.html:346 .\templates\npc\index.html:355
+#: .\templates\npc\index.html:364 .\templates\npc\index.html:373
+#: .\templates\npc\index.html:382 .\templates\npc\index.html:391
+#: .\templates\npc\index.html:400 .\templates\npc\index.html:421
+#: .\templates\npc\index.html:430 .\templates\npc\index.html:439
+#: .\templates\npc\index.html:448 .\templates\npc\index.html:457
+#: .\templates\npc\index.html:466 .\templates\npc\index.html:475
+#: .\templates\npc\index.html:484 .\templates\npc\index.html:505
+#: .\templates\npc\index.html:514 .\templates\npc\index.html:523
+#: .\templates\npc\index.html:532 .\templates\npc\index.html:541
+#: .\templates\npc\index.html:550 .\templates\npc\index.html:559
+#: .\templates\npc\index.html:568 .\templates\npc\index.html:589
+#: .\templates\npc\index.html:603 .\templates\npc\index.html:617
+#: .\templates\npc\index.html:652 .\templates\npc\index.html:661
+#: .\templates\npc\index.html:670 .\templates\npc\index.html:679
+#: .\templates\npc\index.html:688 .\templates\npc\index.html:697
+#: .\templates\npc\index.html:706 .\templates\npc\index.html:715
+#: .\templates\npc\index.html:736 .\templates\npc\index.html:745
+#: .\templates\npc\index.html:754 .\templates\npc\index.html:763
+#: .\templates\npc\index.html:772 .\templates\npc\index.html:781
+#: .\templates\npc\index.html:790 .\templates\npc\index.html:799
+#: .\templates\npc\index.html:820 .\templates\npc\index.html:829
+#: .\templates\npc\index.html:838 .\templates\npc\index.html:847
+#: .\templates\npc\index.html:856 .\templates\npc\index.html:865
+#: .\templates\npc\index.html:874 .\templates\npc\index.html:883
+#: .\templates\npc\index.html:914 .\templates\npc\index.html:923
+#: .\templates\npc\index.html:932 .\templates\npc\index.html:945
+#: .\templates\npc\index.html:966 .\templates\npc\index.html:975
+#: .\templates\npc\index.html:984 .\templates\npc\index.html:997
+#: .\templates\npc\index.html:1018 .\templates\npc\index.html:1027
+#: .\templates\npc\index.html:1036 .\templates\npc\index.html:1049
+#: .\templates\npc\index.html:1161 .\templates\npc\index.html:1169
+#: .\templates\npc\index.html:1177 .\templates\npc\index.html:1185
+#: .\templates\npc\index.html:1193 .\templates\npc\index.html:1201
+#: .\templates\npc\index.html:1219 .\templates\npc\index.html:1227
+#: .\templates\npc\index.html:1235 .\templates\npc\index.html:1243
+#: .\templates\npc\index.html:1251 .\templates\npc\index.html:1259
+#: .\templates\npc\index.html:1493
 msgid "3층"
 msgstr "3층"
 
-#: .\templates\npc\index.html:42 .\templates\npc\index.html:49
-#: .\templates\npc\index.html:56 .\templates\npc\index.html:63
-#: .\templates\npc\index.html:70 .\templates\npc\index.html:77
-#: .\templates\npc\index.html:84 .\templates\npc\index.html:91
-#: .\templates\npc\index.html:98 .\templates\npc\index.html:118
-#: .\templates\npc\index.html:125 .\templates\npc\index.html:132
-#: .\templates\npc\index.html:139 .\templates\npc\index.html:146
-#: .\templates\npc\index.html:153 .\templates\npc\index.html:160
-#: .\templates\npc\index.html:167 .\templates\npc\index.html:174
-#: .\templates\npc\index.html:194 .\templates\npc\index.html:201
-#: .\templates\npc\index.html:208 .\templates\npc\index.html:215
-#: .\templates\npc\index.html:222 .\templates\npc\index.html:229
-#: .\templates\npc\index.html:236 .\templates\npc\index.html:243
-#: .\templates\npc\index.html:250 .\templates\npc\index.html:283
-#: .\templates\npc\index.html:290 .\templates\npc\index.html:297
-#: .\templates\npc\index.html:304 .\templates\npc\index.html:311
-#: .\templates\npc\index.html:318 .\templates\npc\index.html:325
-#: .\templates\npc\index.html:332 .\templates\npc\index.html:351
-#: .\templates\npc\index.html:358 .\templates\npc\index.html:365
-#: .\templates\npc\index.html:372 .\templates\npc\index.html:379
-#: .\templates\npc\index.html:386 .\templates\npc\index.html:393
-#: .\templates\npc\index.html:400 .\templates\npc\index.html:419
-#: .\templates\npc\index.html:426 .\templates\npc\index.html:433
-#: .\templates\npc\index.html:440 .\templates\npc\index.html:447
-#: .\templates\npc\index.html:454 .\templates\npc\index.html:461
-#: .\templates\npc\index.html:468 .\templates\npc\index.html:501
-#: .\templates\npc\index.html:508 .\templates\npc\index.html:515
-#: .\templates\npc\index.html:522 .\templates\npc\index.html:529
-#: .\templates\npc\index.html:536 .\templates\npc\index.html:543
-#: .\templates\npc\index.html:550 .\templates\npc\index.html:569
-#: .\templates\npc\index.html:576 .\templates\npc\index.html:583
-#: .\templates\npc\index.html:590 .\templates\npc\index.html:597
-#: .\templates\npc\index.html:604 .\templates\npc\index.html:611
-#: .\templates\npc\index.html:618 .\templates\npc\index.html:637
-#: .\templates\npc\index.html:644 .\templates\npc\index.html:651
-#: .\templates\npc\index.html:658 .\templates\npc\index.html:665
-#: .\templates\npc\index.html:672 .\templates\npc\index.html:679
-#: .\templates\npc\index.html:686 .\templates\npc\index.html:715
-#: .\templates\npc\index.html:722 .\templates\npc\index.html:729
-#: .\templates\npc\index.html:740 .\templates\npc\index.html:759
-#: .\templates\npc\index.html:766 .\templates\npc\index.html:773
-#: .\templates\npc\index.html:784 .\templates\npc\index.html:803
-#: .\templates\npc\index.html:810 .\templates\npc\index.html:817
-#: .\templates\npc\index.html:828 .\templates\npc\index.html:924
-#: .\templates\npc\index.html:930 .\templates\npc\index.html:936
-#: .\templates\npc\index.html:942 .\templates\npc\index.html:948
-#: .\templates\npc\index.html:954 .\templates\npc\index.html:970
-#: .\templates\npc\index.html:976 .\templates\npc\index.html:982
-#: .\templates\npc\index.html:988 .\templates\npc\index.html:994
-#: .\templates\npc\index.html:1000 .\templates\npc\index.html:1198
+#: .\templates\npc\index.html:43 .\templates\npc\index.html:52
+#: .\templates\npc\index.html:61 .\templates\npc\index.html:70
+#: .\templates\npc\index.html:79 .\templates\npc\index.html:88
+#: .\templates\npc\index.html:97 .\templates\npc\index.html:106
+#: .\templates\npc\index.html:115 .\templates\npc\index.html:137
+#: .\templates\npc\index.html:146 .\templates\npc\index.html:155
+#: .\templates\npc\index.html:164 .\templates\npc\index.html:173
+#: .\templates\npc\index.html:182 .\templates\npc\index.html:191
+#: .\templates\npc\index.html:200 .\templates\npc\index.html:209
+#: .\templates\npc\index.html:231 .\templates\npc\index.html:240
+#: .\templates\npc\index.html:249 .\templates\npc\index.html:258
+#: .\templates\npc\index.html:267 .\templates\npc\index.html:276
+#: .\templates\npc\index.html:285 .\templates\npc\index.html:294
+#: .\templates\npc\index.html:303 .\templates\npc\index.html:338
+#: .\templates\npc\index.html:347 .\templates\npc\index.html:356
+#: .\templates\npc\index.html:365 .\templates\npc\index.html:374
+#: .\templates\npc\index.html:383 .\templates\npc\index.html:392
+#: .\templates\npc\index.html:401 .\templates\npc\index.html:422
+#: .\templates\npc\index.html:431 .\templates\npc\index.html:440
+#: .\templates\npc\index.html:449 .\templates\npc\index.html:458
+#: .\templates\npc\index.html:467 .\templates\npc\index.html:476
+#: .\templates\npc\index.html:485 .\templates\npc\index.html:506
+#: .\templates\npc\index.html:515 .\templates\npc\index.html:524
+#: .\templates\npc\index.html:533 .\templates\npc\index.html:542
+#: .\templates\npc\index.html:551 .\templates\npc\index.html:560
+#: .\templates\npc\index.html:569 .\templates\npc\index.html:590
+#: .\templates\npc\index.html:604 .\templates\npc\index.html:618
+#: .\templates\npc\index.html:653 .\templates\npc\index.html:662
+#: .\templates\npc\index.html:671 .\templates\npc\index.html:680
+#: .\templates\npc\index.html:689 .\templates\npc\index.html:698
+#: .\templates\npc\index.html:707 .\templates\npc\index.html:716
+#: .\templates\npc\index.html:737 .\templates\npc\index.html:746
+#: .\templates\npc\index.html:755 .\templates\npc\index.html:764
+#: .\templates\npc\index.html:773 .\templates\npc\index.html:782
+#: .\templates\npc\index.html:791 .\templates\npc\index.html:800
+#: .\templates\npc\index.html:821 .\templates\npc\index.html:830
+#: .\templates\npc\index.html:839 .\templates\npc\index.html:848
+#: .\templates\npc\index.html:857 .\templates\npc\index.html:866
+#: .\templates\npc\index.html:875 .\templates\npc\index.html:884
+#: .\templates\npc\index.html:915 .\templates\npc\index.html:924
+#: .\templates\npc\index.html:933 .\templates\npc\index.html:946
+#: .\templates\npc\index.html:967 .\templates\npc\index.html:976
+#: .\templates\npc\index.html:985 .\templates\npc\index.html:998
+#: .\templates\npc\index.html:1019 .\templates\npc\index.html:1028
+#: .\templates\npc\index.html:1037 .\templates\npc\index.html:1050
+#: .\templates\npc\index.html:1162 .\templates\npc\index.html:1170
+#: .\templates\npc\index.html:1178 .\templates\npc\index.html:1186
+#: .\templates\npc\index.html:1194 .\templates\npc\index.html:1202
+#: .\templates\npc\index.html:1220 .\templates\npc\index.html:1228
+#: .\templates\npc\index.html:1236 .\templates\npc\index.html:1244
+#: .\templates\npc\index.html:1252 .\templates\npc\index.html:1260
+#: .\templates\npc\index.html:1494
 msgid "4층"
 msgstr "4층"
 
-#: .\templates\npc\index.html:43 .\templates\npc\index.html:50
-#: .\templates\npc\index.html:57 .\templates\npc\index.html:64
-#: .\templates\npc\index.html:71 .\templates\npc\index.html:78
-#: .\templates\npc\index.html:85 .\templates\npc\index.html:92
-#: .\templates\npc\index.html:99 .\templates\npc\index.html:119
-#: .\templates\npc\index.html:126 .\templates\npc\index.html:133
-#: .\templates\npc\index.html:140 .\templates\npc\index.html:147
-#: .\templates\npc\index.html:154 .\templates\npc\index.html:161
-#: .\templates\npc\index.html:168 .\templates\npc\index.html:175
-#: .\templates\npc\index.html:195 .\templates\npc\index.html:202
-#: .\templates\npc\index.html:209 .\templates\npc\index.html:216
-#: .\templates\npc\index.html:223 .\templates\npc\index.html:230
-#: .\templates\npc\index.html:237 .\templates\npc\index.html:244
-#: .\templates\npc\index.html:251 .\templates\npc\index.html:284
-#: .\templates\npc\index.html:291 .\templates\npc\index.html:298
-#: .\templates\npc\index.html:305 .\templates\npc\index.html:312
-#: .\templates\npc\index.html:319 .\templates\npc\index.html:326
-#: .\templates\npc\index.html:333 .\templates\npc\index.html:352
-#: .\templates\npc\index.html:359 .\templates\npc\index.html:366
-#: .\templates\npc\index.html:373 .\templates\npc\index.html:380
-#: .\templates\npc\index.html:387 .\templates\npc\index.html:394
-#: .\templates\npc\index.html:401 .\templates\npc\index.html:420
-#: .\templates\npc\index.html:427 .\templates\npc\index.html:434
-#: .\templates\npc\index.html:441 .\templates\npc\index.html:448
-#: .\templates\npc\index.html:455 .\templates\npc\index.html:462
-#: .\templates\npc\index.html:469 .\templates\npc\index.html:502
-#: .\templates\npc\index.html:509 .\templates\npc\index.html:516
-#: .\templates\npc\index.html:523 .\templates\npc\index.html:530
-#: .\templates\npc\index.html:537 .\templates\npc\index.html:544
-#: .\templates\npc\index.html:551 .\templates\npc\index.html:570
-#: .\templates\npc\index.html:577 .\templates\npc\index.html:584
-#: .\templates\npc\index.html:591 .\templates\npc\index.html:598
-#: .\templates\npc\index.html:605 .\templates\npc\index.html:612
-#: .\templates\npc\index.html:619 .\templates\npc\index.html:638
-#: .\templates\npc\index.html:645 .\templates\npc\index.html:652
-#: .\templates\npc\index.html:659 .\templates\npc\index.html:666
-#: .\templates\npc\index.html:673 .\templates\npc\index.html:680
-#: .\templates\npc\index.html:687 .\templates\npc\index.html:716
-#: .\templates\npc\index.html:723 .\templates\npc\index.html:730
-#: .\templates\npc\index.html:741 .\templates\npc\index.html:760
-#: .\templates\npc\index.html:767 .\templates\npc\index.html:774
-#: .\templates\npc\index.html:785 .\templates\npc\index.html:804
-#: .\templates\npc\index.html:811 .\templates\npc\index.html:818
-#: .\templates\npc\index.html:829 .\templates\npc\index.html:1199
+#: .\templates\npc\index.html:44 .\templates\npc\index.html:53
+#: .\templates\npc\index.html:62 .\templates\npc\index.html:71
+#: .\templates\npc\index.html:80 .\templates\npc\index.html:89
+#: .\templates\npc\index.html:98 .\templates\npc\index.html:107
+#: .\templates\npc\index.html:116 .\templates\npc\index.html:138
+#: .\templates\npc\index.html:147 .\templates\npc\index.html:156
+#: .\templates\npc\index.html:165 .\templates\npc\index.html:174
+#: .\templates\npc\index.html:183 .\templates\npc\index.html:192
+#: .\templates\npc\index.html:201 .\templates\npc\index.html:210
+#: .\templates\npc\index.html:232 .\templates\npc\index.html:241
+#: .\templates\npc\index.html:250 .\templates\npc\index.html:259
+#: .\templates\npc\index.html:268 .\templates\npc\index.html:277
+#: .\templates\npc\index.html:286 .\templates\npc\index.html:295
+#: .\templates\npc\index.html:304 .\templates\npc\index.html:339
+#: .\templates\npc\index.html:348 .\templates\npc\index.html:357
+#: .\templates\npc\index.html:366 .\templates\npc\index.html:375
+#: .\templates\npc\index.html:384 .\templates\npc\index.html:393
+#: .\templates\npc\index.html:402 .\templates\npc\index.html:423
+#: .\templates\npc\index.html:432 .\templates\npc\index.html:441
+#: .\templates\npc\index.html:450 .\templates\npc\index.html:459
+#: .\templates\npc\index.html:468 .\templates\npc\index.html:477
+#: .\templates\npc\index.html:486 .\templates\npc\index.html:507
+#: .\templates\npc\index.html:516 .\templates\npc\index.html:525
+#: .\templates\npc\index.html:534 .\templates\npc\index.html:543
+#: .\templates\npc\index.html:552 .\templates\npc\index.html:561
+#: .\templates\npc\index.html:570 .\templates\npc\index.html:591
+#: .\templates\npc\index.html:605 .\templates\npc\index.html:619
+#: .\templates\npc\index.html:654 .\templates\npc\index.html:663
+#: .\templates\npc\index.html:672 .\templates\npc\index.html:681
+#: .\templates\npc\index.html:690 .\templates\npc\index.html:699
+#: .\templates\npc\index.html:708 .\templates\npc\index.html:717
+#: .\templates\npc\index.html:738 .\templates\npc\index.html:747
+#: .\templates\npc\index.html:756 .\templates\npc\index.html:765
+#: .\templates\npc\index.html:774 .\templates\npc\index.html:783
+#: .\templates\npc\index.html:792 .\templates\npc\index.html:801
+#: .\templates\npc\index.html:822 .\templates\npc\index.html:831
+#: .\templates\npc\index.html:840 .\templates\npc\index.html:849
+#: .\templates\npc\index.html:858 .\templates\npc\index.html:867
+#: .\templates\npc\index.html:876 .\templates\npc\index.html:885
+#: .\templates\npc\index.html:916 .\templates\npc\index.html:925
+#: .\templates\npc\index.html:934 .\templates\npc\index.html:947
+#: .\templates\npc\index.html:968 .\templates\npc\index.html:977
+#: .\templates\npc\index.html:986 .\templates\npc\index.html:999
+#: .\templates\npc\index.html:1020 .\templates\npc\index.html:1029
+#: .\templates\npc\index.html:1038 .\templates\npc\index.html:1051
+#: .\templates\npc\index.html:1495
 msgid "5층"
 msgstr "5층"
 
-#: .\templates\npc\index.html:103 .\templates\npc\index.html:104
-#: .\templates\npc\index.html:105 .\templates\npc\index.html:106
-#: .\templates\npc\index.html:107 .\templates\npc\index.html:108
-#: .\templates\npc\index.html:109 .\templates\npc\index.html:110
-#: .\templates\npc\index.html:111 .\templates\npc\index.html:337
-#: .\templates\npc\index.html:338 .\templates\npc\index.html:339
-#: .\templates\npc\index.html:340 .\templates\npc\index.html:341
-#: .\templates\npc\index.html:342 .\templates\npc\index.html:343
-#: .\templates\npc\index.html:344 .\templates\npc\index.html:555
-#: .\templates\npc\index.html:556 .\templates\npc\index.html:557
-#: .\templates\npc\index.html:558 .\templates\npc\index.html:559
-#: .\templates\npc\index.html:560 .\templates\npc\index.html:561
-#: .\templates\npc\index.html:562 .\templates\npc\index.html:745
-#: .\templates\npc\index.html:746 .\templates\npc\index.html:747
-#: .\templates\npc\index.html:752
-msgid "노말"
-msgstr "노말"
-
-#: .\templates\npc\index.html:179 .\templates\npc\index.html:180
-#: .\templates\npc\index.html:181 .\templates\npc\index.html:182
-#: .\templates\npc\index.html:183 .\templates\npc\index.html:184
-#: .\templates\npc\index.html:185 .\templates\npc\index.html:186
-#: .\templates\npc\index.html:187 .\templates\npc\index.html:405
-#: .\templates\npc\index.html:406 .\templates\npc\index.html:407
-#: .\templates\npc\index.html:408 .\templates\npc\index.html:409
-#: .\templates\npc\index.html:410 .\templates\npc\index.html:411
-#: .\templates\npc\index.html:412 .\templates\npc\index.html:623
-#: .\templates\npc\index.html:624 .\templates\npc\index.html:625
-#: .\templates\npc\index.html:626 .\templates\npc\index.html:627
-#: .\templates\npc\index.html:628 .\templates\npc\index.html:629
-#: .\templates\npc\index.html:630 .\templates\npc\index.html:789
-#: .\templates\npc\index.html:790 .\templates\npc\index.html:791
-#: .\templates\npc\index.html:796
-msgid "하드"
-msgstr "하드"
-
-#: .\templates\npc\index.html:259
+#: .\templates\npc\index.html:313
 msgid "카타콤"
 msgstr "카타콤"
 
-#: .\templates\npc\index.html:260
+#: .\templates\npc\index.html:314
 msgid "고대 성역"
 msgstr "고대 성역"
 
-#: .\templates\npc\index.html:261
+#: .\templates\npc\index.html:315
 msgid "SS흥신소"
 msgstr "SS흥신소"
 
-#: .\templates\npc\index.html:262
+#: .\templates\npc\index.html:316
 msgid "비타 도서관"
 msgstr "비타 도서관"
 
-#: .\templates\npc\index.html:263
+#: .\templates\npc\index.html:317
 msgid "매장 도서관"
 msgstr "매장 도서관"
 
-#: .\templates\npc\index.html:264
+#: .\templates\npc\index.html:318
 msgid "로일 시티"
 msgstr "로일 시티"
 
-#: .\templates\npc\index.html:265
+#: .\templates\npc\index.html:319
 msgid "뮤지시터랜드"
 msgstr "뮤지시터랜드"
 
-#: .\templates\npc\index.html:266
+#: .\templates\npc\index.html:320
 msgid "카나의 제단"
 msgstr "카나의 제단"
 
-#: .\templates\npc\index.html:477
+#: .\templates\npc\index.html:579
+msgid "묘족의 유적"
+msgstr "묘족의 유적"
+
+#: .\templates\npc\index.html:628
 msgid "겨울의 숲"
 msgstr "겨울의 숲"
 
-#: .\templates\npc\index.html:478
+#: .\templates\npc\index.html:629
 msgid "화신의 저택"
 msgstr "화신의 저택"
 
-#: .\templates\npc\index.html:479
+#: .\templates\npc\index.html:630
 msgid "소녀의 방"
 msgstr "소녀의 방"
 
-#: .\templates\npc\index.html:480
+#: .\templates\npc\index.html:631
 msgid "사탕 공장"
 msgstr "사탕 공장"
 
-#: .\templates\npc\index.html:481
+#: .\templates\npc\index.html:632
 msgid "이상한 나라"
 msgstr "이상한 나라"
 
-#: .\templates\npc\index.html:482
+#: .\templates\npc\index.html:633
 msgid "꿈의 바다"
 msgstr "꿈의 바다"
 
-#: .\templates\npc\index.html:483
+#: .\templates\npc\index.html:634
 msgid "할로윈랜드"
 msgstr "할로윈랜드"
 
-#: .\templates\npc\index.html:484
+#: .\templates\npc\index.html:635
 msgid "드림 월드"
 msgstr "드림 월드"
 
-#: .\templates\npc\index.html:691
+#: .\templates\npc\index.html:890
 msgid "크룩스 리조트"
 msgstr "크룩스 리조트"
 
-#: .\templates\npc\index.html:692
+#: .\templates\npc\index.html:891
 msgid "시니아의 별장"
 msgstr "시니아의 별장"
 
-#: .\templates\npc\index.html:693
+#: .\templates\npc\index.html:892
 msgid "화신의 마을"
 msgstr "화신의 마을"
 
-#: .\templates\npc\index.html:698
+#: .\templates\npc\index.html:897
 msgid "꿈의 스테이지"
 msgstr "꿈의 스테이지"
 
-#: .\templates\npc\index.html:837
+#: .\templates\npc\index.html:1060
 msgid "유령의 집"
 msgstr ""
 
-#: .\templates\npc\index.html:838
+#: .\templates\npc\index.html:1061
 msgid "회전 목마"
 msgstr ""
 
-#: .\templates\npc\index.html:839
+#: .\templates\npc\index.html:1062
 msgid "대관람차"
 msgstr ""
 
-#: .\templates\npc\index.html:840
+#: .\templates\npc\index.html:1063
 msgid "그림자 열차"
 msgstr ""
 
-#: .\templates\npc\index.html:841
+#: .\templates\npc\index.html:1064
 msgid "그림자 퍼레이드"
 msgstr ""
 
-#: .\templates\npc\index.html:845
+#: .\templates\npc\index.html:1068
 msgid "제국 연구소"
 msgstr "제국 연구소"
 
-#: .\templates\npc\index.html:848
-msgid "월"
-msgstr "월"
-
-#: .\templates\npc\index.html:849
-msgid "화"
-msgstr "화"
-
-#: .\templates\npc\index.html:850
-msgid "수"
-msgstr "수"
-
-#: .\templates\npc\index.html:851
-msgid "목"
-msgstr "목"
-
-#: .\templates\npc\index.html:852
-msgid "금"
-msgstr "금"
-
-#: .\templates\npc\index.html:853
-msgid "토"
-msgstr "토"
-
-#: .\templates\npc\index.html:854
-msgid "일"
-msgstr "일"
-
-#: .\templates\npc\index.html:858 .\templates\npc\index.html:865
-#: .\templates\npc\index.html:872 .\templates\npc\index.html:879
-#: .\templates\npc\index.html:886 .\templates\npc\index.html:893
-#: .\templates\npc\index.html:900
+#: .\templates\npc\index.html:1082 .\templates\npc\index.html:1091
+#: .\templates\npc\index.html:1100 .\templates\npc\index.html:1109
+#: .\templates\npc\index.html:1118 .\templates\npc\index.html:1127
+#: .\templates\npc\index.html:1136
 msgid "연구소 A동"
 msgstr "연구소 A동"
 
-#: .\templates\npc\index.html:859 .\templates\npc\index.html:866
-#: .\templates\npc\index.html:873 .\templates\npc\index.html:880
-#: .\templates\npc\index.html:887 .\templates\npc\index.html:894
-#: .\templates\npc\index.html:901
+#: .\templates\npc\index.html:1083 .\templates\npc\index.html:1092
+#: .\templates\npc\index.html:1101 .\templates\npc\index.html:1110
+#: .\templates\npc\index.html:1119 .\templates\npc\index.html:1128
+#: .\templates\npc\index.html:1137
 msgid "연구소 B동"
 msgstr "연구소 B동"
 
-#: .\templates\npc\index.html:860 .\templates\npc\index.html:867
-#: .\templates\npc\index.html:874 .\templates\npc\index.html:881
-#: .\templates\npc\index.html:888 .\templates\npc\index.html:895
-#: .\templates\npc\index.html:902
+#: .\templates\npc\index.html:1084 .\templates\npc\index.html:1093
+#: .\templates\npc\index.html:1102 .\templates\npc\index.html:1111
+#: .\templates\npc\index.html:1120 .\templates\npc\index.html:1129
+#: .\templates\npc\index.html:1138
 msgid "연구소 C동"
 msgstr "연구소 C동"
 
-#: .\templates\npc\index.html:861 .\templates\npc\index.html:868
-#: .\templates\npc\index.html:875 .\templates\npc\index.html:882
-#: .\templates\npc\index.html:889 .\templates\npc\index.html:896
-#: .\templates\npc\index.html:903
+#: .\templates\npc\index.html:1085 .\templates\npc\index.html:1094
+#: .\templates\npc\index.html:1103 .\templates\npc\index.html:1112
+#: .\templates\npc\index.html:1121 .\templates\npc\index.html:1130
+#: .\templates\npc\index.html:1139
 msgid "연구소 D동"
 msgstr "연구소 D동"
 
-#: .\templates\npc\index.html:862 .\templates\npc\index.html:869
-#: .\templates\npc\index.html:876 .\templates\npc\index.html:883
-#: .\templates\npc\index.html:890 .\templates\npc\index.html:897
-#: .\templates\npc\index.html:904
+#: .\templates\npc\index.html:1086 .\templates\npc\index.html:1095
+#: .\templates\npc\index.html:1104 .\templates\npc\index.html:1113
+#: .\templates\npc\index.html:1122 .\templates\npc\index.html:1131
+#: .\templates\npc\index.html:1140
 msgid "연구소 E동"
 msgstr "연구소 E동"
 
-#: .\templates\npc\index.html:909
+#: .\templates\npc\index.html:1146
 msgid "무스펠헤임"
 msgstr "무스펠헤임"
 
-#: .\templates\npc\index.html:912
+#: .\templates\npc\index.html:1149
 msgid "명계의 왕"
 msgstr "명계의 왕"
 
-#: .\templates\npc\index.html:913
+#: .\templates\npc\index.html:1150
 msgid "괴한 습격 사건"
 msgstr "괴한 습격 사건"
 
-#: .\templates\npc\index.html:914
+#: .\templates\npc\index.html:1151
 msgid "메이드 밴드 파티"
 msgstr "메이드 밴드 파티"
 
-#: .\templates\npc\index.html:915
+#: .\templates\npc\index.html:1152
 msgid "막내의 일기"
 msgstr "막내의 일기"
 
-#: .\templates\npc\index.html:916
+#: .\templates\npc\index.html:1153
 msgid "새로운 만월"
 msgstr "새로운 만월"
 
-#: .\templates\npc\index.html:917
+#: .\templates\npc\index.html:1154
 msgid "테니스 체험"
 msgstr "테니스 체험"
 
-#: .\templates\npc\index.html:958
+#: .\templates\npc\index.html:1207
 msgid "시타 빌로사"
 msgstr "시타 빌로사"
 
-#: .\templates\npc\index.html:959
+#: .\templates\npc\index.html:1208
 msgid "시니아 퍼시피카"
 msgstr "시니아 퍼시피카"
 
-#: .\templates\npc\index.html:960
+#: .\templates\npc\index.html:1209
 msgid "루티카 프리벤터"
 msgstr "루티카 프리벤터"
 
-#: .\templates\npc\index.html:961
+#: .\templates\npc\index.html:1210
 msgid "아이리 플리나"
 msgstr "아이리 플리나"
 
-#: .\templates\npc\index.html:962
+#: .\templates\npc\index.html:1211
 msgid "문의 저편으로"
 msgstr "문의 저편으로"
 
-#: .\templates\npc\index.html:963
+#: .\templates\npc\index.html:1212
 msgid "코발트색 추억"
 msgstr "코발트색 추억"
 
-#: .\templates\npc\index.html:1013
+#: .\templates\npc\index.html:1275
 msgid "시작의 관찰자"
 msgstr "시작의 관찰자"
 
-#: .\templates\npc\index.html:1014
+#: .\templates\npc\index.html:1276
 msgid "은둔형 관찰자"
 msgstr "은둔형 관찰자"
 
-#: .\templates\npc\index.html:1015
+#: .\templates\npc\index.html:1277
 msgid "수집형 관찰자"
 msgstr "수집형 관찰자"
 
-#: .\templates\npc\index.html:1016
+#: .\templates\npc\index.html:1278
 msgid "게임광 관찰자"
 msgstr "게임광 관찰자"
 
-#: .\templates\npc\index.html:1019
+#: .\templates\npc\index.html:1283
 msgid "초월의 관찰자"
 msgstr "초월의 관찰자"
 
-#: .\templates\npc\index.html:1035 .\templates\npc\index.html:1049
-#: .\templates\npc\index.html:1063 .\templates\npc\index.html:1077
-#: .\templates\npc\index.html:1091
+#: .\templates\npc\index.html:1301 .\templates\npc\index.html:1317
+#: .\templates\npc\index.html:1333 .\templates\npc\index.html:1349
+#: .\templates\npc\index.html:1365
 msgid "시타"
 msgstr "시타"
 
-#: .\templates\npc\index.html:1036 .\templates\npc\index.html:1045
-#: .\templates\npc\index.html:1050 .\templates\npc\index.html:1059
-#: .\templates\npc\index.html:1064 .\templates\npc\index.html:1073
-#: .\templates\npc\index.html:1078 .\templates\npc\index.html:1087
-#: .\templates\npc\index.html:1092 .\templates\npc\index.html:1101
+#: .\templates\npc\index.html:1302 .\templates\npc\index.html:1311
+#: .\templates\npc\index.html:1318 .\templates\npc\index.html:1327
+#: .\templates\npc\index.html:1334 .\templates\npc\index.html:1343
+#: .\templates\npc\index.html:1350 .\templates\npc\index.html:1359
+#: .\templates\npc\index.html:1366 .\templates\npc\index.html:1375
 msgid "베르니카"
 msgstr "베르니카"
 
-#: .\templates\npc\index.html:1037 .\templates\npc\index.html:1051
-#: .\templates\npc\index.html:1065 .\templates\npc\index.html:1079
-#: .\templates\npc\index.html:1093
+#: .\templates\npc\index.html:1303 .\templates\npc\index.html:1319
+#: .\templates\npc\index.html:1335 .\templates\npc\index.html:1351
+#: .\templates\npc\index.html:1367
 msgid "리안나"
 msgstr "리안나"
 
-#: .\templates\npc\index.html:1038 .\templates\npc\index.html:1052
-#: .\templates\npc\index.html:1066 .\templates\npc\index.html:1080
-#: .\templates\npc\index.html:1094
+#: .\templates\npc\index.html:1304 .\templates\npc\index.html:1320
+#: .\templates\npc\index.html:1336 .\templates\npc\index.html:1352
+#: .\templates\npc\index.html:1368
 msgid "시니아"
 msgstr "시니아"
 
-#: .\templates\npc\index.html:1039 .\templates\npc\index.html:1053
-#: .\templates\npc\index.html:1067 .\templates\npc\index.html:1081
-#: .\templates\npc\index.html:1095 .\templates\npc\index.html:1107
+#: .\templates\npc\index.html:1305 .\templates\npc\index.html:1321
+#: .\templates\npc\index.html:1337 .\templates\npc\index.html:1353
+#: .\templates\npc\index.html:1369 .\templates\npc\index.html:1383
 msgid "로제"
 msgstr "로제"
 
-#: .\templates\npc\index.html:1040 .\templates\npc\index.html:1054
-#: .\templates\npc\index.html:1068 .\templates\npc\index.html:1082
-#: .\templates\npc\index.html:1096
+#: .\templates\npc\index.html:1306 .\templates\npc\index.html:1322
+#: .\templates\npc\index.html:1338 .\templates\npc\index.html:1354
+#: .\templates\npc\index.html:1370
 msgid "리니아"
 msgstr "리니아"
 
-#: .\templates\npc\index.html:1041 .\templates\npc\index.html:1055
-#: .\templates\npc\index.html:1069 .\templates\npc\index.html:1083
-#: .\templates\npc\index.html:1097
+#: .\templates\npc\index.html:1307 .\templates\npc\index.html:1323
+#: .\templates\npc\index.html:1339 .\templates\npc\index.html:1355
+#: .\templates\npc\index.html:1371
 msgid "루티카"
 msgstr "루티카"
 
-#: .\templates\npc\index.html:1042 .\templates\npc\index.html:1056
-#: .\templates\npc\index.html:1070 .\templates\npc\index.html:1084
-#: .\templates\npc\index.html:1098
+#: .\templates\npc\index.html:1308 .\templates\npc\index.html:1324
+#: .\templates\npc\index.html:1340 .\templates\npc\index.html:1356
+#: .\templates\npc\index.html:1372
 msgid "클라리스"
 msgstr "클라리스"
 
-#: .\templates\npc\index.html:1043 .\templates\npc\index.html:1057
-#: .\templates\npc\index.html:1071 .\templates\npc\index.html:1085
-#: .\templates\npc\index.html:1099 .\templates\npc\index.html:1111
+#: .\templates\npc\index.html:1309 .\templates\npc\index.html:1325
+#: .\templates\npc\index.html:1341 .\templates\npc\index.html:1357
+#: .\templates\npc\index.html:1373 .\templates\npc\index.html:1387
 msgid "제이나"
 msgstr "제이나"
 
-#: .\templates\npc\index.html:1044 .\templates\npc\index.html:1058
-#: .\templates\npc\index.html:1072 .\templates\npc\index.html:1086
-#: .\templates\npc\index.html:1100
+#: .\templates\npc\index.html:1310 .\templates\npc\index.html:1326
+#: .\templates\npc\index.html:1342 .\templates\npc\index.html:1358
+#: .\templates\npc\index.html:1374
 msgid "아이리"
 msgstr "아이리"
 
-#: .\templates\npc\index.html:1046 .\templates\npc\index.html:1060
-#: .\templates\npc\index.html:1074 .\templates\npc\index.html:1088
-#: .\templates\npc\index.html:1102
+#: .\templates\npc\index.html:1312 .\templates\npc\index.html:1328
+#: .\templates\npc\index.html:1344 .\templates\npc\index.html:1360
+#: .\templates\npc\index.html:1376
 msgid "시온 리온"
 msgstr "시온 리온"
 
-#: .\templates\npc\index.html:1107 .\templates\npc\index.html:1110
-#: .\templates\npc\index.html:1111 .\templates\npc\index.html:1117
+#: .\templates\npc\index.html:1383 .\templates\npc\index.html:1386
+#: .\templates\npc\index.html:1387 .\templates\npc\index.html:1395
 msgid "[影] 코르"
 msgstr "[影] 코르"
 
-#: .\templates\npc\index.html:1108
+#: .\templates\npc\index.html:1384
 msgid "[影] 구름슬라임"
 msgstr "[影] 구름슬라임"
 
-#: .\templates\npc\index.html:1109
+#: .\templates\npc\index.html:1385
 msgid "[影] 45423"
 msgstr "[影] 45423"
 
-#: .\templates\npc\index.html:1110
+#: .\templates\npc\index.html:1386
 msgid "페르비아"
 msgstr "페르비아"
 
-#: .\templates\npc\index.html:1112
+#: .\templates\npc\index.html:1388
 msgid "[影] BerlyDraco"
 msgstr "[影] BerlyDraco"
 
-#: .\templates\npc\index.html:1120
+#: .\templates\npc\index.html:1400
 msgid "[影] 시타냥"
 msgstr "[影] 시타냥"
 
-#: .\templates\npc\index.html:1123
+#: .\templates\npc\index.html:1405
 msgid "[影] 쿠마"
 msgstr "[影] 쿠마"
 
-#: .\templates\npc\index.html:1124
+#: .\templates\npc\index.html:1406
 msgid "[影] Zaciel"
 msgstr "[影] Zaciel"
 
-#: .\templates\npc\index.html:1188
+#: .\templates\npc\index.html:1483
 msgid "시험의 전당"
 msgstr "시험의 전당"
 
-#: .\templates\npc\index.html:1191
+#: .\templates\npc\index.html:1486
 msgid "여름의 탑"
 msgstr "여름의 탑"
 
-#: .\templates\npc\index.html:1200
+#: .\templates\npc\index.html:1496
 msgid "6층"
 msgstr "6층"
 
-#: .\templates\npc\index.html:1201
+#: .\templates\npc\index.html:1497
 msgid "7층"
 msgstr "7층"
 
-#: .\templates\npc\index.html:1202
+#: .\templates\npc\index.html:1498
 msgid "8층"
 msgstr "8층"
 
-#: .\templates\npc\index.html:1205
+#: .\templates\npc\index.html:1503
 msgid "9층"
 msgstr "9층"
 
-#: .\templates\npc\index.html:1206
+#: .\templates\npc\index.html:1504
 msgid "10층"
 msgstr "10층"
 
-#: .\templates\npc\index.html:1207
+#: .\templates\npc\index.html:1505
 msgid "11층"
 msgstr "11층"
 
-#: .\templates\npc\index.html:1208
+#: .\templates\npc\index.html:1506
 msgid "12층"
 msgstr "12층"
 
-#: .\templates\npc\index.html:1209
+#: .\templates\npc\index.html:1507
 msgid "13층"
 msgstr "13층"
 
-#: .\templates\npc\index.html:1210
+#: .\templates\npc\index.html:1508
 msgid "14층"
 msgstr "14층"
 
-#: .\templates\npc\index.html:1211
+#: .\templates\npc\index.html:1509
 msgid "15층"
 msgstr "15층"
 
-#: .\templates\npc\index.html:1212
+#: .\templates\npc\index.html:1510
 msgid "16층"
 msgstr "16층"
 
-#: .\templates\npc\index.html:1213
+#: .\templates\npc\index.html:1511
 msgid "17층"
 msgstr "17층"
 
-#: .\templates\npc\index.html:1214
+#: .\templates\npc\index.html:1512
 msgid "18층"
 msgstr "18층"
 
-#: .\templates\npc\index.html:1215
+#: .\templates\npc\index.html:1513
 msgid "19층"
 msgstr "19층"
 
-#: .\templates\npc\index.html:1216
+#: .\templates\npc\index.html:1514
 msgid "20층"
 msgstr "20층"
 
-#: .\templates\npc\index.html:1217
+#: .\templates\npc\index.html:1515
 msgid "21층"
 msgstr "21층"
 
-#: .\templates\npc\index.html:1218
+#: .\templates\npc\index.html:1516
 msgid "22층"
 msgstr "22층"
 
-#: .\templates\npc\index.html:1219
+#: .\templates\npc\index.html:1517
 msgid "23층"
 msgstr "23층"
 
-#: .\templates\npc\index.html:1220
+#: .\templates\npc\index.html:1518
 msgid "24층"
 msgstr "24층"
 
-#: .\templates\npc\index.html:1221
+#: .\templates\npc\index.html:1519
 msgid "25층"
 msgstr "25층"
 
-#: .\templates\npc\index.html:1222
+#: .\templates\npc\index.html:1520
 msgid "26층"
 msgstr "26층"
 
-#: .\templates\npc\index.html:1223
+#: .\templates\npc\index.html:1521
 msgid "27층"
 msgstr "27층"
 
-#: .\templates\npc\index.html:1224
+#: .\templates\npc\index.html:1522
 msgid "28층"
 msgstr "28층"
 
-#: .\templates\npc\index.html:1227
+#: .\templates\npc\index.html:1527
 msgid "29층"
 msgstr "29층"
 
-#: .\templates\npc\index.html:1228
+#: .\templates\npc\index.html:1528
 msgid "30층"
 msgstr "30층"
 
-#: .\templates\npc\index.html:1229
+#: .\templates\npc\index.html:1529
 msgid "31층"
 msgstr "31층"
 
-#: .\templates\npc\index.html:1230
+#: .\templates\npc\index.html:1530
 msgid "32층"
 msgstr "32층"
 
-#: .\templates\npc\index.html:1233
+#: .\templates\npc\index.html:1535
 msgid "33층"
 msgstr "33층"
 
-#: .\templates\npc\index.html:1234
+#: .\templates\npc\index.html:1536
 msgid "34층"
 msgstr "34층"
 
-#: .\templates\npc\index.html:1235
+#: .\templates\npc\index.html:1537
 msgid "35층"
 msgstr "35층"
 
-#: .\templates\npc\index.html:1236
+#: .\templates\npc\index.html:1538
 msgid "36층"
 msgstr "36층"
 
-#: .\templates\npc\index.html:1239
+#: .\templates\npc\index.html:1543
 msgid "37층"
 msgstr "37층"
 
-#: .\templates\npc\index.html:1240
+#: .\templates\npc\index.html:1544
 msgid "38층"
 msgstr "38층"
 
-#: .\templates\npc\index.html:1241
+#: .\templates\npc\index.html:1545
 msgid "39층"
 msgstr "39층"
 
-#: .\templates\npc\index.html:1242
+#: .\templates\npc\index.html:1546
 msgid "40층"
 msgstr "40층"
 
