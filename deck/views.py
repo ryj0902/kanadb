@@ -121,7 +121,7 @@ def deck_from_url(request):
         deck_points += card["point"] * card["count"]
         num_cards += card["count"]
 
-    if len(cards) != 0 and cards[0]["category"] == "캐릭터":
+    if len(cards) != 0 and cards[0]["category"] == _("캐릭터"):
         card_character = cards[0]
         deck_card_list = cards[1:]
         num_cards -= 1
