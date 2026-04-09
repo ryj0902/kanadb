@@ -629,6 +629,7 @@ opacity: 0.4;
 #deck-left-wrapper {
     display: flex;
     flex-direction: column;
+    width: 750px;
 }
 
 .button-group {
