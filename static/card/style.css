@@ -629,7 +629,6 @@ opacity: 0.4;
 #deck-left-wrapper {
     display: flex;
     flex-direction: column;
-    width: 750px;
 }
 
 .button-group {
@@ -757,6 +756,10 @@ opacity: 0.4;
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis;
+}
+
+#deck-view {
+    width: 750px;
 }
 
 .deck-statistics {
