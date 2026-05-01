@@ -113,12 +113,15 @@ class CardSearchForm(forms.Form):
                     tag = tag.strip()
                     cards = cards.filter(tag__icontains=tag)
             elif search_type == "skill":
-                cards = cards.filter(
-                    Q(skill_turn__icontains=search_text)
-                    | Q(skill_instance__icontains=search_text)
-                    | Q(skill_attack__icontains=search_text)
-                    | Q(skill_defend__icontains=search_text)
-                )
+                multi_skills = search_text.split(",")
+                for skill in multi_skills:
+                    skill = skill.strip()
+                    cards = cards.filter(
+                        Q(skill_turn__icontains=skill)
+                        | Q(skill_instance__icontains=skill)
+                        | Q(skill_attack__icontains=skill)
+                        | Q(skill_defend__icontains=skill)
+                    )
         elif language == "en":
             if search_type == "name":
                 cards = cards.filter(name_us__icontains=search_text)
@@ -128,12 +131,15 @@ class CardSearchForm(forms.Form):
                     tag = tag.strip()
                     cards = cards.filter(tag_us__icontains=tag)
             elif search_type == "skill":
-                cards = cards.filter(
-                    Q(skill_turn_us__icontains=search_text)
-                    | Q(skill_instance_us__icontains=search_text)
-                    | Q(skill_attack_us__icontains=search_text)
-                    | Q(skill_defend_us__icontains=search_text)
-                )
+                multi_skills = search_text.split(",")
+                for skill in multi_skills:
+                    skill = skill.strip()
+                    cards = cards.filter(
+                        Q(skill_turn_us__icontains=skill)
+                        | Q(skill_instance_us__icontains=skill)
+                        | Q(skill_attack_us__icontains=skill)
+                        | Q(skill_defend_us__icontains=skill)
+                    )
 
         if category:
             cards = cards.filter(category__in=category)
