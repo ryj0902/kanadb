@@ -160,9 +160,11 @@ cython_debug/
 #.idea/
 
 data.lnk
-Texture2D*/
+Texture2D/
 TextAsset/
 migrations/
 secret_key.txt
 *.sql
 test.ipynb
+data.zip
+settings.json
