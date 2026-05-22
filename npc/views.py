@@ -127,17 +127,17 @@ def npc_detail(request, npc_id):
     # --- Floor Navigation 로직 시작 ---
     npc_id_str = str(npc_id)
     id_len = len(npc_id_str)
+
     is_weekly = npc_id_str.startswith("98")
+    is_exam_hall = npc_id_str.startswith("811571")
 
     difficulty_list = []
     floors_in_current_diff = []
     current_diff = 0
     current_floor_num = 0
 
-    # [CASE A: 주간 / CASE B: 4자리 / CASE C: 일반] 분기 로직은 동일하게 유지하되
-    # 각 분기 마지막에 floors_in_current_diff가 ID 리스트로 채워지게 합니다.
-
     if id_len == 8 and is_weekly:
+        # [CASE A: 주간 던전]
         current_diff = (npc_id // 10000) % 100
         current_floor_num = (npc_id // 1000) % 10
         accessible_npcs = npc_total.filter(id__gte=98000000, id__lt=99000000).order_by(
@@ -183,7 +183,24 @@ def npc_detail(request, npc_id):
             ).values_list("id", flat=True)
         )
 
+    elif id_len == 8 and is_exam_hall:
+        # [CASE B: 시험의 전당]
+        current_diff = 0  # 난이도 개념이 없으므로 0으로 처리
+        current_floor_num = npc_id % 100
+
+        # 81157100 ~ 81157199 범위의 NPC 호출
+        accessible_npcs = npc_total.filter(id__gte=81157100, id__lt=81157200).order_by(
+            "id"
+        )
+
+        # 난이도가 분류되지 않으므로 difficulty_list는 빈 배열로 유지
+        # difficulty_list.append({"value": 0, "label": _("일반"), "url_id": 81157101})
+
+        # 해당 던전의 모든 층을 리스트에 할당
+        floors_in_current_diff = list(accessible_npcs.values_list("id", flat=True))
+
     elif id_len == 4:
+        # [CASE C: 파이트]
         current_diff = (npc_id // 100) % 10
         current_floor_num = npc_id % 100
         accessible_npcs = npc_total.filter(id__gte=9100, id__lt=9600).order_by("id")
@@ -217,6 +234,7 @@ def npc_detail(request, npc_id):
         )
 
     else:
+        # [CASE D: 일반 난이도 던전 (이지/노말/하드)]
         dungeon_prefix = npc_id // 10000
         current_diff = (npc_id // 1000) % 10
         current_floor_num = npc_id % 100
@@ -283,6 +301,7 @@ def npc_detail(request, npc_id):
             # 9801(1)101 -> 5번째 자리
             label = f_str[4]
         else:
+            # 일반/신규 던전은 끝 2자리를 층수로 사용 (예: 811571'01' -> '1'층)
             label = str(int(f_str[-2:]))
 
         floor_options.append({"id": f_id, "label": label, "is_current": is_current})

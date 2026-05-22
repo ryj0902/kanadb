@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-18 23:00+0900\n"
+"POT-Creation-Date: 2026-05-22 19:56+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr "수집 불가 포함"
 msgid "제작 가능만"
 msgstr "제작 가능만"
 
-#: .\card\models.py:7 .\templates\card\search_card.html:78
+#: .\card\models.py:7 .\deck\views.py:124 .\templates\card\search_card.html:78
 #: .\templates\deck\index.html:46 .\templates\favorite.html:9
 #: .\templates\npc\npc_deck.html:31
 msgid "캐릭터"
@@ -122,11 +122,11 @@ msgstr "차원의 틈"
 msgid "재료"
 msgstr "재료"
 
-#: .\card\views.py:73 .\deck\views.py:70 .\guide\views.py:53 .\npc\views.py:299
+#: .\card\views.py:73 .\deck\views.py:70 .\guide\views.py:53 .\npc\views.py:318
 msgid "가로 모드"
 msgstr "가로 모드"
 
-#: .\card\views.py:74 .\deck\views.py:71 .\guide\views.py:54 .\npc\views.py:300
+#: .\card\views.py:74 .\deck\views.py:71 .\guide\views.py:54 .\npc\views.py:319
 msgid "세로 모드"
 msgstr "세로 모드"
 
@@ -158,7 +158,7 @@ msgstr "토"
 msgid "일"
 msgstr "일"
 
-#: .\npc\views.py:226 .\templates\npc\index.html:27
+#: .\npc\views.py:244 .\templates\npc\index.html:27
 #: .\templates\npc\index.html:28 .\templates\npc\index.html:29
 #: .\templates\npc\index.html:30 .\templates\npc\index.html:31
 #: .\templates\npc\index.html:32 .\templates\npc\index.html:33
@@ -177,7 +177,7 @@ msgstr "일"
 msgid "이지"
 msgstr "이지"
 
-#: .\npc\views.py:226 .\templates\npc\index.html:121
+#: .\npc\views.py:244 .\templates\npc\index.html:121
 #: .\templates\npc\index.html:122 .\templates\npc\index.html:123
 #: .\templates\npc\index.html:124 .\templates\npc\index.html:125
 #: .\templates\npc\index.html:126 .\templates\npc\index.html:127
@@ -196,7 +196,7 @@ msgstr "이지"
 msgid "노말"
 msgstr "노말"
 
-#: .\npc\views.py:226 .\templates\npc\index.html:215
+#: .\npc\views.py:244 .\templates\npc\index.html:215
 #: .\templates\npc\index.html:216 .\templates\npc\index.html:217
 #: .\templates\npc\index.html:218 .\templates\npc\index.html:219
 #: .\templates\npc\index.html:220 .\templates\npc\index.html:221
@@ -587,7 +587,7 @@ msgstr "4층"
 #: .\templates\npc\index.html:986 .\templates\npc\index.html:999
 #: .\templates\npc\index.html:1020 .\templates\npc\index.html:1029
 #: .\templates\npc\index.html:1038 .\templates\npc\index.html:1051
-#: .\templates\npc\index.html:1495
+#: .\templates\npc\index.html:1499
 msgid "5층"
 msgstr "5층"
 
@@ -874,186 +874,161 @@ msgstr "아이리"
 msgid "시온 리온"
 msgstr "시온 리온"
 
-#: .\templates\npc\index.html:1383 .\templates\npc\index.html:1386
-#: .\templates\npc\index.html:1387 .\templates\npc\index.html:1395
-msgid "[影] 코르"
-msgstr "[影] 코르"
-
-#: .\templates\npc\index.html:1384
-msgid "[影] 구름슬라임"
-msgstr "[影] 구름슬라임"
-
-#: .\templates\npc\index.html:1385
-msgid "[影] 45423"
-msgstr "[影] 45423"
-
 #: .\templates\npc\index.html:1386
 msgid "페르비아"
 msgstr "페르비아"
-
-#: .\templates\npc\index.html:1388
-msgid "[影] BerlyDraco"
-msgstr "[影] BerlyDraco"
-
-#: .\templates\npc\index.html:1400
-msgid "[影] 시타냥"
-msgstr "[影] 시타냥"
-
-#: .\templates\npc\index.html:1405
-msgid "[影] 쿠마"
-msgstr "[影] 쿠마"
-
-#: .\templates\npc\index.html:1406
-msgid "[影] Zaciel"
-msgstr "[影] Zaciel"
 
 #: .\templates\npc\index.html:1483
 msgid "시험의 전당"
 msgstr "시험의 전당"
 
 #: .\templates\npc\index.html:1486
-msgid "여름의 탑"
-msgstr "여름의 탑"
+msgid "어린이의 탑"
+msgstr "어린이의 탑"
 
-#: .\templates\npc\index.html:1496
+#: .\templates\npc\index.html:1500
 msgid "6층"
 msgstr "6층"
 
-#: .\templates\npc\index.html:1497
+#: .\templates\npc\index.html:1501
 msgid "7층"
 msgstr "7층"
 
-#: .\templates\npc\index.html:1498
+#: .\templates\npc\index.html:1502
 msgid "8층"
 msgstr "8층"
 
-#: .\templates\npc\index.html:1503
+#: .\templates\npc\index.html:1507
 msgid "9층"
 msgstr "9층"
 
-#: .\templates\npc\index.html:1504
+#: .\templates\npc\index.html:1508
 msgid "10층"
 msgstr "10층"
 
-#: .\templates\npc\index.html:1505
+#: .\templates\npc\index.html:1509
 msgid "11층"
 msgstr "11층"
 
-#: .\templates\npc\index.html:1506
+#: .\templates\npc\index.html:1510
 msgid "12층"
 msgstr "12층"
 
-#: .\templates\npc\index.html:1507
+#: .\templates\npc\index.html:1515
 msgid "13층"
 msgstr "13층"
 
-#: .\templates\npc\index.html:1508
+#: .\templates\npc\index.html:1516
 msgid "14층"
 msgstr "14층"
 
-#: .\templates\npc\index.html:1509
+#: .\templates\npc\index.html:1517
 msgid "15층"
 msgstr "15층"
 
-#: .\templates\npc\index.html:1510
+#: .\templates\npc\index.html:1518
 msgid "16층"
 msgstr "16층"
 
-#: .\templates\npc\index.html:1511
+#: .\templates\npc\index.html:1523
 msgid "17층"
 msgstr "17층"
 
-#: .\templates\npc\index.html:1512
+#: .\templates\npc\index.html:1524
 msgid "18층"
 msgstr "18층"
 
-#: .\templates\npc\index.html:1513
+#: .\templates\npc\index.html:1525
 msgid "19층"
 msgstr "19층"
 
-#: .\templates\npc\index.html:1514
+#: .\templates\npc\index.html:1526
 msgid "20층"
 msgstr "20층"
 
-#: .\templates\npc\index.html:1515
-msgid "21층"
-msgstr "21층"
+#~ msgid "[影] 코르"
+#~ msgstr "[影] 코르"
 
-#: .\templates\npc\index.html:1516
-msgid "22층"
-msgstr "22층"
+#~ msgid "[影] 구름슬라임"
+#~ msgstr "[影] 구름슬라임"
 
-#: .\templates\npc\index.html:1517
-msgid "23층"
-msgstr "23층"
+#~ msgid "[影] 45423"
+#~ msgstr "[影] 45423"
 
-#: .\templates\npc\index.html:1518
-msgid "24층"
-msgstr "24층"
+#~ msgid "[影] BerlyDraco"
+#~ msgstr "[影] BerlyDraco"
 
-#: .\templates\npc\index.html:1519
-msgid "25층"
-msgstr "25층"
+#~ msgid "[影] 시타냥"
+#~ msgstr "[影] 시타냥"
 
-#: .\templates\npc\index.html:1520
-msgid "26층"
-msgstr "26층"
+#~ msgid "[影] 쿠마"
+#~ msgstr "[影] 쿠마"
 
-#: .\templates\npc\index.html:1521
-msgid "27층"
-msgstr "27층"
+#~ msgid "[影] Zaciel"
+#~ msgstr "[影] Zaciel"
 
-#: .\templates\npc\index.html:1522
-msgid "28층"
-msgstr "28층"
+#~ msgid "여름의 탑"
+#~ msgstr "여름의 탑"
 
-#: .\templates\npc\index.html:1527
-msgid "29층"
-msgstr "29층"
+#~ msgid "21층"
+#~ msgstr "21층"
 
-#: .\templates\npc\index.html:1528
-msgid "30층"
-msgstr "30층"
+#~ msgid "22층"
+#~ msgstr "22층"
 
-#: .\templates\npc\index.html:1529
-msgid "31층"
-msgstr "31층"
+#~ msgid "23층"
+#~ msgstr "23층"
 
-#: .\templates\npc\index.html:1530
-msgid "32층"
-msgstr "32층"
+#~ msgid "24층"
+#~ msgstr "24층"
 
-#: .\templates\npc\index.html:1535
-msgid "33층"
-msgstr "33층"
+#~ msgid "25층"
+#~ msgstr "25층"
 
-#: .\templates\npc\index.html:1536
-msgid "34층"
-msgstr "34층"
+#~ msgid "26층"
+#~ msgstr "26층"
 
-#: .\templates\npc\index.html:1537
-msgid "35층"
-msgstr "35층"
+#~ msgid "27층"
+#~ msgstr "27층"
 
-#: .\templates\npc\index.html:1538
-msgid "36층"
-msgstr "36층"
+#~ msgid "28층"
+#~ msgstr "28층"
 
-#: .\templates\npc\index.html:1543
-msgid "37층"
-msgstr "37층"
+#~ msgid "29층"
+#~ msgstr "29층"
 
-#: .\templates\npc\index.html:1544
-msgid "38층"
-msgstr "38층"
+#~ msgid "30층"
+#~ msgstr "30층"
 
-#: .\templates\npc\index.html:1545
-msgid "39층"
-msgstr "39층"
+#~ msgid "31층"
+#~ msgstr "31층"
 
-#: .\templates\npc\index.html:1546
-msgid "40층"
-msgstr "40층"
+#~ msgid "32층"
+#~ msgstr "32층"
+
+#~ msgid "33층"
+#~ msgstr "33층"
+
+#~ msgid "34층"
+#~ msgstr "34층"
+
+#~ msgid "35층"
+#~ msgstr "35층"
+
+#~ msgid "36층"
+#~ msgstr "36층"
+
+#~ msgid "37층"
+#~ msgstr "37층"
+
+#~ msgid "38층"
+#~ msgstr "38층"
+
+#~ msgid "39층"
+#~ msgstr "39층"
+
+#~ msgid "40층"
+#~ msgstr "40층"
 
 #~ msgid "쉐도우랜드(시온)"
 #~ msgstr "쉐도우랜드(시온)"

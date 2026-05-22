@@ -42,7 +42,8 @@ def convert_single_png_to_webp(png_path):
 
         image.write_to_file(
             webp_path,
-            lossless=True,
+            Q=85,
+            lossless=False,
             effort=4,
         )
 
