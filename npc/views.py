@@ -117,7 +117,7 @@ def npc_detail(request, npc_id):
 
     sorted_cards = sorted(cards[1:], key=lambda card: (card.category, card.size))
 
-    statistics = calculate_statistics(sorted_cards)
+    statistics = calculate_statistics(cards)
 
     # parse string after sorting
     for card in cards:
