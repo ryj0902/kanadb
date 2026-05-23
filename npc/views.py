@@ -41,9 +41,10 @@ def calculate_statistics(cards: list[Card]):
     for card in cards:
         stat_point += card.count * card.point
 
-        if card.category != 1:  # not count character
+        if card.category != 1:  # do not count character
             stat_category[0][1] += card.count
-            stat_category[card.category - 1][1] += card.count
+            stat_index = 1 if card.category == 3 else 2
+            stat_category[stat_index][1] += card.count
 
         stat_size[card.size - 1] += card.count
         stat_theme[card.theme - 1][1] += card.count
