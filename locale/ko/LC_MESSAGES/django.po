@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-22 19:56+0900\n"
+"POT-Creation-Date: 2026-05-26 20:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,18 +39,17 @@ msgid "제작 가능만"
 msgstr "제작 가능만"
 
 #: .\card\models.py:7 .\deck\views.py:124 .\templates\card\search_card.html:78
-#: .\templates\deck\index.html:46 .\templates\favorite.html:9
-#: .\templates\npc\npc_deck.html:31
+#: .\templates\deck\index.html:46 .\templates\npc\npc_deck.html:31
 msgid "캐릭터"
 msgstr "캐릭터"
 
 #: .\card\models.py:7 .\templates\card\search_card.html:80
-#: .\templates\favorite.html:11 .\templates\npc\npc_deck.html:33
+#: .\templates\npc\npc_deck.html:33
 msgid "스펠"
 msgstr "스펠"
 
 #: .\card\models.py:7 .\templates\card\search_card.html:79
-#: .\templates\favorite.html:10 .\templates\npc\npc_deck.html:32
+#: .\templates\npc\npc_deck.html:32
 msgid "추종자"
 msgstr "추종자"
 
@@ -78,9 +77,7 @@ msgstr "더블레어"
 msgid "유니크"
 msgstr "유니크"
 
-#: .\card\models.py:17 .\templates\npc\index.html:1302
-#: .\templates\npc\index.html:1318 .\templates\npc\index.html:1334
-#: .\templates\npc\index.html:1350 .\templates\npc\index.html:1366
+#: .\card\models.py:17
 msgid "공립"
 msgstr "공립"
 
@@ -92,9 +89,7 @@ msgstr "사립"
 msgid "크룩스"
 msgstr "크룩스"
 
-#: .\card\models.py:20 .\templates\npc\index.html:1311
-#: .\templates\npc\index.html:1327 .\templates\npc\index.html:1343
-#: .\templates\npc\index.html:1359 .\templates\npc\index.html:1375
+#: .\card\models.py:20
 msgid "다크로어"
 msgstr "다크로어"
 
@@ -122,43 +117,43 @@ msgstr "차원의 틈"
 msgid "재료"
 msgstr "재료"
 
-#: .\card\views.py:73 .\deck\views.py:70 .\guide\views.py:53 .\npc\views.py:318
+#: .\card\views.py:63 .\deck\views.py:70 .\guide\views.py:53 .\npc\views.py:319
 msgid "가로 모드"
 msgstr "가로 모드"
 
-#: .\card\views.py:74 .\deck\views.py:71 .\guide\views.py:54 .\npc\views.py:319
+#: .\card\views.py:64 .\deck\views.py:71 .\guide\views.py:54 .\npc\views.py:320
 msgid "세로 모드"
 msgstr "세로 모드"
 
-#: .\npc\views.py:147 .\templates\npc\index.html:1071
+#: .\npc\views.py:148 .\templates\npc\index.html:1071
 msgid "월"
 msgstr "월"
 
-#: .\npc\views.py:148 .\templates\npc\index.html:1072
+#: .\npc\views.py:149 .\templates\npc\index.html:1072
 msgid "화"
 msgstr "화"
 
-#: .\npc\views.py:149 .\templates\npc\index.html:1073
+#: .\npc\views.py:150 .\templates\npc\index.html:1073
 msgid "수"
 msgstr "수"
 
-#: .\npc\views.py:150 .\templates\npc\index.html:1074
+#: .\npc\views.py:151 .\templates\npc\index.html:1074
 msgid "목"
 msgstr "목"
 
-#: .\npc\views.py:151 .\templates\npc\index.html:1075
+#: .\npc\views.py:152 .\templates\npc\index.html:1075
 msgid "금"
 msgstr "금"
 
-#: .\npc\views.py:152 .\templates\npc\index.html:1076
+#: .\npc\views.py:153 .\templates\npc\index.html:1076
 msgid "토"
 msgstr "토"
 
-#: .\npc\views.py:153 .\templates\npc\index.html:1077
+#: .\npc\views.py:154 .\templates\npc\index.html:1077
 msgid "일"
 msgstr "일"
 
-#: .\npc\views.py:244 .\templates\npc\index.html:27
+#: .\npc\views.py:245 .\templates\npc\index.html:27
 #: .\templates\npc\index.html:28 .\templates\npc\index.html:29
 #: .\templates\npc\index.html:30 .\templates\npc\index.html:31
 #: .\templates\npc\index.html:32 .\templates\npc\index.html:33
@@ -177,7 +172,7 @@ msgstr "일"
 msgid "이지"
 msgstr "이지"
 
-#: .\npc\views.py:244 .\templates\npc\index.html:121
+#: .\npc\views.py:245 .\templates\npc\index.html:121
 #: .\templates\npc\index.html:122 .\templates\npc\index.html:123
 #: .\templates\npc\index.html:124 .\templates\npc\index.html:125
 #: .\templates\npc\index.html:126 .\templates\npc\index.html:127
@@ -196,7 +191,7 @@ msgstr "이지"
 msgid "노말"
 msgstr "노말"
 
-#: .\npc\views.py:244 .\templates\npc\index.html:215
+#: .\npc\views.py:245 .\templates\npc\index.html:215
 #: .\templates\npc\index.html:216 .\templates\npc\index.html:217
 #: .\templates\npc\index.html:218 .\templates\npc\index.html:219
 #: .\templates\npc\index.html:220 .\templates\npc\index.html:221
@@ -373,7 +368,7 @@ msgstr "심상 세계"
 #: .\templates\npc\index.html:1217 .\templates\npc\index.html:1225
 #: .\templates\npc\index.html:1233 .\templates\npc\index.html:1241
 #: .\templates\npc\index.html:1249 .\templates\npc\index.html:1257
-#: .\templates\npc\index.html:1491
+#: .\templates\npc\index.html:1492
 msgid "1층"
 msgstr "1층"
 
@@ -428,7 +423,7 @@ msgstr "1층"
 #: .\templates\npc\index.html:1218 .\templates\npc\index.html:1226
 #: .\templates\npc\index.html:1234 .\templates\npc\index.html:1242
 #: .\templates\npc\index.html:1250 .\templates\npc\index.html:1258
-#: .\templates\npc\index.html:1492
+#: .\templates\npc\index.html:1493
 msgid "2층"
 msgstr "2층"
 
@@ -483,7 +478,7 @@ msgstr "2층"
 #: .\templates\npc\index.html:1219 .\templates\npc\index.html:1227
 #: .\templates\npc\index.html:1235 .\templates\npc\index.html:1243
 #: .\templates\npc\index.html:1251 .\templates\npc\index.html:1259
-#: .\templates\npc\index.html:1493
+#: .\templates\npc\index.html:1494
 msgid "3층"
 msgstr "3층"
 
@@ -538,7 +533,7 @@ msgstr "3층"
 #: .\templates\npc\index.html:1220 .\templates\npc\index.html:1228
 #: .\templates\npc\index.html:1236 .\templates\npc\index.html:1244
 #: .\templates\npc\index.html:1252 .\templates\npc\index.html:1260
-#: .\templates\npc\index.html:1494
+#: .\templates\npc\index.html:1495
 msgid "4층"
 msgstr "4층"
 
@@ -587,7 +582,7 @@ msgstr "4층"
 #: .\templates\npc\index.html:986 .\templates\npc\index.html:999
 #: .\templates\npc\index.html:1020 .\templates\npc\index.html:1029
 #: .\templates\npc\index.html:1038 .\templates\npc\index.html:1051
-#: .\templates\npc\index.html:1499
+#: .\templates\npc\index.html:1500
 msgid "5층"
 msgstr "5층"
 
@@ -786,19 +781,19 @@ msgstr "문의 저편으로"
 msgid "코발트색 추억"
 msgstr "코발트색 추억"
 
-#: .\templates\npc\index.html:1275
+#: .\templates\npc\index.html:1275 .\templates\npc\index.html:1292
 msgid "시작의 관찰자"
 msgstr "시작의 관찰자"
 
-#: .\templates\npc\index.html:1276
+#: .\templates\npc\index.html:1276 .\templates\npc\index.html:1293
 msgid "은둔형 관찰자"
 msgstr "은둔형 관찰자"
 
-#: .\templates\npc\index.html:1277
+#: .\templates\npc\index.html:1277 .\templates\npc\index.html:1294
 msgid "수집형 관찰자"
 msgstr "수집형 관찰자"
 
-#: .\templates\npc\index.html:1278
+#: .\templates\npc\index.html:1278 .\templates\npc\index.html:1296
 msgid "게임광 관찰자"
 msgstr "게임광 관찰자"
 
@@ -806,145 +801,258 @@ msgstr "게임광 관찰자"
 msgid "초월의 관찰자"
 msgstr "초월의 관찰자"
 
-#: .\templates\npc\index.html:1301 .\templates\npc\index.html:1317
-#: .\templates\npc\index.html:1333 .\templates\npc\index.html:1349
-#: .\templates\npc\index.html:1365
+#: .\templates\npc\index.html:1295
+msgid "매니저 관찰자"
+msgstr "매니저 관찰자"
+
+#: .\templates\npc\index.html:1301 .\templates\npc\index.html:1302
+#: .\templates\npc\index.html:1303 .\templates\npc\index.html:1304
+#: .\templates\npc\index.html:1305 .\templates\npc\index.html:1306
+#: .\templates\npc\index.html:1307 .\templates\npc\index.html:1308
+msgid "해변의"
+msgstr "해변의"
+
+#: .\templates\npc\index.html:1301 .\templates\npc\index.html:1333
+#: .\templates\npc\index.html:1353 .\templates\npc\index.html:1369
 msgid "시타"
 msgstr "시타"
 
-#: .\templates\npc\index.html:1302 .\templates\npc\index.html:1311
-#: .\templates\npc\index.html:1318 .\templates\npc\index.html:1327
-#: .\templates\npc\index.html:1334 .\templates\npc\index.html:1343
-#: .\templates\npc\index.html:1350 .\templates\npc\index.html:1359
-#: .\templates\npc\index.html:1366 .\templates\npc\index.html:1375
-msgid "베르니카"
-msgstr "베르니카"
-
-#: .\templates\npc\index.html:1303 .\templates\npc\index.html:1319
-#: .\templates\npc\index.html:1335 .\templates\npc\index.html:1351
-#: .\templates\npc\index.html:1367
-msgid "리안나"
-msgstr "리안나"
-
-#: .\templates\npc\index.html:1304 .\templates\npc\index.html:1320
-#: .\templates\npc\index.html:1336 .\templates\npc\index.html:1352
-#: .\templates\npc\index.html:1368
+#: .\templates\npc\index.html:1302 .\templates\npc\index.html:1334
+#: .\templates\npc\index.html:1354 .\templates\npc\index.html:1370
 msgid "시니아"
 msgstr "시니아"
 
-#: .\templates\npc\index.html:1305 .\templates\npc\index.html:1321
-#: .\templates\npc\index.html:1337 .\templates\npc\index.html:1353
-#: .\templates\npc\index.html:1369 .\templates\npc\index.html:1383
-msgid "로제"
-msgstr "로제"
-
-#: .\templates\npc\index.html:1306 .\templates\npc\index.html:1322
-#: .\templates\npc\index.html:1338 .\templates\npc\index.html:1354
-#: .\templates\npc\index.html:1370
-msgid "리니아"
-msgstr "리니아"
-
-#: .\templates\npc\index.html:1307 .\templates\npc\index.html:1323
-#: .\templates\npc\index.html:1339 .\templates\npc\index.html:1355
-#: .\templates\npc\index.html:1371
+#: .\templates\npc\index.html:1303 .\templates\npc\index.html:1335
+#: .\templates\npc\index.html:1355 .\templates\npc\index.html:1371
 msgid "루티카"
 msgstr "루티카"
 
-#: .\templates\npc\index.html:1308 .\templates\npc\index.html:1324
-#: .\templates\npc\index.html:1340 .\templates\npc\index.html:1356
-#: .\templates\npc\index.html:1372
-msgid "클라리스"
-msgstr "클라리스"
-
-#: .\templates\npc\index.html:1309 .\templates\npc\index.html:1325
-#: .\templates\npc\index.html:1341 .\templates\npc\index.html:1357
-#: .\templates\npc\index.html:1373 .\templates\npc\index.html:1387
-msgid "제이나"
-msgstr "제이나"
-
-#: .\templates\npc\index.html:1310 .\templates\npc\index.html:1326
-#: .\templates\npc\index.html:1342 .\templates\npc\index.html:1358
-#: .\templates\npc\index.html:1374
+#: .\templates\npc\index.html:1304 .\templates\npc\index.html:1336
+#: .\templates\npc\index.html:1356 .\templates\npc\index.html:1372
 msgid "아이리"
 msgstr "아이리"
 
-#: .\templates\npc\index.html:1312 .\templates\npc\index.html:1328
-#: .\templates\npc\index.html:1344 .\templates\npc\index.html:1360
-#: .\templates\npc\index.html:1376
+#: .\templates\npc\index.html:1305 .\templates\npc\index.html:1337
+#: .\templates\npc\index.html:1357 .\templates\npc\index.html:1373
+msgid "아스미스"
+msgstr "아스미스"
+
+#: .\templates\npc\index.html:1306 .\templates\npc\index.html:1338
+#: .\templates\npc\index.html:1358 .\templates\npc\index.html:1374
+msgid "리누스"
+msgstr "리누스"
+
+#: .\templates\npc\index.html:1307 .\templates\npc\index.html:1339
+#: .\templates\npc\index.html:1359 .\templates\npc\index.html:1375
+msgid "로자리아"
+msgstr "로자리아"
+
+#: .\templates\npc\index.html:1308 .\templates\npc\index.html:1340
+#: .\templates\npc\index.html:1360 .\templates\npc\index.html:1376
+msgid "헬레나"
+msgstr "헬레나"
+
+#: .\templates\npc\index.html:1309 .\templates\npc\index.html:1310
+#: .\templates\npc\index.html:1311 .\templates\npc\index.html:1312
+#: .\templates\npc\index.html:1325 .\templates\npc\index.html:1326
+#: .\templates\npc\index.html:1327 .\templates\npc\index.html:1328
+#: .\templates\npc\index.html:1357 .\templates\npc\index.html:1358
+#: .\templates\npc\index.html:1359 .\templates\npc\index.html:1360
+#: .\templates\npc\index.html:1373 .\templates\npc\index.html:1374
+#: .\templates\npc\index.html:1375 .\templates\npc\index.html:1376
+msgid "어린이"
+msgstr "어린이"
+
+#: .\templates\npc\index.html:1309
+msgid "이리나"
+msgstr "이리나"
+
+#: .\templates\npc\index.html:1310
+msgid "마리메"
+msgstr "마리메"
+
+#: .\templates\npc\index.html:1311
+msgid "아우디레"
+msgstr "아우디레"
+
+#: .\templates\npc\index.html:1312
+msgid "라임"
+msgstr "라임"
+
+#: .\templates\npc\index.html:1317 .\templates\npc\index.html:1318
+#: .\templates\npc\index.html:1319 .\templates\npc\index.html:1320
+#: .\templates\npc\index.html:1321 .\templates\npc\index.html:1322
+#: .\templates\npc\index.html:1323 .\templates\npc\index.html:1324
+#: .\templates\npc\index.html:1333 .\templates\npc\index.html:1334
+#: .\templates\npc\index.html:1335 .\templates\npc\index.html:1336
+#: .\templates\npc\index.html:1337 .\templates\npc\index.html:1338
+#: .\templates\npc\index.html:1339 .\templates\npc\index.html:1340
+#: .\templates\npc\index.html:1349 .\templates\npc\index.html:1350
+#: .\templates\npc\index.html:1351 .\templates\npc\index.html:1352
+#: .\templates\npc\index.html:1365 .\templates\npc\index.html:1366
+#: .\templates\npc\index.html:1367 .\templates\npc\index.html:1368
+msgid "수영복의"
+msgstr "수영복의"
+
+#: .\templates\npc\index.html:1317 .\templates\npc\index.html:1325
+msgid "베르니카"
+msgstr "베르니카"
+
+#: .\templates\npc\index.html:1318
+msgid "로제"
+msgstr "로제"
+
+#: .\templates\npc\index.html:1319 .\templates\npc\index.html:1327
+msgid "제이나"
+msgstr "제이나"
+
+#: .\templates\npc\index.html:1320
+msgid "앤즈"
+msgstr "앤즈"
+
+#: .\templates\npc\index.html:1321
+msgid "레이나"
+msgstr "레이나"
+
+#: .\templates\npc\index.html:1322
+msgid "세븐"
+msgstr "세븐"
+
+#: .\templates\npc\index.html:1323
+msgid "핀테일"
+msgstr "핀테일"
+
+#: .\templates\npc\index.html:1324
+msgid "몽쉘"
+msgstr "몽쉘"
+
+#: .\templates\npc\index.html:1326 .\templates\npc\index.html:1350
+#: .\templates\npc\index.html:1366
+msgid "리니아"
+msgstr "리니아"
+
+#: .\templates\npc\index.html:1328 .\templates\npc\index.html:1352
+#: .\templates\npc\index.html:1368
 msgid "시온 리온"
 msgstr "시온 리온"
 
-#: .\templates\npc\index.html:1386
-msgid "페르비아"
-msgstr "페르비아"
+#: .\templates\npc\index.html:1341
+msgid "피오나"
+msgstr "피오나"
 
-#: .\templates\npc\index.html:1483
+#: .\templates\npc\index.html:1341
+msgid "센트리버"
+msgstr "센트리버"
+
+#: .\templates\npc\index.html:1342
+msgid "엔프레스"
+msgstr "엔프레스"
+
+#: .\templates\npc\index.html:1342
+msgid "퍼시피카"
+msgstr "퍼시피카"
+
+#: .\templates\npc\index.html:1343
+msgid "클라라"
+msgstr "클라라"
+
+#: .\templates\npc\index.html:1343
+msgid "알트하임"
+msgstr "알트하임"
+
+#: .\templates\npc\index.html:1344
+msgid "루나"
+msgstr "루나"
+
+#: .\templates\npc\index.html:1344
+msgid "플리나"
+msgstr "플리나"
+
+#: .\templates\npc\index.html:1349 .\templates\npc\index.html:1365
+msgid "리안나"
+msgstr "리안나"
+
+#: .\templates\npc\index.html:1351 .\templates\npc\index.html:1367
+msgid "클라리스"
+msgstr "클라리스"
+
+#: .\templates\npc\index.html:1353 .\templates\npc\index.html:1354
+#: .\templates\npc\index.html:1355 .\templates\npc\index.html:1356
+#: .\templates\npc\index.html:1369 .\templates\npc\index.html:1370
+#: .\templates\npc\index.html:1371 .\templates\npc\index.html:1372
+msgid "한여름의"
+msgstr "한여름의"
+
+#: .\templates\npc\index.html:1484
 msgid "시험의 전당"
 msgstr "시험의 전당"
 
-#: .\templates\npc\index.html:1486
+#: .\templates\npc\index.html:1487
 msgid "어린이의 탑"
 msgstr "어린이의 탑"
 
-#: .\templates\npc\index.html:1500
+#: .\templates\npc\index.html:1501
 msgid "6층"
 msgstr "6층"
 
-#: .\templates\npc\index.html:1501
+#: .\templates\npc\index.html:1502
 msgid "7층"
 msgstr "7층"
 
-#: .\templates\npc\index.html:1502
+#: .\templates\npc\index.html:1503
 msgid "8층"
 msgstr "8층"
 
-#: .\templates\npc\index.html:1507
+#: .\templates\npc\index.html:1508
 msgid "9층"
 msgstr "9층"
 
-#: .\templates\npc\index.html:1508
+#: .\templates\npc\index.html:1509
 msgid "10층"
 msgstr "10층"
 
-#: .\templates\npc\index.html:1509
+#: .\templates\npc\index.html:1510
 msgid "11층"
 msgstr "11층"
 
-#: .\templates\npc\index.html:1510
+#: .\templates\npc\index.html:1511
 msgid "12층"
 msgstr "12층"
 
-#: .\templates\npc\index.html:1515
+#: .\templates\npc\index.html:1516
 msgid "13층"
 msgstr "13층"
 
-#: .\templates\npc\index.html:1516
+#: .\templates\npc\index.html:1517
 msgid "14층"
 msgstr "14층"
 
-#: .\templates\npc\index.html:1517
+#: .\templates\npc\index.html:1518
 msgid "15층"
 msgstr "15층"
 
-#: .\templates\npc\index.html:1518
+#: .\templates\npc\index.html:1519
 msgid "16층"
 msgstr "16층"
 
-#: .\templates\npc\index.html:1523
+#: .\templates\npc\index.html:1524
 msgid "17층"
 msgstr "17층"
 
-#: .\templates\npc\index.html:1524
+#: .\templates\npc\index.html:1525
 msgid "18층"
 msgstr "18층"
 
-#: .\templates\npc\index.html:1525
+#: .\templates\npc\index.html:1526
 msgid "19층"
 msgstr "19층"
 
-#: .\templates\npc\index.html:1526
+#: .\templates\npc\index.html:1527
 msgid "20층"
 msgstr "20층"
+
+#~ msgid "페르비아"
+#~ msgstr "페르비아"
 
 #~ msgid "[影] 코르"
 #~ msgstr "[影] 코르"
@@ -1045,9 +1153,6 @@ msgstr "20층"
 #~ msgid "히어로 관찰자"
 #~ msgstr "히어로 관찰자"
 
-#~ msgid "매니저 관찰자"
-#~ msgstr "매니저 관찰자"
-
 #~ msgid "동화의 관찰자"
 #~ msgstr "동화의 관찰자"
 
@@ -1056,9 +1161,6 @@ msgstr "20층"
 
 #~ msgid "어린이 관찰자"
 #~ msgstr "어린이 관찰자"
-
-#~ msgid "바다의 관찰자"
-#~ msgstr "바다의 관찰자"
 
 #~ msgid "성탄의 카나 시니아"
 #~ msgstr "성탄의 카나 시니아"
