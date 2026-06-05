@@ -146,7 +146,7 @@ function updateDeckPreview(response) {
             <div class="deck-preview-card" onclick="selectCard(${charCard.id}, 0)" draggable="true" card-id="${charCard.id}">
                 <div class="image-card" style="background-image: url(${charCard.d_url});"></div>
                 <div class="image-frame" style="background-image: url(${charCard.d_frame});"></div>
-                <div class="image-enhance" style="background-image: url(${charCard.d_frame_enh})${charCard.enhance == 0 ? ';display:none;' : ''}"></div>
+                <div class="image-enhance" style="background-image: url(${charCard.frame_enh})${charCard.enhance == 0 ? ';display:none;' : ''}"></div>
                 <div class="text-stat" id="card-enhance" ${charCard.enhance == 0 ? 'style="display:none;"' : ''}>${charCard.enhance}</div>
                 <div class="text-stat" id="card-name">${cardName}</div>
             </div>
