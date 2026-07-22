@@ -130,7 +130,8 @@ def npc_detail(request, npc_id):
     id_len = len(npc_id_str)
 
     is_weekly = npc_id_str.startswith("98")
-    is_exam_hall = npc_id_str.startswith("811571")
+    # 차원의 탑: 81xx71yy 패턴
+    is_tower = id_len == 8 and npc_id_str.startswith("81") and npc_id_str[4:6] == "71"
 
     difficulty_list = []
     floors_in_current_diff = []
@@ -184,21 +185,54 @@ def npc_detail(request, npc_id):
             ).values_list("id", flat=True)
         )
 
-    elif id_len == 8 and is_exam_hall:
-        # [CASE B: 시험의 전당]
-        current_diff = 0  # 난이도 개념이 없으므로 0으로 처리
-        current_floor_num = npc_id % 100
+    elif id_len == 8 and is_tower:
+        # [CASE B: 차원의 탑 (81xx71yy)]
+        yy = npc_id % 100  # 00 ~ 19
+        current_floor_num = yy + 1  # 1 ~ 20층
+        current_diff = (yy // 4) + 1  # 1: E, 2: D, 3: C, 4: B, 5: A
+        offset_in_diff = yy % 4  # 난이도 내에서 층 위치 (0~3)
 
-        # 81157100 ~ 81157199 범위의 NPC 호출
-        accessible_npcs = npc_total.filter(id__gte=81157100, id__lt=81157200).order_by(
-            "id"
+        base_id = (npc_id // 100) * 100  # 81xx7100
+        accessible_npcs = npc_total.filter(
+            id__gte=base_id, id__lt=base_id + 20
+        ).order_by("id")
+
+        diff_labels = {1: "E", 2: "D", 3: "C", 4: "B", 5: "A"}
+        available_diffs = sorted(
+            list(
+                set(
+                    ((id % 100) // 4) + 1
+                    for id in accessible_npcs.values_list("id", flat=True)
+                )
+            )
         )
 
-        # 난이도가 분류되지 않으므로 difficulty_list는 빈 배열로 유지
-        # difficulty_list.append({"value": 0, "label": _("일반"), "url_id": 81157101})
+        for d in available_diffs:
+            # 동일 offset 위치의 층 계산
+            target_yy = (d - 1) * 4 + offset_in_diff
+            target_id = base_id + target_yy
 
-        # 해당 던전의 모든 층을 리스트에 할당
-        floors_in_current_diff = list(accessible_npcs.values_list("id", flat=True))
+            # 해당 target_id가 존재하지 않으면 해당 난이도의 첫 층으로 대체
+            if not accessible_npcs.filter(id=target_id).exists():
+                min_target = base_id + (d - 1) * 4
+                max_target = min_target + 3
+                first_in_diff = accessible_npcs.filter(
+                    id__gte=min_target, id__lte=max_target
+                ).first()
+                target_id = first_in_diff.id if first_in_diff else base_id
+
+            difficulty_list.append(
+                {"value": d, "label": diff_labels.get(d, str(d)), "url_id": target_id}
+            )
+
+        # 현재 난이도에 해당하는 층 리스트 (각 난이도별 4개 층)
+        min_floor_id = base_id + (current_diff - 1) * 4
+        max_floor_id = min_floor_id + 3
+        floors_in_current_diff = list(
+            accessible_npcs.filter(
+                id__gte=min_floor_id, id__lte=max_floor_id
+            ).values_list("id", flat=True)
+        )
 
     elif id_len == 4:
         # [CASE C: 파이트]
@@ -301,11 +335,21 @@ def npc_detail(request, npc_id):
         if is_weekly:
             # 9801(1)101 -> 5번째 자리
             label = f_str[4]
+        elif is_tower:
+            # 차원의 탑: yy(00~19) -> 1~20층
+            label = str(int(f_str[-2:]) + 1)
         else:
-            # 일반/신규 던전은 끝 2자리를 층수로 사용 (예: 811571'01' -> '1'층)
+            # 일반 던전은 끝 2자리를 층수로 사용 (예: '01' -> '1'층)
             label = str(int(f_str[-2:]))
 
         floor_options.append({"id": f_id, "label": label, "is_current": is_current})
+
+    # 차원의 탑 경계층 처리: 그룹 경계를 넘어 이전/다음 층이 존재하는 경우 연결
+    if is_tower:
+        if floor_prev_id == -1 and npc_total.filter(id=npc_id - 1).exists():
+            floor_prev_id = npc_id - 1
+        if floor_next_id == -1 and npc_total.filter(id=npc_id + 1).exists():
+            floor_next_id = npc_id + 1
 
     context = {
         "chapter_name": npc.chapter_name,
