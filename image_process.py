@@ -4,7 +4,7 @@ os.add_dll_directory(r"C:\vips\bin")
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import pyvips
-from tqdm import tqdm
+from tqdm.auto import tqdm
 
 # =========================
 # CONFIG
