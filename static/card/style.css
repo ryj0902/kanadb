@@ -50,8 +50,9 @@ nav {
 .container {
     margin: 10px;
     padding: 0;
-    height: 85vh;
+    min-height: 85vh;
     display: flex;
+    align-items: flex-start;
 }
 
 .left {
@@ -121,7 +122,10 @@ nav {
 }
 
 .right {
-    overflow-y: scroll;
+    position: sticky; /* 스크롤 시 고정 */
+    top: 10px;
+    max-height: calc(100vh - 20px);
+    overflow-y: auto;
     min-width: 370px;
     max-width: 370px;
 }
@@ -607,7 +611,7 @@ nav {
 
 .deactive {
     filter: grayscale(100%);
-opacity: 0.4;
+    opacity: 0.4;
 }
 
 
@@ -615,7 +619,7 @@ opacity: 0.4;
    유니크 티어 리스트 PVP / PVE 2열 레이아웃 스타일
    ================================================== */
 
-   .tier-flex-container {
+.tier-flex-container {
     display: flex;
     gap: 24px;
     width: 100%;
@@ -904,4 +908,3 @@ opacity: 0.4;
 .bar-fill[style*="width: 100%"] {
     border-radius: 8px;
 }
-
