@@ -58,6 +58,9 @@ nav {
     width: 770px;
     /* overflow-y: auto; */
 }
+.left-wide {
+    width: 880px;
+}
 .search-filter {
     outline: solid 1px black; /* temporary */
     display: none;
@@ -605,6 +608,41 @@ nav {
 .deactive {
     filter: grayscale(100%);
 opacity: 0.4;
+}
+
+
+/* ==================================================
+   유니크 티어 리스트 PVP / PVE 2열 레이아웃 스타일
+   ================================================== */
+
+   .tier-flex-container {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+}
+
+.tier-column {
+    flex: 1;
+    min-width: 0;
+}
+
+/* PVP / PVE 타이틀 헤더 스타일 */
+.pvp-column h1,
+.pve-column h1 {
+    font-family: 'title';
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #ddd;
+}
+
+.pvp-column h1 {
+    color: #d9534f; /* PVP 모드 구분용 색상 (레드 계열) */
+}
+
+.pve-column h1 {
+    color: #0275d8; /* PVE 모드 구분용 색상 (블루 계열) */
 }
 
 .vote-tier-img:not(.deactive) {

@@ -20,11 +20,11 @@ class Card(models.Model):
         (4, _("다크로어")),
         (5, _("무소속")),
     ]
-    EPISODE_SEASON1 = [(100 + i, f"EP{i}") for i in range(0, 9)]
+    EPISODE_SEASON1 = [(100 + i, f"EP{i}") for i in range(9)]
     EPISODE_SEASON2 = [(100 + i, f"EP{i}") for i in range(9, 17)]
     EPISODE_SEASON3 = [(100 + i, f"EP{i}") for i in range(17, 18)]
     EPISODE_EVENT = (
-        [(500 + i, f"EV{i}") for i in range(0, 12)] + [(516, "EV16")] + [(518, "EV18")]
+        [(500 + i, f"EV{i}") for i in range(12)] + [(516, "EV16")] + [(518, "EV18")]
     )
     EPISODE_EXTRA = [
         (901, _("쉐도우랜드")),
@@ -187,16 +187,19 @@ class Vote(models.Model):
     ip = models.GenericIPAddressField()
     tier = models.IntegerField()
     category = models.TextField()
+    mode = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now=True)
 
     TIER_MAP = {0: "S", 1: "A", 2: "B", 3: "C", 4: "D", 5: "E"}
+    MODE_MAP = {0: "PVP", 1: "PVE"}
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["card", "ip", "category"], name="unique_card_ip_category"
+                fields=["card", "ip", "category", "mode"],
+                name="unique_card_ip_category_mode",
             )
         ]
 
     def __str__(self):
-        return f"Vote(id={self.card.id}({self.card.name}), ip={self.ip}, tier={self.tier}({self.TIER_MAP[self.tier]}))"
+        return f"Vote(id={self.card.id}({self.card.name}), ip={self.ip}, mode={self.mode}({self.MODE_MAP[self.mode]}), tier={self.tier}({self.TIER_MAP[self.tier]}))"
