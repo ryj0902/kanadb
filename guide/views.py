@@ -177,9 +177,10 @@ def guide_vote(request, guide_category):
 def vote(request):
     data = json.loads(request.body)
     card_id = data.get("cardId")
-    tier = data.get("tier")
     category = data.get("category")
     mode = int(data.get("mode", 0))  # 별도 전달값이 없으면 기본값 0(PVP) 사용
+    tier = data.get("tier")
+
     ip_address = get_client_ip(request)
 
     card = Card.objects.filter(id=card_id).first()
