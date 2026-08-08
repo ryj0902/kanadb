@@ -70,54 +70,27 @@ function syncSearchFilter(){
 }
 
 function addToggleAllEventListener(){
-    // episode
-    document.getElementById('toggle-all-episode-season1').addEventListener('click', function() {
-        let checkboxes = document.querySelectorAll('input[name="episode_season1"]');
+    const toggleItems = [
+        { toggleId: 'toggle-all-episode-season1', name: 'episode_season1' },
+        { toggleId: 'toggle-all-episode-season2', name: 'episode_season2' },
+        { toggleId: 'toggle-all-episode-season3', name: 'episode_season3' },
+        { toggleId: 'toggle-all-episode-event', name: 'episode_event' },
+        { toggleId: 'toggle-all-episode-extra', name: 'episode_extra' },
+        { toggleId: 'toggle-all-category', name: 'category' },
+        { toggleId: 'toggle-all-rarity', name: 'rarity' },
+        { toggleId: 'toggle-all-theme', name: 'theme' }
+    ];
 
-        let isChecked = this.checked;
-        checkboxes.forEach(function(checkbox) {
-          checkbox.checked = isChecked;
-        });
-    });
-    document.getElementById('toggle-all-episode-season2').addEventListener('click', function() {
-        let checkboxes = document.querySelectorAll('input[name="episode_season2"]');
-
-        let isChecked = this.checked;
-        checkboxes.forEach(function(checkbox) {
-          checkbox.checked = isChecked;
-        });
-    });
-    document.getElementById('toggle-all-episode-event').addEventListener('click', function() {
-        let checkboxes = document.querySelectorAll('input[name="episode_event"]');
-
-        let isChecked = this.checked;
-        checkboxes.forEach(function(checkbox) {
-          checkbox.checked = isChecked;
-        });
-    });
-    // details
-    document.getElementById('toggle-all-category').addEventListener('click', function() {
-        let checkboxes = document.querySelectorAll('input[name="category"]');
-
-        let isChecked = this.checked;
-        checkboxes.forEach(function(checkbox) {
-          checkbox.checked = isChecked;
-        });
-    });
-    document.getElementById('toggle-all-rarity').addEventListener('click', function() {
-        let checkboxes = document.querySelectorAll('input[name="rarity"]');
-
-        let isChecked = this.checked;
-        checkboxes.forEach(function(checkbox) {
-          checkbox.checked = isChecked;
-        });
-    });
-    document.getElementById('toggle-all-theme').addEventListener('click', function() {
-        let checkboxes = document.querySelectorAll('input[name="theme"]');
-
-        let isChecked = this.checked;
-        checkboxes.forEach(function(checkbox) {
-          checkbox.checked = isChecked;
-        });
+    toggleItems.forEach(item => {
+        const toggleElem = document.getElementById(item.toggleId);
+        if (toggleElem) {
+            toggleElem.addEventListener('click', function() {
+                let checkboxes = document.querySelectorAll(`input[name="${item.name}"]`);
+                let isChecked = this.checked;
+                checkboxes.forEach(function(checkbox) {
+                    checkbox.checked = isChecked;
+                });
+            });
+        }
     });
 }
