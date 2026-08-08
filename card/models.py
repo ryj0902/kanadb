@@ -34,7 +34,7 @@ class Card(models.Model):
         (830, _("재료")),
     ]
 
-    id = models.IntegerField(primary_key=True)
+    id = models.BigIntegerField(primary_key=True)
     name = models.TextField()
     name_us = models.TextField()
     category = models.IntegerField()
@@ -183,7 +183,7 @@ class Card(models.Model):
 
 
 class Vote(models.Model):
-    card = models.ForeignKey(Card, on_delete=models.CASCADE, to_field="id")
+    card = models.ForeignKey(Card, on_delete=models.CASCADE)
     ip = models.GenericIPAddressField()
     tier = models.IntegerField()
     category = models.TextField()
