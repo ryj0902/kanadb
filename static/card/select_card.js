@@ -158,15 +158,15 @@ function swapTextTo(mode) {
 
     const modes = {
         skill: {
-            icon: 'UI_Icon_story%201.webp',
+            icon: img.dataset.iconStory,
             next: 'story'
         },
         story: {
-            icon: 'UI_Icon_Battlelog.webp',
+            icon: img.dataset.iconDial,
             next: 'dial'
         },
         dial: {
-            icon: 'UI_Icon_cardText.webp',
+            icon: img.dataset.iconSkill,
             next: 'skill'
         }
     };
@@ -180,10 +180,7 @@ function swapTextTo(mode) {
     elements[mode].style.display = 'inline-block';
 
     // 아이콘 변경
-    img.src = img.src.replace(
-        /UI_Icon_[^/]+\.webp/,
-        modes[mode].icon
-    );
+    img.src = modes[mode].icon
 
     // 버튼 클릭 시 다음 모드로 이동
     img.onclick = () => swapTextTo(modes[mode].next);
