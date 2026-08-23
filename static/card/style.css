@@ -407,6 +407,10 @@ nav {
     flex-direction: column;
 }
 
+.selected-card.horz-layout .selected-card-texts {
+    min-width: 450px;
+}
+
 .selected-card-title {
     display: flex;
     flex-direction: column;
