@@ -53,11 +53,13 @@ class Card(models.Model):
     frame = models.TextField()  # image file name
     collect = models.BooleanField()
     desc = models.TextField()
+    dial = models.TextField()
     skill_turn = models.TextField()
     skill_instance = models.TextField()
     skill_attack = models.TextField()
     skill_defend = models.TextField()
     desc_us = models.TextField()
+    dial_us = models.TextField()
     skill_turn_us = models.TextField()
     skill_instance_us = models.TextField()
     skill_attack_us = models.TextField()
@@ -70,15 +72,15 @@ class Card(models.Model):
     enh_orig = models.IntegerField()  # card id
 
     # parsing variable
-    category_map = dict()
+    category_map = {}
     for value in CATEGORY_CHOICES:
         category_map[value[0]] = value[1]
 
-    rarity_map = dict()
+    rarity_map = {}
     for value in RARITY_CHOICES:
         rarity_map[value[0]] = value[1]
 
-    theme_map = dict()
+    theme_map = {}
     for value in THEME_CHOICES:
         theme_map[value[0]] = value[1]
 

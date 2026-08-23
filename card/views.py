@@ -1,4 +1,5 @@
 import json
+import re
 
 from django.core.paginator import Paginator
 from django.forms.models import model_to_dict
@@ -98,9 +99,24 @@ def select(request, card_id):
         "skill_defend_us",
         "desc_us",
     ]:
-        card[key] = card[key].replace("◈\n", "◈<br/>")
-        card[key] = card[key].replace("\n◈", "<br/>◈")
-        card[key] = card[key].replace("\n", "<br/>")
+        card[key] = card[key].replace("◈\n", "◈<br>")
+        card[key] = card[key].replace("\n◈", "<br>◈")
+        card[key] = card[key].replace("\n", "<br>")
+
+    # dialogue 별도 가공
+    def parse_dial(text):
+        pattern = r"(◈.*?◈)\s*\n(.*?)(?=\n◈|\Z)"
+        matches = re.findall(pattern, text, re.DOTALL)
+
+        result = []
+        for title, content in matches:
+            content_clean = content.strip().replace("\n", "<br>")
+            result.append(f'<p class="p-skill">{title}<br>{content_clean}</p>')
+
+        return "\n".join(result)
+
+    card["dial"] = parse_dial(card["dial"])
+    card["dial_us"] = parse_dial(card["dial_us"])
 
     print(card)
 

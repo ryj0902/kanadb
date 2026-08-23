@@ -441,7 +441,7 @@ nav {
     font-family: 'contents';
     font-size: 15px;
 }
-.selected-card-skill, .selected-card-story {
+.selected-card-skill, .selected-card-story, .selected-card-dial {
     width: 90%;
     display: flex;
     flex-direction: column;

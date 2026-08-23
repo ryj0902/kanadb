@@ -6,6 +6,7 @@ function drawCard(card, className){
     let skill_attack = (lang == 'ko') ? card.skill_attack : card.skill_attack_us;
     let skill_defend = (lang == 'ko') ? card.skill_defend : card.skill_defend_us;
     let desc = (lang == 'ko') ? card.desc : card.desc_us;
+    let dial = (lang == 'ko') ? card.dial : card.dial_us;
 
     let character = (lang == 'ko') ? '캐릭터' : 'Character';
     let spell = (lang == 'ko') ? '스펠' : 'Spell';
@@ -55,6 +56,9 @@ function drawCard(card, className){
         '</div>' + 
         '<div class="' + className + '-story" style="display:none;">' +
             '<p class="p-skill">' + desc + '</p>' +
+        '</div>' + 
+        '<div class="' + className + '-dial" style="display:none;">' +
+            dial +
         '</div>';
 
     result += '' +
@@ -144,19 +148,45 @@ function selectCard(id, init_link){
 }
 
 function swapTextTo(mode) {
-    var img = document.getElementById('swap-text-btn');
+    const img = document.getElementById('swap-text-btn');
 
-    if (mode === 'story') {
-        document.getElementsByClassName('selected-card-skill')[0].style.display = 'none';
-        document.getElementsByClassName('selected-card-story')[0].style.display = 'inline-block';
-        img.src = img.src.replace('story%201', 'cardText');
-        img.onclick = function() { swapTextTo('skill'); };
-    } else {
-        document.getElementsByClassName('selected-card-skill')[0].style.display = 'inline-block';
-        document.getElementsByClassName('selected-card-story')[0].style.display = 'none';
-        img.src = img.src.replace('cardText', 'story%201');
-        img.onclick = function() { swapTextTo('story'); };
-    }
+    const elements = {
+        skill: document.getElementsByClassName('selected-card-skill')[0],
+        story: document.getElementsByClassName('selected-card-story')[0],
+        dial: document.getElementsByClassName('selected-card-dial')[0]
+    };
+
+    const modes = {
+        skill: {
+            icon: 'UI_Icon_story%201.webp',
+            next: 'story'
+        },
+        story: {
+            icon: 'UI_Icon_Battlelog.webp',
+            next: 'dial'
+        },
+        dial: {
+            icon: 'UI_Icon_cardText.webp',
+            next: 'skill'
+        }
+    };
+
+    // 모든 요소 숨김
+    Object.values(elements).forEach(element => {
+        element.style.display = 'none';
+    });
+
+    // 현재 모드 표시
+    elements[mode].style.display = 'inline-block';
+
+    // 아이콘 변경
+    img.src = img.src.replace(
+        /UI_Icon_[^/]+\.webp/,
+        modes[mode].icon
+    );
+
+    // 버튼 클릭 시 다음 모드로 이동
+    img.onclick = () => swapTextTo(modes[mode].next);
 }
 
 function captureCard() {
