@@ -75,5 +75,7 @@ def vote(request):
         existing_vote.save()
 
     context = guide_body_context(request, VOTE_GUIDES[category])
-    html_content = render_to_string("guide/_guide_body.html", context, request=request)
+    html_content = render_to_string(
+        "guide/guide_detail.html#guide-body", context, request=request
+    )
     return JsonResponse({"html_content": html_content})

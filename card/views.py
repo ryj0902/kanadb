@@ -49,7 +49,7 @@ def index(request):
     context = search_cards(request)
     # 페이지 이동(AJAX)은 카드 목록 부분만 돌려준다
     if request.headers.get("X-Partial") == "card-grid":
-        return render(request, "card/_card_grid.html", context)
+        return render(request, "card/search_card.html#card-grid", context)
     return render(request, "card/index.html", context)
 
 

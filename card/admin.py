@@ -23,4 +23,5 @@ class CardAdmin(ReadOnlyAdmin):
 @admin.register(Vote)
 class VoteAdmin(admin.ModelAdmin):
     list_display = ["card", "category", "mode", "tier", "ip", "timestamp"]
+    list_select_related = ["card"]
     list_filter = ["category", "mode", "tier"]

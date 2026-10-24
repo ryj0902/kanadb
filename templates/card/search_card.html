@@ -1,4 +1,10 @@
-{% load i18n card_filters %}
+{% load i18n card_filters core_tags %}
+{% partialdef search-text-row %}
+    {# 탭마다 같은 검색어 입력칸을 두고 JS로 값을 맞춘다 (id는 탭별로 다르게) #}
+    {% with "id_search_type_"|add:row_tab as type_id and "id_search_text_"|add:row_tab as text_id %}
+        <tr><td class="search-filter__label">{{ form.search_type|with_id:type_id }}</td><td class="search-filter__options">{{ form.search_text|with_id:text_id }} <button class="search-filter__submit" type="submit" name="tab" value="{{ tab }}">{% translate "검색" %}</button></td></tr>
+    {% endwith %}
+{% endpartialdef %}
 <div class="card-search" data-card-search data-page="{{ page }}" data-page-total="{{ page_total }}" data-grid-url="{% url 'card:index' %}">
     {% for tab_name, tab_label in search_tabs %}
         <button type="button" class="tab-button{% if tab_name == tab %} is-active{% endif %}" data-action="open-tab" data-tab="{{ tab_name }}">{{ tab_label }}</button>
@@ -17,7 +23,7 @@
                         {% endfor %}
                     </td></tr>
                 {% endfor %}
-                {% include "card/_search_text_row.html" with row_tab="episode" %}
+                {% with row_tab="episode" %}{% partial search-text-row %}{% endwith %}
             </table>
         </div>
         <div class="search-filter" data-filter-tab="detail"{% if tab != "detail" %} hidden{% endif %}>
@@ -26,13 +32,13 @@
                     <tr><td class="search-filter__label">{{ row.label }} <input type="checkbox" data-action="toggle-all" data-target="{{ row.field.name }}" aria-label="{% translate '전체 선택' %}"> </td><td class="search-filter__options">{{ row.field }}</td></tr>
                 {% endfor %}
                 <tr><td class="search-filter__label">{% translate "사이즈" %}</td><td class="search-filter__options">{{ form.size_min }} {{ form.size_max }}</td></tr>
-                {% include "card/_search_text_row.html" with row_tab="detail" %}
+                {% with row_tab="detail" %}{% partial search-text-row %}{% endwith %}
             </table>
         </div>
         <div class="search-filter" data-filter-tab="etc"{% if tab != "etc" %} hidden{% endif %}>
             <table class="search-filter__table">
                 <tr><td class="search-filter__label">{% translate "기타" %}</td><td class="search-filter__options">{{ form.etc }}</td></tr>
-                {% include "card/_search_text_row.html" with row_tab="etc" %}
+                {% with row_tab="etc" %}{% partial search-text-row %}{% endwith %}
             </table>
         </div>
         {# 덱 페이지에서 검색하면 편집 탭으로 돌아온다 #}
@@ -41,7 +47,11 @@
 
     <div class="search-result">
         <div class="card-grid" data-card-grid>
-            {% include "card/_card_grid.html" %}
+            {% partialdef card-grid inline %}
+                {% for card in card_list %}
+                    {% card_tile card "grid" %}
+                {% endfor %}
+            {% endpartialdef %}
         </div>
         <div class="pager">
             <button type="button" class="pager__button" data-action="page-prev" aria-label="{% translate '이전 페이지' %}">&lt;</button><p class="pager__label" data-page-label>{{ page }} / {{ page_total }}</p><button type="button" class="pager__button" data-action="page-next" aria-label="{% translate '다음 페이지' %}">&gt;</button>

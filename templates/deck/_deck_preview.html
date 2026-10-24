@@ -1,6 +1,20 @@
 {% load static %}
+{% partialdef preview-card %}
+<div class="deck-card" data-action="select-card" data-card-id="{{ card.id }}" draggable="true">
+    <div class="deck-card__art" style="background-image: url({{ card.deck_image_url }});" data-card-art></div>
+    <div class="deck-card__frame" style="background-image: url({{ card.deck_frame_url }});"></div>
+    {% if not character_slot %}<div class="deck-card__size-frame" style="background-image: url({{ card.deck_frame_size_url }})"></div>{% endif %}
+    <div class="deck-card__enhance-frame" style="background-image: url({{ card.frame_enhance_url }})"{% if card.enhance == 0 %} hidden{% endif %}></div>
+    <div class="deck-card__stat deck-card__stat--enhance"{% if card.enhance == 0 %} hidden{% endif %}>{{ card.enhance }}</div>
+    {% if not character_slot %}
+        <div class="deck-card__stat deck-card__stat--size"{% if card.is_character %} hidden{% endif %}>{{ card.size }}</div>
+        <div class="deck-card__stat deck-card__stat--count">x {{ card.count }}</div>
+    {% endif %}
+    <div class="deck-card__stat deck-card__stat--name">{{ card.localized_name }}</div>
+</div>
+{% endpartialdef %}
 {% if card_character %}
-    {% include "deck/_deck_preview_card.html" with card=card_character character_slot=True %}
+    {% with card=card_character character_slot=True %}{% partial preview-card %}{% endwith %}
 {% endif %}
 <div class="deck-preview__summary">
     <div class="deck-preview__count">
@@ -11,5 +25,5 @@
     <p class="deck-preview__point">{{ deck_points }} PT</p>
 </div>
 {% for card in deck_card_list %}
-    {% include "deck/_deck_preview_card.html" %}
+    {% partial preview-card %}
 {% endfor %}

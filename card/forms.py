@@ -18,7 +18,7 @@ class CardSearchForm(forms.Form):
     ]
 
     category = forms.MultipleChoiceField(
-        choices=Card.Category.choices,
+        choices=Card.Category,
         widget=forms.CheckboxSelectMultiple(
             attrs={"class": "search-filter__checkboxes"}
         ),
@@ -26,7 +26,7 @@ class CardSearchForm(forms.Form):
         label="category",
     )
     rarity = forms.MultipleChoiceField(
-        choices=Card.Rarity.choices,
+        choices=Card.Rarity,
         widget=forms.CheckboxSelectMultiple(
             attrs={"class": "search-filter__checkboxes"}
         ),
@@ -34,7 +34,7 @@ class CardSearchForm(forms.Form):
         label="rarity",
     )
     theme = forms.MultipleChoiceField(
-        choices=Card.Theme.choices,
+        choices=Card.Theme,
         widget=forms.CheckboxSelectMultiple(
             attrs={"class": "search-filter__checkboxes"}
         ),

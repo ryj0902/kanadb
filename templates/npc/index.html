@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% load static i18n %}
 
+{% partialdef floor-links %}<ul>
+    {% for floor in floors %}
+        <li><a href="{% url 'npc:detail' floor.id %}">{{ floor.label }}</a></li>
+    {% endfor %}
+</ul>
+{% endpartialdef %}
+
 {% block title %}NPC - {% endblock %}
 
 {% block extra_head %}
@@ -28,12 +35,32 @@
                         </tr>
                         <tr>
                             {% for difficulty in dungeon.difficulties %}
-                                <td>{% include "npc/_floor_links.html" with floors=difficulty.floors %}</td>
+                                <td>{% with floors=difficulty.floors %}{% partial floor-links %}{% endwith %}</td>
                             {% endfor %}
                         </tr>
                     {% endwith %}
                 {% else %}
-                    {% include "npc/_dungeon_rows.html" %}
+                    {% if block.has_header %}
+                        <tr>
+                            {% for dungeon in block.dungeons %}
+                                <th>{% if dungeon %}{{ dungeon.name|default_if_none:"" }}{% endif %}</th>
+                            {% endfor %}
+                        </tr>
+                    {% endif %}
+                    {% for row in block.difficulty_rows %}
+                        {% if block.show_difficulty %}
+                            <tr>
+                                {% for difficulty in row %}
+                                    <td class="npc-catalog__difficulty"> {% if difficulty %}{{ difficulty.label }}{% endif %} </td>
+                                {% endfor %}
+                            </tr>
+                        {% endif %}
+                        <tr>
+                            {% for difficulty in row %}
+                                <td>{% if difficulty %}{% with floors=difficulty.floors %}{% partial floor-links %}{% endwith %}{% endif %}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
                 {% endif %}
             {% endfor %}
         {% endfor %}

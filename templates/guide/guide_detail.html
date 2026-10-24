@@ -1,9 +1,42 @@
 {% extends "guide/index.html" %}
+{% load static guide_filters %}
+
+{% partialdef tier-column %}
+    {% for tier in tiers %}
+        <h2>{{ tier.label }}</h2>
+        {% if tier.entries %}
+            <ul>
+                {% for entry in tier.entries %}
+                    {% with card=entry.card %}
+                        <li><a href="#" data-action="select-card" data-card-id="{{ card.id }}">{{ card.localized_name }}</a>&nbsp;&nbsp;&nbsp;&nbsp;{% for vote in entry.votes %}<img src="{% get_static_prefix %}card/Texture2D/result_{{ vote.label }}.webp" alt="{{ vote.label }}" class="tier-vote{% if entry.my_vote != vote.tier %} is-inactive{% endif %}" data-action="vote" data-card-id="{{ card.id }}" data-category="{{ category }}" data-mode="{{ mode }}" data-tier="{{ vote.tier }}"><span class="tier-vote__count"> {{ vote.count }} </span>{% endfor %}  </li>
+                    {% endwith %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+{% endpartialdef %}
 
 {% block main_modifier %} page-layout__main--wide{% endblock %}
 
 {% block main %}
     <div class="guide-content" data-guide-body data-vote-url="{% url 'guide:vote' %}">
-        {% include "guide/_guide_body.html" %}
+        {# 투표하면 이 부분만 다시 그린다 (guide.views.vote) #}
+        {% partialdef guide-body inline %}
+            {{ html_content|card_filter|safe }}
+            {% if tier_columns|length > 1 %}
+                <div class="tier-board">
+                    {% for column in tier_columns %}
+                        <div class="tier-board__column tier-board__column--{{ column.label|lower }}">
+                            <h1 class="tier-board__heading">{{ column.label }}</h1>
+                            {% with tiers=column.tiers mode=column.mode %}{% partial tier-column %}{% endwith %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% elif tier_columns %}
+                {% with column=tier_columns.0 %}
+                    {% with tiers=column.tiers mode=column.mode %}{% partial tier-column %}{% endwith %}
+                {% endwith %}
+            {% endif %}
+        {% endpartialdef %}
     </div>
 {% endblock %}

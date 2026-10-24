@@ -1,6 +1,8 @@
 {% extends "layouts/two_column.html" %}
 {% load static %}
 
+{% partialdef floor-button %}{% if target != -1 %}<a class="floor-nav__arrow" href="{% url 'npc:detail' target %}">{{ arrow }}</a>{% else %}<a class="floor-nav__arrow is-disabled" aria-disabled="true">{{ arrow }}</a>{% endif %}{% endpartialdef %}
+
 {% block title %}NPC - {% endblock %}
 
 {% block extra_head %}
@@ -9,7 +11,19 @@
 
 {% block main %}
     {% if navigation %}
-        {% include "npc/_floor_nav.html" %}
+        <div class="floor-nav">
+            {% for group in navigation.groups %}
+                <div class="floor-nav__group">
+                    {% with target=group.prev_id arrow="◀" %}{% partial floor-button %}{% endwith %}
+                    <select class="floor-nav__select floor-nav__select--{{ group.kind }}" data-action="navigate" aria-label="{{ group.label }}">
+                        {% for option in group.options %}
+                            <option value="{% url 'npc:detail' option.id %}"{% if option.selected %} selected{% endif %}>{{ option.label }}</option>
+                        {% endfor %}
+                    </select>
+                    {% with target=group.next_id arrow="▶" %}{% partial floor-button %}{% endwith %}
+                </div>
+            {% endfor %}
+        </div>
     {% endif %}
     {% include "deck/_deck_summary.html" %}
 {% endblock %}
