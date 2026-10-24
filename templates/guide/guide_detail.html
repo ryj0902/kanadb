@@ -1,7 +1,7 @@
 {% extends "guide/index.html" %}
 
-{% block left %}
-    <div class="left-wide">
-        {% include "guide/_guide_body.html" %}
-    </div>
+{% block main_class %}left-wide{% endblock %}
+
+{% block main %}
+    {% include "guide/_guide_body.html" %}
 {% endblock %}

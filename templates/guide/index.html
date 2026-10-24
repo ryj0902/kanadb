@@ -1,35 +1,19 @@
-<!DOCTYPE html>
-{% load static %}
-{% load guide_filters %}
-{% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
-<html lang="{{ LANGUAGE_CODE }}">
-<head>
+{% extends "layouts/two_column.html" %}
+{% load static i18n %}
+
+{% block title %}{% translate "가이드(네비)" %} - {% endblock %}
+
+{% block head_scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{% static 'card/html2canvas.min.js' %}"></script>
     <script src="{% static 'card/select_card.js' %}"></script>
     <script src="{% static 'card/vote_card.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'card/style.css' %}">
-    <script>
-        $.ajaxSetup({
-            headers: { "X-CSRFToken": '{{ csrf_token }}' }
-        });
-    </script>
-</head>
-<body>
-    {% include 'navbar.html' %}
-    <div class="container">
-        {% block left %}
-        <div class="left">
-            <li class="guide-li"><a href="https://open.kakao.com/o/gfZ9sxib">(외부 링크)오픈카톡 정보방</a></li>
-            {% for content in contents %}
-                <li class="guide-li"><a href="{% url 'guide:detail' content.0 %}">{{ content.1 }}</a></li>
-            {% endfor %}
-        </div>
-        {% endblock %}
-        
-        <div class="right">
-            {% include 'card/select_card.html' %}
-        </div>
-    </div>
-</body>
+    {% include "components/legacy_csrf.html" %}
+{% endblock %}
+
+{% block main %}
+    <li class="guide-li"><a href="https://open.kakao.com/o/gfZ9sxib">(외부 링크)오픈카톡 정보방</a></li>
+    {% for name, title in contents %}
+        <li class="guide-li"><a href="{% url 'guide:detail' name %}">{{ title }}</a></li>
+    {% endfor %}
+{% endblock %}

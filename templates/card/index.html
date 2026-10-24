@@ -1,50 +1,31 @@
-<!DOCTYPE html>
-{% load static %}
-{% load card_filters %}
-{% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
-<html lang="{{ LANGUAGE_CODE }}">
-<head>
-    <meta charset="UTF-8">
+{% extends "layouts/two_column.html" %}
+{% load static i18n %}
+
+{% block title %}{% translate "카드(네비)" %} - {% endblock %}
+
+{% block head_scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{% static 'card/html2canvas.min.js' %}"></script>
     <script src="{% static 'card/search_card.js' %}"></script>
     <script src="{% static 'card/select_card.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'card/style.css' %}">
-    <script>
-        $.ajaxSetup({
-            headers: { "X-CSRFToken": '{{ csrf_token }}' }
-        });
-    </script>
-</head>
-<body>
-    {% include 'navbar.html' %}
-    <div class="container">
-        <div class="left">
-            {% include 'card/search_card.html' %}
+    {% include "components/legacy_csrf.html" %}
+{% endblock %}
 
-            <h3>How to create hyperlink to card</h3>
-            <li>{site_url}/card#selectCard/{card_id}/0</li>
+{% block main %}
+    {% include "card/search_card.html" %}
 
-        </div>
+    <h3>{% translate "How to create hyperlink to card" %}</h3>
+    <li>{site_url}/card#selectCard/{card_id}/0</li>
+{% endblock %}
 
-        <div class="right">
-            {% include 'card/select_card.html' %}
-        </div>
-    </div>
-</body>
+{% block scripts %}
 <script>
-<!-- function call by hash in url -->
+    // 해시로 카드 선택: #selectCard/<card_id>/<init_link> 만 허용
     window.onload = function() {
-        // only #selectCard/<card_id>/<init_link> is allowed
         const match = window.location.hash.match(/^#selectCard\/(\d+)(?:\/(\d+))?$/);
         if (match) {
             selectCard(match[1], match[2]);
         }
     };
-
-    function dragCard(event) {
-        event.dataTransfer.setData("cardId", event.target.getAttribute('card-id'));
-    }
 </script>
-</html>
+{% endblock %}

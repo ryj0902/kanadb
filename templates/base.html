@@ -1,0 +1,16 @@
+{% load static %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}KanaDB</title>
+    {% block head_scripts %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'card/style.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {% include "navbar.html" %}
+    {% block content %}{% endblock %}
+    {% block scripts %}{% endblock %}
+</body>
+</html>

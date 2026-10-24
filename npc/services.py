@@ -66,12 +66,48 @@ def navigation(npc_id):
     prev_difficulty = _neighbor(difficulty_list, current_d, -1)
     next_difficulty = _neighbor(difficulty_list, current_d, 1)
 
+    diff_prev_id = prev_difficulty["url_id"] if prev_difficulty else NONE
+    diff_next_id = next_difficulty["url_id"] if next_difficulty else NONE
+    floor_prev_id = prev_floor.id if prev_floor else NONE
+    floor_next_id = next_floor.id if next_floor else NONE
+
+    # 화면 배치용: [난이도, 층] 각각 이전 버튼 / 선택 / 다음 버튼
+    groups = [
+        {
+            "select_class": "difficulty-selector",
+            "prev_id": diff_prev_id,
+            "next_id": diff_next_id,
+            "options": [
+                {
+                    "id": item["url_id"],
+                    "label": item["label"],
+                    "selected": d == current_d,
+                }
+                for d, item in enumerate(difficulty_list)
+            ],
+        },
+        {
+            "select_class": "floor-selector",
+            "prev_id": floor_prev_id,
+            "next_id": floor_next_id,
+            "options": [
+                {
+                    "id": item["id"],
+                    "label": item["label"],
+                    "selected": item["is_current"],
+                }
+                for item in floor_options
+            ],
+        },
+    ]
+
     return {
+        "groups": groups,
         "difficulty_list": difficulty_list,
         "current_diff": current_d + 1,
         "floor_options": floor_options,
-        "diff_prev_id": prev_difficulty["url_id"] if prev_difficulty else NONE,
-        "diff_next_id": next_difficulty["url_id"] if next_difficulty else NONE,
-        "floor_prev_id": prev_floor.id if prev_floor else NONE,
-        "floor_next_id": next_floor.id if next_floor else NONE,
+        "diff_prev_id": diff_prev_id,
+        "diff_next_id": diff_next_id,
+        "floor_prev_id": floor_prev_id,
+        "floor_next_id": floor_next_id,
     }

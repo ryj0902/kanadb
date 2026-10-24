@@ -69,7 +69,9 @@ def deck_from_url(request):
         "loading_desc_us": description,
         **statistics,
     }
-    rendered_html = render_to_string("npc/npc_deck.html", context, request=request)
+    rendered_html = render_to_string(
+        "deck/_deck_summary.html", context, request=request
+    )
 
     def to_data(card):
         return card_data(card) | {"count": card.count}

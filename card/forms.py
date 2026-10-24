@@ -1,6 +1,8 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
+from core.text import Text
+
 from .models import SIZE_RANGE, Card
 
 
@@ -87,3 +89,34 @@ class CardSearchForm(forms.Form):
         required=False,
         label="etc",
     )
+
+    # 검색 필터 화면 배치: (필드 이름, 행 제목)
+    EPISODE_ROWS = [
+        ("episode_season1", Text(_("시즌"), "1")),
+        ("episode_season2", Text(_("시즌"), "2")),
+        ("episode_season3", Text(_("시즌"), "3")),
+        ("episode_event", _("이벤트")),
+        ("episode_extra", _("엑스트라")),
+    ]
+    DETAIL_ROWS = [
+        ("category", _("종류")),
+        ("rarity", _("등급")),
+        ("theme", _("소속")),
+    ]
+
+    def _rows(self, rows):
+        """[{"label", "field", "toggle_id"}] - toggle_id: 전체 선택 체크박스 id"""
+        return [
+            {
+                "label": label,
+                "field": self[name],
+                "toggle_id": "toggle-all-" + name.replace("_", "-"),
+            }
+            for name, label in rows
+        ]
+
+    def episode_rows(self):
+        return self._rows(self.EPISODE_ROWS)
+
+    def detail_rows(self):
+        return self._rows(self.DETAIL_ROWS)

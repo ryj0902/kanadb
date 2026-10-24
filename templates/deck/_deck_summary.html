@@ -1,0 +1,70 @@
+{% load static core_tags %}
+<div class="npc-character">
+    <table>
+        <tr>
+            <td>
+                {% card_tile card_character "character" %}
+            </td>
+            <td>
+                {% if LANGUAGE_CODE == "ko" %}
+                    <p class="npc-chapter-name">{{ chapter_name }}</p>
+                    <p class="npc-loading-name">{{ loading_name }}</p>
+                    <p class="npc-loading-desc">{{ loading_desc }}</p>
+                {% else %}
+                    <p class="npc-chapter-name">{{ chapter_name_us }}</p>
+                    <p class="npc-loading-name">{{ loading_name_us }}</p>
+                    <p class="npc-loading-desc">{{ loading_desc_us }}</p>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="npc-image-grid">
+    {% for card in deck_card_list %}
+        {% card_tile card "deck" %}
+    {% endfor %}
+</div>
+
+<div class="deck-statistics">
+    <div class="deck-statistics-box" id="deck-statistics-category">
+        {% for category, count in stat_category %}
+            <img class="deck-statistics-icon" src="{% get_static_prefix %}card/Texture2D/UI_icon_card_{{ category }}.webp" alt="{{ category }}">
+            <span class="deck-statistics-category-text">{{ count }}</span>
+        {% endfor %}
+
+        <img class="deck-statistics-icon" src="{% get_static_prefix %}card/Texture2D/result_{{ stat_rank_char }}.webp" alt="{{ stat_rank_char }}">
+        <span class="deck-statistics-category-text">{{ stat_point }}</span>
+    </div>
+
+    <div class="deck-statistics-box" id="deck-statistics-size">
+        {% for column in stat_size_columns %}
+            <div class="stat-column">
+                {% for size, count in column %}
+                    {% include "components/stat_row.html" with label=size %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% for box, stats, icon in stat_icon_boxes %}
+        <div class="deck-statistics-box" id="deck-statistics-{{ box }}">
+            {% for column in stats %}
+                <div class="stat-column">
+                    {% for key, count in column %}
+                        {% include "components/stat_row.html" with icon=icon|add:key %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+    <div class="deck-statistics-box" id="deck-statistics-count">
+        <p>{{ ep_enh_str }}</p>
+        {% if LANGUAGE_CODE == "ko" %}
+            <p>{{ tag_enh_str }}</p>
+        {% else %}
+            <p>{{ tag_enh_str_us }}</p>
+        {% endif %}
+    </div>
+</div>

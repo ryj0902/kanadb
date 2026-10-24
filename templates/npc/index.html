@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-{% load static %}
+{% extends "base.html" %}
 {% load i18n %}
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="{% static 'card/style.css' %}">
-</head>
-<body>
-    {% include 'navbar.html' %}
 
+{% block title %}NPC - {% endblock %}
+
+{% block content %}
     <table class="npc-table" border="1">
         {% for section in catalog %}
             <tr>
@@ -38,4 +34,4 @@
             {% endfor %}
         {% endfor %}
     </table>
-</body>
+{% endblock %}

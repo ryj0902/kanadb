@@ -1,0 +1,12 @@
+{% load static core_tags %}
+<div class="stat-row">
+    {% if icon %}
+        <img class="deck-statistics-icon-large" src="{% get_static_prefix %}card/Texture2D/{{ icon }}.webp" alt="">
+    {% else %}
+        <span style="font-family: skill;">{{ label }}</span>
+    {% endif %}
+    <div class="bar-frame">
+        <div class="bar-fill" style="width: {{ count|deck_percent }}%;"></div>
+    </div>
+    <span class="text-stat">{{ count }}</span>
+</div>

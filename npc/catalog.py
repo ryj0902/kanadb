@@ -15,9 +15,9 @@
 
 from dataclasses import dataclass, field
 
-from django.utils.html import conditional_escape
-from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
+
+from core.text import Text
 
 ROWS = "rows"
 COLUMNS = "columns"
@@ -44,20 +44,6 @@ FLOOR_LABELS = [
     _("19층"),
     _("20층"),
 ]
-
-
-class Text:
-    """여러 조각(번역 문자열 포함)을 이어 붙인 표시 문자열"""
-
-    def __init__(self, *parts, sep=" "):
-        self.parts = parts
-        self.sep = sep
-
-    def __html__(self):
-        return mark_safe(self.sep.join(conditional_escape(part) for part in self.parts))
-
-    def __str__(self):
-        return str(self.__html__())
 
 
 @dataclass(frozen=True)

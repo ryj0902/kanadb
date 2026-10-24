@@ -114,6 +114,15 @@ def calculate_statistics(cards):
     )
 
     return {
+        # 화면 배치용: 사이즈는 1~5 / 6~10, 소속/등급은 아이콘과 함께 3개씩 두 열
+        "stat_size_columns": [
+            list(enumerate(stat_size[:5], start=1)),
+            list(enumerate(stat_size[5:], start=6)),
+        ],
+        "stat_icon_boxes": [
+            ("theme", [stat_theme[:3], stat_theme[3:]], "icon_E_"),
+            ("rarity", [stat_rarity[:3], stat_rarity[3:]], "UI_icon_grade_"),
+        ],
         "stat_point": stat_point,
         "stat_rank_char": stat_rank_char,
         "stat_category": stat_category,

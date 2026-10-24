@@ -1,85 +1,63 @@
-<!DOCTYPE html>
-{% load static %}
-{% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
-<html lang="{{ LANGUAGE_CODE }}">
-<head>
-    <meta charset="UTF-8">
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% translate "덱(네비)" %} - {% endblock %}
+
+{% block head_scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{% static 'card/html2canvas.min.js' %}"></script>
     <script src="{% static 'card/select_card.js' %}"></script>
     <script src="{% static 'card/search_card.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'card/style.css' %}">
-</head>
-<body>
-    {% include 'navbar.html' %}
+{% endblock %}
 
+{% block content %}
     <div id="deck-main-layout">
         <div id="deck-left-wrapper">
             <div class="button-group">
-                <button id="view-button" class="toggle-button active" onclick="showView()">View</button>
-                <button id="edit-button" class="toggle-button" onclick="showEdit()">Edit</button>
+                <button id="view-button" class="toggle-button active" onclick="showView()">{% translate "View" context "deck tab" %}</button>
+                <button id="edit-button" class="toggle-button" onclick="showEdit()">{% translate "Edit" context "deck tab" %}</button>
             </div>
-            
+
             <div id="deck-edit" style="display:none">
                 <div class="left">
-                    {% include 'card/search_card.html' %}
+                    {% include "card/search_card.html" %}
                 </div>
-                    
+
                 <div id="deck-preview-content">
-                    <h2 style="margin-top: 0px;">{% trans "덱 미리보기" %}</h2>
+                    <h2 style="margin-top: 0px;">{% translate "덱 미리보기" %}</h2>
                     <div class="deck-preview">
                     </div>
-                </div>              
+                </div>
             </div>
 
             <div id="deck-view">
-                {% include 'npc/npc_deck.html' %}
+                {% include "deck/_deck_summary.html" %}
             </div>
         </div>
 
         <div class="right">
-            {% include 'card/select_card.html' %}
+            {% include "components/card_detail.html" %}
         </div>
     </div>
 
-    <div id="deck-preview-data" data-character-trans="{% trans '캐릭터' %}"></div>
+    <div id="deck-preview-data" data-character-trans="{% translate '캐릭터' %}"></div>
+{% endblock %}
+
+{% block scripts %}
     <script src="{% static 'deck/deck.js' %}"></script>
-</body>
+    {% include "components/legacy_csrf.html" %}
+    <script>
+        // deck tab
+        var deckTab = '{{ deck_tab }}'
+        if (deckTab === 'edit') {
+            showEdit();
+        }
 
-<script>
-    $.ajaxSetup({
-        headers: { "X-CSRFToken": '{{ csrf_token }}' }
-    });
+        // url
+        const staticUrl = "{% static '' %}";
 
-    // page in search result
-    var page = {{ page }};
-    var page_total = {{ page_total }};
-
-    $('.image-grid-page').html(
-        '<button id="page-down" onclick="updatePage(0)">&lt;</button>' +
-            '<p class="page">' + page + ' / ' + page_total + '</p>'+
-        '<button id="page-up" onclick="updatePage(1)">&gt;</button>'
-    );
-    
-    // search tab
-    var tab = '{{ tab }}';
-    openTab(tab);
-    syncSearchFilter();
-
-    // deck tab
-    var deckTab = '{{ deck_tab }}'
-    if (deckTab === 'edit') {
-        showEdit();
-    }
-
-    // url
-    const staticUrl = "{% static '' %}";
-
-    $(document).ready(function() {
-        refreshDeckPreview();  // 초기 URL 기반 렌더링
-    });
-
-</script>
-
-</html>
+        $(document).ready(function() {
+            refreshDeckPreview();  // 초기 URL 기반 렌더링
+        });
+    </script>
+{% endblock %}
