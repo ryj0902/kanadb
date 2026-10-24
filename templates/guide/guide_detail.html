@@ -3,5 +3,7 @@
 {% block main_class %}left-wide{% endblock %}
 
 {% block main %}
-    {% include "guide/_guide_body.html" %}
+    <div data-guide-body data-vote-url="{% url 'guide:vote' %}">
+        {% include "guide/_guide_body.html" %}
+    </div>
 {% endblock %}

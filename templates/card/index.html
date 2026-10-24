@@ -3,14 +3,6 @@
 
 {% block title %}{% translate "카드(네비)" %} - {% endblock %}
 
-{% block head_scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{% static 'card/html2canvas.min.js' %}"></script>
-    <script src="{% static 'card/search_card.js' %}"></script>
-    <script src="{% static 'card/select_card.js' %}"></script>
-    {% include "components/legacy_csrf.html" %}
-{% endblock %}
-
 {% block main %}
     {% include "card/search_card.html" %}
 
@@ -19,13 +11,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script>
-    // 해시로 카드 선택: #selectCard/<card_id>/<init_link> 만 허용
-    window.onload = function() {
-        const match = window.location.hash.match(/^#selectCard\/(\d+)(?:\/(\d+))?$/);
-        if (match) {
-            selectCard(match[1], match[2]);
-        }
-    };
-</script>
+    <script type="module" src="{% static 'js/pages/card.js' %}"></script>
 {% endblock %}

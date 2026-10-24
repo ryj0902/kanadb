@@ -1,61 +1,50 @@
 {% load i18n card_filters %}
-
-<button class="search-btn" id="btn-episode" onclick="openTab('episode')">{% translate "에피소드" %}</button>
-<button class="search-btn" id="btn-detail" onclick="openTab('detail')">{% translate "상세" %}</button>
-<button class="search-btn" id="btn-etc" onclick="openTab('etc')">{% translate "기타" %}</button>
-<form method="GET" id="search-form">
-    {% for key, value in deck_params %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
-    <div class="search-filter" id="search-filter-episode">
-        <table>
-            {% for row in form.episode_rows %}
-                <tr><td class="search-filter-title">{{ row.label }} <input type="checkbox" id="{{ row.toggle_id }}"> </td><td class="search-filter-contents">
-                    {% for sublist in row.field|split_by_9 %}
-                        {% for item in sublist %}
-                            {{ item }}
+<div data-card-search data-page="{{ page }}" data-page-total="{{ page_total }}" data-grid-url="{% url 'card:index' %}">
+    {% for tab_name, tab_label in search_tabs %}
+        <button type="button" class="search-btn{% if tab_name == tab %} active{% endif %}" id="btn-{{ tab_name }}" data-action="open-tab" data-tab="{{ tab_name }}">{{ tab_label }}</button>
+    {% endfor %}
+    <form method="GET" id="search-form">
+        {% for key, value in deck_params %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
+        <div class="search-filter" id="search-filter-episode" data-filter-tab="episode"{% if tab != "episode" %} hidden{% endif %}>
+            <table>
+                {% for row in form.episode_rows %}
+                    <tr><td class="search-filter-title">{{ row.label }} <input type="checkbox" id="{{ row.toggle_id }}" data-action="toggle-all" data-target="{{ row.field.name }}"> </td><td class="search-filter-contents">
+                        {% for sublist in row.field|split_by_9 %}
+                            {% for item in sublist %}
+                                {{ item }}
+                            {% endfor %}
+                            <br>
                         {% endfor %}
-                        <br>
-                    {% endfor %}
-                </td></tr>
-            {% endfor %}
-            {% include "card/_search_text_row.html" with tab="episode" %}
-        </table>
-    </div>
-    <div class="search-filter" id="search-filter-detail">
-        <table>
-            {% for row in form.detail_rows %}
-                <tr><td class="search-filter-title">{{ row.label }} <input type="checkbox" id="{{ row.toggle_id }}"> </td><td class="search-filter-contents">{{ row.field }}</td></tr>
-            {% endfor %}
-            <tr><td class="search-filter-title">{% translate "사이즈" %}</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
-            {% include "card/_search_text_row.html" with tab="detail" %}
-        </table>
-    </div>
-    <div class="search-filter" id="search-filter-etc">
-        <table>
-            <tr><td class="search-filter-title">{% translate "기타" %}</td><td class="search-filter-contents">{{ form.etc }}</td></tr>
-            {% include "card/_search_text_row.html" with tab="etc" %}
-        </table>
-    </div>
-    {# 덱 페이지에서 검색하면 편집 탭으로 돌아온다 #}
-    <input type="hidden" name="deck_tab" value="edit"/>
-</form>
+                    </td></tr>
+                {% endfor %}
+                {% include "card/_search_text_row.html" with row_tab="episode" %}
+            </table>
+        </div>
+        <div class="search-filter" id="search-filter-detail" data-filter-tab="detail"{% if tab != "detail" %} hidden{% endif %}>
+            <table>
+                {% for row in form.detail_rows %}
+                    <tr><td class="search-filter-title">{{ row.label }} <input type="checkbox" id="{{ row.toggle_id }}" data-action="toggle-all" data-target="{{ row.field.name }}"> </td><td class="search-filter-contents">{{ row.field }}</td></tr>
+                {% endfor %}
+                <tr><td class="search-filter-title">{% translate "사이즈" %}</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
+                {% include "card/_search_text_row.html" with row_tab="detail" %}
+            </table>
+        </div>
+        <div class="search-filter" id="search-filter-etc" data-filter-tab="etc"{% if tab != "etc" %} hidden{% endif %}>
+            <table>
+                <tr><td class="search-filter-title">{% translate "기타" %}</td><td class="search-filter-contents">{{ form.etc }}</td></tr>
+                {% include "card/_search_text_row.html" with row_tab="etc" %}
+            </table>
+        </div>
+        {# 덱 페이지에서 검색하면 편집 탭으로 돌아온다 #}
+        <input type="hidden" name="deck_tab" value="edit"/>
+    </form>
 
-<div class="search-result">
-    <div class="image-grid">
-        {% include "card/_card_grid.html" %}
-    </div>
-    <div class="image-grid-page">
-        <button id="page-down" onclick="updatePage(0)">&lt;</button><p class="page">{{ page }} / {{ page_total }}</p><button id="page-up" onclick="updatePage(1)">&gt;</button>
+    <div class="search-result">
+        <div class="image-grid" data-card-grid>
+            {% include "card/_card_grid.html" %}
+        </div>
+        <div class="image-grid-page">
+            <button type="button" id="page-down" data-action="page-prev">&lt;</button><p class="page" data-page-label>{{ page }} / {{ page_total }}</p><button type="button" id="page-up" data-action="page-next">&gt;</button>
+        </div>
     </div>
 </div>
-
-<script>
-    // page in search result
-    var page = {{ page }};
-    var page_total = {{ page_total }};
-    // tab in search filter
-    var tab = '{{ tab }}';
-    openTab(tab);
-    syncSearchFilter();
-    // toggle all checkbox
-    addToggleAllEventListener();
-</script>

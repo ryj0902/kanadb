@@ -2,7 +2,7 @@
     {% for group in navigation.groups %}
         <div class="nav-group">
             {% include "npc/_floor_button.html" with target=group.prev_id arrow="◀" %}
-            <select class="{{ group.select_class }}" onchange="navigateToUrl(this)">
+            <select class="{{ group.select_class }}" data-action="navigate">
                 {% for option in group.options %}
                     <option value="{% url 'npc:detail' option.id %}"{% if option.selected %} selected{% endif %}>{{ option.label }}</option>
                 {% endfor %}

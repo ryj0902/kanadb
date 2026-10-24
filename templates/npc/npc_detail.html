@@ -1,13 +1,7 @@
 {% extends "layouts/two_column.html" %}
-{% load static i18n %}
+{% load static %}
 
 {% block title %}NPC - {% endblock %}
-
-{% block head_scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{% static 'card/html2canvas.min.js' %}"></script>
-    <script src="{% static 'card/select_card.js' %}"></script>
-{% endblock %}
 
 {% block main %}
     {% if navigation %}
@@ -17,12 +11,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script>
-    function navigateToUrl(selectElement) {
-        const url = selectElement.value;
-        if (url) {
-            window.location.href = url;
-        }
-    }
-</script>
+    <script type="module" src="{% static 'js/pages/npc-detail.js' %}"></script>
 {% endblock %}

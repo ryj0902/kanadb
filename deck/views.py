@@ -6,8 +6,7 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.views.decorators.http import require_POST
 
-from card.models import Card
-from card.presenters import card_data
+from card.models import DECK_SIZE, Card
 from card.views import search_cards
 
 from .services import (
@@ -41,7 +40,7 @@ def index(request):
 
 
 def deck_from_url(request):
-    """?card=1,2,2,3&title=... -> 덱 미리보기 데이터 + 덱 요약 HTML"""
+    """?card=1,2,2,3&title=... -> 덱 요약 HTML + 편집 화면의 덱 미리보기 HTML"""
     title = request.GET.get("title", "None")
     summary = request.GET.get("summary", "None")
     description = request.GET.get("description", "None")
@@ -69,22 +68,25 @@ def deck_from_url(request):
         "loading_desc_us": description,
         **statistics,
     }
-    rendered_html = render_to_string(
-        "deck/_deck_summary.html", context, request=request
-    )
-
-    def to_data(card):
-        return card_data(card) | {"count": card.count}
+    preview_context = {
+        "card_character": card_character,
+        "deck_card_list": deck_cards,
+        "num_cards": num_cards,
+        "deck_points": deck_points,
+        "deck_size": DECK_SIZE,
+    }
 
     return JsonResponse(
         {
-            "card_character": to_data(card_character) if card_character else None,
-            "deck_card_list": [to_data(card) for card in deck_cards],
+            "summary_html": render_to_string(
+                "deck/_deck_summary.html", context, request=request
+            ),
+            "preview_html": render_to_string(
+                "deck/_deck_preview.html", preview_context, request=request
+            ),
             "num_cards": num_cards,
             "deck_points": deck_points,
-            "html": rendered_html,
-        },
-        json_dumps_params={"ensure_ascii": False},
+        }
     )
 
 

@@ -41,7 +41,7 @@ def vote(request):
     """티어 투표: 같은 티어를 다시 누르면 취소, 다른 티어면 변경"""
     try:
         data = json.loads(request.body)
-        card_id = int(data["cardId"])
+        card_id = int(data["card_id"])
         category = str(data["category"])
         mode = int(data.get("mode", 0))  # 별도 전달값이 없으면 기본값 0(PVP) 사용
         tier = int(data["tier"])

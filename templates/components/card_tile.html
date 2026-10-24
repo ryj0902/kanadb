@@ -1,11 +1,11 @@
 {% if variant == "character" %}
-<div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)" card-id="{{ card.id }}">
+<div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" data-action="select-card" data-card-id="{{ card.id }}">
     <div class="image-card" style="background-image: url({{ card.image_url }});"></div>
     <div class="image-frame" style="background-image: url({{ card.frame_url }});"></div>
     <div class="text-stat" id="card-hp" {% if not card or card.is_spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
 </div>
 {% else %}
-<div class="{% if variant == "deck" %}npc-image-grid-element{% else %}image-grid-element{% endif %}{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)"{% if variant == "grid" %} draggable="true"{% endif %} card-id="{{ card.id }}">
+<div class="{% if variant == "deck" %}npc-image-grid-element{% else %}image-grid-element{% endif %}{% if not card.producible %} unproducible-element{% endif %}" data-action="select-card"{% if variant == "grid" %} draggable="true"{% endif %} data-card-id="{{ card.id }}">
     <div class="image-card" style="background-image: url({{ card.image_url }});"></div>
     <div class="image-frame" style="background-image: url({{ card.frame_url }});"></div>
     <div class="image-enhance" style="background-image: url({{ card.frame_enhance_url }}){% if card.enhance == 0 %};display:none;{% endif %}"></div>

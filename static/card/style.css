@@ -15,6 +15,11 @@
     src: url('fonts/Maplestory Bold.ttf') format('opentype');
 }
 
+/* hidden 속성은 요소의 display 규칙보다 우선한다 */
+[hidden] {
+    display: none !important;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -64,7 +69,6 @@ nav {
 }
 .search-filter {
     outline: solid 1px black; /* temporary */
-    display: none;
 }
 .search-filter-title {
     font-family: 'title';
@@ -461,6 +465,10 @@ nav {
 }
 .selected-card-skill p:empty {
     display:none;
+}
+/* 스토리/대사/상품은 전환 시 inline-block으로 표시 */
+.selected-card-story, .selected-card-dial, .selected-card-product {
+    display: inline-block;
 }
 
 .selected-card-product table {

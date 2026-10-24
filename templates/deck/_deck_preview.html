@@ -1,0 +1,15 @@
+{% load static %}
+{% if card_character %}
+    {% include "deck/_deck_preview_card.html" with card=card_character character_slot=True %}
+{% endif %}
+<div class="deck-preview-summary">
+    <div class="deck-preview-summary-left">
+        <img src="{% static 'card/Texture2D/UI_icon_card.webp' %}" style="width:15%;" alt="">
+        <p id="deck-preview-count"{% if num_cards > deck_size %} style="color:red;"{% endif %}>{{ num_cards }}</p>
+        <p class="deck-preview-total">/ {{ deck_size }}</p>
+    </div>
+    <p id="deck-preview-point">{{ deck_points }} PT</p>
+</div>
+{% for card in deck_card_list %}
+    {% include "deck/_deck_preview_card.html" %}
+{% endfor %}

@@ -3,17 +3,13 @@
 
 {% block title %}{% translate "가이드(네비)" %} - {% endblock %}
 
-{% block head_scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{% static 'card/html2canvas.min.js' %}"></script>
-    <script src="{% static 'card/select_card.js' %}"></script>
-    <script src="{% static 'card/vote_card.js' %}"></script>
-    {% include "components/legacy_csrf.html" %}
-{% endblock %}
-
 {% block main %}
     <li class="guide-li"><a href="https://open.kakao.com/o/gfZ9sxib">(외부 링크)오픈카톡 정보방</a></li>
     {% for name, title in contents %}
         <li class="guide-li"><a href="{% url 'guide:detail' name %}">{{ title }}</a></li>
     {% endfor %}
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="{% static 'js/pages/guide.js' %}"></script>
 {% endblock %}

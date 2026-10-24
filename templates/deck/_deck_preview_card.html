@@ -1,0 +1,12 @@
+<div class="deck-preview-card" data-action="select-card" data-card-id="{{ card.id }}" draggable="true">
+    <div class="image-card" style="background-image: url({{ card.deck_image_url }});"></div>
+    <div class="image-frame" style="background-image: url({{ card.deck_frame_url }});"></div>
+    {% if not character_slot %}<div class="image-size" style="background-image: url({{ card.deck_frame_size_url }})"></div>{% endif %}
+    <div class="image-enhance" style="background-image: url({{ card.frame_enhance_url }})"{% if card.enhance == 0 %} hidden{% endif %}></div>
+    <div class="text-stat" id="card-enhance"{% if card.enhance == 0 %} hidden{% endif %}>{{ card.enhance }}</div>
+    {% if not character_slot %}
+        <div class="text-stat" id="card-size"{% if card.is_character %} hidden{% endif %}>{{ card.size }}</div>
+        <div class="text-stat" id="card-count">x {{ card.count }}</div>
+    {% endif %}
+    <div class="text-stat" id="card-name">{{ card.localized_name }}</div>
+</div>
