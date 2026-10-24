@@ -1,9 +1,7 @@
 from django import forms
-from django.db.models import Q
-from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 
-from .models import Card
+from .models import SIZE_RANGE, Card
 
 
 class CardSearchForm(forms.Form):
@@ -18,28 +16,34 @@ class CardSearchForm(forms.Form):
     ]
 
     category = forms.MultipleChoiceField(
-        choices=Card.CATEGORY_CHOICES,
+        choices=Card.Category.choices,
         widget=forms.CheckboxSelectMultiple(attrs={"class": "checkbox-inline"}),
         required=False,
         label="category",
     )
     rarity = forms.MultipleChoiceField(
-        choices=Card.RARITY_CHOICES,
+        choices=Card.Rarity.choices,
         widget=forms.CheckboxSelectMultiple(attrs={"class": "checkbox-inline"}),
         required=False,
         label="rarity",
     )
     theme = forms.MultipleChoiceField(
-        choices=Card.THEME_CHOICES,
+        choices=Card.Theme.choices,
         widget=forms.CheckboxSelectMultiple(attrs={"class": "checkbox-inline"}),
         required=False,
         label="theme",
     )
     size_min = forms.IntegerField(
-        min_value=1, max_value=10, required=False, label="size_min"
+        min_value=SIZE_RANGE.start,
+        max_value=SIZE_RANGE.stop - 1,
+        required=False,
+        label="size_min",
     )
     size_max = forms.IntegerField(
-        min_value=1, max_value=10, required=False, label="size_max"
+        min_value=SIZE_RANGE.start,
+        max_value=SIZE_RANGE.stop - 1,
+        required=False,
+        label="size_max",
     )
     search_type = forms.ChoiceField(
         choices=SEARCH_CHOICES, widget=forms.Select, label="search_type"
@@ -83,92 +87,3 @@ class CardSearchForm(forms.Form):
         required=False,
         label="etc",
     )
-
-    def filter_cards(self):
-        cards = Card.objects.all()
-
-        category = self.cleaned_data.get("category")
-        rarity = self.cleaned_data.get("rarity")
-        theme = self.cleaned_data.get("theme")
-        size_min = self.cleaned_data.get("size_min")
-        size_max = self.cleaned_data.get("size_max")
-        search_type = self.cleaned_data.get("search_type")
-        search_text = self.cleaned_data.get("search_text")
-
-        episode_season1 = self.cleaned_data.get("episode_season1")
-        episode_season2 = self.cleaned_data.get("episode_season2")
-        episode_season3 = self.cleaned_data.get("episode_season3")
-        episode_event = self.cleaned_data.get("episode_event")
-        episode_extra = self.cleaned_data.get("episode_extra")
-
-        etc = self.cleaned_data.get("etc", [])
-
-        language = get_language()
-        if language == "ko":
-            if search_type == "name":
-                cards = cards.filter(name__icontains=search_text)
-            elif search_type == "tag":
-                multi_tags = search_text.split(",")
-                for tag in multi_tags:
-                    tag = tag.strip()
-                    cards = cards.filter(tag__icontains=tag)
-            elif search_type == "skill":
-                multi_skills = search_text.split(",")
-                for skill in multi_skills:
-                    skill = skill.strip()
-                    cards = cards.filter(
-                        Q(skill_turn__icontains=skill)
-                        | Q(skill_instance__icontains=skill)
-                        | Q(skill_attack__icontains=skill)
-                        | Q(skill_defend__icontains=skill)
-                    )
-        elif language == "en":
-            if search_type == "name":
-                cards = cards.filter(name_us__icontains=search_text)
-            elif search_type == "tag":
-                multi_tags = search_text.split(",")
-                for tag in multi_tags:
-                    tag = tag.strip()
-                    cards = cards.filter(tag_us__icontains=tag)
-            elif search_type == "skill":
-                multi_skills = search_text.split(",")
-                for skill in multi_skills:
-                    skill = skill.strip()
-                    cards = cards.filter(
-                        Q(skill_turn_us__icontains=skill)
-                        | Q(skill_instance_us__icontains=skill)
-                        | Q(skill_attack_us__icontains=skill)
-                        | Q(skill_defend_us__icontains=skill)
-                    )
-
-        if category:
-            cards = cards.filter(category__in=category)
-        if rarity:
-            cards = cards.filter(rarity__in=rarity)
-        if theme:
-            cards = cards.filter(theme__in=theme)
-        if size_min and size_max:
-            cards = cards.filter(size__range=(size_min, size_max))
-
-        episode_list = (
-            episode_season1
-            + episode_season2
-            + episode_season3
-            + episode_event
-            + episode_extra
-        )
-        if (
-            episode_season1
-            or episode_season2
-            or episode_season3
-            or episode_event
-            or episode_extra
-        ):
-            cards = cards.filter(episode__in=episode_list)
-
-        if "uncollectable" not in etc:
-            cards = cards.filter(collect=True)
-        if "producible" in etc:
-            cards = cards.filter(producible=True)
-
-        return cards

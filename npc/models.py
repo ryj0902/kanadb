@@ -10,3 +10,6 @@ class Npc(models.Model):
     loading_desc = models.TextField()
     loading_desc_us = models.TextField()
     setup = models.TextField()
+
+    def __str__(self):
+        return f"{self.id} {self.chapter_name}"

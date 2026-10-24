@@ -112,7 +112,13 @@ document.addEventListener('dragend', (event) => {
                 }),
                 contentType: 'application/json',
                 success: function(response) {
-                    history.pushState(null, '', response.redirect_url);
+                    // 덱 제목/요약/설명, 검색 조건 등 다른 쿼리는 유지하고 card만 바꾼다
+                    const next = new URL(response.redirect_url, window.location.origin);
+                    const params = new URLSearchParams(window.location.search);
+                    params.set('card', next.searchParams.get('card'));
+                    const query = params.toString().replace(/%2C/g, ',');
+                    history.pushState(null, '', next.pathname + '?' + query);
+                    syncDeckParamsToSearchForm();
                     refreshDeckPreview();
                 },
                 error: function(xhr, status, error) {
@@ -181,6 +187,26 @@ function updateDeckPreview(response) {
     });
 
     document.querySelector('.deck-preview').innerHTML = deckHtml;
+}
+
+// 검색 폼(GET) 제출 시에도 현재 덱이 유지되도록 hidden input을 URL과 맞춘다
+function syncDeckParamsToSearchForm() {
+    const form = document.getElementById('search-form');
+    const params = new URLSearchParams(window.location.search);
+    ['card', 'title', 'summary', 'description'].forEach(name => {
+        let input = form.querySelector(`input[type="hidden"][name="${name}"]`);
+        if (!params.has(name)) {
+            if (input) input.remove();
+            return;
+        }
+        if (!input) {
+            input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = name;
+            form.prepend(input);
+        }
+        input.value = params.get(name);
+    });
 }
 
 function getCardIdsFromUrl() {

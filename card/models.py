@@ -1,25 +1,70 @@
 from django.db import models
 from django.templatetags.static import static
+from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
+
+from .querysets import CardQuerySet
+
+DECK_SIZE = 30  # 캐릭터를 제외한 덱 최대 장수
+PAGE_SIZE = 12  # 검색 결과 페이지당 카드 수
+FILTER_ROW_SIZE = 9  # 검색 필터 한 줄당 체크박스 수
+SIZE_RANGE = range(1, 11)  # 카드 사이즈 (캐릭터는 0)
+
+NO_ID = -1  # 강화/링크/상품이 없음을 나타내는 값
+
+
+def texture_url(name):
+    return static(f"card/Texture2D/{name}.webp")
+
+
+class Product:
+    """카드 제작 재료 (상품 아이콘 + 수량)"""
+
+    def __init__(self, product_id, count, name, name_us):
+        self.id = product_id
+        self.count = count
+        self.name = name
+        self.name_us = name_us
+
+    @property
+    def exists(self):
+        return self.id != str(NO_ID)
+
+    @property
+    def image_url(self):
+        return texture_url(f"CASH_{self.id}_I") if self.exists else str(NO_ID)
+
+    @property
+    def label(self):
+        return f"{self.name} x {self.count}"
+
+    @property
+    def label_us(self):
+        return f"{self.name_us} x {self.count}"
 
 
 class Card(models.Model):
-    CATEGORY_CHOICES = [(1, _("캐릭터")), (2, _("스펠")), (3, _("추종자"))]
-    RARITY_CHOICES = [
-        (1, _("커먼")),
-        (2, _("언커먼")),
-        (3, _("슈페리어")),
-        (4, _("레어")),
-        (5, _("더블레어")),
-        (6, _("유니크")),
-    ]
-    THEME_CHOICES = [
-        (1, _("공립")),
-        (2, _("사립")),
-        (3, _("크룩스")),
-        (4, _("다크로어")),
-        (5, _("무소속")),
-    ]
+    class Category(models.IntegerChoices):
+        CHARACTER = 1, _("캐릭터")
+        SPELL = 2, _("스펠")
+        FOLLOWER = 3, _("추종자")
+
+    class Rarity(models.IntegerChoices):
+        COMMON = 1, _("커먼")
+        UNCOMMON = 2, _("언커먼")
+        SUPERIOR = 3, _("슈페리어")
+        RARE = 4, _("레어")
+        DOUBLE_RARE = 5, _("더블레어")
+        UNIQUE = 6, _("유니크")
+
+    class Theme(models.IntegerChoices):
+        VITA = 1, _("공립")
+        ACADEMY = 2, _("사립")
+        CRUX = 3, _("크룩스")
+        DARKLORE = 4, _("다크로어")
+        SHADOW_GATE = 5, _("무소속")
+
+    # 에피소드 값: 1xx 에피소드(EP), 5xx 이벤트(EV), 8xx 명계 등(MH), 901/902 엑스트라
     EPISODE_SEASON1 = [(100 + i, f"EP{i}") for i in range(9)]
     EPISODE_SEASON2 = [(100 + i, f"EP{i}") for i in range(9, 17)]
     EPISODE_SEASON3 = [(100 + i, f"EP{i}") for i in range(17, 18)]
@@ -37,9 +82,9 @@ class Card(models.Model):
     id = models.BigIntegerField(primary_key=True)
     name = models.TextField()
     name_us = models.TextField()
-    category = models.IntegerField()
-    rarity = models.IntegerField()
-    theme = models.IntegerField()
+    category = models.IntegerField(choices=Category.choices)
+    rarity = models.IntegerField(choices=Rarity.choices)
+    theme = models.IntegerField(choices=Theme.choices)
     tag = models.TextField()
     tag_us = models.TextField()
     episode = models.IntegerField()
@@ -66,134 +111,105 @@ class Card(models.Model):
     skill_defend_us = models.TextField()
     link = models.TextField()  # list of id
     producible = models.BooleanField()
-    product = models.TextField()
+    product = models.TextField()  # id,count,name,name_us x 2
     enh_prev = models.IntegerField()  # card id
     enh_next = models.IntegerField()  # card id
     enh_orig = models.IntegerField()  # card id
 
-    # parsing variable
-    category_map = {}
-    for value in CATEGORY_CHOICES:
-        category_map[value[0]] = value[1]
+    objects = CardQuerySet.as_manager()
 
-    rarity_map = {}
-    for value in RARITY_CHOICES:
-        rarity_map[value[0]] = value[1]
-
-    theme_map = {}
-    for value in THEME_CHOICES:
-        theme_map[value[0]] = value[1]
+    class Meta:
+        ordering = ["category", "theme", "episode", "point"]
 
     def __str__(self):
         return self.name
 
     @staticmethod
-    def get_episode_string(int_episode):
-        episode = int_episode
+    def get_episode_string(episode):
+        """에피소드 값 -> 표시 문자열 (101 -> EP1, 503 -> EV3, 829 -> MH29, 901 -> SH)"""
         if episode // 100 < 9:
-            if episode // 100 == 1:
-                prefix = "EP"
-            elif episode // 100 == 5:
-                prefix = "EV"
-            else:  # 8
-                prefix = "MH"
+            prefix = {1: "EP", 5: "EV"}.get(episode // 100, "MH")
+            return prefix + str(episode % 100)
+        return {901: "SH", 902: "EM"}.get(episode, episode)
 
-            episode = prefix + str(int_episode % 100)
-        else:
-            if episode == 901:
-                episode = "SH"
-            elif episode == 902:
-                episode = "EM"
+    def localized(self, field):
+        """현재 언어에 맞는 필드 값 (영어면 <field>_us)"""
+        return getattr(self, field if get_language() == "ko" else f"{field}_us")
 
-        return episode
+    @property
+    def localized_name(self):
+        return self.localized("name")
 
-    @staticmethod
-    def parse_to_string(card):
-        if isinstance(card, dict):
-            card["category"] = Card.category_map[card["category"]]
-            card["rarity"] = Card.rarity_map[card["rarity"]]
-            card["theme"] = Card.theme_map[card["theme"]]
-            card["episode"] = Card.get_episode_string(card["episode"])
+    # --- 분류 ---
 
-            product_split = card["product"].split(",")
-            card["product1"] = f"{product_split[2]} x {product_split[1]}"
-            card["product1_us"] = f"{product_split[3]} x {product_split[1]}"
-            card["product2"] = f"{product_split[6]} x {product_split[5]}"
-            card["product2_us"] = f"{product_split[7]} x {product_split[5]}"
+    @property
+    def is_character(self):
+        return self.category == self.Category.CHARACTER
 
-        else:
-            card.category = Card.category_map[card.category]
-            card.rarity = Card.rarity_map[card.rarity]
-            card.theme = Card.theme_map[card.theme]
-            card.episode = Card.get_episode_string(card.episode)
+    @property
+    def is_spell(self):
+        return self.category == self.Category.SPELL
 
-            product_split = card.product.split(",")
-            card.product1 = f"{product_split[2]} x {product_split[1]}"
-            card.product1_us = f"{product_split[3]} x {product_split[1]}"
-            card.product2 = f"{product_split[6]} x {product_split[5]}"
-            card.product2_us = f"{product_split[7]} x {product_split[5]}"
+    @property
+    def is_follower(self):
+        return self.category == self.Category.FOLLOWER
 
-    @staticmethod
-    def parse_static_url(card):
-        if isinstance(card, dict):
-            card["url"] = static(
-                f"card/Texture2D/CARD_{int(card['id'] // 10 * 10)}.webp"
-            )
-            card["frame"] = static(f"card/Texture2D/{card['frame']}.webp")
-            card["frame_enh"] = static("card/Texture2D/UI_Layout_enhance.webp")
+    @property
+    def episode_label(self):
+        return self.get_episode_string(self.episode)
 
-            product_split = card["product"].split(",")
-            product1_id, product2_id = product_split[0], product_split[4]
-            card["product1_url"] = (
-                static(f"card/Texture2D/CASH_{product1_id}_I.webp")
-                if product1_id != "-1"
-                else "-1"
-            )
-            card["product2_url"] = (
-                static(f"card/Texture2D/CASH_{product2_id}_I.webp")
-                if product2_id != "-1"
-                else "-1"
-            )
+    # --- 이미지 ---
 
-            card["d_url"] = card["url"].replace("CARD", "D_CARD")
-            card["d_frame"] = static("card/Texture2D/UI_card_frame.webp")
-            card["d_frame_size"] = static("card/Texture2D/UI_icon_cost.webp")
-        else:
-            card.url = static(f"card/Texture2D/CARD_{int(card.id // 10 * 10)}.webp")
-            card.frame = static(f"card/Texture2D/{card.frame}.webp")
-            card.frame_enh = static("card/Texture2D/UI_Layout_enhance.webp")
+    @property
+    def image_url(self):
+        return texture_url(f"CARD_{self.id // 10 * 10}")
 
-            product_split = card.product.split(",")
-            product1_id, product2_id = product_split[0], product_split[4]
-            card.product1_url = (
-                static(f"card/Texture2D/CASH_{product1_id}_I.webp")
-                if product1_id != "-1"
-                else "-1"
-            )
-            card.product2_url = (
-                static(f"card/Texture2D/CASH_{product2_id}_I.webp")
-                if product2_id != "-1"
-                else "-1"
-            )
+    @property
+    def deck_image_url(self):
+        """덱 미리보기용 가로형 이미지"""
+        return texture_url(f"D_CARD_{self.id // 10 * 10}")
 
-            card.d_url = card.url.replace("CARD", "D_CARD")
-            card.d_frame = static("card/Texture2D/UI_card_frame.webp")
-            card.d_frame_size = static("card/Texture2D/UI_icon_cost.webp")
+    @property
+    def frame_url(self):
+        return texture_url(self.frame)
 
-    class Meta:
-        ordering = ["category", "theme", "episode", "point"]
+    @property
+    def frame_enhance_url(self):
+        return texture_url("UI_Layout_enhance")
+
+    @property
+    def deck_frame_url(self):
+        return texture_url("UI_card_frame")
+
+    @property
+    def deck_frame_size_url(self):
+        return texture_url("UI_icon_cost")
+
+    # --- 연관 데이터 ---
+
+    @property
+    def products(self):
+        """제작 재료 2종 (없으면 id가 -1)"""
+        values = self.product.split(",")
+        return [Product(*values[0:4]), Product(*values[4:8])]
+
+    @property
+    def link_ids(self):
+        return [] if self.link == str(NO_ID) else [int(i) for i in self.link.split(",")]
 
 
 class Vote(models.Model):
+    """가이드 티어 리스트 투표 (IP당 카드/카테고리/모드별 1표)"""
+
+    TIER_MAP = {0: "S", 1: "A", 2: "B", 3: "C", 4: "D", 5: "E"}
+    MODE_MAP = {0: "PVP", 1: "PVE"}
+
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
     ip = models.GenericIPAddressField()
     tier = models.IntegerField()
     category = models.TextField()
     mode = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now=True)
-
-    TIER_MAP = {0: "S", 1: "A", 2: "B", 3: "C", 4: "D", 5: "E"}
-    MODE_MAP = {0: "PVP", 1: "PVE"}
 
     class Meta:
         constraints = [
@@ -204,4 +220,7 @@ class Vote(models.Model):
         ]
 
     def __str__(self):
-        return f"Vote(id={self.card.id}({self.card.name}), ip={self.ip}, mode={self.mode}({self.MODE_MAP[self.mode]}), tier={self.tier}({self.TIER_MAP[self.tier]}))"
+        return (
+            f"Vote(id={self.card_id}, ip={self.ip}, "
+            f"mode={self.MODE_MAP.get(self.mode)}, tier={self.TIER_MAP.get(self.tier)})"
+        )

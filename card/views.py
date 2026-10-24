@@ -1,123 +1,46 @@
-import json
-import re
-
 from django.core.paginator import Paginator
-from django.forms.models import model_to_dict
-from django.http import HttpResponse
-from django.http.request import MultiValueDict, QueryDict
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
-from django.utils.encoding import force_str
-from django.utils.functional import Promise
+from django.utils.translation import get_language
 
 from .forms import CardSearchForm
-from .models import Card
+from .models import PAGE_SIZE, Card
+from .presenters import card_detail_data
 
 SEARCH_TABS = ("detail", "episode", "etc")
 
 
-class LazyEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, Promise):
-            return force_str(obj)
-        return super().default(obj)
-
-
-def index(request):
-    if request.method == "POST" and "page" in request.POST:
-        # stack overflow solution: https://stackoverflow.com/a/31166557/14739100
-        session_data = request.session.get("post_data", {})
-        session_data = MultiValueDict(session_data)
-        post_data = QueryDict("", mutable=True)
-        post_data.update(session_data)
+def search_cards(request):
+    """GET 쿼리스트링으로 카드 검색 (카드/덱 페이지 공용 컨텍스트)"""
+    form = CardSearchForm(request.GET or None)
+    if form.is_valid():
+        cards = Card.objects.search(form.cleaned_data, get_language())
     else:
-        post_data = request.POST
-    form = CardSearchForm(post_data or None)
+        cards = Card.objects.collectible()
 
-    try:
-        if form.is_valid():
-            cards = form.filter_cards()
-        else:
-            cards = Card.objects.all().filter(collect=True)
-    except Card.DoesNotExist:
-        cards = None
+    paginator = Paginator(cards.base_forms(), PAGE_SIZE)
+    page = paginator.get_page(request.GET.get("page", 1))
 
-    tab = request.POST.get("tab", "detail")
+    tab = request.GET.get("tab", "detail")
     if tab not in SEARCH_TABS:
         tab = "detail"
 
-    cards = cards.filter(enhance=0)
-
-    paginator = Paginator(cards, 12)
-    page_total = paginator.num_pages
-    cards = paginator.get_page(request.POST.get("page", 1))
-
-    # update url value to static url
-    for card in cards:
-        Card.parse_static_url(card)
-        Card.parse_to_string(card)
-
-    context = {
-        "card_list": cards,
-        "page": cards.number,
-        "page_total": page_total,
-        "selected_card": None,
+    return {
+        "card_list": page,
+        "page": page.number,
+        "page_total": paginator.num_pages,
         "form": form,
         "tab": tab,
     }
 
-    if request.method == "POST" and "page" in request.POST:
-        for card in cards:
-            card = model_to_dict(card)
-            Card.parse_static_url(card)
 
-        return HttpResponse(render(request, "card/index.html", context))
-
-    # QueryDict is immutable, so save it as native dictionary
-    request.session["post_data"] = dict(request.POST)
-    return render(request, "card/index.html", context)
+def index(request):
+    return render(request, "card/index.html", search_cards(request))
 
 
 def select(request, card_id):
     card = get_object_or_404(Card, id=card_id)
-    card = model_to_dict(card)
-    Card.parse_static_url(card)
-    Card.parse_to_string(card)
-    # make space between tag
-    card["tag"] = card["tag"].replace(",", ", ")
-    card["tag_us"] = card["tag_us"].replace(",", ", ")
-
-    # change text to adjust indent + newline
-    for key in [
-        "skill_turn",
-        "skill_instance",
-        "skill_attack",
-        "skill_defend",
-        "desc",
-        "skill_turn_us",
-        "skill_instance_us",
-        "skill_attack_us",
-        "skill_defend_us",
-        "desc_us",
-    ]:
-        card[key] = card[key].replace("◈\n", "◈<br>")
-        card[key] = card[key].replace("\n◈", "<br>◈")
-        card[key] = card[key].replace("\n", "<br>")
-
-    # dialogue 별도 가공
-    def parse_dial(text):
-        pattern = r"(◈.*?◈)\s*\n(.*?)(?=\n◈|\Z)"
-        matches = re.findall(pattern, text, re.DOTALL)
-
-        result = []
-        for title, content in matches:
-            content_clean = content.strip().replace("\n", "<br>")
-            result.append(f'<p class="p-skill">{title}<br>{content_clean}</p>')
-
-        return "\n".join(result)
-
-    card["dial"] = parse_dial(card["dial"])
-    card["dial_us"] = parse_dial(card["dial_us"])
-
-    return HttpResponse(
-        json.dumps({"selected_card": card}, ensure_ascii=False, cls=LazyEncoder)
+    return JsonResponse(
+        {"selected_card": card_detail_data(card)},
+        json_dumps_params={"ensure_ascii": False},
     )

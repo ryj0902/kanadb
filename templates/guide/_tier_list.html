@@ -1,0 +1,15 @@
+{% load static %}
+{% if tier_columns|length > 1 %}
+<div class="tier-flex-container" style="display: flex; gap: 24px; width: 100%;">
+    {% for column in tier_columns %}
+    <div class="tier-column {{ column.label|lower }}-column" style="flex: 1; min-width: 0;">
+        <h1>{{ column.label }}</h1>
+        {% include "guide/_tier_column.html" with tiers=column.tiers mode=column.mode %}
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+    {% with column=tier_columns.0 %}
+        {% include "guide/_tier_column.html" with tiers=column.tiers mode=column.mode %}
+    {% endwith %}
+{% endif %}

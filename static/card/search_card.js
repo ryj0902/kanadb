@@ -5,27 +5,13 @@ function updatePage(mode) {
         page = Math.min(page + 1, page_total);
     }
 
-    var form = document.getElementById('search-form');
-    var formData = new FormData(form);
-    // Serialize the form data to JSON
-    var serializedData = {};
-    for (var [key, value] of formData.entries()) {
-        if(!(key in serializedData)){
-            serializedData[key] = [value];
-        }else if(key === 'search_text' || key === 'search_type'){
-            continue;
-        }else{
-            serializedData[key].push(value);
-        }
-    }
-    serializedData['page'] = page
-    // console.log(serializedData)
+    // 현재 URL에 적용된 검색 조건으로 다음 페이지를 가져온다
+    const params = new URLSearchParams(window.location.search);
+    params.set('page', page);
 
     $.ajax({
-        url: baseUrl + '/' + lang + '/card/',
-        type: 'POST',
-        data: serializedData,
-        traditional: true,
+        url: baseUrl + '/' + lang + '/card/?' + params.toString(),
+        type: 'GET',
         success: function(response) {
             var $response = $(response);
             var $imageGrid = $response.find('.image-grid');

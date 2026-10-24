@@ -7,9 +7,9 @@
     <table>
         <td>
             <div class="image-grid-element{% if not card_character.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card_character.id }}, 0)" card-id="{{ card_character.id }}">
-                <div class="image-card" style="background-image: url({{ card_character.url }});"></div>
-                <div class="image-frame" style="background-image: url({{ card_character.frame }});"></div>
-                <div class="text-stat" id="card-hp" {% if card_character.category == spell %} style="display:none;" {% endif %}>{{ card_character.hp }}</div>
+                <div class="image-card" style="background-image: url({{ card_character.image_url }});"></div>
+                <div class="image-frame" style="background-image: url({{ card_character.frame_url }});"></div>
+                <div class="text-stat" id="card-hp" {% if not card_character or card_character.is_spell %} style="display:none;" {% endif %}>{{ card_character.hp }}</div>
             </div>
         </td>
         <td>
@@ -28,18 +28,15 @@
 
 <div class="npc-image-grid">
     {% for card in deck_card_list %}
-        {% trans "캐릭터" as character %}
-        {% trans "추종자" as follower %}
-        {% trans "스펠" as spell %}
         <div class="npc-image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)" card-id="{{ card.id }}">
-            <div class="image-card" style="background-image: url({{ card.url }});"></div>
-            <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
-            <div class="image-enhance" style="background-image: url({{ card.frame_enh }}){% if card.enhance == 0 %};display:none;{% endif %}"></div>
+            <div class="image-card" style="background-image: url({{ card.image_url }});"></div>
+            <div class="image-frame" style="background-image: url({{ card.frame_url }});"></div>
+            <div class="image-enhance" style="background-image: url({{ card.frame_enhance_url }}){% if card.enhance == 0 %};display:none;{% endif %}"></div>
             <div class="text-stat" id="card-enhance" {% if card.enhance == 0 %} style="display:none;" {% endif %}>{{ card.enhance }}</div>
-            <div class="text-stat" id="card-size" {% if card.category ==  character %} style="display:none;" {% endif %}>{{ card.size }}</div>
-            <div class="text-stat" id="card-atk" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.atk }}</div>
-            <div class="text-stat" id="card-def" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.defs }}</div>
-            <div class="text-stat" id="card-hp" {% if card.category == spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
+            <div class="text-stat" id="card-size" {% if card.is_character %} style="display:none;" {% endif %}>{{ card.size }}</div>
+            <div class="text-stat" id="card-atk" {% if not card.is_follower %} style="display:none;" {% endif %}>{{ card.atk }}</div>
+            <div class="text-stat" id="card-def" {% if not card.is_follower %} style="display:none;" {% endif %}>{{ card.defs }}</div>
+            <div class="text-stat" id="card-hp" {% if card.is_spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
             <div class="image-count">
                 <div class="text-stat" id="card-x">x</div>
                 <div class="text-stat" id="card-count">{{ card.count }}</div>

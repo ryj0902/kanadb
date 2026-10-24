@@ -91,7 +91,7 @@ function selectCard(id, init_link){
         url: baseUrl + '/' + lang + '/card/select/' + id,
         type: 'GET',
         success: function(data) {
-            const card = JSON.parse(data).selected_card;
+            const card = data.selected_card;
             // console.log(data);
 
             document.getElementById('capture-btn').style.display = 'inline-block';

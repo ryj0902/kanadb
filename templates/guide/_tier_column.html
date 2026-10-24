@@ -1,0 +1,13 @@
+{% load static %}
+{% for tier in tiers %}
+<h2>{{ tier.label }}</h2>
+{% if tier.entries %}
+<ul>
+{% for entry in tier.entries %}
+{% with card=entry.card %}
+<li><a href="javascript:void(0);" onclick="selectCard({{ card.id }}, 0)">{{ card.localized_name }}</a>&nbsp;&nbsp;&nbsp;&nbsp;{% for vote in entry.votes %}<img src="{% get_static_prefix %}card/Texture2D/result_{{ vote.label }}.webp" alt="{{ vote.label }}" class="vote-tier-img {% if entry.my_vote != vote.tier %}deactive{% endif %}" onclick="voteTier({{ card.id }}, '{{ category }}', {{ mode }}, {{ vote.tier }})" id="vote-img-{{ card.id }}-{{ vote.tier }}"><span class="vote-count" id="vote-count-{{ card.id }}-{{ vote.tier }}"> {{ vote.count }} </span>{% endfor %} <span id="vote-result-{{ card.id }}"></span>  </li>
+{% endwith %}
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}

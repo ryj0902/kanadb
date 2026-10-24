@@ -1,8 +1,7 @@
 {% extends "guide/index.html" %}
-{% load guide_filters %}
 
 {% block left %}
     <div class="left-wide">
-        {{ html_content | card_filter | safe }}
+        {% include "guide/_guide_body.html" %}
     </div>
 {% endblock %}

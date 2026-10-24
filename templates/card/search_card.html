@@ -5,8 +5,8 @@
 <button class="search-btn" id="btn-episode" onclick="openTab('episode')">{% trans "에피소드" %}</button>
 <button class="search-btn" id="btn-detail" class="passive" onclick="openTab('detail')">{% trans "상세" %}</button>
 <button class="search-btn" id="btn-etc" class="passive" onclick="openTab('etc')">{% trans "기타" %}</button>
-<form method='POST' id='search-form'>
-    {% csrf_token %}
+<form method='GET' id='search-form'>
+    {% for key, value in deck_params %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
     <div class="search-filter" id="search-filter-episode">
         <table>
             <tr><td class="search-filter-title">{% trans "시즌" %} 1 <input type="checkbox" id="toggle-all-episode-season1"> </td><td class="search-filter-contents">
@@ -74,18 +74,15 @@
 <div class="search-result">
     <div class="image-grid">
         {% for card in card_list %}
-            {% trans "캐릭터" as character %}
-            {% trans "추종자" as follower %}
-            {% trans "스펠" as spell %}
             <div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" onclick="selectCard({{ card.id }}, 0)" draggable="true" card-id="{{ card.id }}">
-                <div class="image-card" style="background-image: url({{ card.url }});"></div>
-                <div class="image-frame" style="background-image: url({{ card.frame }});"></div>
-                <div class="image-enhance" style="background-image: url({{ card.frame_enh }}){% if card.enhance == 0 %};display:none;{% endif %}"></div>
+                <div class="image-card" style="background-image: url({{ card.image_url }});"></div>
+                <div class="image-frame" style="background-image: url({{ card.frame_url }});"></div>
+                <div class="image-enhance" style="background-image: url({{ card.frame_enhance_url }}){% if card.enhance == 0 %};display:none;{% endif %}"></div>
                 <div class="text-stat" id="card-enhance" {% if card.enhance == 0 %} style="display:none;" {% endif %}>{{ card.enhance }}</div>
-                <div class="text-stat" id="card-size" {% if card.category ==  character %} style="display:none;" {% endif %}>{{ card.size }}</div>
-                <div class="text-stat" id="card-atk" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.atk }}</div>
-                <div class="text-stat" id="card-def" {% if card.category != follower %} style="display:none;" {% endif %}>{{ card.defs }}</div>
-                <div class="text-stat" id="card-hp" {% if card.category == spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
+                <div class="text-stat" id="card-size" {% if card.is_character %} style="display:none;" {% endif %}>{{ card.size }}</div>
+                <div class="text-stat" id="card-atk" {% if not card.is_follower %} style="display:none;" {% endif %}>{{ card.atk }}</div>
+                <div class="text-stat" id="card-def" {% if not card.is_follower %} style="display:none;" {% endif %}>{{ card.defs }}</div>
+                <div class="text-stat" id="card-hp" {% if card.is_spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
             </div>
         {% endfor %}
     </div>
