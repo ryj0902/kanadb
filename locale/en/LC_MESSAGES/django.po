@@ -1,18 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# kanadb 번역 파일 (manage.py makemessages -l ko -l en 으로 갱신)
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: kanadb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 23:36+0900\n"
+"POT-Creation-Date: 2026-10-24 18:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,1182 +34,771 @@ msgstr "Also uncollectable"
 msgid "제작 가능만"
 msgstr "Only Producible"
 
-#: .\card\models.py:7 .\deck\views.py:124 .\templates\card\search_card.html:78
-#: .\templates\deck\index.html:46 .\templates\npc\npc_deck.html:31
-msgid "캐릭터"
-msgstr "Character"
-
-#: .\card\models.py:7 .\templates\card\search_card.html:80
-#: .\templates\npc\npc_deck.html:33
-msgid "스펠"
-msgstr "Spell"
-
-#: .\card\models.py:7 .\templates\card\search_card.html:79
-#: .\templates\npc\npc_deck.html:32
-msgid "추종자"
-msgstr "Follower"
-
-#: .\card\models.py:9
-msgid "커먼"
-msgstr "Common"
-
-#: .\card\models.py:10
-msgid "언커먼"
-msgstr "Uncommon"
-
-#: .\card\models.py:11
-msgid "슈페리어"
-msgstr "Superior"
-
-#: .\card\models.py:12
-msgid "레어"
-msgstr "Rare"
-
-#: .\card\models.py:13
-msgid "더블레어"
-msgstr "Double Rare"
-
-#: .\card\models.py:14
-msgid "유니크"
-msgstr "Unique"
-
-#: .\card\models.py:17
-msgid "공립"
-msgstr "Vita"
-
-#: .\card\models.py:18
-msgid "사립"
-msgstr "Royle"
-
-#: .\card\models.py:19
-msgid "크룩스"
-msgstr "Crux"
-
-#: .\card\models.py:20
-msgid "다크로어"
-msgstr "Darklore"
-
-#: .\card\models.py:21
-msgid "무소속"
-msgstr "Independence"
-
-#: .\card\models.py:30 .\templates\npc\index.html:1057
-msgid "쉐도우랜드"
-msgstr "Shadowland"
-
-#: .\card\models.py:31
-msgid "제국"
-msgstr "Empire"
-
-#: .\card\models.py:32
-msgid "명계"
-msgstr "Nether"
-
-#: .\card\models.py:33 .\templates\npc\index.html:1266
-msgid "차원의 틈"
-msgstr "Dimensional Rift"
-
-#: .\card\models.py:34
-msgid "재료"
-msgstr "Materials"
-
-#: .\card\views.py:63 .\deck\views.py:70 .\guide\views.py:53 .\npc\views.py:319
-msgid "가로 모드"
-msgstr "Horizontal"
-
-#: .\card\views.py:64 .\deck\views.py:71 .\guide\views.py:54 .\npc\views.py:320
-msgid "세로 모드"
-msgstr "Vertical"
-
-#: .\npc\views.py:148 .\templates\npc\index.html:1071
-msgid "월"
-msgstr "Mon"
-
-#: .\npc\views.py:149 .\templates\npc\index.html:1072
-msgid "화"
-msgstr "Tue"
-
-#: .\npc\views.py:150 .\templates\npc\index.html:1073
-msgid "수"
-msgstr "Wed"
-
-#: .\npc\views.py:151 .\templates\npc\index.html:1074
-msgid "목"
-msgstr "Thu"
-
-#: .\npc\views.py:152 .\templates\npc\index.html:1075
-msgid "금"
-msgstr "Fri"
-
-#: .\npc\views.py:153 .\templates\npc\index.html:1076
-msgid "토"
-msgstr "Sat"
-
-#: .\npc\views.py:154 .\templates\npc\index.html:1077
-msgid "일"
-msgstr "Sun"
-
-#: .\npc\views.py:245 .\templates\npc\index.html:27
-#: .\templates\npc\index.html:28 .\templates\npc\index.html:29
-#: .\templates\npc\index.html:30 .\templates\npc\index.html:31
-#: .\templates\npc\index.html:32 .\templates\npc\index.html:33
-#: .\templates\npc\index.html:34 .\templates\npc\index.html:35
-#: .\templates\npc\index.html:323 .\templates\npc\index.html:324
-#: .\templates\npc\index.html:325 .\templates\npc\index.html:326
-#: .\templates\npc\index.html:327 .\templates\npc\index.html:328
-#: .\templates\npc\index.html:329 .\templates\npc\index.html:330
-#: .\templates\npc\index.html:582 .\templates\npc\index.html:638
-#: .\templates\npc\index.html:639 .\templates\npc\index.html:640
-#: .\templates\npc\index.html:641 .\templates\npc\index.html:642
-#: .\templates\npc\index.html:643 .\templates\npc\index.html:644
-#: .\templates\npc\index.html:645 .\templates\npc\index.html:900
-#: .\templates\npc\index.html:901 .\templates\npc\index.html:902
-#: .\templates\npc\index.html:907
-msgid "이지"
-msgstr "Easy"
-
-#: .\npc\views.py:245 .\templates\npc\index.html:121
-#: .\templates\npc\index.html:122 .\templates\npc\index.html:123
-#: .\templates\npc\index.html:124 .\templates\npc\index.html:125
-#: .\templates\npc\index.html:126 .\templates\npc\index.html:127
-#: .\templates\npc\index.html:128 .\templates\npc\index.html:129
-#: .\templates\npc\index.html:407 .\templates\npc\index.html:408
-#: .\templates\npc\index.html:409 .\templates\npc\index.html:410
-#: .\templates\npc\index.html:411 .\templates\npc\index.html:412
-#: .\templates\npc\index.html:413 .\templates\npc\index.html:414
-#: .\templates\npc\index.html:596 .\templates\npc\index.html:722
-#: .\templates\npc\index.html:723 .\templates\npc\index.html:724
-#: .\templates\npc\index.html:725 .\templates\npc\index.html:726
-#: .\templates\npc\index.html:727 .\templates\npc\index.html:728
-#: .\templates\npc\index.html:729 .\templates\npc\index.html:952
-#: .\templates\npc\index.html:953 .\templates\npc\index.html:954
-#: .\templates\npc\index.html:959
-msgid "노말"
-msgstr "Normal"
-
-#: .\npc\views.py:245 .\templates\npc\index.html:215
-#: .\templates\npc\index.html:216 .\templates\npc\index.html:217
-#: .\templates\npc\index.html:218 .\templates\npc\index.html:219
-#: .\templates\npc\index.html:220 .\templates\npc\index.html:221
-#: .\templates\npc\index.html:222 .\templates\npc\index.html:223
-#: .\templates\npc\index.html:491 .\templates\npc\index.html:492
-#: .\templates\npc\index.html:493 .\templates\npc\index.html:494
-#: .\templates\npc\index.html:495 .\templates\npc\index.html:496
-#: .\templates\npc\index.html:497 .\templates\npc\index.html:498
-#: .\templates\npc\index.html:610 .\templates\npc\index.html:806
-#: .\templates\npc\index.html:807 .\templates\npc\index.html:808
-#: .\templates\npc\index.html:809 .\templates\npc\index.html:810
-#: .\templates\npc\index.html:811 .\templates\npc\index.html:812
-#: .\templates\npc\index.html:813 .\templates\npc\index.html:1004
-#: .\templates\npc\index.html:1005 .\templates\npc\index.html:1006
-#: .\templates\npc\index.html:1011
-msgid "하드"
-msgstr "Hard"
-
-#: .\templates\card\search_card.html:5
-msgid "에피소드"
-msgstr "Episode"
-
-#: .\templates\card\search_card.html:6
-msgid "상세"
-msgstr "Details"
-
-#: .\templates\card\search_card.html:7 .\templates\card\search_card.html:66
-msgid "기타"
-msgstr "Etc"
-
-#: .\templates\card\search_card.html:12 .\templates\card\search_card.html:20
-#: .\templates\card\search_card.html:28 .\templates\npc\index.html:13
-#: .\templates\npc\index.html:310 .\templates\npc\index.html:576
+#: .\card\forms.py:113 .\card\forms.py:114 .\card\forms.py:115
+#: .\npc\catalog.py:129 .\npc\catalog.py:143 .\npc\catalog.py:156
 msgid "시즌"
 msgstr "Season"
 
-#: .\templates\card\search_card.html:36 .\templates\npc\index.html:625
+#: .\card\forms.py:116 .\npc\catalog.py:162
 msgid "이벤트"
 msgstr "Event"
 
-#: .\templates\card\search_card.html:44
+#: .\card\forms.py:117
 msgid "엑스트라"
 msgstr "Extra"
 
-#: .\templates\card\search_card.html:52 .\templates\card\search_card.html:61
-#: .\templates\card\search_card.html:67
-msgid "검색"
-msgstr "search"
-
-#: .\templates\card\search_card.html:57
+#: .\card\forms.py:120
 msgid "종류"
 msgstr "Category"
 
-#: .\templates\card\search_card.html:58
+#: .\card\forms.py:121
 msgid "등급"
 msgstr "Rarity"
 
-#: .\templates\card\search_card.html:59
+#: .\card\forms.py:122
 msgid "소속"
 msgstr "Theme"
 
-#: .\templates\card\search_card.html:60
-msgid "사이즈"
-msgstr "Size"
+#: .\card\models.py:49
+msgid "캐릭터"
+msgstr "Character"
 
-#: .\templates\card\select_card.html:19
-msgid "캡처하기"
-msgstr "Capture"
+#: .\card\models.py:50
+msgid "스펠"
+msgstr "Spell"
 
-#: .\templates\card\select_card.html:21
-msgid "링크 복사"
-msgstr "Copy link"
+#: .\card\models.py:51
+msgid "추종자"
+msgstr "Follower"
 
-#: .\templates\deck\index.html:30
-msgid "덱 미리보기"
-msgstr "Deck Preview"
+#: .\card\models.py:55
+msgid "커먼"
+msgstr "Common"
 
-#: .\templates\navbar.html:5
-msgid "카드(네비)"
-msgstr "Card"
+#: .\card\models.py:56
+msgid "언커먼"
+msgstr "Uncommon"
 
-#: .\templates\navbar.html:6
-msgid "가이드(네비)"
-msgstr "Guide"
+#: .\card\models.py:57
+msgid "슈페리어"
+msgstr "Superior"
 
-#: .\templates\navbar.html:8
-msgid "덱(네비)"
-msgstr "Deck"
+#: .\card\models.py:58
+msgid "레어"
+msgstr "Rare"
 
-#: .\templates\npc\index.html:16
-msgid "시공관리국"
-msgstr "Administration Bureau"
+#: .\card\models.py:59
+msgid "더블레어"
+msgstr "Double Rare"
 
-#: .\templates\npc\index.html:17
-msgid "변경 유적"
-msgstr "Frontier Ruins"
+#: .\card\models.py:60
+msgid "유니크"
+msgstr "Unique"
 
-#: .\templates\npc\index.html:18
-msgid "마녀의 탑"
-msgstr "Witch's Tower"
+#: .\card\models.py:64
+msgid "공립"
+msgstr "Vita"
 
-#: .\templates\npc\index.html:19
-msgid "죽림향"
-msgstr "Bamboo Garden"
+#: .\card\models.py:65
+msgid "사립"
+msgstr "Royle"
 
-#: .\templates\npc\index.html:20
-msgid "크룩스 훈련소"
-msgstr "Crux Training Camp"
+#: .\card\models.py:66
+msgid "크룩스"
+msgstr "Crux"
 
-#: .\templates\npc\index.html:21
-msgid "리니아관"
-msgstr "Linia's Mansion"
+#: .\card\models.py:67
+msgid "다크로어"
+msgstr "Darklore"
 
-#: .\templates\npc\index.html:22
-msgid "흡혈귀의 땅"
-msgstr "Land of Vampires"
+#: .\card\models.py:68
+msgid "무소속"
+msgstr "Independence"
 
-#: .\templates\npc\index.html:23
-msgid "비타 학교"
-msgstr "Vita School"
+#: .\card\models.py:78 .\npc\catalog.py:185
+msgid "쉐도우랜드"
+msgstr "Shadowland"
 
-#: .\templates\npc\index.html:24
-msgid "심상 세계"
-msgstr "Inner World"
+#: .\card\models.py:79
+msgid "제국"
+msgstr "Empire"
 
-#: .\templates\npc\index.html:40 .\templates\npc\index.html:49
-#: .\templates\npc\index.html:58 .\templates\npc\index.html:67
-#: .\templates\npc\index.html:76 .\templates\npc\index.html:85
-#: .\templates\npc\index.html:94 .\templates\npc\index.html:103
-#: .\templates\npc\index.html:112 .\templates\npc\index.html:134
-#: .\templates\npc\index.html:143 .\templates\npc\index.html:152
-#: .\templates\npc\index.html:161 .\templates\npc\index.html:170
-#: .\templates\npc\index.html:179 .\templates\npc\index.html:188
-#: .\templates\npc\index.html:197 .\templates\npc\index.html:206
-#: .\templates\npc\index.html:228 .\templates\npc\index.html:237
-#: .\templates\npc\index.html:246 .\templates\npc\index.html:255
-#: .\templates\npc\index.html:264 .\templates\npc\index.html:273
-#: .\templates\npc\index.html:282 .\templates\npc\index.html:291
-#: .\templates\npc\index.html:300 .\templates\npc\index.html:335
-#: .\templates\npc\index.html:344 .\templates\npc\index.html:353
-#: .\templates\npc\index.html:362 .\templates\npc\index.html:371
-#: .\templates\npc\index.html:380 .\templates\npc\index.html:389
-#: .\templates\npc\index.html:398 .\templates\npc\index.html:419
-#: .\templates\npc\index.html:428 .\templates\npc\index.html:437
-#: .\templates\npc\index.html:446 .\templates\npc\index.html:455
-#: .\templates\npc\index.html:464 .\templates\npc\index.html:473
-#: .\templates\npc\index.html:482 .\templates\npc\index.html:503
-#: .\templates\npc\index.html:512 .\templates\npc\index.html:521
-#: .\templates\npc\index.html:530 .\templates\npc\index.html:539
-#: .\templates\npc\index.html:548 .\templates\npc\index.html:557
-#: .\templates\npc\index.html:566 .\templates\npc\index.html:587
-#: .\templates\npc\index.html:601 .\templates\npc\index.html:615
-#: .\templates\npc\index.html:650 .\templates\npc\index.html:659
-#: .\templates\npc\index.html:668 .\templates\npc\index.html:677
-#: .\templates\npc\index.html:686 .\templates\npc\index.html:695
-#: .\templates\npc\index.html:704 .\templates\npc\index.html:713
-#: .\templates\npc\index.html:734 .\templates\npc\index.html:743
-#: .\templates\npc\index.html:752 .\templates\npc\index.html:761
-#: .\templates\npc\index.html:770 .\templates\npc\index.html:779
-#: .\templates\npc\index.html:788 .\templates\npc\index.html:797
-#: .\templates\npc\index.html:818 .\templates\npc\index.html:827
-#: .\templates\npc\index.html:836 .\templates\npc\index.html:845
-#: .\templates\npc\index.html:854 .\templates\npc\index.html:863
-#: .\templates\npc\index.html:872 .\templates\npc\index.html:881
-#: .\templates\npc\index.html:912 .\templates\npc\index.html:921
-#: .\templates\npc\index.html:930 .\templates\npc\index.html:943
-#: .\templates\npc\index.html:964 .\templates\npc\index.html:973
-#: .\templates\npc\index.html:982 .\templates\npc\index.html:995
-#: .\templates\npc\index.html:1016 .\templates\npc\index.html:1025
-#: .\templates\npc\index.html:1034 .\templates\npc\index.html:1047
-#: .\templates\npc\index.html:1159 .\templates\npc\index.html:1167
-#: .\templates\npc\index.html:1175 .\templates\npc\index.html:1183
-#: .\templates\npc\index.html:1191 .\templates\npc\index.html:1199
-#: .\templates\npc\index.html:1217 .\templates\npc\index.html:1225
-#: .\templates\npc\index.html:1233 .\templates\npc\index.html:1241
-#: .\templates\npc\index.html:1249 .\templates\npc\index.html:1257
-#: .\templates\npc\index.html:1492 .\templates\npc\index.html:1538
-#: .\templates\npc\index.html:1584
+#: .\card\models.py:80
+msgid "명계"
+msgstr "Nether"
+
+#: .\card\models.py:81 .\npc\catalog.py:270
+msgid "차원의 틈"
+msgstr "Dimensional Rift"
+
+#: .\card\models.py:82
+msgid "재료"
+msgstr "Materials"
+
+#: .\card\views.py:15
+msgid "에피소드"
+msgstr "Episode"
+
+#: .\card\views.py:16
+msgid "상세"
+msgstr "Details"
+
+#: .\card\views.py:17 .\templates\card\search_card.html:34
+msgid "기타"
+msgstr "Etc"
+
+#: .\core\context_processors.py:10
+msgid "가로 모드"
+msgstr "Horizontal"
+
+#: .\core\context_processors.py:11
+msgid "세로 모드"
+msgstr "Vertical"
+
+#: .\npc\catalog.py:26
 msgid "1층"
 msgstr "1F"
 
-#: .\templates\npc\index.html:41 .\templates\npc\index.html:50
-#: .\templates\npc\index.html:59 .\templates\npc\index.html:68
-#: .\templates\npc\index.html:77 .\templates\npc\index.html:86
-#: .\templates\npc\index.html:95 .\templates\npc\index.html:104
-#: .\templates\npc\index.html:113 .\templates\npc\index.html:135
-#: .\templates\npc\index.html:144 .\templates\npc\index.html:153
-#: .\templates\npc\index.html:162 .\templates\npc\index.html:171
-#: .\templates\npc\index.html:180 .\templates\npc\index.html:189
-#: .\templates\npc\index.html:198 .\templates\npc\index.html:207
-#: .\templates\npc\index.html:229 .\templates\npc\index.html:238
-#: .\templates\npc\index.html:247 .\templates\npc\index.html:256
-#: .\templates\npc\index.html:265 .\templates\npc\index.html:274
-#: .\templates\npc\index.html:283 .\templates\npc\index.html:292
-#: .\templates\npc\index.html:301 .\templates\npc\index.html:336
-#: .\templates\npc\index.html:345 .\templates\npc\index.html:354
-#: .\templates\npc\index.html:363 .\templates\npc\index.html:372
-#: .\templates\npc\index.html:381 .\templates\npc\index.html:390
-#: .\templates\npc\index.html:399 .\templates\npc\index.html:420
-#: .\templates\npc\index.html:429 .\templates\npc\index.html:438
-#: .\templates\npc\index.html:447 .\templates\npc\index.html:456
-#: .\templates\npc\index.html:465 .\templates\npc\index.html:474
-#: .\templates\npc\index.html:483 .\templates\npc\index.html:504
-#: .\templates\npc\index.html:513 .\templates\npc\index.html:522
-#: .\templates\npc\index.html:531 .\templates\npc\index.html:540
-#: .\templates\npc\index.html:549 .\templates\npc\index.html:558
-#: .\templates\npc\index.html:567 .\templates\npc\index.html:588
-#: .\templates\npc\index.html:602 .\templates\npc\index.html:616
-#: .\templates\npc\index.html:651 .\templates\npc\index.html:660
-#: .\templates\npc\index.html:669 .\templates\npc\index.html:678
-#: .\templates\npc\index.html:687 .\templates\npc\index.html:696
-#: .\templates\npc\index.html:705 .\templates\npc\index.html:714
-#: .\templates\npc\index.html:735 .\templates\npc\index.html:744
-#: .\templates\npc\index.html:753 .\templates\npc\index.html:762
-#: .\templates\npc\index.html:771 .\templates\npc\index.html:780
-#: .\templates\npc\index.html:789 .\templates\npc\index.html:798
-#: .\templates\npc\index.html:819 .\templates\npc\index.html:828
-#: .\templates\npc\index.html:837 .\templates\npc\index.html:846
-#: .\templates\npc\index.html:855 .\templates\npc\index.html:864
-#: .\templates\npc\index.html:873 .\templates\npc\index.html:882
-#: .\templates\npc\index.html:913 .\templates\npc\index.html:922
-#: .\templates\npc\index.html:931 .\templates\npc\index.html:944
-#: .\templates\npc\index.html:965 .\templates\npc\index.html:974
-#: .\templates\npc\index.html:983 .\templates\npc\index.html:996
-#: .\templates\npc\index.html:1017 .\templates\npc\index.html:1026
-#: .\templates\npc\index.html:1035 .\templates\npc\index.html:1048
-#: .\templates\npc\index.html:1160 .\templates\npc\index.html:1168
-#: .\templates\npc\index.html:1176 .\templates\npc\index.html:1184
-#: .\templates\npc\index.html:1192 .\templates\npc\index.html:1200
-#: .\templates\npc\index.html:1218 .\templates\npc\index.html:1226
-#: .\templates\npc\index.html:1234 .\templates\npc\index.html:1242
-#: .\templates\npc\index.html:1250 .\templates\npc\index.html:1258
-#: .\templates\npc\index.html:1493 .\templates\npc\index.html:1539
-#: .\templates\npc\index.html:1585
+#: .\npc\catalog.py:27
 msgid "2층"
 msgstr "2F"
 
-#: .\templates\npc\index.html:42 .\templates\npc\index.html:51
-#: .\templates\npc\index.html:60 .\templates\npc\index.html:69
-#: .\templates\npc\index.html:78 .\templates\npc\index.html:87
-#: .\templates\npc\index.html:96 .\templates\npc\index.html:105
-#: .\templates\npc\index.html:114 .\templates\npc\index.html:136
-#: .\templates\npc\index.html:145 .\templates\npc\index.html:154
-#: .\templates\npc\index.html:163 .\templates\npc\index.html:172
-#: .\templates\npc\index.html:181 .\templates\npc\index.html:190
-#: .\templates\npc\index.html:199 .\templates\npc\index.html:208
-#: .\templates\npc\index.html:230 .\templates\npc\index.html:239
-#: .\templates\npc\index.html:248 .\templates\npc\index.html:257
-#: .\templates\npc\index.html:266 .\templates\npc\index.html:275
-#: .\templates\npc\index.html:284 .\templates\npc\index.html:293
-#: .\templates\npc\index.html:302 .\templates\npc\index.html:337
-#: .\templates\npc\index.html:346 .\templates\npc\index.html:355
-#: .\templates\npc\index.html:364 .\templates\npc\index.html:373
-#: .\templates\npc\index.html:382 .\templates\npc\index.html:391
-#: .\templates\npc\index.html:400 .\templates\npc\index.html:421
-#: .\templates\npc\index.html:430 .\templates\npc\index.html:439
-#: .\templates\npc\index.html:448 .\templates\npc\index.html:457
-#: .\templates\npc\index.html:466 .\templates\npc\index.html:475
-#: .\templates\npc\index.html:484 .\templates\npc\index.html:505
-#: .\templates\npc\index.html:514 .\templates\npc\index.html:523
-#: .\templates\npc\index.html:532 .\templates\npc\index.html:541
-#: .\templates\npc\index.html:550 .\templates\npc\index.html:559
-#: .\templates\npc\index.html:568 .\templates\npc\index.html:589
-#: .\templates\npc\index.html:603 .\templates\npc\index.html:617
-#: .\templates\npc\index.html:652 .\templates\npc\index.html:661
-#: .\templates\npc\index.html:670 .\templates\npc\index.html:679
-#: .\templates\npc\index.html:688 .\templates\npc\index.html:697
-#: .\templates\npc\index.html:706 .\templates\npc\index.html:715
-#: .\templates\npc\index.html:736 .\templates\npc\index.html:745
-#: .\templates\npc\index.html:754 .\templates\npc\index.html:763
-#: .\templates\npc\index.html:772 .\templates\npc\index.html:781
-#: .\templates\npc\index.html:790 .\templates\npc\index.html:799
-#: .\templates\npc\index.html:820 .\templates\npc\index.html:829
-#: .\templates\npc\index.html:838 .\templates\npc\index.html:847
-#: .\templates\npc\index.html:856 .\templates\npc\index.html:865
-#: .\templates\npc\index.html:874 .\templates\npc\index.html:883
-#: .\templates\npc\index.html:914 .\templates\npc\index.html:923
-#: .\templates\npc\index.html:932 .\templates\npc\index.html:945
-#: .\templates\npc\index.html:966 .\templates\npc\index.html:975
-#: .\templates\npc\index.html:984 .\templates\npc\index.html:997
-#: .\templates\npc\index.html:1018 .\templates\npc\index.html:1027
-#: .\templates\npc\index.html:1036 .\templates\npc\index.html:1049
-#: .\templates\npc\index.html:1161 .\templates\npc\index.html:1169
-#: .\templates\npc\index.html:1177 .\templates\npc\index.html:1185
-#: .\templates\npc\index.html:1193 .\templates\npc\index.html:1201
-#: .\templates\npc\index.html:1219 .\templates\npc\index.html:1227
-#: .\templates\npc\index.html:1235 .\templates\npc\index.html:1243
-#: .\templates\npc\index.html:1251 .\templates\npc\index.html:1259
-#: .\templates\npc\index.html:1494 .\templates\npc\index.html:1540
-#: .\templates\npc\index.html:1586
+#: .\npc\catalog.py:28
 msgid "3층"
 msgstr "3F"
 
-#: .\templates\npc\index.html:43 .\templates\npc\index.html:52
-#: .\templates\npc\index.html:61 .\templates\npc\index.html:70
-#: .\templates\npc\index.html:79 .\templates\npc\index.html:88
-#: .\templates\npc\index.html:97 .\templates\npc\index.html:106
-#: .\templates\npc\index.html:115 .\templates\npc\index.html:137
-#: .\templates\npc\index.html:146 .\templates\npc\index.html:155
-#: .\templates\npc\index.html:164 .\templates\npc\index.html:173
-#: .\templates\npc\index.html:182 .\templates\npc\index.html:191
-#: .\templates\npc\index.html:200 .\templates\npc\index.html:209
-#: .\templates\npc\index.html:231 .\templates\npc\index.html:240
-#: .\templates\npc\index.html:249 .\templates\npc\index.html:258
-#: .\templates\npc\index.html:267 .\templates\npc\index.html:276
-#: .\templates\npc\index.html:285 .\templates\npc\index.html:294
-#: .\templates\npc\index.html:303 .\templates\npc\index.html:338
-#: .\templates\npc\index.html:347 .\templates\npc\index.html:356
-#: .\templates\npc\index.html:365 .\templates\npc\index.html:374
-#: .\templates\npc\index.html:383 .\templates\npc\index.html:392
-#: .\templates\npc\index.html:401 .\templates\npc\index.html:422
-#: .\templates\npc\index.html:431 .\templates\npc\index.html:440
-#: .\templates\npc\index.html:449 .\templates\npc\index.html:458
-#: .\templates\npc\index.html:467 .\templates\npc\index.html:476
-#: .\templates\npc\index.html:485 .\templates\npc\index.html:506
-#: .\templates\npc\index.html:515 .\templates\npc\index.html:524
-#: .\templates\npc\index.html:533 .\templates\npc\index.html:542
-#: .\templates\npc\index.html:551 .\templates\npc\index.html:560
-#: .\templates\npc\index.html:569 .\templates\npc\index.html:590
-#: .\templates\npc\index.html:604 .\templates\npc\index.html:618
-#: .\templates\npc\index.html:653 .\templates\npc\index.html:662
-#: .\templates\npc\index.html:671 .\templates\npc\index.html:680
-#: .\templates\npc\index.html:689 .\templates\npc\index.html:698
-#: .\templates\npc\index.html:707 .\templates\npc\index.html:716
-#: .\templates\npc\index.html:737 .\templates\npc\index.html:746
-#: .\templates\npc\index.html:755 .\templates\npc\index.html:764
-#: .\templates\npc\index.html:773 .\templates\npc\index.html:782
-#: .\templates\npc\index.html:791 .\templates\npc\index.html:800
-#: .\templates\npc\index.html:821 .\templates\npc\index.html:830
-#: .\templates\npc\index.html:839 .\templates\npc\index.html:848
-#: .\templates\npc\index.html:857 .\templates\npc\index.html:866
-#: .\templates\npc\index.html:875 .\templates\npc\index.html:884
-#: .\templates\npc\index.html:915 .\templates\npc\index.html:924
-#: .\templates\npc\index.html:933 .\templates\npc\index.html:946
-#: .\templates\npc\index.html:967 .\templates\npc\index.html:976
-#: .\templates\npc\index.html:985 .\templates\npc\index.html:998
-#: .\templates\npc\index.html:1019 .\templates\npc\index.html:1028
-#: .\templates\npc\index.html:1037 .\templates\npc\index.html:1050
-#: .\templates\npc\index.html:1162 .\templates\npc\index.html:1170
-#: .\templates\npc\index.html:1178 .\templates\npc\index.html:1186
-#: .\templates\npc\index.html:1194 .\templates\npc\index.html:1202
-#: .\templates\npc\index.html:1220 .\templates\npc\index.html:1228
-#: .\templates\npc\index.html:1236 .\templates\npc\index.html:1244
-#: .\templates\npc\index.html:1252 .\templates\npc\index.html:1260
-#: .\templates\npc\index.html:1495 .\templates\npc\index.html:1541
-#: .\templates\npc\index.html:1587
+#: .\npc\catalog.py:29
 msgid "4층"
 msgstr "4F"
 
-#: .\templates\npc\index.html:44 .\templates\npc\index.html:53
-#: .\templates\npc\index.html:62 .\templates\npc\index.html:71
-#: .\templates\npc\index.html:80 .\templates\npc\index.html:89
-#: .\templates\npc\index.html:98 .\templates\npc\index.html:107
-#: .\templates\npc\index.html:116 .\templates\npc\index.html:138
-#: .\templates\npc\index.html:147 .\templates\npc\index.html:156
-#: .\templates\npc\index.html:165 .\templates\npc\index.html:174
-#: .\templates\npc\index.html:183 .\templates\npc\index.html:192
-#: .\templates\npc\index.html:201 .\templates\npc\index.html:210
-#: .\templates\npc\index.html:232 .\templates\npc\index.html:241
-#: .\templates\npc\index.html:250 .\templates\npc\index.html:259
-#: .\templates\npc\index.html:268 .\templates\npc\index.html:277
-#: .\templates\npc\index.html:286 .\templates\npc\index.html:295
-#: .\templates\npc\index.html:304 .\templates\npc\index.html:339
-#: .\templates\npc\index.html:348 .\templates\npc\index.html:357
-#: .\templates\npc\index.html:366 .\templates\npc\index.html:375
-#: .\templates\npc\index.html:384 .\templates\npc\index.html:393
-#: .\templates\npc\index.html:402 .\templates\npc\index.html:423
-#: .\templates\npc\index.html:432 .\templates\npc\index.html:441
-#: .\templates\npc\index.html:450 .\templates\npc\index.html:459
-#: .\templates\npc\index.html:468 .\templates\npc\index.html:477
-#: .\templates\npc\index.html:486 .\templates\npc\index.html:507
-#: .\templates\npc\index.html:516 .\templates\npc\index.html:525
-#: .\templates\npc\index.html:534 .\templates\npc\index.html:543
-#: .\templates\npc\index.html:552 .\templates\npc\index.html:561
-#: .\templates\npc\index.html:570 .\templates\npc\index.html:591
-#: .\templates\npc\index.html:605 .\templates\npc\index.html:619
-#: .\templates\npc\index.html:654 .\templates\npc\index.html:663
-#: .\templates\npc\index.html:672 .\templates\npc\index.html:681
-#: .\templates\npc\index.html:690 .\templates\npc\index.html:699
-#: .\templates\npc\index.html:708 .\templates\npc\index.html:717
-#: .\templates\npc\index.html:738 .\templates\npc\index.html:747
-#: .\templates\npc\index.html:756 .\templates\npc\index.html:765
-#: .\templates\npc\index.html:774 .\templates\npc\index.html:783
-#: .\templates\npc\index.html:792 .\templates\npc\index.html:801
-#: .\templates\npc\index.html:822 .\templates\npc\index.html:831
-#: .\templates\npc\index.html:840 .\templates\npc\index.html:849
-#: .\templates\npc\index.html:858 .\templates\npc\index.html:867
-#: .\templates\npc\index.html:876 .\templates\npc\index.html:885
-#: .\templates\npc\index.html:916 .\templates\npc\index.html:925
-#: .\templates\npc\index.html:934 .\templates\npc\index.html:947
-#: .\templates\npc\index.html:968 .\templates\npc\index.html:977
-#: .\templates\npc\index.html:986 .\templates\npc\index.html:999
-#: .\templates\npc\index.html:1020 .\templates\npc\index.html:1029
-#: .\templates\npc\index.html:1038 .\templates\npc\index.html:1051
-#: .\templates\npc\index.html:1500 .\templates\npc\index.html:1546
-#: .\templates\npc\index.html:1592
+#: .\npc\catalog.py:30
 msgid "5층"
 msgstr "5F"
 
-#: .\templates\npc\index.html:313
-msgid "카타콤"
-msgstr "Catacombs"
-
-#: .\templates\npc\index.html:314
-msgid "고대 성역"
-msgstr "Ancient Sanctuary"
-
-#: .\templates\npc\index.html:315
-msgid "SS흥신소"
-msgstr "2S Agency"
-
-#: .\templates\npc\index.html:316
-msgid "비타 도서관"
-msgstr "Vita Library"
-
-#: .\templates\npc\index.html:317
-msgid "매장 도서관"
-msgstr "Burial Library"
-
-#: .\templates\npc\index.html:318
-msgid "로일 시티"
-msgstr "Royle City"
-
-#: .\templates\npc\index.html:319
-msgid "뮤지시터랜드"
-msgstr "Muzisitter Land"
-
-#: .\templates\npc\index.html:320
-msgid "카나의 제단"
-msgstr "Altar of Kana"
-
-#: .\templates\npc\index.html:579
-msgid "묘족의 유적"
-msgstr "Cat Tribe Ruins"
-
-#: .\templates\npc\index.html:628
-msgid "겨울의 숲"
-msgstr "Winter Forest"
-
-#: .\templates\npc\index.html:629
-msgid "화신의 저택"
-msgstr "Etlangze's Mansion"
-
-#: .\templates\npc\index.html:630
-msgid "소녀의 방"
-msgstr "Girl's Room"
-
-#: .\templates\npc\index.html:631
-msgid "사탕 공장"
-msgstr "Candy Factory"
-
-#: .\templates\npc\index.html:632
-msgid "이상한 나라"
-msgstr "Windland"
-
-#: .\templates\npc\index.html:633
-msgid "꿈의 바다"
-msgstr "Sea of Dreams"
-
-#: .\templates\npc\index.html:634
-msgid "할로윈랜드"
-msgstr "Halloweenland"
-
-#: .\templates\npc\index.html:635
-msgid "드림 월드"
-msgstr "Dream World"
-
-#: .\templates\npc\index.html:890
-msgid "크룩스 리조트"
-msgstr "Crux Resort"
-
-#: .\templates\npc\index.html:891
-msgid "시니아의 별장"
-msgstr "Cinia's Villa"
-
-#: .\templates\npc\index.html:892
-msgid "화신의 마을"
-msgstr "Etlangze's Village"
-
-#: .\templates\npc\index.html:897
-msgid "꿈의 스테이지"
-msgstr "Stage of Dream"
-
-#: .\templates\npc\index.html:1060
-msgid "유령의 집"
-msgstr "Haunted Mansion"
-
-#: .\templates\npc\index.html:1061
-msgid "회전 목마"
-msgstr "Merry-Go-Round"
-
-#: .\templates\npc\index.html:1062
-msgid "대관람차"
-msgstr "Ferris wheel"
-
-#: .\templates\npc\index.html:1063
-msgid "그림자 열차"
-msgstr "Roller Coaster"
-
-#: .\templates\npc\index.html:1064
-msgid "그림자 퍼레이드"
-msgstr "Shadow Parade"
-
-#: .\templates\npc\index.html:1068
-msgid "제국 연구소"
-msgstr "Empire Lab"
-
-#: .\templates\npc\index.html:1082 .\templates\npc\index.html:1091
-#: .\templates\npc\index.html:1100 .\templates\npc\index.html:1109
-#: .\templates\npc\index.html:1118 .\templates\npc\index.html:1127
-#: .\templates\npc\index.html:1136
-msgid "연구소 A동"
-msgstr "A-Lab"
-
-#: .\templates\npc\index.html:1083 .\templates\npc\index.html:1092
-#: .\templates\npc\index.html:1101 .\templates\npc\index.html:1110
-#: .\templates\npc\index.html:1119 .\templates\npc\index.html:1128
-#: .\templates\npc\index.html:1137
-msgid "연구소 B동"
-msgstr "B-Lab"
-
-#: .\templates\npc\index.html:1084 .\templates\npc\index.html:1093
-#: .\templates\npc\index.html:1102 .\templates\npc\index.html:1111
-#: .\templates\npc\index.html:1120 .\templates\npc\index.html:1129
-#: .\templates\npc\index.html:1138
-msgid "연구소 C동"
-msgstr "C-Lab"
-
-#: .\templates\npc\index.html:1085 .\templates\npc\index.html:1094
-#: .\templates\npc\index.html:1103 .\templates\npc\index.html:1112
-#: .\templates\npc\index.html:1121 .\templates\npc\index.html:1130
-#: .\templates\npc\index.html:1139
-msgid "연구소 D동"
-msgstr "D-Lab"
-
-#: .\templates\npc\index.html:1086 .\templates\npc\index.html:1095
-#: .\templates\npc\index.html:1104 .\templates\npc\index.html:1113
-#: .\templates\npc\index.html:1122 .\templates\npc\index.html:1131
-#: .\templates\npc\index.html:1140
-msgid "연구소 E동"
-msgstr "E-Lab"
-
-#: .\templates\npc\index.html:1146
-msgid "무스펠헤임"
-msgstr "Muspelheim"
-
-#: .\templates\npc\index.html:1149
-msgid "명계의 왕"
-msgstr "Ruler of the Nether"
-
-#: .\templates\npc\index.html:1150
-msgid "괴한 습격 사건"
-msgstr "Attack of the Unknown"
-
-#: .\templates\npc\index.html:1151
-msgid "메이드 밴드 파티"
-msgstr "Maid Band Party"
-
-#: .\templates\npc\index.html:1152
-msgid "막내의 일기"
-msgstr "The Diary of a Youngest"
-
-#: .\templates\npc\index.html:1153
-msgid "새로운 만월"
-msgstr "New Full Moon"
-
-#: .\templates\npc\index.html:1154
-msgid "테니스 체험"
-msgstr "Tennis Experience"
-
-#: .\templates\npc\index.html:1207
-msgid "시타 빌로사"
-msgstr "Sita Vilosa"
-
-#: .\templates\npc\index.html:1208
-msgid "시니아 퍼시피카"
-msgstr "Cinia Pacifica"
-
-#: .\templates\npc\index.html:1209
-msgid "루티카 프리벤터"
-msgstr "Luthica Preventer"
-
-#: .\templates\npc\index.html:1210
-msgid "아이리 플리나"
-msgstr "Iri Flina"
-
-#: .\templates\npc\index.html:1211
-msgid "문의 저편으로"
-msgstr "Other Side of Door"
-
-#: .\templates\npc\index.html:1212
-msgid "코발트색 추억"
-msgstr "Cobalt Memory"
-
-#: .\templates\npc\index.html:1275 .\templates\npc\index.html:1292
-msgid "시작의 관찰자"
-msgstr "Beginner Observer"
-
-#: .\templates\npc\index.html:1276 .\templates\npc\index.html:1293
-msgid "은둔형 관찰자"
-msgstr "Loner Observer"
-
-#: .\templates\npc\index.html:1277 .\templates\npc\index.html:1294
-msgid "수집형 관찰자"
-msgstr "Collector Observer"
-
-#: .\templates\npc\index.html:1278 .\templates\npc\index.html:1296
-msgid "게임광 관찰자"
-msgstr "Duelist Observer"
-
-#: .\templates\npc\index.html:1283
-msgid "초월의 관찰자"
-msgstr "Transcendental Observer"
-
-#: .\templates\npc\index.html:1295
-msgid "매니저 관찰자"
-msgstr "Manager Observer"
-
-#: .\templates\npc\index.html:1301 .\templates\npc\index.html:1302
-#: .\templates\npc\index.html:1303 .\templates\npc\index.html:1304
-#: .\templates\npc\index.html:1305 .\templates\npc\index.html:1306
-#: .\templates\npc\index.html:1307 .\templates\npc\index.html:1308
-msgid "해변의"
-msgstr "Beach"
-
-#: .\templates\npc\index.html:1301 .\templates\npc\index.html:1333
-#: .\templates\npc\index.html:1353 .\templates\npc\index.html:1369
-msgid "시타"
-msgstr "Sita"
-
-#: .\templates\npc\index.html:1302 .\templates\npc\index.html:1334
-#: .\templates\npc\index.html:1354 .\templates\npc\index.html:1370
-msgid "시니아"
-msgstr "Cinia"
-
-#: .\templates\npc\index.html:1303 .\templates\npc\index.html:1335
-#: .\templates\npc\index.html:1355 .\templates\npc\index.html:1371
-msgid "루티카"
-msgstr "Luthica"
-
-#: .\templates\npc\index.html:1304 .\templates\npc\index.html:1336
-#: .\templates\npc\index.html:1356 .\templates\npc\index.html:1372
-msgid "아이리"
-msgstr "Iri"
-
-#: .\templates\npc\index.html:1305 .\templates\npc\index.html:1337
-#: .\templates\npc\index.html:1357 .\templates\npc\index.html:1373
-msgid "아스미스"
-msgstr "Asmis"
-
-#: .\templates\npc\index.html:1306 .\templates\npc\index.html:1338
-#: .\templates\npc\index.html:1358 .\templates\npc\index.html:1374
-msgid "리누스"
-msgstr "Linus"
-
-#: .\templates\npc\index.html:1307 .\templates\npc\index.html:1339
-#: .\templates\npc\index.html:1359 .\templates\npc\index.html:1375
-msgid "로자리아"
-msgstr "Rosalia"
-
-#: .\templates\npc\index.html:1308 .\templates\npc\index.html:1340
-#: .\templates\npc\index.html:1360 .\templates\npc\index.html:1376
-msgid "헬레나"
-msgstr "Helena"
-
-#: .\templates\npc\index.html:1309 .\templates\npc\index.html:1310
-#: .\templates\npc\index.html:1311 .\templates\npc\index.html:1312
-#: .\templates\npc\index.html:1325 .\templates\npc\index.html:1326
-#: .\templates\npc\index.html:1327 .\templates\npc\index.html:1328
-#: .\templates\npc\index.html:1357 .\templates\npc\index.html:1358
-#: .\templates\npc\index.html:1359 .\templates\npc\index.html:1360
-#: .\templates\npc\index.html:1373 .\templates\npc\index.html:1374
-#: .\templates\npc\index.html:1375 .\templates\npc\index.html:1376
-msgid "어린이"
-msgstr "Child"
-
-#: .\templates\npc\index.html:1309
-msgid "이리나"
-msgstr "Irina"
-
-#: .\templates\npc\index.html:1310
-msgid "마리메"
-msgstr "Marime"
-
-#: .\templates\npc\index.html:1311
-msgid "아우디레"
-msgstr "Audire"
-
-#: .\templates\npc\index.html:1312
-msgid "라임"
-msgstr "Lime"
-
-#: .\templates\npc\index.html:1317 .\templates\npc\index.html:1318
-#: .\templates\npc\index.html:1319 .\templates\npc\index.html:1320
-#: .\templates\npc\index.html:1321 .\templates\npc\index.html:1322
-#: .\templates\npc\index.html:1323 .\templates\npc\index.html:1324
-#: .\templates\npc\index.html:1333 .\templates\npc\index.html:1334
-#: .\templates\npc\index.html:1335 .\templates\npc\index.html:1336
-#: .\templates\npc\index.html:1337 .\templates\npc\index.html:1338
-#: .\templates\npc\index.html:1339 .\templates\npc\index.html:1340
-#: .\templates\npc\index.html:1349 .\templates\npc\index.html:1350
-#: .\templates\npc\index.html:1351 .\templates\npc\index.html:1352
-#: .\templates\npc\index.html:1365 .\templates\npc\index.html:1366
-#: .\templates\npc\index.html:1367 .\templates\npc\index.html:1368
-msgid "수영복의"
-msgstr "Swimwear"
-
-#: .\templates\npc\index.html:1317 .\templates\npc\index.html:1325
-msgid "베르니카"
-msgstr "Vernika"
-
-#: .\templates\npc\index.html:1318
-msgid "로제"
-msgstr "Rose"
-
-#: .\templates\npc\index.html:1319 .\templates\npc\index.html:1327
-msgid "제이나"
-msgstr "Jaina"
-
-#: .\templates\npc\index.html:1320
-msgid "앤즈"
-msgstr "Anj"
-
-#: .\templates\npc\index.html:1321
-msgid "레이나"
-msgstr "Layna"
-
-#: .\templates\npc\index.html:1322
-msgid "세븐"
-msgstr "Seven"
-
-#: .\templates\npc\index.html:1323
-msgid "핀테일"
-msgstr "Pintail"
-
-#: .\templates\npc\index.html:1324
-msgid "몽쉘"
-msgstr "Mon Cher"
-
-#: .\templates\npc\index.html:1326 .\templates\npc\index.html:1350
-#: .\templates\npc\index.html:1366
-msgid "리니아"
-msgstr "Linia"
-
-#: .\templates\npc\index.html:1328 .\templates\npc\index.html:1352
-#: .\templates\npc\index.html:1368
-msgid "시온 리온"
-msgstr "Sion & Rion"
-
-#: .\templates\npc\index.html:1341
-msgid "피오나"
-msgstr "Fiona"
-
-#: .\templates\npc\index.html:1341
-msgid "센트리버"
-msgstr "Scentriver"
-
-#: .\templates\npc\index.html:1342
-msgid "엔프레스"
-msgstr "Enpress"
-
-#: .\templates\npc\index.html:1342
-msgid "퍼시피카"
-msgstr "Pacifica"
-
-#: .\templates\npc\index.html:1343
-msgid "클라라"
-msgstr "Clara"
-
-#: .\templates\npc\index.html:1343
-msgid "알트하임"
-msgstr "Altheim"
-
-#: .\templates\npc\index.html:1344
-msgid "루나"
-msgstr "Luna"
-
-#: .\templates\npc\index.html:1344
-msgid "플리나"
-msgstr "Flina"
-
-#: .\templates\npc\index.html:1349 .\templates\npc\index.html:1365
-msgid "리안나"
-msgstr "Rianna"
-
-#: .\templates\npc\index.html:1351 .\templates\npc\index.html:1367
-msgid "클라리스"
-msgstr "Clarice"
-
-#: .\templates\npc\index.html:1353 .\templates\npc\index.html:1354
-#: .\templates\npc\index.html:1355 .\templates\npc\index.html:1356
-#: .\templates\npc\index.html:1369 .\templates\npc\index.html:1370
-#: .\templates\npc\index.html:1371 .\templates\npc\index.html:1372
-msgid "한여름의"
-msgstr "Midsummer"
-
-#: .\templates\npc\index.html:1484
-msgid "차원의 탑"
-msgstr "Dimensional Tower"
-
-#: .\templates\npc\index.html:1484
-msgid "20층 단위 반복"
-msgstr "repeats every 20 floors"
-
-#: .\templates\npc\index.html:1487
-msgid "여름의 탑"
-msgstr "Tower of Summer"
-
-#: .\templates\npc\index.html:1501 .\templates\npc\index.html:1547
-#: .\templates\npc\index.html:1593
+#: .\npc\catalog.py:31
 msgid "6층"
 msgstr "6F"
 
-#: .\templates\npc\index.html:1502 .\templates\npc\index.html:1548
-#: .\templates\npc\index.html:1594
+#: .\npc\catalog.py:32
 msgid "7층"
 msgstr "7F"
 
-#: .\templates\npc\index.html:1503 .\templates\npc\index.html:1549
-#: .\templates\npc\index.html:1595
+#: .\npc\catalog.py:33
 msgid "8층"
 msgstr "8F"
 
-#: .\templates\npc\index.html:1508 .\templates\npc\index.html:1554
-#: .\templates\npc\index.html:1600
+#: .\npc\catalog.py:34
 msgid "9층"
 msgstr "9F"
 
-#: .\templates\npc\index.html:1509 .\templates\npc\index.html:1555
-#: .\templates\npc\index.html:1601
+#: .\npc\catalog.py:35
 msgid "10층"
 msgstr "10F"
 
-#: .\templates\npc\index.html:1510 .\templates\npc\index.html:1556
-#: .\templates\npc\index.html:1602
+#: .\npc\catalog.py:36
 msgid "11층"
 msgstr "11F"
 
-#: .\templates\npc\index.html:1511 .\templates\npc\index.html:1557
-#: .\templates\npc\index.html:1603
+#: .\npc\catalog.py:37
 msgid "12층"
 msgstr "12F"
 
-#: .\templates\npc\index.html:1516 .\templates\npc\index.html:1562
-#: .\templates\npc\index.html:1608
+#: .\npc\catalog.py:38
 msgid "13층"
 msgstr "13F"
 
-#: .\templates\npc\index.html:1517 .\templates\npc\index.html:1563
-#: .\templates\npc\index.html:1609
+#: .\npc\catalog.py:39
 msgid "14층"
 msgstr "14F"
 
-#: .\templates\npc\index.html:1518 .\templates\npc\index.html:1564
-#: .\templates\npc\index.html:1610
+#: .\npc\catalog.py:40
 msgid "15층"
 msgstr "15F"
 
-#: .\templates\npc\index.html:1519 .\templates\npc\index.html:1565
-#: .\templates\npc\index.html:1611
+#: .\npc\catalog.py:41
 msgid "16층"
 msgstr "16F"
 
-#: .\templates\npc\index.html:1524 .\templates\npc\index.html:1570
-#: .\templates\npc\index.html:1616
+#: .\npc\catalog.py:42
 msgid "17층"
 msgstr "17F"
 
-#: .\templates\npc\index.html:1525 .\templates\npc\index.html:1571
-#: .\templates\npc\index.html:1617
+#: .\npc\catalog.py:43
 msgid "18층"
 msgstr "18F"
 
-#: .\templates\npc\index.html:1526 .\templates\npc\index.html:1572
-#: .\templates\npc\index.html:1618
+#: .\npc\catalog.py:44
 msgid "19층"
 msgstr "19F"
 
-#: .\templates\npc\index.html:1527 .\templates\npc\index.html:1573
-#: .\templates\npc\index.html:1619
+#: .\npc\catalog.py:45
 msgid "20층"
 msgstr "20F"
 
-#: .\templates\npc\index.html:1533
+#: .\npc\catalog.py:116 .\npc\catalog.py:125
+msgid "이지"
+msgstr "Easy"
+
+#: .\npc\catalog.py:116
+msgid "노말"
+msgstr "Normal"
+
+#: .\npc\catalog.py:116
+msgid "하드"
+msgstr "Hard"
+
+#: .\npc\catalog.py:131
+msgid "시공관리국"
+msgstr "Administration Bureau"
+
+#: .\npc\catalog.py:132
+msgid "변경 유적"
+msgstr "Frontier Ruins"
+
+#: .\npc\catalog.py:133
+msgid "마녀의 탑"
+msgstr "Witch's Tower"
+
+#: .\npc\catalog.py:134
+msgid "죽림향"
+msgstr "Bamboo Garden"
+
+#: .\npc\catalog.py:135
+msgid "크룩스 훈련소"
+msgstr "Crux Training Camp"
+
+#: .\npc\catalog.py:136
+msgid "리니아관"
+msgstr "Linia's Mansion"
+
+#: .\npc\catalog.py:137
+msgid "흡혈귀의 땅"
+msgstr "Land of Vampires"
+
+#: .\npc\catalog.py:138
+msgid "비타 학교"
+msgstr "Vita School"
+
+#: .\npc\catalog.py:139
+msgid "심상 세계"
+msgstr "Inner World"
+
+#: .\npc\catalog.py:145
+msgid "카타콤"
+msgstr "Catacombs"
+
+#: .\npc\catalog.py:146
+msgid "고대 성역"
+msgstr "Ancient Sanctuary"
+
+#: .\npc\catalog.py:147
+msgid "SS흥신소"
+msgstr "2S Agency"
+
+#: .\npc\catalog.py:148
+msgid "비타 도서관"
+msgstr "Vita Library"
+
+#: .\npc\catalog.py:149
+msgid "매장 도서관"
+msgstr "Burial Library"
+
+#: .\npc\catalog.py:150
+msgid "로일 시티"
+msgstr "Royle City"
+
+#: .\npc\catalog.py:151
+msgid "뮤지시터랜드"
+msgstr "Muzisitter Land"
+
+#: .\npc\catalog.py:152
+msgid "카나의 제단"
+msgstr "Altar of Kana"
+
+#: .\npc\catalog.py:158
+msgid "묘족의 유적"
+msgstr "Cat Tribe Ruins"
+
+#: .\npc\catalog.py:164
+msgid "겨울의 숲"
+msgstr "Winter Forest"
+
+#: .\npc\catalog.py:165
+msgid "화신의 저택"
+msgstr "Etlangze's Mansion"
+
+#: .\npc\catalog.py:166
+msgid "소녀의 방"
+msgstr "Girl's Room"
+
+#: .\npc\catalog.py:167
+msgid "사탕 공장"
+msgstr "Candy Factory"
+
+#: .\npc\catalog.py:168
+msgid "이상한 나라"
+msgstr "Windland"
+
+#: .\npc\catalog.py:169
+msgid "꿈의 바다"
+msgstr "Sea of Dreams"
+
+#: .\npc\catalog.py:170
+msgid "할로윈랜드"
+msgstr "Halloweenland"
+
+#: .\npc\catalog.py:171
+msgid "드림 월드"
+msgstr "Dream World"
+
+#: .\npc\catalog.py:174
+msgid "크룩스 리조트"
+msgstr "Crux Resort"
+
+#: .\npc\catalog.py:175
+msgid "시니아의 별장"
+msgstr "Cinia's Villa"
+
+#: .\npc\catalog.py:176
+msgid "화신의 마을"
+msgstr "Etlangze's Village"
+
+#: .\npc\catalog.py:181
+msgid "꿈의 스테이지"
+msgstr "Stage of Dream"
+
+#: .\npc\catalog.py:187
+msgid "유령의 집"
+msgstr "Haunted Mansion"
+
+#: .\npc\catalog.py:188
+msgid "회전 목마"
+msgstr "Merry-Go-Round"
+
+#: .\npc\catalog.py:189
+msgid "대관람차"
+msgstr "Ferris wheel"
+
+#: .\npc\catalog.py:190
+msgid "그림자 열차"
+msgstr "Roller Coaster"
+
+#: .\npc\catalog.py:191
+msgid "그림자 퍼레이드"
+msgstr "Shadow Parade"
+
+#: .\npc\catalog.py:195
+msgid "제국 연구소"
+msgstr "Empire Lab"
+
+#: .\npc\catalog.py:198
+msgid "월"
+msgstr "Mon"
+
+#: .\npc\catalog.py:199 .\npc\catalog.py:206 .\npc\catalog.py:213
+#: .\npc\catalog.py:220 .\npc\catalog.py:227 .\npc\catalog.py:234
+#: .\npc\catalog.py:241
+msgid "연구소 A동"
+msgstr "A-Lab"
+
+#: .\npc\catalog.py:200 .\npc\catalog.py:207 .\npc\catalog.py:214
+#: .\npc\catalog.py:221 .\npc\catalog.py:228 .\npc\catalog.py:235
+#: .\npc\catalog.py:242
+msgid "연구소 B동"
+msgstr "B-Lab"
+
+#: .\npc\catalog.py:201 .\npc\catalog.py:208 .\npc\catalog.py:215
+#: .\npc\catalog.py:222 .\npc\catalog.py:229 .\npc\catalog.py:236
+#: .\npc\catalog.py:243
+msgid "연구소 C동"
+msgstr "C-Lab"
+
+#: .\npc\catalog.py:202 .\npc\catalog.py:209 .\npc\catalog.py:216
+#: .\npc\catalog.py:223 .\npc\catalog.py:230 .\npc\catalog.py:237
+#: .\npc\catalog.py:244
+msgid "연구소 D동"
+msgstr "D-Lab"
+
+#: .\npc\catalog.py:203 .\npc\catalog.py:210 .\npc\catalog.py:217
+#: .\npc\catalog.py:224 .\npc\catalog.py:231 .\npc\catalog.py:238
+#: .\npc\catalog.py:245
+msgid "연구소 E동"
+msgstr "E-Lab"
+
+#: .\npc\catalog.py:205
+msgid "화"
+msgstr "Tue"
+
+#: .\npc\catalog.py:212
+msgid "수"
+msgstr "Wed"
+
+#: .\npc\catalog.py:219
+msgid "목"
+msgstr "Thu"
+
+#: .\npc\catalog.py:226
+msgid "금"
+msgstr "Fri"
+
+#: .\npc\catalog.py:233
+msgid "토"
+msgstr "Sat"
+
+#: .\npc\catalog.py:240
+msgid "일"
+msgstr "Sun"
+
+#: .\npc\catalog.py:251
+msgid "무스펠헤임"
+msgstr "Muspelheim"
+
+#: .\npc\catalog.py:253
+msgid "명계의 왕"
+msgstr "Ruler of the Nether"
+
+#: .\npc\catalog.py:254
+msgid "괴한 습격 사건"
+msgstr "Attack of the Unknown"
+
+#: .\npc\catalog.py:255
+msgid "메이드 밴드 파티"
+msgstr "Maid Band Party"
+
+#: .\npc\catalog.py:256
+msgid "막내의 일기"
+msgstr "The Diary of a Youngest"
+
+#: .\npc\catalog.py:257
+msgid "새로운 만월"
+msgstr "New Full Moon"
+
+#: .\npc\catalog.py:258
+msgid "테니스 체험"
+msgstr "Tennis Experience"
+
+#: .\npc\catalog.py:261
+msgid "시타 빌로사"
+msgstr "Sita Vilosa"
+
+#: .\npc\catalog.py:262
+msgid "시니아 퍼시피카"
+msgstr "Cinia Pacifica"
+
+#: .\npc\catalog.py:263
+msgid "루티카 프리벤터"
+msgstr "Luthica Preventer"
+
+#: .\npc\catalog.py:264
+msgid "아이리 플리나"
+msgstr "Iri Flina"
+
+#: .\npc\catalog.py:265
+msgid "문의 저편으로"
+msgstr "Other Side of Door"
+
+#: .\npc\catalog.py:266
+msgid "코발트색 추억"
+msgstr "Cobalt Memory"
+
+#: .\npc\catalog.py:273 .\npc\catalog.py:298
+msgid "시작의 관찰자"
+msgstr "Beginner Observer"
+
+#: .\npc\catalog.py:274 .\npc\catalog.py:312
+msgid "은둔형 관찰자"
+msgstr "Loner Observer"
+
+#: .\npc\catalog.py:275 .\npc\catalog.py:326
+msgid "수집형 관찰자"
+msgstr "Collector Observer"
+
+#: .\npc\catalog.py:276 .\npc\catalog.py:354
+msgid "게임광 관찰자"
+msgstr "Duelist Observer"
+
+#: .\npc\catalog.py:278
+msgid "초월의 관찰자"
+msgstr "Transcendental Observer"
+
+#: .\npc\catalog.py:286 .\npc\catalog.py:287 .\npc\catalog.py:288
+#: .\npc\catalog.py:289 .\npc\catalog.py:290 .\npc\catalog.py:291
+#: .\npc\catalog.py:292 .\npc\catalog.py:293
+msgid "해변의"
+msgstr "Beach"
+
+#: .\npc\catalog.py:286 .\npc\catalog.py:314 .\npc\catalog.py:332
+#: .\npc\catalog.py:346
+msgid "시타"
+msgstr "Sita"
+
+#: .\npc\catalog.py:287 .\npc\catalog.py:315 .\npc\catalog.py:333
+#: .\npc\catalog.py:347
+msgid "시니아"
+msgstr "Cinia"
+
+#: .\npc\catalog.py:288 .\npc\catalog.py:316 .\npc\catalog.py:334
+#: .\npc\catalog.py:348
+msgid "루티카"
+msgstr "Luthica"
+
+#: .\npc\catalog.py:289 .\npc\catalog.py:317 .\npc\catalog.py:335
+#: .\npc\catalog.py:349
+msgid "아이리"
+msgstr "Iri"
+
+#: .\npc\catalog.py:290 .\npc\catalog.py:318 .\npc\catalog.py:336
+#: .\npc\catalog.py:350
+msgid "아스미스"
+msgstr "Asmis"
+
+#: .\npc\catalog.py:291 .\npc\catalog.py:319 .\npc\catalog.py:337
+#: .\npc\catalog.py:351
+msgid "리누스"
+msgstr "Linus"
+
+#: .\npc\catalog.py:292 .\npc\catalog.py:320 .\npc\catalog.py:338
+#: .\npc\catalog.py:352
+msgid "로자리아"
+msgstr "Rosalia"
+
+#: .\npc\catalog.py:293 .\npc\catalog.py:321 .\npc\catalog.py:339
+#: .\npc\catalog.py:353
+msgid "헬레나"
+msgstr "Helena"
+
+#: .\npc\catalog.py:294 .\npc\catalog.py:295 .\npc\catalog.py:296
+#: .\npc\catalog.py:297 .\npc\catalog.py:308 .\npc\catalog.py:309
+#: .\npc\catalog.py:310 .\npc\catalog.py:311 .\npc\catalog.py:336
+#: .\npc\catalog.py:337 .\npc\catalog.py:338 .\npc\catalog.py:339
+#: .\npc\catalog.py:350 .\npc\catalog.py:351 .\npc\catalog.py:352
+#: .\npc\catalog.py:353
+msgid "어린이"
+msgstr "Child"
+
+#: .\npc\catalog.py:294
+msgid "이리나"
+msgstr "Irina"
+
+#: .\npc\catalog.py:295
+msgid "마리메"
+msgstr "Marime"
+
+#: .\npc\catalog.py:296
+msgid "아우디레"
+msgstr "Audire"
+
+#: .\npc\catalog.py:297
+msgid "라임"
+msgstr "Lime"
+
+#: .\npc\catalog.py:300 .\npc\catalog.py:301 .\npc\catalog.py:302
+#: .\npc\catalog.py:303 .\npc\catalog.py:304 .\npc\catalog.py:305
+#: .\npc\catalog.py:306 .\npc\catalog.py:307 .\npc\catalog.py:314
+#: .\npc\catalog.py:315 .\npc\catalog.py:316 .\npc\catalog.py:317
+#: .\npc\catalog.py:318 .\npc\catalog.py:319 .\npc\catalog.py:320
+#: .\npc\catalog.py:321 .\npc\catalog.py:328 .\npc\catalog.py:329
+#: .\npc\catalog.py:330 .\npc\catalog.py:331 .\npc\catalog.py:342
+#: .\npc\catalog.py:343 .\npc\catalog.py:344 .\npc\catalog.py:345
+msgid "수영복의"
+msgstr "Swimwear"
+
+#: .\npc\catalog.py:300 .\npc\catalog.py:308
+msgid "베르니카"
+msgstr "Vernika"
+
+#: .\npc\catalog.py:301
+msgid "로제"
+msgstr "Rose"
+
+#: .\npc\catalog.py:302 .\npc\catalog.py:310
+msgid "제이나"
+msgstr "Jaina"
+
+#: .\npc\catalog.py:303
+msgid "앤즈"
+msgstr "Anj"
+
+#: .\npc\catalog.py:304
+msgid "레이나"
+msgstr "Layna"
+
+#: .\npc\catalog.py:305
+msgid "세븐"
+msgstr "Seven"
+
+#: .\npc\catalog.py:306
+msgid "핀테일"
+msgstr "Pintail"
+
+#: .\npc\catalog.py:307
+msgid "몽쉘"
+msgstr "Mon Cher"
+
+#: .\npc\catalog.py:309 .\npc\catalog.py:329 .\npc\catalog.py:343
+msgid "리니아"
+msgstr "Linia"
+
+#: .\npc\catalog.py:311 .\npc\catalog.py:331 .\npc\catalog.py:345
+msgid "시온 리온"
+msgstr "Sion & Rion"
+
+#: .\npc\catalog.py:322
+msgid "피오나"
+msgstr "Fiona"
+
+#: .\npc\catalog.py:322
+msgid "센트리버"
+msgstr "Scentriver"
+
+#: .\npc\catalog.py:323
+msgid "엔프레스"
+msgstr "Enpress"
+
+#: .\npc\catalog.py:323
+msgid "퍼시피카"
+msgstr "Pacifica"
+
+#: .\npc\catalog.py:324
+msgid "클라라"
+msgstr "Clara"
+
+#: .\npc\catalog.py:324
+msgid "알트하임"
+msgstr "Altheim"
+
+#: .\npc\catalog.py:325
+msgid "루나"
+msgstr "Luna"
+
+#: .\npc\catalog.py:325
+msgid "플리나"
+msgstr "Flina"
+
+#: .\npc\catalog.py:328 .\npc\catalog.py:342
+msgid "리안나"
+msgstr "Rianna"
+
+#: .\npc\catalog.py:330 .\npc\catalog.py:344
+msgid "클라리스"
+msgstr "Clarice"
+
+#: .\npc\catalog.py:332 .\npc\catalog.py:333 .\npc\catalog.py:334
+#: .\npc\catalog.py:335 .\npc\catalog.py:346 .\npc\catalog.py:347
+#: .\npc\catalog.py:348 .\npc\catalog.py:349
+msgid "한여름의"
+msgstr "Midsummer"
+
+#: .\npc\catalog.py:340
+msgid "매니저 관찰자"
+msgstr "Manager Observer"
+
+#: .\npc\catalog.py:359
+msgid "차원의 탑"
+msgstr "Dimensional Tower"
+
+#: .\npc\catalog.py:359
+msgid "20층 단위 반복"
+msgstr "repeats every 20 floors"
+
+#: .\npc\catalog.py:368
+msgid "여름의 탑"
+msgstr "Tower of Summer"
+
+#: .\npc\catalog.py:377
 msgid "어린이의 탑"
 msgstr "Tower of Children"
 
-#: .\templates\npc\index.html:1579
+#: .\npc\catalog.py:386
 msgid "바다의 탑"
 msgstr "Tower of Beach"
 
-#~ msgid "시험의 전당"
-#~ msgstr "Exam Hall"
+#: .\npc\services.py:80
+msgid "난이도"
+msgstr "Difficulty"
 
-#~ msgid "페르비아"
-#~ msgstr "Perbia"
+#: .\npc\services.py:94
+msgid "층"
+msgstr "Floor"
 
-#~ msgid "[影] 코르"
-#~ msgstr "코르 - Shadow"
+#: .\templates\card\_search_text_row.html:4
+msgid "검색"
+msgstr "search"
 
-#~ msgid "[影] 구름슬라임"
-#~ msgstr "구름슬라임 - Shadow"
+#: .\templates\card\index.html:4 .\templates\navbar.html:4
+msgid "카드(네비)"
+msgstr "Card"
 
-#~ msgid "[影] 45423"
-#~ msgstr "45423 - Shadow"
+#: .\templates\card\index.html:9
+msgid "How to create hyperlink to card"
+msgstr ""
 
-#~ msgid "[影] BerlyDraco"
-#~ msgstr "BerlyDraco - Shadow"
+#: .\templates\card\search_card.html:11 .\templates\card\search_card.html:26
+msgid "전체 선택"
+msgstr "Select all"
 
-#~ msgid "[影] 시타냥"
-#~ msgstr "시타냥 - Shadow"
+#: .\templates\card\search_card.html:28
+msgid "사이즈"
+msgstr "Size"
 
-#~ msgid "[影] 쿠마"
-#~ msgstr "쿠마 - Shadow"
+#: .\templates\card\search_card.html:47
+msgid "이전 페이지"
+msgstr "Previous page"
 
-#~ msgid "[影] Zaciel"
-#~ msgstr "Zaciel Zaciel - Shadow"
+#: .\templates\card\search_card.html:47
+msgid "다음 페이지"
+msgstr "Next page"
 
-#~ msgid "21층"
-#~ msgstr "21F"
+#: .\templates\components\card_detail.html:7
+msgid "클립보드 복사에 실패했습니다."
+msgstr "Failed to copy to the clipboard."
 
-#~ msgid "22층"
-#~ msgstr "22F"
+#: .\templates\components\card_detail.html:9
+msgid "캡처하기"
+msgstr "Capture"
 
-#~ msgid "23층"
-#~ msgstr "23F"
+#: .\templates\components\card_detail.html:11
+msgid "링크 복사"
+msgstr "Copy link"
 
-#~ msgid "24층"
-#~ msgstr "24F"
+#: .\templates\components\card_detail.html:14
+msgid "제작 재료"
+msgstr "Crafting materials"
 
-#~ msgid "25층"
-#~ msgstr "25F"
+#: .\templates\components\card_detail.html:15
+msgid "강화 초기화"
+msgstr "Reset enhancement"
 
-#~ msgid "26층"
-#~ msgstr "26F"
+#: .\templates\components\card_detail.html:18
+msgid "링크 카드"
+msgstr "Linked cards"
 
-#~ msgid "27층"
-#~ msgstr "27F"
+#: .\templates\components\card_detail.html:21
+msgid "원래 카드"
+msgstr "Original card"
 
-#~ msgid "28층"
-#~ msgstr "28F"
+#: .\templates\components\card_detail.html:22
+msgid "텍스트 전환"
+msgstr "Switch text"
 
-#~ msgid "29층"
-#~ msgstr "29F"
+#: .\templates\deck\index.html:4 .\templates\navbar.html:7
+msgid "덱(네비)"
+msgstr "Deck"
 
-#~ msgid "30층"
-#~ msgstr "30F"
+#: .\templates\deck\index.html:14
+msgctxt "deck tab"
+msgid "View"
+msgstr ""
 
-#~ msgid "31층"
-#~ msgstr "31F"
+#: .\templates\deck\index.html:15
+msgctxt "deck tab"
+msgid "Edit"
+msgstr ""
 
-#~ msgid "32층"
-#~ msgstr "32F"
+#: .\templates\deck\index.html:24
+msgid "덱 미리보기"
+msgstr "Deck Preview"
 
-#~ msgid "33층"
-#~ msgstr "33F"
-
-#~ msgid "34층"
-#~ msgstr "34F"
-
-#~ msgid "35층"
-#~ msgstr "35F"
-
-#~ msgid "36층"
-#~ msgstr "36F"
-
-#~ msgid "37층"
-#~ msgstr "37F"
-
-#~ msgid "38층"
-#~ msgstr "38F"
-
-#~ msgid "39층"
-#~ msgstr "39F"
-
-#~ msgid "40층"
-#~ msgstr "40F"
-
-#~ msgid "코인 팩토리"
-#~ msgstr "Coin Factory"
-
-#~ msgid "쉐도우랜드(시온)"
-#~ msgstr "Shadowland(Sion)"
-
-#~ msgid "쉐도우랜드(리온)"
-#~ msgstr "Shadowland(Rion)"
-
-#~ msgid "구정의 관찰자"
-#~ msgstr "New Year Observer"
-
-#~ msgid "사탕의 관찰자"
-#~ msgstr "Candy Observer"
-
-#~ msgid "히어로 관찰자"
-#~ msgstr "Hero Observer"
-
-#~ msgid "동화의 관찰자"
-#~ msgstr "Fairytale Observer"
-
-#~ msgid "할로윈의 관찰자"
-#~ msgstr "Halloween Observer"
-
-#~ msgid "어린이 관찰자"
-#~ msgstr "Child Observer"
-
-#~ msgid "성탄의 카나 시니아"
-#~ msgstr "X-mas Kana Cinia"
-
-#~ msgid "츄파츄파 페스티벌"
-#~ msgstr "Chupachupa Festival"
-
-#~ msgid "이지 모드"
-#~ msgstr "Easy Mode"
-
-#~ msgid "노말 모드"
-#~ msgstr "Normal Mode"
-
-#~ msgid "하드 모드"
-#~ msgstr "Hard Mode"
-
-#~ msgid "스페셜"
-#~ msgstr "Special"
-
-#~ msgid "궁극의 아이돌"
-#~ msgstr "Ultimate Idol"
+#: .\templates\guide\index.html:4 .\templates\navbar.html:5
+msgid "가이드(네비)"
+msgstr "Guide"
