@@ -1,6 +1,7 @@
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "kanadb.settings_test"
 testpaths = ["tests"]
+norecursedirs = ["tests/visual/output"]
 addopts = "-p no:cacheprovider"
 markers = ["visual: Playwright visual regression (needs running server)"]
 
