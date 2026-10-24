@@ -1,5 +1,4 @@
 function voteTier(cardId, category, mode, tier) {
-    console.log(`Card ID: ${cardId}, Category: ${category}, Mode: ${mode}, Tier: ${tier}`);
     var voteUrl = `${window.location.origin}/${lang}/guide/vote`;
 
     $.ajax({

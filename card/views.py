@@ -5,13 +5,15 @@ from django.core.paginator import Paginator
 from django.forms.models import model_to_dict
 from django.http import HttpResponse
 from django.http.request import MultiValueDict, QueryDict
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.utils.encoding import force_str
 from django.utils.functional import Promise
 from django.utils.translation import gettext as _
 
 from .forms import CardSearchForm
 from .models import Card
+
+SEARCH_TABS = ("detail", "episode", "etc")
 
 
 class LazyEncoder(json.JSONEncoder):
@@ -41,13 +43,14 @@ def index(request):
         cards = None
 
     tab = request.POST.get("tab", "detail")
+    if tab not in SEARCH_TABS:
+        tab = "detail"
 
     cards = cards.filter(enhance=0)
 
     paginator = Paginator(cards, 12)
     page_total = paginator.num_pages
-    page_number = request.POST.get("page", 1)
-    cards = paginator.get_page(page_number)
+    cards = paginator.get_page(request.POST.get("page", 1))
 
     # update url value to static url
     for card in cards:
@@ -56,7 +59,7 @@ def index(request):
 
     context = {
         "card_list": cards,
-        "page": page_number,
+        "page": cards.number,
         "page_total": page_total,
         "selected_card": None,
         "form": form,
@@ -78,7 +81,7 @@ def index(request):
 
 
 def select(request, card_id):
-    card = Card.objects.get(id=card_id)
+    card = get_object_or_404(Card, id=card_id)
     card = model_to_dict(card)
     Card.parse_static_url(card)
     Card.parse_to_string(card)
@@ -117,8 +120,6 @@ def select(request, card_id):
 
     card["dial"] = parse_dial(card["dial"])
     card["dial_us"] = parse_dial(card["dial_us"])
-
-    print(card)
 
     return HttpResponse(
         json.dumps({"selected_card": card}, ensure_ascii=False, cls=LazyEncoder)

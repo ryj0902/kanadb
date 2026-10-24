@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 import numpy as np
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.utils.translation import gettext as _
 
 from card.models import Card
@@ -105,7 +105,7 @@ def calculate_statistics(cards: list[Card]):
 
 
 def npc_detail(request, npc_id):
-    npc = npc_total.filter(id=npc_id)[0]
+    npc = get_object_or_404(Npc, id=npc_id)
     setup = list(map(lambda x: int(x), npc.setup.split(",")))
 
     card_ids, counts = np.unique(setup, return_counts=True)

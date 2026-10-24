@@ -15,7 +15,10 @@ from django.views.decorators.http import require_POST
 
 from card.forms import CardSearchForm
 from card.models import Card
+from card.views import SEARCH_TABS
 from npc.views import calculate_statistics
+
+DECK_TABS = ("view", "edit")
 
 
 class LazyEncoder(json.JSONEncoder):
@@ -45,14 +48,17 @@ def index(request):
         cards = None
 
     tab = request.POST.get("tab", "detail")
+    if tab not in SEARCH_TABS:
+        tab = "detail"
     deck_tab = request.POST.get("deck_tab", "view")
+    if deck_tab not in DECK_TABS:
+        deck_tab = "view"
 
     cards = cards.filter(enhance=0)
 
     paginator = Paginator(cards, 12)
     page_total = paginator.num_pages
-    page_number = request.POST.get("page", 1)
-    cards = paginator.get_page(page_number)
+    cards = paginator.get_page(request.POST.get("page", 1))
 
     # update url value to static url
     for card in cards:
@@ -61,7 +67,7 @@ def index(request):
 
     context = {
         "card_list": cards,
-        "page": page_number,
+        "page": cards.number,
         "page_total": page_total,
         "selected_card": None,
         "form": form,
@@ -97,9 +103,12 @@ def deck_from_url(request):
         card_ids = []
 
     card_ids, counts = np.unique(card_ids, return_counts=True)
+    card_map = Card.objects.in_bulk([int(card_id) for card_id in card_ids])
     cards_ = []
     for card_id, count in zip(card_ids, counts):
-        card = Card.objects.get(id=card_id)
+        card = card_map.get(int(card_id))
+        if card is None:  # 존재하지 않는 카드 id는 무시
+            continue
         card.count = int(count)
         cards_.append(card)
 
@@ -198,13 +207,22 @@ def check_deck_modification(request):
         card_id = int(data["card_id"])
         action = data["action"]  # 'add' or 'remove'
         current_ids = [int(i) for i in data["current_card_ids"]]
-    except (KeyError, ValueError, json.JSONDecodeError):
+    except (KeyError, TypeError, ValueError):
         return JsonResponse({"error": "Invalid request"}, status=400)
 
+    # 존재하지 않는 카드 id는 무시
+    existing_ids = set(
+        Card.objects.filter(id__in=current_ids).values_list("id", flat=True)
+    )
+    current_ids = [cid for cid in current_ids if cid in existing_ids]
+
     if action == "add":
+        if not Card.objects.filter(id=card_id).exists():
+            return JsonResponse({"error": "Invalid request"}, status=400)
         current_ids = get_valid_card_ids(current_ids, card_id)
     elif action == "remove":
-        current_ids.remove(card_id)
+        if card_id in current_ids:
+            current_ids.remove(card_id)
 
     language_code = get_language()
     new_url = f"/{language_code}/deck/?card=" + ",".join(map(str, current_ids))

@@ -1,10 +1,9 @@
 import json
 import math
-import os
 from collections import Counter
-from glob import glob
 
-from django.http import HttpRequest, JsonResponse
+from django.conf import settings
+from django.http import Http404, HttpRequest, JsonResponse
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
@@ -15,36 +14,49 @@ from markdown import markdown
 from card.models import Card, Vote
 from guide.templatetags.guide_filters import card_filter
 
+GUIDE_DIR = settings.BASE_DIR / "templates" / "guide"
+
+# 투표 카테고리 -> 티어 리스트가 붙는 가이드 파일
+VOTE_GUIDES = {
+    "unique": "guide3.md",  # 유니크 티어 리스트
+    "empire_dr": "guide4.md",  # 제국 DR 추종자 티어 리스트
+}
+
+
+def get_guide_files():
+    """현재 언어의 가이드 마크다운 파일 목록"""
+    return sorted((GUIDE_DIR / get_language()).glob("*.md"))
+
+
+def read_guide(guide_name):
+    """가이드 마크다운 원문 읽기 (목록에 없는 파일이면 404)"""
+    for file in get_guide_files():
+        if file.name == guide_name:
+            return file.read_text(encoding="utf-8")
+    raise Http404
+
 
 def index(request):
-    language_code = get_language()
     context = {"contents": []}
 
-    for file in sorted(glob(f"templates/guide/{language_code}/*.md")):
+    for file in get_guide_files():
         with open(file, "r", encoding="utf-8") as f:
             line = f.readline()
 
         title = line.rstrip()
         title = title.split("# ")[1]
 
-        context["contents"].append([os.path.basename(file), title])
+        context["contents"].append([file.name, title])
 
     return render(request, "guide/index.html", context)
 
 
 def guide_detail(request, guide_name):
-    language_code = get_language()
-    markdown_path = f"templates/guide/{language_code}/{guide_name}"
+    markdown_content = read_guide(guide_name)
 
-    with open(markdown_path, "r", encoding="utf-8") as file:
-        markdown_content = file.read()
-
-    if guide_name == "guide3.md":  # 유니크 티어 리스트
-        content = guide_vote(request, "unique")
-        markdown_content += content
-    elif guide_name == "guide4.md":  # 제국 DR 추종자 티어 리스트
-        content = guide_vote(request, "empire_dr")
-        markdown_content += content
+    for category, vote_guide_name in VOTE_GUIDES.items():
+        if guide_name == vote_guide_name:
+            markdown_content += guide_vote(request, category)
 
     html_content = markdown(markdown_content, extensions=["extra"])
 
@@ -58,13 +70,17 @@ def guide_detail(request, guide_name):
 
 
 def get_client_ip(request: HttpRequest):
-    """사용자의 IP 주소 가져오기"""
+    """사용자의 IP 주소 가져오기
+
+    X-Forwarded-For의 앞쪽 값은 클라이언트가 임의로 넣을 수 있으므로,
+    신뢰하는 프록시(NUM_PROXIES개)가 덧붙인 뒤쪽 값을 사용한다.
+    """
+    num_proxies = getattr(settings, "NUM_PROXIES", 1)
     x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(",")[0]
-    else:
-        ip = request.META.get("REMOTE_ADDR")
-    return ip
+    if num_proxies and x_forwarded_for:
+        ips = [ip.strip() for ip in x_forwarded_for.split(",")]
+        return ips[max(len(ips) - num_proxies, 0)]
+    return request.META.get("REMOTE_ADDR")
 
 
 def guide_vote_mode(request, guide_category, mode=0):
@@ -87,11 +103,15 @@ def guide_vote_mode(request, guide_category, mode=0):
     cards = Card.objects.filter(**card_filter)
 
     tier_table = [[] for _ in range(len(Vote.TIER_MAP))]
-    user_votes = Vote.objects.filter(ip=user_ip, mode=mode, **vote_filter)
+    # 범위를 벗어난 tier 값이 저장되어 있어도 집계가 깨지지 않도록 제외
+    valid_votes = Vote.objects.filter(
+        tier__in=Vote.TIER_MAP, mode=mode, **vote_filter
+    )
+    user_votes = valid_votes.filter(ip=user_ip)
     user_voted_cards = {vote.card.id: vote.tier for vote in user_votes}
 
     for card in cards:
-        votings = Vote.objects.filter(card=card.id, mode=mode, **vote_filter)
+        votings = valid_votes.filter(card=card.id)
         tier_counts = Counter(votings.values_list("tier", flat=True))
         already_voted = user_voted_cards.get(card.id, None)
 
@@ -175,15 +195,27 @@ def guide_vote(request, guide_category):
 
 @require_POST
 def vote(request):
-    data = json.loads(request.body)
-    card_id = data.get("cardId")
-    category = data.get("category")
-    mode = int(data.get("mode", 0))  # 별도 전달값이 없으면 기본값 0(PVP) 사용
-    tier = data.get("tier")
+    try:
+        data = json.loads(request.body)
+        card_id = int(data["cardId"])
+        category = str(data["category"])
+        mode = int(data.get("mode", 0))  # 별도 전달값이 없으면 기본값 0(PVP) 사용
+        tier = int(data["tier"])
+    except (KeyError, TypeError, ValueError):
+        return JsonResponse({"error": "Invalid request"}, status=400)
 
-    ip_address = get_client_ip(request)
+    if (
+        category not in VOTE_GUIDES
+        or mode not in Vote.MODE_MAP
+        or tier not in Vote.TIER_MAP
+    ):
+        return JsonResponse({"error": "Invalid request"}, status=400)
 
     card = Card.objects.filter(id=card_id).first()
+    if card is None:
+        return JsonResponse({"error": "Invalid request"}, status=400)
+
+    ip_address = get_client_ip(request)
 
     existing_vote = Vote.objects.filter(
         card=card, category=category, mode=mode, ip=ip_address
@@ -201,12 +233,7 @@ def vote(request):
         )
 
     # reload title
-    language_code = get_language()
-    guide_name = os.path.basename(request.META.get("HTTP_REFERER", "").strip("/"))
-    markdown_path = f"templates/guide/{language_code}/{guide_name}"
-
-    with open(markdown_path, "r", encoding="utf-8") as file:
-        markdown_content = file.read()
+    markdown_content = read_guide(VOTE_GUIDES[category])
 
     updated_content = guide_vote(request, category)
     full_content = markdown_content + updated_content

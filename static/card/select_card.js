@@ -21,7 +21,6 @@ function drawCard(card, className){
     const currentText = button.textContent.trim();
     const vert_horz = currentText === horizontalLayout ? 'vert': 'horz' 
 
-    console.log(card);
     result = '' +
     '<div class="' + className + '-image'  + (card.producible ? '' : ' unproducible-card') + '"' + ' draggable="true" ' + 'card-id="' + card.id + '">' +
         '<div class="image-card" style="background-image: url(' + card.url + ');"></div>' +
