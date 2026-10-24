@@ -45,7 +45,7 @@ def vote(request):
         category = str(data["category"])
         mode = int(data.get("mode", 0))  # 별도 전달값이 없으면 기본값 0(PVP) 사용
         tier = int(data["tier"])
-    except (KeyError, TypeError, ValueError):
+    except KeyError, TypeError, ValueError:
         return JsonResponse({"error": "Invalid request"}, status=400)
 
     if (

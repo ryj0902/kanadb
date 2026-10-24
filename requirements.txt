@@ -1,2 +1,3 @@
 # production entry point; see requirements/ for dev and pipeline extras
 -r requirements/base.txt
+gunicorn==26.2.0

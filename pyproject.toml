@@ -7,7 +7,7 @@ markers = ["visual: Playwright visual regression (needs running server)"]
 
 [tool.ruff]
 line-length = 88
-target-version = "py310"
+target-version = "py314"
 extend-exclude = ["*.ipynb", "*.md", "*/migrations/*"]
 
 [tool.ruff.lint]

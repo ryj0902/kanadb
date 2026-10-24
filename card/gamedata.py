@@ -104,7 +104,7 @@ def card_tags(data, card):
     for tag in card["CARD_TAG"]:
         try:
             ko, us = data.text(tag)
-        except (KeyError, ValueError):
+        except KeyError, ValueError:
             continue
         tags_ko.append(ko)
         tags_us.append(us)
@@ -119,7 +119,7 @@ def card_skill(data, card_id, kind):
             break
         try:
             ko, us = data.text(f"SKILL_TEXT_{skill}")
-        except (KeyError, ValueError):
+        except KeyError, ValueError:
             break
         skills_ko.append(ko)
         skills_us.append(us)

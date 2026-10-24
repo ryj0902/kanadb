@@ -98,7 +98,7 @@ def check_deck_modification(request):
         card_id = int(data["card_id"])
         action = data["action"]  # 'add' or 'remove'
         current_ids = [int(i) for i in data["current_card_ids"]]
-    except (KeyError, TypeError, ValueError):
+    except KeyError, TypeError, ValueError:
         return JsonResponse({"error": "Invalid request"}, status=400)
 
     # 존재하지 않는 카드 id는 무시

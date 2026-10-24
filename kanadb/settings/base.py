@@ -136,6 +136,3 @@ STATIC_URL = "static/"
 STATIC_ROOT = Path(env_str("DJANGO_STATIC_ROOT", BASE_DIR / "staticfiles"))
 # 소스 static/ 을 STATIC_ROOT로 직접 서빙하는 기존 운영 방식도 지원
 STATICFILES_DIRS = [] if STATIC_ROOT == BASE_DIR / "static" else [BASE_DIR / "static"]
-
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

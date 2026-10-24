@@ -20,7 +20,9 @@ SEARCH_TAB_LABELS = [
 
 def search_cards(request):
     """GET 쿼리스트링으로 카드 검색 (카드/덱 페이지 공용 컨텍스트)"""
-    form = CardSearchForm(request.GET or None)
+    # 덱 페이지의 card/title 등 검색과 무관한 파라미터만 있으면 검색 전 상태(오류 없는 빈 폼)
+    searched = any(name in request.GET for name in CardSearchForm.base_fields)
+    form = CardSearchForm(request.GET if searched else None)
     if form.is_valid():
         cards = Card.objects.search(form.cleaned_data, get_language())
     else:

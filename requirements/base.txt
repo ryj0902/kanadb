@@ -1,7 +1,7 @@
 # runtime dependencies (production)
-asgiref==3.7.2
-Django==4.2.7
-Markdown==3.5.2
-PyMySQL==1.1.0
-sqlparse==0.4.4
-tzdata==2023.3
+asgiref==3.13.0
+Django==6.1.2
+Markdown==3.11.2
+PyMySQL==1.2.3
+sqlparse==0.6.0
+tzdata==2026.5
