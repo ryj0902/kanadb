@@ -7,9 +7,9 @@ from django.http import HttpResponse, JsonResponse
 from django.http.request import MultiValueDict, QueryDict
 from django.shortcuts import render
 from django.template.loader import render_to_string
+from django.urls import reverse
 from django.utils.encoding import force_str
 from django.utils.functional import Promise
-from django.utils.translation import get_language
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 
@@ -73,8 +73,6 @@ def index(request):
         "form": form,
         "tab": tab,
         "deck_tab": deck_tab,
-        "horizontal_layout": _("가로 모드"),
-        "vertical_layout": _("세로 모드"),
     }
 
     if request.method == "POST" and "page" in request.POST:
@@ -224,6 +222,5 @@ def check_deck_modification(request):
         if card_id in current_ids:
             current_ids.remove(card_id)
 
-    language_code = get_language()
-    new_url = f"/{language_code}/deck/?card=" + ",".join(map(str, current_ids))
+    new_url = reverse("deck:index") + "?card=" + ",".join(map(str, current_ids))
     return JsonResponse({"redirect_url": new_url})

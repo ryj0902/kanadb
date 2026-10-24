@@ -169,3 +169,5 @@ data.zip
 settings.json
 # test artifacts
 tests/visual/output/
+
+staticfiles/

@@ -360,8 +360,6 @@ def npc_detail(request, npc_id):
         "loading_desc_us": npc.loading_desc_us,
         "card_character": cards[0],
         "deck_card_list": sorted_cards,
-        "horizontal_layout": _("가로 모드"),
-        "vertical_layout": _("세로 모드"),
         "difficulty_list": difficulty_list,
         "current_diff": current_diff,
         "floor_options": floor_options,
