@@ -2,7 +2,7 @@
 
 from collections import Counter, defaultdict
 
-from card.models import Card
+from card.models import SIZE_RANGE, Card
 
 # 총 포인트 상한 -> 덱 등급 (30장 제한상 9999를 넘을 수 없음)
 RANK_THRESHOLDS = [(200, "E"), (600, "D"), (1200, "C"), (2000, "B"), (9999, "A")]
@@ -80,7 +80,7 @@ def calculate_statistics(cards):
     """카드 목록(각 카드에 count 속성) -> 덱 통계"""
     stat_point = 0
     stat_category = [["amount", 0], ["char", 0], ["spell", 0]]
-    stat_size = [0] * 10
+    stat_size = [0] * len(SIZE_RANGE)
     stat_theme = [[key, 0] for key in THEME_KEYS]
     stat_rarity = [[key, 0] for key in RARITY_KEYS]
     episode_stats = defaultdict(lambda: [0, 0])
@@ -94,8 +94,9 @@ def calculate_statistics(cards):
             stat_category[0][1] += card.count
             stat_category[1 if card.is_follower else 2][1] += card.count
 
-        # 캐릭터(size 0)는 인덱스 -1(사이즈 10 칸)에 집계된다 (기존 동작 유지)
-        stat_size[card.size - 1] += card.count
+        # 사이즈 1~10만 집계 (캐릭터는 사이즈 0)
+        if card.size in SIZE_RANGE:
+            stat_size[card.size - 1] += card.count
         stat_theme[card.theme - 1][1] += card.count
         stat_rarity[card.rarity - 1][1] += card.count
 
