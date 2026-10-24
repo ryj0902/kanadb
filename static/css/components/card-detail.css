@@ -1,0 +1,177 @@
+/* 카드 상세 패널 (.is-horizontal: 가로 모드) */
+.card-detail {
+    outline: solid 1px var(--color-border);
+    position: relative;
+    min-height: 560px;
+}
+
+.card-detail__button {
+    width: 75px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.card-detail__button--capture {
+    margin-left: 15px;
+}
+
+.card-detail__card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-detail.is-horizontal .card-detail__card {
+    flex-direction: row;
+}
+
+/* 카드 옆 아이콘들: 위치는 --y/--x(세로 모드), --hy/--hx(가로 모드) */
+.card-detail__side {
+    position: absolute;
+    top: 40px;
+    left: 250px;
+}
+
+.card-detail.is-horizontal .card-detail__side {
+    top: 420px;
+    left: 10px;
+}
+
+.card-detail__control {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: var(--y);
+    left: var(--x);
+}
+
+.card-detail.is-horizontal .card-detail__control {
+    top: var(--hy);
+    left: var(--hx);
+}
+
+.card-detail__control--arrow {
+    width: 40px;
+    height: 20px;
+}
+
+.card-detail__control--up {
+    transform: rotate(180deg);
+}
+
+.card-detail__control--product      { --y: 90px;  --x: 0px;  --hy: 80px;  --hx: 10px; }
+.card-detail__control--enhance      { --y: 160px; --x: 0px;  --hy: 0px;   --hx: 10px; }
+.card-detail__control--enhance-next { --y: 160px; --x: 50px; --hy: -23px; --hx: 15px; }
+.card-detail__control--enhance-prev { --y: 185px; --x: 50px; --hy: 50px;  --hx: 15px; }
+.card-detail__control--link         { --y: 230px; --x: 0px;  --hy: 0px;   --hx: 95px; }
+.card-detail__control--link-reset   { --y: 230px; --x: 0px;  --hy: 0px;   --hx: 95px; }
+.card-detail__control--link-next    { --y: 230px; --x: 50px; --hy: -23px; --hx: 99px; }
+.card-detail__control--link-prev    { --y: 255px; --x: 50px; --hy: 50px;  --hx: 99px; }
+.card-detail__control--swap-text    { --y: 300px; --x: 0px;  --hy: 0px;   --hx: 180px; }
+
+/* 해당 카드에 상품/링크 카드가 없음 */
+.card-detail__control.is-unavailable {
+    filter: grayscale(100%);
+}
+
+/* 이름, 에피소드, 등급, 포인트, 태그 */
+.card-detail__texts {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-detail.is-horizontal .card-detail__texts {
+    min-width: 450px;
+}
+
+.card-detail__title {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 20px;
+}
+
+.card-detail__title-row {
+    margin-top: 10px;
+    display: flex;
+}
+
+.card-detail__meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-detail__name {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: var(--font-title);
+    font-size: 24px;
+}
+
+.card-detail__meta-text {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    font-family: var(--font-contents);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.card-detail__tag {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: var(--font-contents);
+    font-size: 15px;
+}
+
+/* 스킬 / 스토리 / 대사 */
+.card-detail__text {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.card-detail__text--story,
+.card-detail__text--dial {
+    display: inline-block;
+}
+
+.card-detail__paragraph {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: var(--font-skill);
+}
+
+.card-detail__text--skill .card-detail__paragraph:empty {
+    display: none;
+}
+
+/* 제작 재료 */
+.card-detail__products {
+    display: inline-block;
+}
+
+.card-detail__products table {
+    border-collapse: separate;
+    border-spacing: 10px; /* 열 간 간격 */
+}
+
+.card-detail__product-image {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card-tooltip {
+    position: absolute;
+    background-color: var(--color-tooltip);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: var(--z-tooltip);
+    pointer-events: none;
+}

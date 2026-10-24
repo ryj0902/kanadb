@@ -1,14 +1,14 @@
 {% load i18n card_filters %}
-<div data-card-search data-page="{{ page }}" data-page-total="{{ page_total }}" data-grid-url="{% url 'card:index' %}">
+<div class="card-search" data-card-search data-page="{{ page }}" data-page-total="{{ page_total }}" data-grid-url="{% url 'card:index' %}">
     {% for tab_name, tab_label in search_tabs %}
-        <button type="button" class="search-btn{% if tab_name == tab %} active{% endif %}" id="btn-{{ tab_name }}" data-action="open-tab" data-tab="{{ tab_name }}">{{ tab_label }}</button>
+        <button type="button" class="tab-button{% if tab_name == tab %} is-active{% endif %}" data-action="open-tab" data-tab="{{ tab_name }}">{{ tab_label }}</button>
     {% endfor %}
-    <form method="GET" id="search-form">
+    <form method="get" data-search-form>
         {% for key, value in deck_params %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
-        <div class="search-filter" id="search-filter-episode" data-filter-tab="episode"{% if tab != "episode" %} hidden{% endif %}>
-            <table>
+        <div class="search-filter" data-filter-tab="episode"{% if tab != "episode" %} hidden{% endif %}>
+            <table class="search-filter__table">
                 {% for row in form.episode_rows %}
-                    <tr><td class="search-filter-title">{{ row.label }} <input type="checkbox" id="{{ row.toggle_id }}" data-action="toggle-all" data-target="{{ row.field.name }}"> </td><td class="search-filter-contents">
+                    <tr><td class="search-filter__label">{{ row.label }} <input type="checkbox" data-action="toggle-all" data-target="{{ row.field.name }}" aria-label="{% translate '전체 선택' %}"> </td><td class="search-filter__options">
                         {% for sublist in row.field|split_by_9 %}
                             {% for item in sublist %}
                                 {{ item }}
@@ -20,18 +20,18 @@
                 {% include "card/_search_text_row.html" with row_tab="episode" %}
             </table>
         </div>
-        <div class="search-filter" id="search-filter-detail" data-filter-tab="detail"{% if tab != "detail" %} hidden{% endif %}>
-            <table>
+        <div class="search-filter" data-filter-tab="detail"{% if tab != "detail" %} hidden{% endif %}>
+            <table class="search-filter__table">
                 {% for row in form.detail_rows %}
-                    <tr><td class="search-filter-title">{{ row.label }} <input type="checkbox" id="{{ row.toggle_id }}" data-action="toggle-all" data-target="{{ row.field.name }}"> </td><td class="search-filter-contents">{{ row.field }}</td></tr>
+                    <tr><td class="search-filter__label">{{ row.label }} <input type="checkbox" data-action="toggle-all" data-target="{{ row.field.name }}" aria-label="{% translate '전체 선택' %}"> </td><td class="search-filter__options">{{ row.field }}</td></tr>
                 {% endfor %}
-                <tr><td class="search-filter-title">{% translate "사이즈" %}</td><td class="search-filter-contents">{{ form.size_min }} {{ form.size_max }}</td></tr>
+                <tr><td class="search-filter__label">{% translate "사이즈" %}</td><td class="search-filter__options">{{ form.size_min }} {{ form.size_max }}</td></tr>
                 {% include "card/_search_text_row.html" with row_tab="detail" %}
             </table>
         </div>
-        <div class="search-filter" id="search-filter-etc" data-filter-tab="etc"{% if tab != "etc" %} hidden{% endif %}>
-            <table>
-                <tr><td class="search-filter-title">{% translate "기타" %}</td><td class="search-filter-contents">{{ form.etc }}</td></tr>
+        <div class="search-filter" data-filter-tab="etc"{% if tab != "etc" %} hidden{% endif %}>
+            <table class="search-filter__table">
+                <tr><td class="search-filter__label">{% translate "기타" %}</td><td class="search-filter__options">{{ form.etc }}</td></tr>
                 {% include "card/_search_text_row.html" with row_tab="etc" %}
             </table>
         </div>
@@ -40,11 +40,11 @@
     </form>
 
     <div class="search-result">
-        <div class="image-grid" data-card-grid>
+        <div class="card-grid" data-card-grid>
             {% include "card/_card_grid.html" %}
         </div>
-        <div class="image-grid-page">
-            <button type="button" id="page-down" data-action="page-prev">&lt;</button><p class="page" data-page-label>{{ page }} / {{ page_total }}</p><button type="button" id="page-up" data-action="page-next">&gt;</button>
+        <div class="pager">
+            <button type="button" class="pager__button" data-action="page-prev" aria-label="{% translate '이전 페이지' %}">&lt;</button><p class="pager__label" data-page-label>{{ page }} / {{ page_total }}</p><button type="button" class="pager__button" data-action="page-next" aria-label="{% translate '다음 페이지' %}">&gt;</button>
         </div>
     </div>
 </div>

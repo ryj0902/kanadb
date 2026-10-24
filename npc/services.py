@@ -1,5 +1,7 @@
 """NPC 상세 페이지의 난이도/층 탐색 (npc/catalog.py 조회)"""
 
+from django.utils.translation import gettext_lazy as _
+
 from .catalog import CATALOG
 
 NONE = -1  # 이전/다음이 없음
@@ -74,7 +76,8 @@ def navigation(npc_id):
     # 화면 배치용: [난이도, 층] 각각 이전 버튼 / 선택 / 다음 버튼
     groups = [
         {
-            "select_class": "difficulty-selector",
+            "kind": "difficulty",
+            "label": _("난이도"),
             "prev_id": diff_prev_id,
             "next_id": diff_next_id,
             "options": [
@@ -87,7 +90,8 @@ def navigation(npc_id):
             ],
         },
         {
-            "select_class": "floor-selector",
+            "kind": "floor",
+            "label": _("층"),
             "prev_id": floor_prev_id,
             "next_id": floor_next_id,
             "options": [

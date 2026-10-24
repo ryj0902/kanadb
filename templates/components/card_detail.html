@@ -1,24 +1,24 @@
 {% load static i18n %}
-<div class="selected-card-body"
+<div class="card-detail"
      data-card-detail
      data-select-url="{% url 'card:select' 0 %}"
      data-horizontal-label="{{ horizontal_layout }}"
      data-vertical-label="{{ vertical_layout }}"
      data-copy-failed="{% translate '클립보드 복사에 실패했습니다.' %}"
      data-html2canvas-src="{% static 'vendor/html2canvas.min.js' %}">
-    <button type="button" id="capture-btn" data-action="capture-card" hidden> {% translate "캡처하기" %} </button>
-    <button type="button" id="vert-horz-btn" data-action="toggle-layout" hidden> {{ horizontal_layout }} </button>
-    <button type="button" id="hyperlink-btn" data-action="copy-link" hidden> {% translate "링크 복사" %} </button>
-    <div class="selected-card" id="capture-area"></div>
-    <div class="selected-card-side">
-        <img id="card-product-btn" data-action="toggle-products" src="{% static 'card/Texture2D/UI_icon_inventory.webp' %}" alt="{% translate '제작 재료' %}" hidden>
-        <img id="card-enhance-img" data-action="enhance-reset" src="{% static 'card/Texture2D/UI_icon_Tempered.webp' %}" alt="{% translate '강화 초기화' %}" hidden>
-        <img id="card-enhance-up" data-action="enhance-next" src="{% static 'card/Texture2D/UI_icon_arrow_text.webp' %}" alt="+" hidden>
-        <img id="card-enhance-down" data-action="enhance-prev" src="{% static 'card/Texture2D/UI_icon_arrow_text.webp' %}" alt="-" hidden>
-        <img id="card-link-btn" data-action="link-open" src="{% static 'card/Texture2D/UI_icon_linked.webp' %}" alt="{% translate '링크 카드' %}" hidden>
-        <img id="card-link-prev" data-action="link-prev" src="{% static 'card/Texture2D/UI_icon_arrow_text.webp' %}" alt="&lt;" hidden>
-        <img id="card-link-next" data-action="link-next" src="{% static 'card/Texture2D/UI_icon_arrow_text.webp' %}" alt="&gt;" hidden>
-        <img id="card-link-reset" data-action="link-reset" src="{% static 'card/Texture2D/UI_icon_reset.webp' %}" alt="{% translate '원래 카드' %}" hidden>
-        <img id="swap-text-btn" data-action="swap-text" src="{% static 'card/Texture2D/UI_Icon_story 1.webp' %}" alt="{% translate '텍스트 전환' %}" data-icon-story="{% static 'card/Texture2D/UI_Icon_story 1.webp' %}" data-icon-dial="{% static 'card/Texture2D/UI_icon_Battlelog.webp' %}" data-icon-skill="{% static 'card/Texture2D/UI_Icon_cardText.webp' %}" hidden>
+    <button type="button" class="card-detail__button card-detail__button--capture" data-action="capture-card" hidden> {% translate "캡처하기" %} </button>
+    <button type="button" class="card-detail__button" data-action="toggle-layout" hidden> {{ horizontal_layout }} </button>
+    <button type="button" class="card-detail__button" data-action="copy-link" hidden> {% translate "링크 복사" %} </button>
+    <div class="card-detail__card" data-card-detail-body></div>
+    <div class="card-detail__side">
+        <img class="card-detail__control card-detail__control--product" data-action="toggle-products" src="{% static 'card/Texture2D/UI_icon_inventory.webp' %}" alt="{% translate '제작 재료' %}" hidden>
+        <img class="card-detail__control card-detail__control--enhance" data-action="enhance-reset" src="{% static 'card/Texture2D/UI_icon_Tempered.webp' %}" alt="{% translate '강화 초기화' %}" hidden>
+        <img class="card-detail__control card-detail__control--arrow card-detail__control--up card-detail__control--enhance-next" data-action="enhance-next" src="{% static 'card/Texture2D/UI_icon_arrow_text.webp' %}" alt="+" hidden>
+        <img class="card-detail__control card-detail__control--arrow card-detail__control--enhance-prev" data-action="enhance-prev" src="{% static 'card/Texture2D/UI_icon_arrow_text.webp' %}" alt="-" hidden>
+        <img class="card-detail__control card-detail__control--link" data-action="link-open" src="{% static 'card/Texture2D/UI_icon_linked.webp' %}" alt="{% translate '링크 카드' %}" hidden>
+        <img class="card-detail__control card-detail__control--arrow card-detail__control--link-prev" data-action="link-prev" src="{% static 'card/Texture2D/UI_icon_arrow_text.webp' %}" alt="&lt;" hidden>
+        <img class="card-detail__control card-detail__control--arrow card-detail__control--up card-detail__control--link-next" data-action="link-next" src="{% static 'card/Texture2D/UI_icon_arrow_text.webp' %}" alt="&gt;" hidden>
+        <img class="card-detail__control card-detail__control--link-reset" data-action="link-reset" src="{% static 'card/Texture2D/UI_icon_reset.webp' %}" alt="{% translate '원래 카드' %}" hidden>
+        <img class="card-detail__control card-detail__control--swap-text" data-action="swap-text" src="{% static 'card/Texture2D/UI_Icon_story 1.webp' %}" alt="{% translate '텍스트 전환' %}" data-icon-story="{% static 'card/Texture2D/UI_Icon_story 1.webp' %}" data-icon-dial="{% static 'card/Texture2D/UI_icon_Battlelog.webp' %}" data-icon-skill="{% static 'card/Texture2D/UI_Icon_cardText.webp' %}" hidden>
     </div>
 </div>

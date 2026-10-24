@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
-        <div class="{% block main_class %}left{% endblock %}">
+    <div class="page-layout">
+        <div class="page-layout__main{% block main_modifier %}{% endblock %}">
             {% block main %}{% endblock %}
         </div>
 
-        <div class="right">
+        <div class="page-layout__aside" data-aside>
             {% include "components/card_detail.html" %}
         </div>
     </div>

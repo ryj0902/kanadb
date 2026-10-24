@@ -1,0 +1,89 @@
+/* 덱 미리보기의 가로형 카드 */
+.deck-card {
+    width: 160px;
+    height: 40px;
+    cursor: grab;
+    position: relative;
+}
+
+.deck-card__art {
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    width: 95%;
+    height: 90%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.deck-card__frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.deck-card__size-frame {
+    position: absolute;
+    left: 4%;
+    top: 13%;
+    height: 65%;
+    width: 17%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.deck-card__enhance-frame {
+    position: absolute;
+    bottom: 25%;
+    right: -17%;
+    width: 15%;
+    height: 60%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.deck-card__stat {
+    font-family: var(--font-skill);
+    color: white;
+    text-shadow: var(--text-outline);
+    pointer-events: none;
+}
+
+.deck-card__stat--size {
+    position: absolute;
+    left: 12%;
+    font-size: 18px;
+    transform: translate(-50%, 30%);
+}
+
+.deck-card__stat--enhance {
+    position: absolute;
+    bottom: 32%;
+    right: -9.5%;
+    font-size: 14px;
+    transform: translate(50%, 0%);
+}
+
+.deck-card__stat--count {
+    position: absolute;
+    font-size: 10px;
+    top: 13%;
+    right: 7%;
+}
+
+.deck-card__stat--name {
+    width: 110px;
+    position: absolute;
+    font-size: 10px;
+    bottom: 19%;
+    right: 6%;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

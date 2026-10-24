@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token }}">
     <title>{% block title %}{% endblock %}KanaDB</title>
-    <link rel="stylesheet" href="{% static 'card/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base/tokens.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout/site-nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout/page-layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/card-tile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/card-detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/card-search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/deck-card.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/deck-summary.css' %}">
     {% block extra_head %}{% endblock %}
 </head>
 <body>

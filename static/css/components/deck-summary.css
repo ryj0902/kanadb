@@ -1,0 +1,137 @@
+/* 덱 요약 (NPC 상세, 덱 보기): 캐릭터 + 덱 카드 + 통계 */
+.deck-summary__title {
+    font-family: var(--font-title);
+    font-size: 24px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.deck-summary__subtitle {
+    font-family: var(--font-skill);
+    font-size: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.deck-summary__description {
+    font-family: var(--font-skill);
+    white-space: pre-line;
+    margin-left: 10px;
+}
+
+.deck-summary__cards {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+}
+
+.deck-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 730px;
+    border: 2px solid var(--color-border);
+    text-align: center;
+}
+
+.deck-stats__box {
+    display: flex;
+    gap: 15px;
+}
+
+.deck-stats__box--category {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    gap: 10px;
+}
+
+.deck-stats__box--size { grid-row: 2; grid-column: 1; }
+.deck-stats__box--theme { grid-row: 2; grid-column: 2; }
+.deck-stats__box--rarity { grid-row: 2; grid-column: 3; }
+
+.deck-stats__box--count {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.deck-stats__box--count p {
+    text-align: left;
+    margin: 0;
+}
+
+.deck-stats__icon {
+    height: 20px;
+}
+
+.deck-stats__icon--large {
+    height: 30px;
+}
+
+.deck-stats__value {
+    font-family: var(--font-skill);
+    font-size: 15px;
+    color: var(--color-stat-value);
+    text-shadow: -1px 0 var(--color-stat-value-outline), 0 1px var(--color-stat-value-outline),
+        1px 0 var(--color-stat-value-outline), 0 -1px var(--color-stat-value-outline);
+    margin-right: 5px;
+}
+
+.deck-stats__column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+/* 통계 막대 한 줄: 라벨(숫자 또는 아이콘) + 막대 + 장수 */
+.stat-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-bar__label {
+    width: 20px;
+    text-align: center;
+    font-family: var(--font-skill);
+}
+
+.stat-bar__track {
+    position: relative;
+    width: 60px;
+    height: 6px;
+    background-color: #000;
+    border: 1px solid var(--color-bar-border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stat-bar__fill {
+    height: 100%;
+    background-color: var(--color-bar-fill);
+    width: var(--fill, 0%);
+    transition: width 0.5s ease-out;
+    border-radius: 8px 0 0 8px;
+}
+
+.stat-bar__fill--full {
+    border-radius: 8px;
+}
+
+.stat-bar__count {
+    font-family: var(--font-skill);
+    font-size: 15px;
+    color: white;
+    text-shadow: var(--text-outline);
+    pointer-events: none;
+    width: 10px;
+    text-align: center;
+}

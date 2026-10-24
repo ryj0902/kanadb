@@ -1,9 +1,9 @@
 {% extends "guide/index.html" %}
 
-{% block main_class %}left-wide{% endblock %}
+{% block main_modifier %} page-layout__main--wide{% endblock %}
 
 {% block main %}
-    <div data-guide-body data-vote-url="{% url 'guide:vote' %}">
+    <div class="guide-content" data-guide-body data-vote-url="{% url 'guide:vote' %}">
         {% include "guide/_guide_body.html" %}
     </div>
 {% endblock %}

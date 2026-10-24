@@ -14,7 +14,7 @@ function openTab(tab) {
         panel.hidden = panel.dataset.filterTab !== tab;
     });
     qsa('[data-action="open-tab"]', root).forEach((button) => {
-        button.classList.toggle('active', button.dataset.tab === tab);
+        button.classList.toggle('is-active', button.dataset.tab === tab);
     });
     // 엔터로 제출해도 현재 탭으로 돌아오도록 모든 검색 버튼 값을 맞춘다
     qsa('button[type="submit"][name="tab"]', root).forEach((button) => {

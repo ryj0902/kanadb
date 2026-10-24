@@ -1,40 +1,40 @@
-<div class="selected-card-image{% if not card.producible %} unproducible-card{% endif %}" draggable="true" data-card-id="{{ card.id }}">
-    <div class="image-card" style="background-image: url({{ card.image_url }});"></div>
-    <div class="image-frame" style="background-image: url({{ card.frame_url }});"></div>
-    <div class="text-stat" id="card-size"{% if card.is_character %} hidden{% endif %}>{{ card.size }}</div>
-    <div class="text-stat" id="card-atk"{% if not card.is_follower %} hidden{% endif %}>{{ card.atk }}</div>
-    <div class="text-stat" id="card-def"{% if not card.is_follower %} hidden{% endif %}>{{ card.defs }}</div>
-    <div class="text-stat" id="card-hp"{% if card.is_spell %} hidden{% endif %}>{{ card.hp }}</div>
-    <div class="image-enhance" style="background-image: url({{ card.frame_enhance_url }});"{% if card.enhance == 0 %} hidden{% endif %}></div>
-    <div class="text-stat" id="card-enhance"{% if card.enhance == 0 %} hidden{% endif %}>{{ card.enhance }}</div>
+<div class="card-tile card-tile--detail{% if not card.producible %} card-tile--unproducible{% endif %}" draggable="true" data-card-id="{{ card.id }}">
+    <div class="card-tile__art" style="background-image: url({{ card.image_url }});" data-card-art></div>
+    <div class="card-tile__frame" style="background-image: url({{ card.frame_url }});"></div>
+    <div class="card-tile__stat card-tile__stat--size"{% if card.is_character %} hidden{% endif %}>{{ card.size }}</div>
+    <div class="card-tile__stat card-tile__stat--atk"{% if not card.is_follower %} hidden{% endif %}>{{ card.atk }}</div>
+    <div class="card-tile__stat card-tile__stat--def"{% if not card.is_follower %} hidden{% endif %}>{{ card.defs }}</div>
+    <div class="card-tile__stat card-tile__stat--hp"{% if card.is_spell %} hidden{% endif %}>{{ card.hp }}</div>
+    <div class="card-tile__enhance-frame" style="background-image: url({{ card.frame_enhance_url }});"{% if card.enhance == 0 %} hidden{% endif %}></div>
+    <div class="card-tile__stat card-tile__stat--enhance"{% if card.enhance == 0 %} hidden{% endif %}>{{ card.enhance }}</div>
 </div>
-<div class="selected-card-texts">
-    <div class="selected-card-title">
-        <div class="top-row">
-            <p class="p-name">{{ name }}</p>
-            <div class="right-column">
-                <p class="p-episode">{{ episode }}</p>
-                <p class="p-rarity">{{ rarity }}</p>
+<div class="card-detail__texts">
+    <div class="card-detail__title">
+        <div class="card-detail__title-row">
+            <p class="card-detail__name" data-card-name>{{ name }}</p>
+            <div class="card-detail__meta">
+                <p class="card-detail__meta-text">{{ episode }}</p>
+                <p class="card-detail__meta-text">{{ rarity }}</p>
             </div>
-            <div class="right-column">
-                <p class="p-point">&nbsp;</p>
-                <p class="p-point">{{ card.point }} PT</p>
+            <div class="card-detail__meta">
+                <p class="card-detail__meta-text">&nbsp;</p>
+                <p class="card-detail__meta-text">{{ card.point }} PT</p>
             </div>
         </div>
-        <p class="p-tag">{{ tag }}</p>
+        <p class="card-detail__tag">{{ tag }}</p>
     </div>
-    <div class="selected-card-skill" data-text-panel="skill">
-        {% for skill in skills %}<p class="p-skill">{{ skill }}</p>{% endfor %}
+    <div class="card-detail__text card-detail__text--skill" data-text-panel="skill">
+        {% for skill in skills %}<p class="card-detail__paragraph">{{ skill }}</p>{% endfor %}
     </div>
-    <div class="selected-card-story" data-text-panel="story" hidden>
-        <p class="p-skill">{{ story }}</p>
+    <div class="card-detail__text card-detail__text--story" data-text-panel="story" hidden>
+        <p class="card-detail__paragraph">{{ story }}</p>
     </div>
-    <div class="selected-card-dial" data-text-panel="dial" hidden>{{ dialogue }}</div>
-    <div class="selected-card-product" hidden>
+    <div class="card-detail__text card-detail__text--dial" data-text-panel="dial" hidden>{{ dialogue }}</div>
+    <div class="card-detail__products" data-card-products hidden>
         <table>
             {% for product in products %}
                 <tr>
-                    <td class="image-product" style="background-image: url({{ product.image_url }});"></td>
+                    <td class="card-detail__product-image" style="background-image: url({{ product.image_url }});"></td>
                     <td>{{ product.label }}</td>
                 </tr>
             {% endfor %}

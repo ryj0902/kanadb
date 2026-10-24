@@ -1,23 +1,23 @@
 {% if variant == "character" %}
-<div class="image-grid-element{% if not card.producible %} unproducible-element{% endif %}" data-action="select-card" data-card-id="{{ card.id }}">
-    <div class="image-card" style="background-image: url({{ card.image_url }});"></div>
-    <div class="image-frame" style="background-image: url({{ card.frame_url }});"></div>
-    <div class="text-stat" id="card-hp" {% if not card or card.is_spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
+<div class="card-tile card-tile--character{% if not card.producible %} card-tile--unproducible{% endif %}" data-action="select-card" data-card-id="{{ card.id }}">
+    <div class="card-tile__art" style="background-image: url({{ card.image_url }});" data-card-art></div>
+    <div class="card-tile__frame" style="background-image: url({{ card.frame_url }});"></div>
+    <div class="card-tile__stat card-tile__stat--hp"{% if not card or card.is_spell %} hidden{% endif %}>{{ card.hp }}</div>
 </div>
 {% else %}
-<div class="{% if variant == "deck" %}npc-image-grid-element{% else %}image-grid-element{% endif %}{% if not card.producible %} unproducible-element{% endif %}" data-action="select-card"{% if variant == "grid" %} draggable="true"{% endif %} data-card-id="{{ card.id }}">
-    <div class="image-card" style="background-image: url({{ card.image_url }});"></div>
-    <div class="image-frame" style="background-image: url({{ card.frame_url }});"></div>
-    <div class="image-enhance" style="background-image: url({{ card.frame_enhance_url }}){% if card.enhance == 0 %};display:none;{% endif %}"></div>
-    <div class="text-stat" id="card-enhance" {% if card.enhance == 0 %} style="display:none;" {% endif %}>{{ card.enhance }}</div>
-    <div class="text-stat" id="card-size" {% if card.is_character %} style="display:none;" {% endif %}>{{ card.size }}</div>
-    <div class="text-stat" id="card-atk" {% if not card.is_follower %} style="display:none;" {% endif %}>{{ card.atk }}</div>
-    <div class="text-stat" id="card-def" {% if not card.is_follower %} style="display:none;" {% endif %}>{{ card.defs }}</div>
-    <div class="text-stat" id="card-hp" {% if card.is_spell %} style="display:none;" {% endif %}>{{ card.hp }}</div>
+<div class="card-tile card-tile--{% if variant == "deck" %}compact{% else %}grid{% endif %}{% if not card.producible %} card-tile--unproducible{% endif %}" data-action="select-card"{% if variant == "grid" %} draggable="true"{% endif %} data-card-id="{{ card.id }}">
+    <div class="card-tile__art" style="background-image: url({{ card.image_url }});" data-card-art></div>
+    <div class="card-tile__frame" style="background-image: url({{ card.frame_url }});"></div>
+    <div class="card-tile__enhance-frame" style="background-image: url({{ card.frame_enhance_url }})"{% if card.enhance == 0 %} hidden{% endif %}></div>
+    <div class="card-tile__stat card-tile__stat--enhance"{% if card.enhance == 0 %} hidden{% endif %}>{{ card.enhance }}</div>
+    <div class="card-tile__stat card-tile__stat--size"{% if card.is_character %} hidden{% endif %}>{{ card.size }}</div>
+    <div class="card-tile__stat card-tile__stat--atk"{% if not card.is_follower %} hidden{% endif %}>{{ card.atk }}</div>
+    <div class="card-tile__stat card-tile__stat--def"{% if not card.is_follower %} hidden{% endif %}>{{ card.defs }}</div>
+    <div class="card-tile__stat card-tile__stat--hp"{% if card.is_spell %} hidden{% endif %}>{{ card.hp }}</div>
     {% if variant == "deck" %}
-    <div class="image-count">
-        <div class="text-stat" id="card-x">x</div>
-        <div class="text-stat" id="card-count">{{ card.count }}</div>
+    <div class="card-tile__count">
+        <div class="card-tile__stat card-tile__count-x">x</div>
+        <div class="card-tile__stat card-tile__count-value">{{ card.count }}</div>
     </div>
     {% endif %}
 </div>

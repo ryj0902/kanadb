@@ -1,0 +1,89 @@
+.deck-layout {
+    margin: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.deck-layout__main {
+    display: flex;
+    flex-direction: column;
+}
+
+.deck-layout__tabs {
+    margin-bottom: 5px;
+}
+
+.deck-layout__view {
+    width: 750px;
+}
+
+.deck-editor {
+    display: flex;
+    flex-direction: row;
+}
+
+.deck-editor__search {
+    width: var(--layout-main-width);
+}
+
+/* 덱 미리보기 (드래그 대상) */
+.deck-preview {
+    border: 2px solid var(--color-border);
+    overflow-y: auto;
+    width: 200px;
+    padding: 10px;
+    margin-top: 25px;
+    max-height: 586px;
+}
+
+.deck-preview.is-drop-add {
+    border: 2px solid var(--color-drop-add);
+}
+
+.deck-preview.is-drop-remove {
+    border: 2px solid var(--color-drop-remove);
+}
+
+.deck-preview__title {
+    margin-top: 0px;
+}
+
+.deck-preview__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.deck-preview__summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 160px;
+    height: 24px;
+}
+
+.deck-preview__summary p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: var(--font-summary);
+}
+
+.deck-preview__count {
+    display: flex;
+    gap: 4px; /* 숫자와 / 사이의 간격 */
+    align-items: center;
+    max-width: 90px;
+}
+
+.deck-preview__count-icon {
+    width: 15%;
+}
+
+.deck-preview__count-value.is-over-limit {
+    color: var(--color-highlight);
+}
+
+.deck-preview__point {
+    margin-left: auto; /* 오른쪽 끝으로 정렬 */
+}

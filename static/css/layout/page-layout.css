@@ -1,0 +1,30 @@
+/* 본문(main) + 카드 상세(aside) 2단 레이아웃 */
+.page-layout {
+    margin: 10px;
+    padding: 0;
+    min-height: 85vh;
+    display: flex;
+    align-items: flex-start;
+}
+
+.page-layout__main {
+    width: var(--layout-main-width);
+}
+
+.page-layout__main--wide {
+    width: var(--layout-main-wide-width);
+}
+
+.page-layout__aside {
+    position: sticky; /* 스크롤 시 고정 */
+    top: 10px;
+    max-height: calc(100vh - 20px);
+    overflow-y: auto;
+    min-width: var(--layout-aside-width);
+    max-width: var(--layout-aside-width);
+}
+
+.page-layout__aside.is-horizontal {
+    min-width: var(--layout-aside-horizontal-width);
+    max-width: var(--layout-aside-horizontal-width);
+}

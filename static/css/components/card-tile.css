@@ -1,0 +1,162 @@
+/* 카드 타일: 그림 + 테두리 + 능력치
+   --grid: 검색 결과, --character: 덱 요약의 캐릭터, --compact: 덱 요약의 카드, --detail: 카드 상세 */
+.card-tile {
+    position: relative;
+}
+
+.card-tile--grid,
+.card-tile--character {
+    width: 120px;
+    height: 180px;
+    margin-bottom: 5px;
+}
+
+.card-tile--compact {
+    width: 80px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.card-tile--detail {
+    width: 240px;
+    height: 360px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.card-tile--grid,
+.card-tile--character,
+.card-tile--detail {
+    cursor: grab;
+}
+
+/* 제작 불가 카드 */
+.card-tile--unproducible {
+    box-shadow: 0px 0px 5px 2px var(--color-highlight) inset;
+}
+
+.card-tile--detail.card-tile--unproducible {
+    box-shadow: 0px 0px 8px 4px var(--color-highlight) inset;
+}
+
+.card-tile__art {
+    position: absolute;
+    top: 3%;
+    left: 5%;
+    width: 90%;
+    height: 95%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.card-tile__frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.card-tile__enhance-frame {
+    position: absolute;
+    bottom: 27%;
+    right: 11%;
+    width: 19%;
+    height: 13%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/* 능력치 숫자 */
+.card-tile__stat {
+    font-family: var(--font-skill);
+    font-size: 40px;
+    color: white;
+    text-shadow: var(--text-outline);
+    pointer-events: none;
+}
+
+.card-tile__stat--size {
+    position: absolute;
+    top: -3%;
+    right: 18%;
+    transform: translate(50%, 50%);
+}
+
+.card-tile__stat--atk {
+    position: absolute;
+    bottom: 10%;
+    left: 13%;
+}
+
+.card-tile__stat--def {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.card-tile__stat--hp {
+    position: absolute;
+    bottom: 10%;
+    right: 13%;
+}
+
+.card-tile__stat--enhance {
+    position: absolute;
+    bottom: 29%;
+    right: 20.5%;
+    font-size: 24px;
+    transform: translate(50%, 0%);
+}
+
+/* 크기별 숫자 크기 */
+.card-tile--grid .card-tile__stat {
+    font-size: 20px;
+}
+
+.card-tile--grid .card-tile__stat--enhance {
+    font-size: 24px;
+}
+
+.card-tile--compact .card-tile__stat {
+    font-size: 13px;
+}
+
+.card-tile--compact .card-tile__stat--enhance {
+    font-size: 8px;
+}
+
+.card-tile--character .card-tile__stat--hp {
+    font-size: 25px;
+}
+
+/* 덱 요약의 장수 표시 (x N) */
+.card-tile__count {
+    position: absolute;
+    left: 30%;
+    bottom: -10%;
+    background-color: var(--color-count-badge);
+    padding-left: 14px;
+    padding-right: 14px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-tile--compact .card-tile__count-x {
+    position: absolute;
+    left: 2px;
+    font-size: 8px;
+}
+
+.card-tile--compact .card-tile__count-value {
+    color: white;
+    font-size: 10px;
+}

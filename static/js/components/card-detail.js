@@ -23,7 +23,7 @@ const state = {
     enhOrig: NONE,
 };
 
-const control = (id) => qs(`#${id}`, panel);
+const control = (action) => qs(`[data-action="${action}"]`, panel);
 
 export async function selectCard(cardId, resetLink = true) {
     const seq = ++requestSeq;
@@ -31,27 +31,27 @@ export async function selectCard(cardId, resetLink = true) {
     if (seq !== requestSeq) return; // 늦게 도착한 이전 요청의 응답은 버린다
 
     state.cardId = card.id;
-    ['capture-btn', 'vert-horz-btn', 'hyperlink-btn', 'swap-text-btn', 'card-product-btn',
-        'card-enhance-img', 'card-enhance-down', 'card-enhance-up'].forEach((id) => show(control(id)));
-    control('card-product-btn').classList.toggle('grayscale', !card.has_product);
+    ['capture-card', 'toggle-layout', 'copy-link', 'swap-text', 'toggle-products',
+        'enhance-reset', 'enhance-prev', 'enhance-next'].forEach((id) => show(control(id)));
+    control('toggle-products').classList.toggle('is-unavailable', !card.has_product);
 
     state.enhPrev = card.enh_prev;
     state.enhNext = card.enh_next;
     state.enhOrig = card.enh_orig;
-    control('card-enhance-down').style.opacity = card.enh_prev === NONE ? 0.5 : 1.0;
-    control('card-enhance-up').style.opacity = card.enh_next === NONE ? 0.5 : 1.0;
+    control('enhance-prev').style.opacity = card.enh_prev === NONE ? 0.5 : 1.0;
+    control('enhance-next').style.opacity = card.enh_next === NONE ? 0.5 : 1.0;
 
     if (resetLink) {
         state.originId = card.id;
         state.linkIds = card.link_ids;
         state.linkIndex = 0;
-        show(control('card-link-btn'));
-        control('card-link-btn').classList.toggle('grayscale', card.link_ids.length === 0);
-        ['card-link-prev', 'card-link-reset', 'card-link-next'].forEach((id) => hide(control(id)));
+        show(control('link-open'));
+        control('link-open').classList.toggle('is-unavailable', card.link_ids.length === 0);
+        ['link-prev', 'link-reset', 'link-next'].forEach((id) => hide(control(id)));
     }
 
     resetTextButton();
-    qs('#capture-area', panel).innerHTML = html;
+    qs('[data-card-detail-body]', panel).innerHTML = html;
 }
 
 // --- 링크 카드 ---
@@ -62,12 +62,12 @@ function showLinkCard(offset) {
     if (linkIds.length === 0 || index < 0 || index >= linkIds.length) return;
 
     state.linkIndex = index;
-    control('card-link-prev').style.opacity = index === 0 ? 0.5 : 1.0;
-    control('card-link-next').style.opacity = index + 1 < linkIds.length ? 1.0 : 0.5;
+    control('link-prev').style.opacity = index === 0 ? 0.5 : 1.0;
+    control('link-next').style.opacity = index + 1 < linkIds.length ? 1.0 : 0.5;
     selectCard(linkIds[index], false);
 
-    hide(control('card-link-btn'));
-    ['card-link-prev', 'card-link-reset', 'card-link-next'].forEach((id) => show(control(id)));
+    hide(control('link-open'));
+    ['link-prev', 'link-reset', 'link-next'].forEach((id) => show(control(id)));
 }
 
 function resetLinkCard() {
@@ -84,7 +84,7 @@ function showEnhanceCard(offset) {
 // --- 텍스트(스킬/스토리/대사) ---
 
 function resetTextButton() {
-    const button = control('swap-text-btn');
+    const button = control('swap-text');
     button.src = button.dataset.iconStory;
     button.dataset.next = 'story';
 }
@@ -102,24 +102,23 @@ function swapText(button) {
 // --- 보기 ---
 
 function toggleProducts() {
-    const products = qs('.selected-card-product', panel);
+    const products = qs('[data-card-products]', panel);
     if (products) products.hidden = !products.hidden;
 }
 
 function toggleLayout(button) {
     horizontal = !horizontal;
-    qsa('.right, .selected-card, .selected-card-side').forEach((element) => {
-        element.classList.toggle('horz-layout', horizontal);
-    });
+    panel.classList.toggle('is-horizontal', horizontal);
+    panel.closest('[data-aside]')?.classList.toggle('is-horizontal', horizontal);
     button.textContent = horizontal ? panel.dataset.verticalLabel : panel.dataset.horizontalLabel;
 }
 
 async function captureCard() {
     await loadScript(panel.dataset.html2canvasSrc);
-    const canvas = await window.html2canvas(qs('#capture-area', panel));
+    const canvas = await window.html2canvas(qs('[data-card-detail-body]', panel));
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
-    link.download = `${qs('.selected-card-title .p-name', panel).textContent}.png`;
+    link.download = `${qs('[data-card-name]', panel).textContent}.png`;
     link.click();
 }
 

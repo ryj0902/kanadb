@@ -3,10 +3,14 @@
 
 {% block title %}{% translate "가이드(네비)" %} - {% endblock %}
 
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/pages/guide.css' %}">
+{% endblock %}
+
 {% block main %}
-    <li class="guide-li"><a href="https://open.kakao.com/o/gfZ9sxib">(외부 링크)오픈카톡 정보방</a></li>
+    <li class="guide-list__item"><a href="https://open.kakao.com/o/gfZ9sxib">(외부 링크)오픈카톡 정보방</a></li>
     {% for name, title in contents %}
-        <li class="guide-li"><a href="{% url 'guide:detail' name %}">{{ title }}</a></li>
+        <li class="guide-list__item"><a href="{% url 'guide:detail' name %}">{{ title }}</a></li>
     {% endfor %}
 {% endblock %}
 

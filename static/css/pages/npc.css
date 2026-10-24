@@ -1,0 +1,78 @@
+/* NPC 목록 */
+.npc-catalog {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse; /* 셀 간의 중복된 테두리를 제거 */
+    border: 1px outset; /* 기존 border="1"과 같은 테두리 */
+}
+
+.npc-catalog th,
+.npc-catalog td {
+    border: 1px inset;
+}
+
+.npc-catalog__section {
+    font-family: var(--font-title);
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.npc-catalog__note {
+    font-size: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.npc-catalog__difficulty {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* NPC 상세: 난이도/층 이동 */
+.floor-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px; /* 그룹 간의 간격 */
+    width: 100%;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.floor-nav__group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px; /* 화살표와 선택 사이 간격 */
+}
+
+.floor-nav__arrow {
+    font-size: 24px;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    cursor: pointer;
+}
+
+.floor-nav__arrow:hover {
+    color: var(--color-highlight);
+}
+
+.floor-nav__arrow.is-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.floor-nav__select {
+    font-size: 12px;
+    height: 28px;
+    padding: 0 4px;
+    margin: 0;
+    box-sizing: border-box;
+}

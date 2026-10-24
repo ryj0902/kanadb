@@ -2,7 +2,7 @@
 
 import { onAction } from '../core/actions.js';
 import { getJson, postJson } from '../core/api.js';
-import { qs } from '../core/dom.js';
+import { qs, qsa } from '../core/dom.js';
 
 // 덱 상태를 담는 쿼리 파라미터 (검색 폼 제출 시에도 유지)
 const DECK_PARAMS = ['card', 'title', 'summary', 'description'];
@@ -15,10 +15,12 @@ let requestSeq = 0;
 // --- 보기/편집 ---
 
 function showTab(tab) {
-    qs('#deck-edit', root).hidden = tab !== 'edit';
-    qs('#deck-view', root).hidden = tab !== 'view';
-    qs('#edit-button', root).classList.toggle('active', tab === 'edit');
-    qs('#view-button', root).classList.toggle('active', tab === 'view');
+    qsa('[data-deck-panel]', root).forEach((panel) => {
+        panel.hidden = panel.dataset.deckPanel !== tab;
+    });
+    qsa('[data-deck-tab]', root).forEach((button) => {
+        button.classList.toggle('is-active', button.dataset.deckTab === tab);
+    });
 }
 
 // --- URL 상태 ---
@@ -30,7 +32,7 @@ function cardIdsFromUrl() {
 
 // 검색 폼(GET) 제출 시에도 현재 덱이 유지되도록 hidden input을 URL과 맞춘다
 function syncSearchForm() {
-    const form = qs('#search-form', root);
+    const form = qs('[data-search-form]', root);
     if (!form) return;
     const params = new URLSearchParams(window.location.search);
     DECK_PARAMS.forEach((name) => {
@@ -59,8 +61,8 @@ async function refreshDeck() {
     const seq = ++requestSeq;
     const data = await getJson(`${root.dataset.setUrl}?${query}`);
     if (seq !== requestSeq) return;
-    qs('.deck-preview', root).innerHTML = data.preview_html;
-    qs('#deck-view', root).innerHTML = data.summary_html;
+    qs('[data-deck-preview]', root).innerHTML = data.preview_html;
+    qs('[data-deck-panel="view"]', root).innerHTML = data.summary_html;
 }
 
 // 서버가 돌려준 새 덱으로 card만 바꾸고 다른 쿼리(덱 정보, 검색 조건)는 유지
@@ -84,8 +86,8 @@ function updateDropHighlight() {
         && mouse.y >= rect.top && mouse.y <= rect.bottom;
 
     // 덱 밖 -> 안: 추가(초록), 덱 안 -> 밖: 제거(빨강)
-    dropZone.classList.toggle('green-highlight', !drag.fromDeck && drag.insideDeck);
-    dropZone.classList.toggle('red-highlight', drag.fromDeck && !drag.insideDeck);
+    dropZone.classList.toggle('is-drop-add', !drag.fromDeck && drag.insideDeck);
+    dropZone.classList.toggle('is-drop-remove', drag.fromDeck && !drag.insideDeck);
 }
 
 function onDragStart(event) {
@@ -117,7 +119,7 @@ async function onDragEnd() {
     const cardId = drag.cardId;
 
     Object.assign(drag, { cardId: null, fromDeck: false, insideDeck: false, active: false });
-    dropZone.classList.remove('green-highlight', 'red-highlight');
+    dropZone.classList.remove('is-drop-add', 'is-drop-remove');
 
     if (!action) return;
     try {
@@ -136,7 +138,7 @@ async function onDragEnd() {
 export function initDeckEditor(element = qs('[data-deck]')) {
     if (!element) return;
     root = element;
-    dropZone = qs('#deck-preview-content', root);
+    dropZone = qs('[data-deck-drop]', root);
 
     onAction('deck-view', () => showTab('view'));
     onAction('deck-edit', () => showTab('edit'));

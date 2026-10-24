@@ -1,0 +1,9 @@
+/* hidden 속성은 요소의 display 규칙보다 우선한다 */
+[hidden] {
+    display: none !important;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}

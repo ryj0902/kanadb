@@ -58,7 +58,7 @@ def format_dialogue(text):
     pattern = r"(◈.*?◈)\s*\n(.*?)(?=\n◈|\Z)"
     paragraphs = [
         format_html(
-            '<p class="p-skill">{}<br>{}</p>',
+            '<p class="card-detail__paragraph">{}<br>{}</p>',
             title,
             mark_safe(escape(content.strip()).replace("\n", "<br>")),
         )

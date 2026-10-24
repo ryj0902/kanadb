@@ -33,7 +33,7 @@ export function initCardTooltip() {
     });
 
     document.body.addEventListener('mouseover', (event) => {
-        const art = event.target.closest('.image-card');
+        const art = event.target.closest('[data-card-art]');
         if (!art) {
             hideTooltip();
             return;
@@ -48,7 +48,7 @@ export function initCardTooltip() {
         timer = setTimeout(() => {
             if (!document.body.contains(art)) return;
             tooltip = document.createElement('div');
-            tooltip.className = 'custom-tooltip';
+            tooltip.className = 'card-tooltip';
             tooltip.textContent = `CARD_${owner.dataset.cardId}`;
             document.body.appendChild(tooltip);
             place();
@@ -56,7 +56,7 @@ export function initCardTooltip() {
     });
 
     document.body.addEventListener('mouseout', (event) => {
-        if (event.target.closest('.image-card') && !event.relatedTarget?.closest('.image-card')) {
+        if (event.target.closest('[data-card-art]') && !event.relatedTarget?.closest('[data-card-art]')) {
             hideTooltip();
         }
     });

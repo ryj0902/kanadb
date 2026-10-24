@@ -3,32 +3,36 @@
 
 {% block title %}{% translate "덱(네비)" %} - {% endblock %}
 
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/pages/deck.css' %}">
+{% endblock %}
+
 {% block content %}
-    <div id="deck-main-layout" data-deck data-set-url="{% url 'deck:set' %}" data-check-url="{% url 'deck:check' %}">
-        <div id="deck-left-wrapper">
-            <div class="button-group">
-                <button type="button" id="view-button" class="toggle-button{% if deck_tab == 'view' %} active{% endif %}" data-action="deck-view">{% translate "View" context "deck tab" %}</button>
-                <button type="button" id="edit-button" class="toggle-button{% if deck_tab == 'edit' %} active{% endif %}" data-action="deck-edit">{% translate "Edit" context "deck tab" %}</button>
+    <div class="deck-layout" data-deck data-set-url="{% url 'deck:set' %}" data-check-url="{% url 'deck:check' %}">
+        <div class="deck-layout__main">
+            <div class="deck-layout__tabs">
+                <button type="button" class="tab-button{% if deck_tab == 'view' %} is-active{% endif %}" data-action="deck-view" data-deck-tab="view">{% translate "View" context "deck tab" %}</button>
+                <button type="button" class="tab-button{% if deck_tab == 'edit' %} is-active{% endif %}" data-action="deck-edit" data-deck-tab="edit">{% translate "Edit" context "deck tab" %}</button>
             </div>
 
-            <div id="deck-edit"{% if deck_tab != "edit" %} hidden{% endif %}>
-                <div class="left">
+            <div class="deck-editor" data-deck-panel="edit"{% if deck_tab != "edit" %} hidden{% endif %}>
+                <div class="deck-editor__search">
                     {% include "card/search_card.html" %}
                 </div>
 
-                <div id="deck-preview-content">
-                    <h2 style="margin-top: 0px;">{% translate "덱 미리보기" %}</h2>
-                    <div class="deck-preview">
+                <div class="deck-preview" data-deck-drop>
+                    <h2 class="deck-preview__title">{% translate "덱 미리보기" %}</h2>
+                    <div class="deck-preview__list" data-deck-preview>
                     </div>
                 </div>
             </div>
 
-            <div id="deck-view"{% if deck_tab != "view" %} hidden{% endif %}>
+            <div class="deck-layout__view" data-deck-panel="view"{% if deck_tab != "view" %} hidden{% endif %}>
                 {% include "deck/_deck_summary.html" %}
             </div>
         </div>
 
-        <div class="right">
+        <div class="page-layout__aside" data-aside>
             {% include "components/card_detail.html" %}
         </div>
     </div>

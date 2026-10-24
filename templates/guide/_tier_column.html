@@ -5,7 +5,7 @@
 <ul>
 {% for entry in tier.entries %}
 {% with card=entry.card %}
-<li><a href="#" data-action="select-card" data-card-id="{{ card.id }}">{{ card.localized_name }}</a>&nbsp;&nbsp;&nbsp;&nbsp;{% for vote in entry.votes %}<img src="{% get_static_prefix %}card/Texture2D/result_{{ vote.label }}.webp" alt="{{ vote.label }}" class="vote-tier-img {% if entry.my_vote != vote.tier %}deactive{% endif %}" data-action="vote" data-card-id="{{ card.id }}" data-category="{{ category }}" data-mode="{{ mode }}" data-tier="{{ vote.tier }}"><span class="vote-count"> {{ vote.count }} </span>{% endfor %}  </li>
+<li><a href="#" data-action="select-card" data-card-id="{{ card.id }}">{{ card.localized_name }}</a>&nbsp;&nbsp;&nbsp;&nbsp;{% for vote in entry.votes %}<img src="{% get_static_prefix %}card/Texture2D/result_{{ vote.label }}.webp" alt="{{ vote.label }}" class="tier-vote{% if entry.my_vote != vote.tier %} is-inactive{% endif %}" data-action="vote" data-card-id="{{ card.id }}" data-category="{{ category }}" data-mode="{{ mode }}" data-tier="{{ vote.tier }}"><span class="tier-vote__count"> {{ vote.count }} </span>{% endfor %}  </li>
 {% endwith %}
 {% endfor %}
 </ul>

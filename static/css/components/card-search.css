@@ -1,0 +1,60 @@
+/* 탭 버튼 (검색 필터 탭, 덱 보기/편집) */
+.tab-button.is-active {
+    background-color: white;
+}
+
+.search-filter {
+    outline: solid 1px var(--color-border);
+}
+
+.search-filter__table {
+    width: 100%;
+}
+
+.search-filter__table tbody tr {
+    line-height: 2rem;
+}
+
+.search-filter__table tr:nth-child(odd) {
+    background-color: var(--color-stripe);
+}
+
+.search-filter__label {
+    font-family: var(--font-title);
+    padding-left: 5px;
+    width: 100px;
+}
+
+.search-filter__options {
+    font-family: var(--font-contents);
+    font-size: 15px;
+}
+
+/* Django CheckboxSelectMultiple: 항목을 한 줄로 */
+.search-filter__checkboxes div {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.search-result {
+    min-width: 750px;
+    outline: solid 1px var(--color-border);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.pager {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pager__label {
+    margin-left: 10px;
+    margin-right: 10px;
+}

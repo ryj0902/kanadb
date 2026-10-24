@@ -1,5 +1,5 @@
 {% load i18n core_tags %}
 {# 탭마다 같은 검색어 입력칸을 두고 JS로 값을 맞춘다 (id는 탭별로 다르게) #}
 {% with "id_search_type_"|add:row_tab as type_id and "id_search_text_"|add:row_tab as text_id %}
-<tr><td class="search-filter-title">{{ form.search_type|with_id:type_id }}</td><td class="search-filter-contents">{{ form.search_text|with_id:text_id }} <button class="btn-submit" type="submit" name="tab" value="{{ tab }}">{% translate "검색" %}</button></td></tr>
+<tr><td class="search-filter__label">{{ form.search_type|with_id:type_id }}</td><td class="search-filter__options">{{ form.search_text|with_id:text_id }} <button class="search-filter__submit" type="submit" name="tab" value="{{ tab }}">{% translate "검색" %}</button></td></tr>
 {% endwith %}

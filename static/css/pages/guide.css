@@ -1,0 +1,48 @@
+.guide-list__item {
+    margin-left: 20px;
+}
+
+/* 티어 리스트: 유니크는 PVP / PVE 2열 */
+.tier-board {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+}
+
+.tier-board__column {
+    flex: 1;
+    min-width: 0;
+}
+
+.tier-board__heading {
+    font-family: var(--font-title);
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--color-divider);
+}
+
+.tier-board__column--pvp .tier-board__heading {
+    color: var(--color-pvp);
+}
+
+.tier-board__column--pve .tier-board__heading {
+    color: var(--color-pve);
+}
+
+.tier-vote {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* 내가 투표하지 않은 티어 */
+.tier-vote.is-inactive {
+    filter: grayscale(100%);
+    opacity: 0.4;
+}
+
+.tier-vote.is-inactive:hover {
+    filter: none;
+}

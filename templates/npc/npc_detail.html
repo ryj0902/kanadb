@@ -3,6 +3,10 @@
 
 {% block title %}NPC - {% endblock %}
 
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/pages/npc.css' %}">
+{% endblock %}
+
 {% block main %}
     {% if navigation %}
         {% include "npc/_floor_nav.html" %}

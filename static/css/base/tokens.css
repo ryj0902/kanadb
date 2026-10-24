@@ -1,0 +1,33 @@
+/* 디자인 토큰: 색, 글꼴, 공통 값 */
+:root {
+    --font-title: 'title', sans-serif;
+    --font-contents: 'contents', sans-serif;
+    --font-skill: 'skill', sans-serif;
+    --font-summary: 'summary', sans-serif;
+
+    --color-text: black;
+    --color-border: black;
+    --color-divider: #ddd;
+    --color-stripe: #f2f2f2;
+    --color-highlight: red;
+    --color-drop-add: green;
+    --color-drop-remove: red;
+    --color-count-badge: #ed5151;
+    --color-stat-value: #ebdcb5;
+    --color-stat-value-outline: #52391e;
+    --color-bar-fill: #3b82f6;
+    --color-bar-border: #c5a670;
+    --color-pvp: #d9534f;
+    --color-pve: #0275d8;
+    --color-tooltip: #333;
+
+    /* 카드 위 숫자의 검은 외곽선 */
+    --text-outline: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+    --layout-main-width: 770px;
+    --layout-main-wide-width: 880px;
+    --layout-aside-width: 370px;
+    --layout-aside-horizontal-width: 720px;
+
+    --z-tooltip: 10000;
+}
