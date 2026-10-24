@@ -1,0 +1,20 @@
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "kanadb.settings_test"
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"
+markers = ["visual: Playwright visual regression (needs running server)"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+extend-exclude = ["*.ipynb", "*/migrations/*"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "DJ"]
+ignore = ["E501"]
+
+[tool.djlint]
+profile = "django"
+indent = 4
+max_line_length = 120
+ignore = "H006,H021,H030,H031"

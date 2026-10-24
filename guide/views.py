@@ -40,7 +40,7 @@ def index(request):
     context = {"contents": []}
 
     for file in get_guide_files():
-        with open(file, "r", encoding="utf-8") as f:
+        with open(file, encoding="utf-8") as f:
             line = f.readline()
 
         title = line.rstrip()
@@ -104,9 +104,7 @@ def guide_vote_mode(request, guide_category, mode=0):
 
     tier_table = [[] for _ in range(len(Vote.TIER_MAP))]
     # 범위를 벗어난 tier 값이 저장되어 있어도 집계가 깨지지 않도록 제외
-    valid_votes = Vote.objects.filter(
-        tier__in=Vote.TIER_MAP, mode=mode, **vote_filter
-    )
+    valid_votes = Vote.objects.filter(tier__in=Vote.TIER_MAP, mode=mode, **vote_filter)
     user_votes = valid_votes.filter(ip=user_ip)
     user_voted_cards = {vote.card.id: vote.tier for vote in user_votes}
 
