@@ -19,19 +19,25 @@ class CardSearchForm(forms.Form):
 
     category = forms.MultipleChoiceField(
         choices=Card.Category.choices,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "search-filter__checkboxes"}),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "search-filter__checkboxes"}
+        ),
         required=False,
         label="category",
     )
     rarity = forms.MultipleChoiceField(
         choices=Card.Rarity.choices,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "search-filter__checkboxes"}),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "search-filter__checkboxes"}
+        ),
         required=False,
         label="rarity",
     )
     theme = forms.MultipleChoiceField(
         choices=Card.Theme.choices,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "search-filter__checkboxes"}),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "search-filter__checkboxes"}
+        ),
         required=False,
         label="theme",
     )
@@ -54,38 +60,50 @@ class CardSearchForm(forms.Form):
 
     episode_season1 = forms.MultipleChoiceField(
         choices=Card.EPISODE_SEASON1,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "search-filter__checkboxes"}),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "search-filter__checkboxes"}
+        ),
         required=False,
         label="season1",
     )
     episode_season2 = forms.MultipleChoiceField(
         choices=Card.EPISODE_SEASON2,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "search-filter__checkboxes"}),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "search-filter__checkboxes"}
+        ),
         required=False,
         label="season2",
     )
     episode_season3 = forms.MultipleChoiceField(
         choices=Card.EPISODE_SEASON3,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "search-filter__checkboxes"}),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "search-filter__checkboxes"}
+        ),
         required=False,
         label="season3",
     )
     episode_event = forms.MultipleChoiceField(
         choices=Card.EPISODE_EVENT,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "search-filter__checkboxes"}),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "search-filter__checkboxes"}
+        ),
         required=False,
         label="event",
     )
     episode_extra = forms.MultipleChoiceField(
         choices=Card.EPISODE_EXTRA,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "search-filter__checkboxes"}),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "search-filter__checkboxes"}
+        ),
         required=False,
         label="extra",
     )
 
     etc = forms.MultipleChoiceField(
         choices=ETC_CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "search-filter__checkboxes"}),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "search-filter__checkboxes"}
+        ),
         required=False,
         label="etc",
     )

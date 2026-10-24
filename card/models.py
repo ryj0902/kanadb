@@ -44,11 +44,13 @@ class Product:
 
 
 class Card(models.Model):
+    # 멤버 이름은 게임 데이터(CARD_TABLE)의 값과 같다
     class Category(models.IntegerChoices):
         CHARACTER = 1, _("캐릭터")
         SPELL = 2, _("스펠")
         FOLLOWER = 3, _("추종자")
 
+    # 멤버 이름은 게임 데이터(CARD_TABLE)의 값과 같다
     class Rarity(models.IntegerChoices):
         COMMON = 1, _("커먼")
         UNCOMMON = 2, _("언커먼")
@@ -57,12 +59,13 @@ class Card(models.Model):
         DOUBLE_RARE = 5, _("더블레어")
         UNIQUE = 6, _("유니크")
 
+    # 멤버 이름은 게임 데이터(CARD_TABLE)의 값과 같다
     class Theme(models.IntegerChoices):
-        VITA = 1, _("공립")
-        ACADEMY = 2, _("사립")
+        PUBLIC = 1, _("공립")
+        PRIVATE = 2, _("사립")
         CRUX = 3, _("크룩스")
-        DARKLORE = 4, _("다크로어")
-        SHADOW_GATE = 5, _("무소속")
+        DARK_LORE = 4, _("다크로어")
+        INDEPENDENCE = 5, _("무소속")
 
     # 에피소드 값: 1xx 에피소드(EP), 5xx 이벤트(EV), 8xx 명계 등(MH), 901/902 엑스트라
     EPISODE_SEASON1 = [(100 + i, f"EP{i}") for i in range(9)]
@@ -119,7 +122,8 @@ class Card(models.Model):
     objects = CardQuerySet.as_manager()
 
     class Meta:
-        ordering = ["category", "theme", "episode", "point"]
+        # 마지막 id: 같은 순위끼리도 순서가 고정되어 페이지 이동 시 중복/누락이 없다
+        ordering = ["category", "theme", "episode", "point", "id"]
 
     def __str__(self):
         return self.name
@@ -131,6 +135,17 @@ class Card(models.Model):
             prefix = {1: "EP", 5: "EV"}.get(episode // 100, "MH")
             return prefix + str(episode % 100)
         return {901: "SH", 902: "EM"}.get(episode, episode)
+
+    @staticmethod
+    def episode_from_code(code):
+        """게임 데이터의 에피소드 코드 -> 저장 값 (EP1 -> 101, EV3 -> 503, MH29 -> 829, SH -> 901)"""
+        prefixes = {"EP": 100, "EV": 500, "MH": 800}
+        if code[:2] in prefixes:
+            return prefixes[code[:2]] + int(code[2:])
+        extras = {"SH": 901, "EM": 902}
+        if code in extras:
+            return extras[code]
+        raise ValueError(f"알 수 없는 에피소드 코드: {code}")
 
     def localized(self, field):
         """현재 언어에 맞는 필드 값 (영어면 <field>_us)"""
