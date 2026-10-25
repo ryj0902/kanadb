@@ -28,7 +28,7 @@ static/
   vendor/               html2canvas (캡처할 때만 불러옴)
   fonts/
   card/Texture2D, card/TextAsset   게임 데이터 (git 제외)
-tests/                  pytest 특성화 테스트, tests/visual/(화면 비교, 브라우저 점검)
+tests/                  pytest 특성화 테스트, tests/visual/(화면 비교, 브라우저 점검) - 로컬 전용 (git 제외)
 notebooks/              예전 데이터 갱신 노트북(참고용)
 ```
 
@@ -58,6 +58,8 @@ python manage.py runserver
 게임 데이터는 아래 "게임 데이터 갱신"의 `build_gamedata`로 채우거나 `card.sql`을 로컬 DB에 적용한다.
 
 ## 테스트와 점검
+
+`tests/`는 git에 올리지 않고 로컬에만 둔다. CI는 lint와 번역 컴파일만 확인한다.
 
 ```bash
 pytest                                   # 특성화 테스트 (SQLite + tests/fixtures/gamedata.json.gz)

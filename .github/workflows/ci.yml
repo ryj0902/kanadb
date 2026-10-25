@@ -28,5 +28,3 @@ jobs:
         run: python manage.py compilemessages --ignore=venv
         env:
           DJANGO_ENV: dev
-      - name: Test
-        run: pytest

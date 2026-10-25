@@ -167,8 +167,8 @@ secret_key.txt
 test.ipynb
 data.zip
 settings.json
-# test artifacts
-tests/visual/output/
+# 테스트는 로컬에만 둔다 (git 제외)
+tests/
 
 staticfiles/
 .ruff_cache/

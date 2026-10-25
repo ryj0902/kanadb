@@ -1,4 +1,21 @@
-{% load static core_tags %}
+{% load static i18n core_tags %}
+
+{# 덱 보기의 제목/요약/설명: 보기 모드(글자 + 수정 버튼) <-> 수정 모드(입력칸 + 적용/취소 버튼) #}
+{% partialdef meta-field %}
+    {% translate "수정" as edit_label %}{% translate "적용" as save_label %}{% translate "취소" as cancel_label %}
+    <div class="deck-summary__{{ field.kind }} deck-meta" data-deck-meta="{{ field.name }}">
+        <p class="deck-meta__text" data-deck-meta-text data-deck-meta-mode="view">{{ field.value }}</p>
+        {% if field.name == "description" %}
+            <textarea class="deck-meta__input" rows="3" placeholder="{{ field.label }}" aria-label="{{ field.label }}" data-deck-meta-input data-deck-meta-mode="edit" hidden></textarea>
+        {% else %}
+            <input type="text" class="deck-meta__input" placeholder="{{ field.label }}" aria-label="{{ field.label }}" data-deck-meta-input data-deck-meta-mode="edit" hidden>
+        {% endif %}
+        <button type="button" class="deck-meta__button" title="{{ edit_label }}" aria-label="{{ edit_label }}" data-action="deck-meta-edit" data-deck-meta-mode="view">✎</button>
+        <button type="button" class="deck-meta__button deck-meta__button--save" title="{{ save_label }}" aria-label="{{ save_label }}" data-action="deck-meta-save" data-deck-meta-mode="edit" hidden>✓</button>
+        <button type="button" class="deck-meta__button deck-meta__button--cancel" title="{{ cancel_label }}" aria-label="{{ cancel_label }}" data-action="deck-meta-cancel" data-deck-meta-mode="edit" hidden>✕</button>
+    </div>
+{% endpartialdef %}
+
 <div class="deck-summary">
     <table class="deck-summary__character">
         <tr>
@@ -6,7 +23,9 @@
                 {% card_tile card_character "character" %}
             </td>
             <td>
-                {% if LANGUAGE_CODE == "ko" %}
+                {% if deck_meta %}
+                    {% for field in deck_meta %}{% partial meta-field %}{% endfor %}
+                {% elif LANGUAGE_CODE == "ko" %}
                     <p class="deck-summary__title">{{ chapter_name }}</p>
                     <p class="deck-summary__subtitle">{{ loading_name }}</p>
                     <p class="deck-summary__description">{{ loading_desc }}</p>

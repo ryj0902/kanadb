@@ -1,11 +1,14 @@
-// 덱 페이지: 보기/편집 전환, 드래그로 카드 추가/제거, URL 기반 덱 미리보기
+// 덱 페이지: 보기/편집 전환, 드래그로 카드 추가/제거, 덱 정보 수정, URL 기반 덱 미리보기
 
 import { onAction } from '../core/actions.js';
 import { getJson, postJson } from '../core/api.js';
 import { qs, qsa } from '../core/dom.js';
 
+// 덱 정보(제목/요약/설명) 쿼리 파라미터. 비어 있으면 "None"으로 표시한다 (기존 동작)
+const META_PARAMS = ['title', 'summary', 'description'];
+const EMPTY_META = 'None';
 // 덱 상태를 담는 쿼리 파라미터 (검색 폼 제출 시에도 유지)
-const DECK_PARAMS = ['card', 'title', 'summary', 'description'];
+const DECK_PARAMS = ['card', ...META_PARAMS];
 const DRAGGABLE = '[draggable="true"][data-card-id]';
 
 let root = null;
@@ -51,12 +54,27 @@ function syncSearchForm() {
     });
 }
 
+// 언어 전환 링크는 서버가 처음 연 URL로 만들었으므로 바뀐 쿼리를 따라가게 한다
+function syncLanguageLinks() {
+    qsa('[data-language-link]').forEach((link) => {
+        const url = new URL(link.href);
+        url.search = window.location.search;
+        link.href = url;
+    });
+}
+
+function pushQuery(params, pathname = window.location.pathname) {
+    const query = params.toString().replace(/%2C/g, ',');
+    window.history.pushState(null, '', `${pathname}?${query}`);
+    syncSearchForm();
+    syncLanguageLinks();
+}
+
 async function refreshDeck() {
     const params = new URLSearchParams(window.location.search);
-    // 덱 정보가 비어 있으면 "None"으로 표시한다 (기존 동작)
     const query = new URLSearchParams({ card: params.get('card') || '' });
-    ['title', 'summary', 'description'].forEach((name) => {
-        query.set(name, params.get(name) || 'None');
+    META_PARAMS.forEach((name) => {
+        query.set(name, params.get(name) || EMPTY_META);
     });
     const seq = ++requestSeq;
     const data = await getJson(`${root.dataset.setUrl}?${query}`);
@@ -70,9 +88,55 @@ function pushDeckUrl(redirectUrl) {
     const next = new URL(redirectUrl, window.location.origin);
     const params = new URLSearchParams(window.location.search);
     params.set('card', next.searchParams.get('card'));
-    const query = params.toString().replace(/%2C/g, ',');
-    window.history.pushState(null, '', `${next.pathname}?${query}`);
-    syncSearchForm();
+    pushQuery(params, next.pathname);
+}
+
+// --- 덱 정보(제목/요약/설명) 보기/수정 ---
+
+function setMetaMode(field, mode) {
+    qsa('[data-deck-meta-mode]', field).forEach((element) => {
+        element.hidden = element.dataset.deckMetaMode !== mode;
+    });
+}
+
+function editMeta(field) {
+    const input = qs('[data-deck-meta-input]', field);
+    input.value = new URLSearchParams(window.location.search).get(field.dataset.deckMeta) || '';
+    setMetaMode(field, 'edit');
+    input.focus();
+    input.setSelectionRange(input.value.length, input.value.length);
+}
+
+function closeMeta(field) {
+    setMetaMode(field, 'view');
+    qs('[data-action="deck-meta-edit"]', field).focus();
+}
+
+// 적용: URL의 덱 정보를 바꾸고(뒤로 가기로 되돌릴 수 있음) 글자만 바로 고친다
+function saveMeta(field) {
+    const name = field.dataset.deckMeta;
+    const value = qs('[data-deck-meta-input]', field).value.trim();
+    const params = new URLSearchParams(window.location.search);
+    if (value !== (params.get(name) || '')) {
+        if (value) params.set(name, value);
+        else params.delete(name);
+        pushQuery(params);
+    }
+    qs('[data-deck-meta-text]', field).textContent = value || EMPTY_META;
+    closeMeta(field);
+}
+
+function onMetaKeydown(event) {
+    const input = event.target.closest('[data-deck-meta-input]');
+    if (!input || event.isComposing) return; // 한글 조합 중의 Enter는 글자 확정
+    const field = input.closest('[data-deck-meta]');
+    if (event.key === 'Escape') {
+        closeMeta(field);
+    } else if (event.key === 'Enter' && !event.shiftKey) {
+        // Enter로 적용, 설명(여러 줄)의 줄바꿈은 Shift+Enter
+        event.preventDefault();
+        saveMeta(field);
+    }
 }
 
 // --- 드래그 앤 드롭 ---
@@ -143,6 +207,12 @@ export function initDeckEditor(element = qs('[data-deck]')) {
     onAction('deck-view', () => showTab('view'));
     onAction('deck-edit', () => showTab('edit'));
 
+    const metaField = (button) => button.closest('[data-deck-meta]');
+    onAction('deck-meta-edit', (button) => editMeta(metaField(button)));
+    onAction('deck-meta-save', (button) => saveMeta(metaField(button)));
+    onAction('deck-meta-cancel', (button) => closeMeta(metaField(button)));
+    root.addEventListener('keydown', onMetaKeydown);
+
     document.addEventListener('mousemove', (event) => {
         mouse.x = event.clientX;
         mouse.y = event.clientY;
@@ -154,6 +224,7 @@ export function initDeckEditor(element = qs('[data-deck]')) {
     // 뒤로/앞으로 가기: URL의 덱으로 다시 그린다
     window.addEventListener('popstate', () => {
         syncSearchForm();
+        syncLanguageLinks();
         refreshDeck();
     });
 

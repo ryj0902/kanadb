@@ -9,7 +9,7 @@
 
     <div class="site-nav__languages">
         {% for language in language_urls %}
-            <a class="site-nav__language" href="{{ language.url }}">
+            <a class="site-nav__language" href="{{ language.url }}" data-language-link>
                 {{ language.name_local }}
             </a>
         {% endfor %}

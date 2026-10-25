@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanadb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 18:14+0900\n"
+"POT-Creation-Date: 2026-10-25 12:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -143,7 +143,7 @@ msgstr "에피소드"
 msgid "상세"
 msgstr "상세"
 
-#: .\card\views.py:17 .\templates\card\search_card.html:34
+#: .\card\views.py:17 .\templates\card\search_card.html:40
 msgid "기타"
 msgstr "기타"
 
@@ -154,6 +154,18 @@ msgstr "가로 모드"
 #: .\core\context_processors.py:11
 msgid "세로 모드"
 msgstr "세로 모드"
+
+#: .\deck\views.py:27
+msgid "제목"
+msgstr "제목"
+
+#: .\deck\views.py:28
+msgid "요약"
+msgstr "요약"
+
+#: .\deck\views.py:29
+msgid "설명"
+msgstr "설명"
 
 #: .\npc\catalog.py:26
 msgid "1층"
@@ -721,10 +733,6 @@ msgstr "난이도"
 msgid "층"
 msgstr "층"
 
-#: .\templates\card\_search_text_row.html:4
-msgid "검색"
-msgstr "검색"
-
 #: .\templates\card\index.html:4 .\templates\navbar.html:4
 msgid "카드(네비)"
 msgstr "카드"
@@ -733,19 +741,23 @@ msgstr "카드"
 msgid "How to create hyperlink to card"
 msgstr ""
 
-#: .\templates\card\search_card.html:11 .\templates\card\search_card.html:26
+#: .\templates\card\search_card.html:5
+msgid "검색"
+msgstr "검색"
+
+#: .\templates\card\search_card.html:17 .\templates\card\search_card.html:32
 msgid "전체 선택"
 msgstr "전체 선택"
 
-#: .\templates\card\search_card.html:28
+#: .\templates\card\search_card.html:34
 msgid "사이즈"
 msgstr "사이즈"
 
-#: .\templates\card\search_card.html:47
+#: .\templates\card\search_card.html:57
 msgid "이전 페이지"
 msgstr "이전 페이지"
 
-#: .\templates\card\search_card.html:47
+#: .\templates\card\search_card.html:57
 msgid "다음 페이지"
 msgstr "다음 페이지"
 
@@ -780,6 +792,18 @@ msgstr "원래 카드"
 #: .\templates\components\card_detail.html:22
 msgid "텍스트 전환"
 msgstr "텍스트 전환"
+
+#: .\templates\deck\_deck_summary.html:5
+msgid "수정"
+msgstr "수정"
+
+#: .\templates\deck\_deck_summary.html:5
+msgid "적용"
+msgstr "적용"
+
+#: .\templates\deck\_deck_summary.html:5
+msgid "취소"
+msgstr "취소"
 
 #: .\templates\deck\index.html:4 .\templates\navbar.html:7
 msgid "덱(네비)"

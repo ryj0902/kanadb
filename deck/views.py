@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
 from card.models import DECK_SIZE, Card
@@ -21,6 +22,12 @@ from .services import (
 DECK_TABS = ("view", "edit")
 # 덱 상태를 담는 쿼리 파라미터 (검색 폼 제출 시에도 유지)
 DECK_PARAMS = ("card", "title", "summary", "description")
+# 덱 정보: (쿼리 파라미터, 덱 요약의 글자 스타일, 입력칸 안내)
+DECK_META = (
+    ("title", "title", _("제목")),
+    ("summary", "subtitle", _("요약")),
+    ("description", "description", _("설명")),
+)
 
 
 def index(request):
@@ -41,10 +48,6 @@ def index(request):
 
 def deck_from_url(request):
     """?card=1,2,2,3&title=... -> 덱 요약 HTML + 편집 화면의 덱 미리보기 HTML"""
-    title = request.GET.get("title", "None")
-    summary = request.GET.get("summary", "None")
-    description = request.GET.get("description", "None")
-
     cards = sort_cards(load_cards(parse_card_ids(request.GET.get("card", ""))))
     statistics = calculate_statistics(cards)
 
@@ -60,12 +63,16 @@ def deck_from_url(request):
     context = {
         "card_character": card_character,
         "deck_card_list": deck_cards,
-        "chapter_name": title,
-        "chapter_name_us": title,
-        "loading_name": summary,
-        "loading_name_us": summary,
-        "loading_desc": description,
-        "loading_desc_us": description,
+        # 보기 화면에서 바로 고칠 수 있는 덱 정보 (없으면 "None"으로 표시)
+        "deck_meta": [
+            {
+                "name": name,
+                "kind": kind,
+                "label": label,
+                "value": request.GET.get(name, "None"),
+            }
+            for name, kind, label in DECK_META
+        ],
         **statistics,
     }
     preview_context = {

@@ -12,6 +12,8 @@
     --color-highlight: red;
     --color-drop-add: green;
     --color-drop-remove: red;
+    --color-apply: green;
+    --color-cancel: red;
     --color-count-badge: #ed5151;
     --color-stat-value: #ebdcb5;
     --color-stat-value-outline: #52391e;

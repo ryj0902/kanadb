@@ -18,7 +18,50 @@
 .deck-summary__description {
     font-family: var(--font-skill);
     white-space: pre-line;
-    margin-left: 10px;
+    margin: 1em 0 1em 10px; /* p 기본 여백 (덱 보기에서는 div에 붙는다) */
+}
+
+/* 덱 보기의 제목/요약/설명: 덱 통계 너비까지 넓히고 오른쪽에 수정 버튼 */
+.deck-summary__character:has(.deck-meta),
+.deck-summary__character td:has(> .deck-meta) {
+    width: 100%;
+}
+
+.deck-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.deck-meta__text {
+    flex: 1;
+    margin: 0;
+}
+
+.deck-meta__input {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font: inherit;
+    resize: vertical;
+}
+
+.deck-meta__button {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.deck-meta__button--save {
+    color: var(--color-apply);
+}
+
+.deck-meta__button--cancel {
+    color: var(--color-cancel);
 }
 
 .deck-summary__cards {
