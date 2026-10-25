@@ -104,116 +104,25 @@ djlint templates --lint
 평소 배포:
 
 ```bash
-git pull                                   # deploy 브랜치
+cd /home/ubuntu/kanadb && source venv/bin/activate
+git pull                                   # 서버의 deploy 브랜치 (origin/main 추적)
 pip install -r requirements.txt
 python manage.py migrate                   # 모델이 바뀐 배포에서만 실제 변경이 생긴다
 python manage.py compilemessages --ignore=venv
-python manage.py collectstatic --noinput   # DJANGO_STATIC_ROOT를 소스 static/로 두었다면 생략
-# 앱 서버 재시작
+python manage.py collectstatic --noinput
+sudo systemctl restart gunicorn
 ```
 
-### 첫 배포 때 한 번만 (리팩토링 + Python 3.14 / Django 6.1 / MariaDB 12.3 업그레이드)
+- gunicorn은 systemd drop-in(`/etc/systemd/system/gunicorn.service.d/venv.conf`)으로 프로젝트의 `venv/bin/gunicorn`을 실행한다.
+- 설정은 프로젝트 루트의 `.env`에 있다. gunicorn.service의 `EnvironmentFile`(`kanadb.env`)도 읽히며, 같은 이름의 값은 `kanadb.env`가 우선한다.
 
-Django 6.1은 Python 3.12 이상, MariaDB 10.11 이상에서만 동작한다.
-기존 서버(Ubuntu 22.04, Python 3.10, MariaDB 10.6)는 둘 다 맞지 않으므로 **아래 순서대로** 올린 뒤 새 코드를 받는다.
-MariaDB 10.6은 2026년 7월에 지원이 끝나 이제 보안 패치도 나오지 않는다.
-
-**0. 백업** (이 단계 동안 사이트는 그대로 돌아간다)
-
-```bash
-mkdir -p ~/backup
-mysqldump -u root -p --all-databases --single-transaction --routines --events > ~/backup/all-$(date +%F).sql
-cp <프로젝트 경로>/kanadb/settings.py ~/backup/settings.py.server   # 서버에서 고쳐 쓰던 설정
-systemctl cat gunicorn > ~/backup/gunicorn.service.txt              # ExecStart의 venv 경로, User 확인용
-```
-
-**1. MariaDB 10.6 -> 12.3 LTS** (Ubuntu 22.04 기본 저장소에는 10.6뿐이라 MariaDB 공식 저장소를 쓴다)
-
-```bash
-sudo systemctl stop gunicorn
-curl -LsSO https://r.mariadb.com/downloads/mariadb_repo_setup
-sudo bash mariadb_repo_setup --mariadb-server-version="mariadb-12.3"
-sudo apt-get update
-sudo apt-get install mariadb-server mariadb-client   # 10.6 패키지를 교체 (데이터 /var/lib/mysql 과 설정은 유지)
-                                                    # 설정 파일을 바꿀지 물으면 기존 것 유지(N)
-sudo systemctl restart mariadb
-sudo mariadb-upgrade                                 # 시스템 테이블 갱신 ("already upgraded"면 정상)
-mariadb -u root -p -e "SELECT VERSION(); SELECT COUNT(*) FROM kanadb.card_vote;"
-```
-
-- 12.x에는 `mysql`/`mysqldump` 명령이 없을 수 있다. 이때는 `mariadb`/`mariadb-dump`를 쓰면 되고 옵션은 같다.
-  예를 들어 card.sql 적용은 `mariadb -u <사용자> -p kanadb < card.sql`.
-  예전 명령 이름을 그대로 쓰려면 `sudo apt-get install mariadb-client-compat`.
-- MariaDB가 뜨지 않으면 먼저 `sudo journalctl -u mariadb -n 50`으로 원인을 본다.
-  최후 수단은 기존 데이터 디렉터리를 옮겨 두고 백업으로 복원하는 것이다.
-  ```bash
-  sudo systemctl stop mariadb && sudo mv /var/lib/mysql /var/lib/mysql.10.6
-  sudo mariadb-install-db --user=mysql && sudo systemctl start mariadb
-  sudo mariadb < ~/backup/all-<날짜>.sql && sudo mariadb-upgrade --force
-  ```
-
-**2. Python 3.14 설치** (시스템 `python3`(3.10)는 Ubuntu 도구가 쓰므로 바꾸지 않고 옆에 설치한다)
-
-```bash
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get update
-sudo apt-get install python3.14 python3.14-venv
-python3.14 --version
-```
-
-PPA에 3.14가 없으면 uv로 설치한다: `curl -LsSf https://astral.sh/uv/install.sh | sh` 후 `uv python install 3.14`.
-이 경우 아래 venv는 `uv venv --python 3.14 --seed venv`로 만든다.
-
-**3. 설정 옮기기, venv 다시 만들기, 새 코드 받기**
-
-1. **서버 설정 옮기기**: 서버에서 직접 고쳐 쓰던 `kanadb/settings.py`의 값을 프로젝트 루트 `.env`로 옮긴다
-   (`DEBUG`, `ALLOWED_HOSTS`, DB 정보, static 경로 등, `.env.example` 참고). 설정 파일은 이제 `kanadb/settings/` 패키지다.
-   옮긴 뒤 `git checkout -- kanadb/settings.py`로 서버의 수정분을 버려야 pull이 충돌하지 않는다.
-   - `.env`가 없거나 `DJANGO_ALLOWED_HOSTS`가 비어 있으면 운영 설정이 시작을 거부한다(DEBUG가 켜진 채 뜨지 않도록).
-   - 프록시 수는 `DJANGO_NUM_PROXIES`로 맞춘다. 투표 IP 판별에 쓰인다.
-     - nginx만 있으면 1 (기본값, 현재 서버)
-     - 로드밸런서 + nginx면 2
-   - 지금처럼 소스의 `static/`을 웹서버가 직접 서빙한다면 `DJANGO_STATIC_ROOT=<프로젝트 경로>/static`.
-2. **migrations**: 이제 git에 포함된다. 서버에서 직접 만들어 둔 `card/migrations`, `npc/migrations`가 있으면
-   pull 전에 다른 곳으로 옮긴다.
-3. **venv와 코드**: venv는 gunicorn.service의 ExecStart가 가리키는 경로에 다시 만든다(아래는 `<프로젝트 경로>/venv`인 경우).
-   ```bash
-   cd <프로젝트 경로>
-   mv venv venv.bak-py310                    # 되돌리기용
-   python3.14 -m venv venv
-   source venv/bin/activate
-   git pull                                  # deploy 브랜치
-   pip install -r requirements.txt           # Django 6.1 + gunicorn
-   python manage.py migrate --fake-initial   # 기존 테이블은 두고 이력만 맞춘다
-   python manage.py compilemessages --ignore=venv --ignore=venv.bak-py310
-   python manage.py collectstatic --noinput  # DJANGO_STATIC_ROOT를 소스 static/로 두었다면 생략
-   sudo systemctl start gunicorn
-   ```
-4. **card.sql**: 새 `build_gamedata`로 만든 card.sql부터는 `card_card`/`npc_npc`에 기본 키가 생긴다. 적용 방법은 같다.
-
-**4. 확인**
-
-```bash
-python -c "import sys, django; print(sys.version.split()[0], django.get_version())"   # 3.14.x 6.1.x
-python manage.py check --deploy
-sudo systemctl status gunicorn
-```
-
-브라우저로 카드 검색, 덱, 가이드 투표, NPC 페이지를 한 번씩 열어 본다. 문제가 없으면 `venv.bak-py310`은 지워도 된다.
-
-**되돌리기**: 아래 순서로 되돌린다. MariaDB 12.3은 이전 코드(Django 4.2)와도 동작하므로 DB는 그대로 둔다.
-1. `venv.bak-py310`을 `venv`로 되돌린다.
-2. 이전 deploy 커밋으로 `git checkout`한다.
-3. `~/backup/settings.py.server`를 복원한다.
-4. gunicorn을 재시작한다.
-
-### 이후 버전 업그레이드
+### 버전 업그레이드
 
 - 버전은 `requirements/*.txt`에 고정한다.
   - 올릴 때는 로컬에서 `pip install -r requirements/dev.txt`를 하고, `pytest`와 화면 점검을 통과시킨 뒤 커밋한다.
   - 서버는 평소 배포의 `pip install -r requirements.txt`로 따라온다.
 - Python 버전을 바꿀 때는 `.python-version`, `pyproject.toml`(ruff `target-version`), `.github/workflows/ci.yml`을 함께 바꾼다.
-  서버는 위 2~3단계처럼 새 Python으로 venv를 다시 만든다.
+  서버는 새 Python으로 같은 경로에 venv를 다시 만들고(`mv venv venv.bak` 후 `python3.X -m venv venv`, `pip install -r requirements.txt`) gunicorn을 재시작한다.
 - Django는 다음 LTS인 6.2(2027년 4월 예정)로 올리는 것을 권장한다.
   올리기 전에 릴리스 노트에 적힌 지원 Python/DB 버전을 서버 버전과 비교한다.
 
