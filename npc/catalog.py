@@ -265,6 +265,9 @@ MUSPELHEIM = Section(_("무스펠헤임"), blocks=[
         Dungeon(_("문의 저편으로"), single(floors(97101101, 4))),
         Dungeon(_("코발트색 추억"), single(floors(97111101, 4))),
     ], show_difficulty=False),
+    Block([
+        Dungeon(_("마동 전설"), single(floors(97121101, 4))),
+    ], show_difficulty=False),
 ])
 
 RIFT = Section(_("차원의 틈"), blocks=[

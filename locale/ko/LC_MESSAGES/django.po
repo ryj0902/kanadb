@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanadb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-25 12:16+0900\n"
+"POT-Creation-Date: 2026-10-26 20:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -127,7 +127,7 @@ msgstr "제국"
 msgid "명계"
 msgstr "명계"
 
-#: .\card\models.py:81 .\npc\catalog.py:270
+#: .\card\models.py:81 .\npc\catalog.py:273
 msgid "차원의 틈"
 msgstr "차원의 틈"
 
@@ -513,215 +513,219 @@ msgstr "문의 저편으로"
 msgid "코발트색 추억"
 msgstr "코발트색 추억"
 
-#: .\npc\catalog.py:273 .\npc\catalog.py:298
+#: .\npc\catalog.py:269
+msgid "마동 전설"
+msgstr "마동 전설"
+
+#: .\npc\catalog.py:276 .\npc\catalog.py:301
 msgid "시작의 관찰자"
 msgstr "시작의 관찰자"
 
-#: .\npc\catalog.py:274 .\npc\catalog.py:312
+#: .\npc\catalog.py:277 .\npc\catalog.py:315
 msgid "은둔형 관찰자"
 msgstr "은둔형 관찰자"
 
-#: .\npc\catalog.py:275 .\npc\catalog.py:326
+#: .\npc\catalog.py:278 .\npc\catalog.py:329
 msgid "수집형 관찰자"
 msgstr "수집형 관찰자"
 
-#: .\npc\catalog.py:276 .\npc\catalog.py:354
+#: .\npc\catalog.py:279 .\npc\catalog.py:357
 msgid "게임광 관찰자"
 msgstr "게임광 관찰자"
 
-#: .\npc\catalog.py:278
+#: .\npc\catalog.py:281
 msgid "초월의 관찰자"
 msgstr "초월의 관찰자"
 
-#: .\npc\catalog.py:286 .\npc\catalog.py:287 .\npc\catalog.py:288
 #: .\npc\catalog.py:289 .\npc\catalog.py:290 .\npc\catalog.py:291
-#: .\npc\catalog.py:292 .\npc\catalog.py:293
+#: .\npc\catalog.py:292 .\npc\catalog.py:293 .\npc\catalog.py:294
+#: .\npc\catalog.py:295 .\npc\catalog.py:296
 msgid "해변의"
 msgstr "해변의"
 
-#: .\npc\catalog.py:286 .\npc\catalog.py:314 .\npc\catalog.py:332
-#: .\npc\catalog.py:346
+#: .\npc\catalog.py:289 .\npc\catalog.py:317 .\npc\catalog.py:335
+#: .\npc\catalog.py:349
 msgid "시타"
 msgstr "시타"
 
-#: .\npc\catalog.py:287 .\npc\catalog.py:315 .\npc\catalog.py:333
-#: .\npc\catalog.py:347
+#: .\npc\catalog.py:290 .\npc\catalog.py:318 .\npc\catalog.py:336
+#: .\npc\catalog.py:350
 msgid "시니아"
 msgstr "시니아"
 
-#: .\npc\catalog.py:288 .\npc\catalog.py:316 .\npc\catalog.py:334
-#: .\npc\catalog.py:348
+#: .\npc\catalog.py:291 .\npc\catalog.py:319 .\npc\catalog.py:337
+#: .\npc\catalog.py:351
 msgid "루티카"
 msgstr "루티카"
 
-#: .\npc\catalog.py:289 .\npc\catalog.py:317 .\npc\catalog.py:335
-#: .\npc\catalog.py:349
+#: .\npc\catalog.py:292 .\npc\catalog.py:320 .\npc\catalog.py:338
+#: .\npc\catalog.py:352
 msgid "아이리"
 msgstr "아이리"
 
-#: .\npc\catalog.py:290 .\npc\catalog.py:318 .\npc\catalog.py:336
-#: .\npc\catalog.py:350
+#: .\npc\catalog.py:293 .\npc\catalog.py:321 .\npc\catalog.py:339
+#: .\npc\catalog.py:353
 msgid "아스미스"
 msgstr "아스미스"
 
-#: .\npc\catalog.py:291 .\npc\catalog.py:319 .\npc\catalog.py:337
-#: .\npc\catalog.py:351
+#: .\npc\catalog.py:294 .\npc\catalog.py:322 .\npc\catalog.py:340
+#: .\npc\catalog.py:354
 msgid "리누스"
 msgstr "리누스"
 
-#: .\npc\catalog.py:292 .\npc\catalog.py:320 .\npc\catalog.py:338
-#: .\npc\catalog.py:352
+#: .\npc\catalog.py:295 .\npc\catalog.py:323 .\npc\catalog.py:341
+#: .\npc\catalog.py:355
 msgid "로자리아"
 msgstr "로자리아"
 
-#: .\npc\catalog.py:293 .\npc\catalog.py:321 .\npc\catalog.py:339
-#: .\npc\catalog.py:353
+#: .\npc\catalog.py:296 .\npc\catalog.py:324 .\npc\catalog.py:342
+#: .\npc\catalog.py:356
 msgid "헬레나"
 msgstr "헬레나"
 
-#: .\npc\catalog.py:294 .\npc\catalog.py:295 .\npc\catalog.py:296
-#: .\npc\catalog.py:297 .\npc\catalog.py:308 .\npc\catalog.py:309
-#: .\npc\catalog.py:310 .\npc\catalog.py:311 .\npc\catalog.py:336
-#: .\npc\catalog.py:337 .\npc\catalog.py:338 .\npc\catalog.py:339
-#: .\npc\catalog.py:350 .\npc\catalog.py:351 .\npc\catalog.py:352
-#: .\npc\catalog.py:353
+#: .\npc\catalog.py:297 .\npc\catalog.py:298 .\npc\catalog.py:299
+#: .\npc\catalog.py:300 .\npc\catalog.py:311 .\npc\catalog.py:312
+#: .\npc\catalog.py:313 .\npc\catalog.py:314 .\npc\catalog.py:339
+#: .\npc\catalog.py:340 .\npc\catalog.py:341 .\npc\catalog.py:342
+#: .\npc\catalog.py:353 .\npc\catalog.py:354 .\npc\catalog.py:355
+#: .\npc\catalog.py:356
 msgid "어린이"
 msgstr "어린이"
 
-#: .\npc\catalog.py:294
+#: .\npc\catalog.py:297
 msgid "이리나"
 msgstr "이리나"
 
-#: .\npc\catalog.py:295
+#: .\npc\catalog.py:298
 msgid "마리메"
 msgstr "마리메"
 
-#: .\npc\catalog.py:296
+#: .\npc\catalog.py:299
 msgid "아우디레"
 msgstr "아우디레"
 
-#: .\npc\catalog.py:297
+#: .\npc\catalog.py:300
 msgid "라임"
 msgstr "라임"
 
-#: .\npc\catalog.py:300 .\npc\catalog.py:301 .\npc\catalog.py:302
 #: .\npc\catalog.py:303 .\npc\catalog.py:304 .\npc\catalog.py:305
-#: .\npc\catalog.py:306 .\npc\catalog.py:307 .\npc\catalog.py:314
-#: .\npc\catalog.py:315 .\npc\catalog.py:316 .\npc\catalog.py:317
+#: .\npc\catalog.py:306 .\npc\catalog.py:307 .\npc\catalog.py:308
+#: .\npc\catalog.py:309 .\npc\catalog.py:310 .\npc\catalog.py:317
 #: .\npc\catalog.py:318 .\npc\catalog.py:319 .\npc\catalog.py:320
-#: .\npc\catalog.py:321 .\npc\catalog.py:328 .\npc\catalog.py:329
-#: .\npc\catalog.py:330 .\npc\catalog.py:331 .\npc\catalog.py:342
-#: .\npc\catalog.py:343 .\npc\catalog.py:344 .\npc\catalog.py:345
+#: .\npc\catalog.py:321 .\npc\catalog.py:322 .\npc\catalog.py:323
+#: .\npc\catalog.py:324 .\npc\catalog.py:331 .\npc\catalog.py:332
+#: .\npc\catalog.py:333 .\npc\catalog.py:334 .\npc\catalog.py:345
+#: .\npc\catalog.py:346 .\npc\catalog.py:347 .\npc\catalog.py:348
 msgid "수영복의"
 msgstr "수영복의"
 
-#: .\npc\catalog.py:300 .\npc\catalog.py:308
+#: .\npc\catalog.py:303 .\npc\catalog.py:311
 msgid "베르니카"
 msgstr "베르니카"
 
-#: .\npc\catalog.py:301
+#: .\npc\catalog.py:304
 msgid "로제"
 msgstr "로제"
 
-#: .\npc\catalog.py:302 .\npc\catalog.py:310
+#: .\npc\catalog.py:305 .\npc\catalog.py:313
 msgid "제이나"
 msgstr "제이나"
 
-#: .\npc\catalog.py:303
+#: .\npc\catalog.py:306
 msgid "앤즈"
 msgstr "앤즈"
 
-#: .\npc\catalog.py:304
+#: .\npc\catalog.py:307
 msgid "레이나"
 msgstr "레이나"
 
-#: .\npc\catalog.py:305
+#: .\npc\catalog.py:308
 msgid "세븐"
 msgstr "세븐"
 
-#: .\npc\catalog.py:306
+#: .\npc\catalog.py:309
 msgid "핀테일"
 msgstr "핀테일"
 
-#: .\npc\catalog.py:307
+#: .\npc\catalog.py:310
 msgid "몽쉘"
 msgstr "몽쉘"
 
-#: .\npc\catalog.py:309 .\npc\catalog.py:329 .\npc\catalog.py:343
+#: .\npc\catalog.py:312 .\npc\catalog.py:332 .\npc\catalog.py:346
 msgid "리니아"
 msgstr "리니아"
 
-#: .\npc\catalog.py:311 .\npc\catalog.py:331 .\npc\catalog.py:345
+#: .\npc\catalog.py:314 .\npc\catalog.py:334 .\npc\catalog.py:348
 msgid "시온 리온"
 msgstr "시온 리온"
 
-#: .\npc\catalog.py:322
+#: .\npc\catalog.py:325
 msgid "피오나"
 msgstr "피오나"
 
-#: .\npc\catalog.py:322
+#: .\npc\catalog.py:325
 msgid "센트리버"
 msgstr "센트리버"
 
-#: .\npc\catalog.py:323
+#: .\npc\catalog.py:326
 msgid "엔프레스"
 msgstr "엔프레스"
 
-#: .\npc\catalog.py:323
+#: .\npc\catalog.py:326
 msgid "퍼시피카"
 msgstr "퍼시피카"
 
-#: .\npc\catalog.py:324
+#: .\npc\catalog.py:327
 msgid "클라라"
 msgstr "클라라"
 
-#: .\npc\catalog.py:324
+#: .\npc\catalog.py:327
 msgid "알트하임"
 msgstr "알트하임"
 
-#: .\npc\catalog.py:325
+#: .\npc\catalog.py:328
 msgid "루나"
 msgstr "루나"
 
-#: .\npc\catalog.py:325
+#: .\npc\catalog.py:328
 msgid "플리나"
 msgstr "플리나"
 
-#: .\npc\catalog.py:328 .\npc\catalog.py:342
+#: .\npc\catalog.py:331 .\npc\catalog.py:345
 msgid "리안나"
 msgstr "리안나"
 
-#: .\npc\catalog.py:330 .\npc\catalog.py:344
+#: .\npc\catalog.py:333 .\npc\catalog.py:347
 msgid "클라리스"
 msgstr "클라리스"
 
-#: .\npc\catalog.py:332 .\npc\catalog.py:333 .\npc\catalog.py:334
-#: .\npc\catalog.py:335 .\npc\catalog.py:346 .\npc\catalog.py:347
-#: .\npc\catalog.py:348 .\npc\catalog.py:349
+#: .\npc\catalog.py:335 .\npc\catalog.py:336 .\npc\catalog.py:337
+#: .\npc\catalog.py:338 .\npc\catalog.py:349 .\npc\catalog.py:350
+#: .\npc\catalog.py:351 .\npc\catalog.py:352
 msgid "한여름의"
 msgstr "한여름의"
 
-#: .\npc\catalog.py:340
+#: .\npc\catalog.py:343
 msgid "매니저 관찰자"
 msgstr "매니저 관찰자"
 
-#: .\npc\catalog.py:359
+#: .\npc\catalog.py:362
 msgid "차원의 탑"
 msgstr "차원의 탑"
 
-#: .\npc\catalog.py:359
+#: .\npc\catalog.py:362
 msgid "20층 단위 반복"
 msgstr "20층 단위 반복"
 
-#: .\npc\catalog.py:368
+#: .\npc\catalog.py:371
 msgid "여름의 탑"
 msgstr "여름의 탑"
 
-#: .\npc\catalog.py:377
+#: .\npc\catalog.py:380
 msgid "어린이의 탑"
 msgstr "어린이의 탑"
 
-#: .\npc\catalog.py:386
+#: .\npc\catalog.py:389
 msgid "바다의 탑"
 msgstr "바다의 탑"
 
